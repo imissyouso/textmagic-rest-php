@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**getOutboundMessagesHistory**](OutboundMessagesApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get outbound messages history.
 [**searchOutboundMessages**](OutboundMessagesApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find outbound messages by given parameters.
 [**sendMessage**](OutboundMessagesApi.md#sendMessage) | **POST** /api/v2/messages | Send a new outbound message.
-[**uploadMessageAttachement**](OutboundMessagesApi.md#uploadMessageAttachement) | **POST** /api/v2/messages/attachment | Upload a new file to insert it as a link.
+[**uploadMessageAttachment**](OutboundMessagesApi.md#uploadMessageAttachment) | **POST** /api/v2/messages/attachment | Upload a new file to insert it as a link.
 
 
 # **deleteAllOutboundMessages**
@@ -176,7 +176,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllOutboundMessages**
-> map[string,object] getAllOutboundMessages($page, $limit, $lastId)
+> \TextMagic\Models\GetAllOutboundMessagesResponse getAllOutboundMessages($page, $limit, $lastId)
 
 Get all user oubound messages.
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetAllOutboundMessagesResponse**](../Model/GetAllOutboundMessagesResponse.md)
 
 ### Authorization
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOutboundMessagesHistory**
-> map[string,object] getOutboundMessagesHistory($limit, $lastId, $query, $orderBy, $direction)
+> \TextMagic\Models\GetOutboundMessagesHistoryResponse getOutboundMessagesHistory($limit, $lastId, $query, $orderBy, $direction)
 
 Get outbound messages history.
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetOutboundMessagesHistoryResponse**](../Model/GetOutboundMessagesHistoryResponse.md)
 
 ### Authorization
 
@@ -574,7 +574,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchOutboundMessages**
-> map[string,object] searchOutboundMessages($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query)
+> \TextMagic\Models\SearchOutboundMessagesResponse searchOutboundMessages($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query)
 
 Find outbound messages by given parameters.
 
@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\SearchOutboundMessagesResponse**](../Model/SearchOutboundMessagesResponse.md)
 
 ### Authorization
 
@@ -697,8 +697,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **uploadMessageAttachement**
-> object uploadMessageAttachement($file)
+# **uploadMessageAttachment**
+> \TextMagic\Models\UploadMessageAttachmentResponse uploadMessageAttachment($file)
 
 Upload a new file to insert it as a link.
 
@@ -722,10 +722,10 @@ $apiInstance = new TextMagic\Api\OutboundMessagesApi(
 $file = "/path/to/file.txt"; // \SplFileObject | Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx & .vcf file formats
 
 try {
-    $result = $apiInstance->uploadMessageAttachement($file);
+    $result = $apiInstance->uploadMessageAttachment($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OutboundMessagesApi->uploadMessageAttachement: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OutboundMessagesApi->uploadMessageAttachment: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\TextMagic\Models\UploadMessageAttachmentResponse**](../Model/UploadMessageAttachmentResponse.md)
 
 ### Authorization
 

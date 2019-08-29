@@ -352,7 +352,7 @@ class CallsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetForwardedCallsResponse
      */
     public function getForwardedCalls($page = '1', $limit = '10')
     {
@@ -370,11 +370,11 @@ class CallsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetForwardedCallsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getForwardedCallsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetForwardedCallsResponse';
         $request = $this->getForwardedCallsRequest($page, $limit);
 
         try {
@@ -426,7 +426,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetForwardedCallsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -478,7 +478,7 @@ class CallsApi
      */
     public function getForwardedCallsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetForwardedCallsResponse';
         $request = $this->getForwardedCallsRequest($page, $limit);
 
         return $this->client

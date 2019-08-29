@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getState**
-> map[string,object] getState()
+> \TextMagic\Models\GetStateResponse getState()
 
 Get current entities state
 
@@ -98,7 +98,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetStateResponse**](../Model/GetStateResponse.md)
 
 ### Authorization
 

@@ -178,7 +178,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllTemplates**
-> map[string,object] getAllTemplates($page, $limit)
+> \TextMagic\Models\GetAllTemplatesResponse getAllTemplates($page, $limit)
 
 Get all user templates.
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetAllTemplatesResponse**](../Model/GetAllTemplatesResponse.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchTemplates**
-> map[string,object] searchTemplates($page, $limit, $ids, $name, $content)
+> \TextMagic\Models\SearchTemplatesResponse searchTemplates($page, $limit, $ids, $name, $content)
 
 Find user templates by given parameters.
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\SearchTemplatesResponse**](../Model/SearchTemplatesResponse.md)
 
 ### Authorization
 

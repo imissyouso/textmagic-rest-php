@@ -2276,7 +2276,7 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetContactsByListIdResponse
      */
     public function getContactsByListId($id, $page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
@@ -2297,11 +2297,11 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetContactsByListIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactsByListIdWithHttpInfo($id, $page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetContactsByListIdResponse';
         $request = $this->getContactsByListIdRequest($id, $page, $limit, $orderBy, $direction);
 
         try {
@@ -2353,7 +2353,7 @@ class ContactListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetContactsByListIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2419,7 +2419,7 @@ class ContactListsApi
      */
     public function getContactsByListIdAsyncWithHttpInfo($id, $page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetContactsByListIdResponse';
         $request = $this->getContactsByListIdRequest($id, $page, $limit, $orderBy, $direction);
 
         return $this->client
@@ -3156,7 +3156,7 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetListsOfContactResponse
      */
     public function getListsOfContact($id, $page = '1', $limit = '10')
     {
@@ -3175,11 +3175,11 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetListsOfContactResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getListsOfContactWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetListsOfContactResponse';
         $request = $this->getListsOfContactRequest($id, $page, $limit);
 
         try {
@@ -3231,7 +3231,7 @@ class ContactListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetListsOfContactResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3293,7 +3293,7 @@ class ContactListsApi
      */
     public function getListsOfContactAsyncWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetListsOfContactResponse';
         $request = $this->getListsOfContactRequest($id, $page, $limit);
 
         return $this->client
@@ -3459,7 +3459,7 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetUserListsResponse
      */
     public function getUserLists($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
     {
@@ -3481,11 +3481,11 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetUserListsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserListsWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetUserListsResponse';
         $request = $this->getUserListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
 
         try {
@@ -3537,7 +3537,7 @@ class ContactListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetUserListsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3605,7 +3605,7 @@ class ContactListsApi
      */
     public function getUserListsAsyncWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetUserListsResponse';
         $request = $this->getUserListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
 
         return $this->client
@@ -3778,7 +3778,7 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\SearchListsResponse
      */
     public function searchLists($page = '1', $limit = '10', $ids = null, $query = null, $onlyMine = '0', $onlyDefault = '0', $orderBy = 'id', $direction = 'desc')
     {
@@ -3802,11 +3802,11 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchListsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchListsWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $onlyMine = '0', $onlyDefault = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\SearchListsResponse';
         $request = $this->searchListsRequest($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction);
 
         try {
@@ -3858,7 +3858,7 @@ class ContactListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\SearchListsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3930,7 +3930,7 @@ class ContactListsApi
      */
     public function searchListsAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $onlyMine = '0', $onlyDefault = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\SearchListsResponse';
         $request = $this->searchListsRequest($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction);
 
         return $this->client
@@ -4381,7 +4381,7 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \TextMagic\Models\ResourceLinkResponse
      */
     public function uploadListAvatar($image, $id)
     {
@@ -4399,11 +4399,11 @@ class ContactListsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadListAvatarWithHttpInfo($image, $id)
     {
-        $returnType = 'object';
+        $returnType = '\TextMagic\Models\ResourceLinkResponse';
         $request = $this->uploadListAvatarRequest($image, $id);
 
         try {
@@ -4455,7 +4455,7 @@ class ContactListsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\TextMagic\Models\ResourceLinkResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4523,7 +4523,7 @@ class ContactListsApi
      */
     public function uploadListAvatarAsyncWithHttpInfo($image, $id)
     {
-        $returnType = 'object';
+        $returnType = '\TextMagic\Models\ResourceLinkResponse';
         $request = $this->uploadListAvatarRequest($image, $id);
 
         return $this->client

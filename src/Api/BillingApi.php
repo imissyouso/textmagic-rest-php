@@ -97,7 +97,7 @@ class BillingApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetInvoicesResponse
      */
     public function getInvoices($page = '1', $limit = '10')
     {
@@ -115,11 +115,11 @@ class BillingApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetInvoicesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoicesWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetInvoicesResponse';
         $request = $this->getInvoicesRequest($page, $limit);
 
         try {
@@ -171,7 +171,7 @@ class BillingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetInvoicesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -231,7 +231,7 @@ class BillingApi
      */
     public function getInvoicesAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetInvoicesResponse';
         $request = $this->getInvoicesRequest($page, $limit);
 
         return $this->client
@@ -380,7 +380,7 @@ class BillingApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetSpendingStatResponse
      */
     public function getSpendingStat($page = '1', $limit = '10', $start = null, $end = null)
     {
@@ -400,11 +400,11 @@ class BillingApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetSpendingStatResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSpendingStatWithHttpInfo($page = '1', $limit = '10', $start = null, $end = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetSpendingStatResponse';
         $request = $this->getSpendingStatRequest($page, $limit, $start, $end);
 
         try {
@@ -456,7 +456,7 @@ class BillingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetSpendingStatResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -520,7 +520,7 @@ class BillingApi
      */
     public function getSpendingStatAsyncWithHttpInfo($page = '1', $limit = '10', $start = null, $end = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetSpendingStatResponse';
         $request = $this->getSpendingStatRequest($page, $limit, $start, $end);
 
         return $this->client

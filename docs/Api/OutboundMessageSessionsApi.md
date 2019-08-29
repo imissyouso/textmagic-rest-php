@@ -121,7 +121,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllMessageSessions**
-> map[string,object] getAllMessageSessions($page, $limit)
+> \TextMagic\Models\GetAllMessageSessionsResponse getAllMessageSessions($page, $limit)
 
 Get all message sending sessions.
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetAllMessageSessionsResponse**](../Model/GetAllMessageSessionsResponse.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMessagesBySessionId**
-> map[string,object] getMessagesBySessionId($id, $page, $limit, $statuses, $includeDeleted)
+> \TextMagic\Models\GetMessagesBySessionIdResponse getMessagesBySessionId($id, $page, $limit, $statuses, $includeDeleted)
 
 Fetch messages by given session id.
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetMessagesBySessionIdResponse**](../Model/GetMessagesBySessionIdResponse.md)
 
 ### Authorization
 

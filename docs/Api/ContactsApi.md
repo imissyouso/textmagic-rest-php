@@ -350,7 +350,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBlockedContacts**
-> map[string,object] getBlockedContacts($page, $limit, $query, $orderBy, $direction)
+> \TextMagic\Models\GetBlockedContactsResponse getBlockedContacts($page, $limit, $query, $orderBy, $direction)
 
 Get blocked contacts.
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetBlockedContactsResponse**](../Model/GetBlockedContactsResponse.md)
 
 ### Authorization
 
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFavourites**
-> map[string,object] getFavourites($page, $limit, $query)
+> \TextMagic\Models\GetFavouritesResponse getFavourites($page, $limit, $query)
 
 Get favorite contacts and lists.
 
@@ -676,7 +676,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetFavouritesResponse**](../Model/GetFavouritesResponse.md)
 
 ### Authorization
 
@@ -744,7 +744,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUnsubscribers**
-> map[string,object] getUnsubscribers($page, $limit)
+> \TextMagic\Models\GetUnsubscribersResponse getUnsubscribers($page, $limit)
 
 Get all contact have unsubscribed from your communication.
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetUnsubscribersResponse**](../Model/GetUnsubscribersResponse.md)
 
 ### Authorization
 
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserContacts**
-> map[string,object] getUserContacts($page, $limit, $shared, $orderBy, $direction)
+> \TextMagic\Models\GetUserContactsResponse getUserContacts($page, $limit, $shared, $orderBy, $direction)
 
 Get all user contacts.
 
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetUserContactsResponse**](../Model/GetUserContactsResponse.md)
 
 ### Authorization
 
@@ -862,7 +862,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchContacts**
-> map[string,object] searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
+> \TextMagic\Models\SearchContactsResponse searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
 
 Find user contacts by given parameters.
 
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\SearchContactsResponse**](../Model/SearchContactsResponse.md)
 
 ### Authorization
 
@@ -1160,7 +1160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **uploadContactAvatar**
-> object uploadContactAvatar($image, $id)
+> \TextMagic\Models\ResourceLinkResponse uploadContactAvatar($image, $id)
 
 Add an avatar for the contact.
 
@@ -1202,7 +1202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\TextMagic\Models\ResourceLinkResponse**](../Model/ResourceLinkResponse.md)
 
 ### Authorization
 

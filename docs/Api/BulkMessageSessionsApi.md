@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getAllBulkSessions**
-> map[string,object] getAllBulkSessions($page, $limit)
+> \TextMagic\Models\GetAllBulkSessionsResponse getAllBulkSessions($page, $limit)
 
 Get all bulk sending sessions.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetAllBulkSessionsResponse**](../Model/GetAllBulkSessionsResponse.md)
 
 ### Authorization
 

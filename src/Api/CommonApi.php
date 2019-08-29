@@ -350,7 +350,7 @@ class CommonApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetStateResponse
      */
     public function getState()
     {
@@ -366,11 +366,11 @@ class CommonApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetStateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStateWithHttpInfo()
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetStateResponse';
         $request = $this->getStateRequest();
 
         try {
@@ -422,7 +422,7 @@ class CommonApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetStateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -470,7 +470,7 @@ class CommonApi
      */
     public function getStateAsyncWithHttpInfo()
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetStateResponse';
         $request = $this->getStateRequest();
 
         return $this->client

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getInvoices**
-> map[string,object] getInvoices($page, $limit)
+> \TextMagic\Models\GetInvoicesResponse getInvoices($page, $limit)
 
 Return account invoices.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetInvoicesResponse**](../Model/GetInvoicesResponse.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSpendingStat**
-> map[string,object] getSpendingStat($page, $limit, $start, $end)
+> \TextMagic\Models\GetSpendingStatResponse getSpendingStat($page, $limit, $start, $end)
 
 Return account spending statistics.
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetSpendingStatResponse**](../Model/GetSpendingStatResponse.md)
 
 ### Authorization
 

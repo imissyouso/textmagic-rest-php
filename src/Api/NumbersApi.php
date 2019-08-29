@@ -1712,7 +1712,7 @@ class NumbersApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetSenderIdsResponse
      */
     public function getSenderIds($page = '1', $limit = '10')
     {
@@ -1730,11 +1730,11 @@ class NumbersApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetSenderIdsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSenderIdsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetSenderIdsResponse';
         $request = $this->getSenderIdsRequest($page, $limit);
 
         try {
@@ -1786,7 +1786,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetSenderIdsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1838,7 +1838,7 @@ class NumbersApi
      */
     public function getSenderIdsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetSenderIdsResponse';
         $request = $this->getSenderIdsRequest($page, $limit);
 
         return $this->client
@@ -2250,7 +2250,7 @@ class NumbersApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetUserDedicatedNumbersResponse
      */
     public function getUserDedicatedNumbers($page = '1', $limit = '10', $surveyId = null)
     {
@@ -2269,11 +2269,11 @@ class NumbersApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetUserDedicatedNumbersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserDedicatedNumbersWithHttpInfo($page = '1', $limit = '10', $surveyId = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetUserDedicatedNumbersResponse';
         $request = $this->getUserDedicatedNumbersRequest($page, $limit, $surveyId);
 
         try {
@@ -2325,7 +2325,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetUserDedicatedNumbersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2387,7 +2387,7 @@ class NumbersApi
      */
     public function getUserDedicatedNumbersAsyncWithHttpInfo($page = '1', $limit = '10', $surveyId = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetUserDedicatedNumbersResponse';
         $request = $this->getUserDedicatedNumbersRequest($page, $limit, $surveyId);
 
         return $this->client

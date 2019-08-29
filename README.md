@@ -206,7 +206,7 @@ Class | Method | HTTP request | Description
 *OutboundMessagesApi* | [**getOutboundMessagesHistory**](docs/Api/OutboundMessagesApi.md#getoutboundmessageshistory) | **GET** /api/v2/history | Get outbound messages history.
 *OutboundMessagesApi* | [**searchOutboundMessages**](docs/Api/OutboundMessagesApi.md#searchoutboundmessages) | **GET** /api/v2/messages/search | Find outbound messages by given parameters.
 *OutboundMessagesApi* | [**sendMessage**](docs/Api/OutboundMessagesApi.md#sendmessage) | **POST** /api/v2/messages | Send a new outbound message.
-*OutboundMessagesApi* | [**uploadMessageAttachement**](docs/Api/OutboundMessagesApi.md#uploadmessageattachement) | **POST** /api/v2/messages/attachment | Upload a new file to insert it as a link.
+*OutboundMessagesApi* | [**uploadMessageAttachment**](docs/Api/OutboundMessagesApi.md#uploadmessageattachment) | **POST** /api/v2/messages/attachment | Upload a new file to insert it as a link.
 *ScheduledMessagesApi* | [**deleteScheduledMessage**](docs/Api/ScheduledMessagesApi.md#deletescheduledmessage) | **DELETE** /api/v2/schedules/{id} | Delete a message session, together with all nested messages.
 *ScheduledMessagesApi* | [**deleteScheduledMessagesBulk**](docs/Api/ScheduledMessagesApi.md#deletescheduledmessagesbulk) | **POST** /api/v2/schedules/delete | Delete scheduled messages by given ID(s) or delete all scheduled messages.
 *ScheduledMessagesApi* | [**getAllScheduledMessages**](docs/Api/ScheduledMessagesApi.md#getallscheduledmessages) | **GET** /api/v2/schedules | Get all scheduled messages.
@@ -214,7 +214,6 @@ Class | Method | HTTP request | Description
 *ScheduledMessagesApi* | [**searchScheduledMessages**](docs/Api/ScheduledMessagesApi.md#searchscheduledmessages) | **GET** /api/v2/schedules/search | Find scheduled messages by given parameters.
 *StatisticApi* | [**getMessagingCounters**](docs/Api/StatisticApi.md#getmessagingcounters) | **GET** /api/v2/stats/messaging/data | Return counters for messaging data views.
 *StatisticApi* | [**getMessagingStat**](docs/Api/StatisticApi.md#getmessagingstat) | **GET** /api/v2/stats/messaging | Return messaging statistics.
-*SurveysApi* | [**apiV2SurveysGet**](docs/Api/SurveysApi.md#apiv2surveysget) | **GET** /api/v2/surveys | Get all user surveys.
 *SurveysApi* | [**cancelSurvey**](docs/Api/SurveysApi.md#cancelsurvey) | **PUT** /api/v2/surveys/{id}/cancel | Cancel a survey.
 *SurveysApi* | [**createSurvey**](docs/Api/SurveysApi.md#createsurvey) | **POST** /api/v2/surveys | Create a new survey from the submitted data.
 *SurveysApi* | [**createSurveyNode**](docs/Api/SurveysApi.md#createsurveynode) | **POST** /api/v2/surveys/{id}/nodes | Create a new node from the submitted data.
@@ -224,6 +223,7 @@ Class | Method | HTTP request | Description
 *SurveysApi* | [**getSurvey**](docs/Api/SurveysApi.md#getsurvey) | **GET** /api/v2/surveys/{id} | Get a survey by id.
 *SurveysApi* | [**getSurveyNode**](docs/Api/SurveysApi.md#getsurveynode) | **GET** /api/v2/surveys/nodes/{id} | Get a node by id.
 *SurveysApi* | [**getSurveyNodes**](docs/Api/SurveysApi.md#getsurveynodes) | **GET** /api/v2/surveys/{id}/nodes | Fetch nodes by given survey id.
+*SurveysApi* | [**getSurveys**](docs/Api/SurveysApi.md#getsurveys) | **GET** /api/v2/surveys | Get all user surveys.
 *SurveysApi* | [**mergeSurveyNodes**](docs/Api/SurveysApi.md#mergesurveynodes) | **POST** /api/v2/surveys/nodes/merge | Merge two question nodes.
 *SurveysApi* | [**resetSurvey**](docs/Api/SurveysApi.md#resetsurvey) | **PUT** /api/v2/surveys/{id}/reset | Reset a survey flow.
 *SurveysApi* | [**startSurvey**](docs/Api/SurveysApi.md#startsurvey) | **PUT** /api/v2/surveys/{id}/start | Start a survey.
@@ -304,27 +304,55 @@ Class | Method | HTTP request | Description
  - [DoAuthResponseMinVersions](docs/Model/DoAuthResponseMinVersions.md)
  - [DoCarrierLookupResponse](docs/Model/DoCarrierLookupResponse.md)
  - [DoEmailLookupResponse](docs/Model/DoEmailLookupResponse.md)
+ - [FavoriteContact](docs/Model/FavoriteContact.md)
  - [ForwardedCall](docs/Model/ForwardedCall.md)
+ - [GetAllBulkSessionsResponse](docs/Model/GetAllBulkSessionsResponse.md)
+ - [GetAllChatsResponse](docs/Model/GetAllChatsResponse.md)
+ - [GetAllInboundMessagesResponse](docs/Model/GetAllInboundMessagesResponse.md)
+ - [GetAllMessageSessionsResponse](docs/Model/GetAllMessageSessionsResponse.md)
+ - [GetAllOutboundMessagesResponse](docs/Model/GetAllOutboundMessagesResponse.md)
+ - [GetAllScheduledMessagesResponse](docs/Model/GetAllScheduledMessagesResponse.md)
+ - [GetAllTemplatesResponse](docs/Model/GetAllTemplatesResponse.md)
  - [GetAvailableDedicatedNumbersResponse](docs/Model/GetAvailableDedicatedNumbersResponse.md)
  - [GetAvailableSenderSettingOptionsResponse](docs/Model/GetAvailableSenderSettingOptionsResponse.md)
  - [GetBalanceNotificationOptionsResponse](docs/Model/GetBalanceNotificationOptionsResponse.md)
  - [GetBalanceNotificationSettingsResponse](docs/Model/GetBalanceNotificationSettingsResponse.md)
+ - [GetBlockedContactsResponse](docs/Model/GetBlockedContactsResponse.md)
  - [GetCallbackSettingsResponse](docs/Model/GetCallbackSettingsResponse.md)
+ - [GetChatMessagesResponse](docs/Model/GetChatMessagesResponse.md)
+ - [GetContactImportSessionProgressResponse](docs/Model/GetContactImportSessionProgressResponse.md)
+ - [GetContactNotesResponse](docs/Model/GetContactNotesResponse.md)
  - [GetContactsAutocompleteResponse](docs/Model/GetContactsAutocompleteResponse.md)
+ - [GetContactsByListIdResponse](docs/Model/GetContactsByListIdResponse.md)
+ - [GetCustomFieldsResponse](docs/Model/GetCustomFieldsResponse.md)
+ - [GetFavouritesResponse](docs/Model/GetFavouritesResponse.md)
+ - [GetForwardedCallsResponse](docs/Model/GetForwardedCallsResponse.md)
  - [GetInboundMessagesNotificationSettingsResponse](docs/Model/GetInboundMessagesNotificationSettingsResponse.md)
+ - [GetInvoicesResponse](docs/Model/GetInvoicesResponse.md)
  - [GetListContactsIdsResponse](docs/Model/GetListContactsIdsResponse.md)
+ - [GetListsOfContactResponse](docs/Model/GetListsOfContactResponse.md)
  - [GetMessagePreviewResponse](docs/Model/GetMessagePreviewResponse.md)
  - [GetMessagePriceResponse](docs/Model/GetMessagePriceResponse.md)
  - [GetMessagePricesResponse](docs/Model/GetMessagePricesResponse.md)
  - [GetMessageSessionStatResponse](docs/Model/GetMessageSessionStatResponse.md)
+ - [GetMessagesBySessionIdResponse](docs/Model/GetMessagesBySessionIdResponse.md)
  - [GetMessagingCountersResponse](docs/Model/GetMessagingCountersResponse.md)
  - [GetMessagingStatResponse](docs/Model/GetMessagingStatResponse.md)
+ - [GetOutboundMessagesHistoryResponse](docs/Model/GetOutboundMessagesHistoryResponse.md)
  - [GetPushTokensResponse](docs/Model/GetPushTokensResponse.md)
+ - [GetSenderIdsResponse](docs/Model/GetSenderIdsResponse.md)
  - [GetSenderSettingsResponse](docs/Model/GetSenderSettingsResponse.md)
+ - [GetSpendingStatResponse](docs/Model/GetSpendingStatResponse.md)
+ - [GetStateResponse](docs/Model/GetStateResponse.md)
  - [GetSubaccountsWithTokensInputObject](docs/Model/GetSubaccountsWithTokensInputObject.md)
  - [GetSubaccountsWithTokensResponse](docs/Model/GetSubaccountsWithTokensResponse.md)
  - [GetSurveyNodesResponse](docs/Model/GetSurveyNodesResponse.md)
+ - [GetSurveysResponse](docs/Model/GetSurveysResponse.md)
  - [GetUnreadMessagesTotalResponse](docs/Model/GetUnreadMessagesTotalResponse.md)
+ - [GetUnsubscribersResponse](docs/Model/GetUnsubscribersResponse.md)
+ - [GetUserContactsResponse](docs/Model/GetUserContactsResponse.md)
+ - [GetUserDedicatedNumbersResponse](docs/Model/GetUserDedicatedNumbersResponse.md)
+ - [GetUserListsResponse](docs/Model/GetUserListsResponse.md)
  - [GetVersionsResponse](docs/Model/GetVersionsResponse.md)
  - [Group](docs/Model/Group.md)
  - [GroupImage](docs/Model/GroupImage.md)
@@ -351,6 +379,15 @@ Class | Method | HTTP request | Description
  - [RequestNewSubaccountTokenInputObject](docs/Model/RequestNewSubaccountTokenInputObject.md)
  - [RequestSenderIdInputObject](docs/Model/RequestSenderIdInputObject.md)
  - [ResourceLinkResponse](docs/Model/ResourceLinkResponse.md)
+ - [SearchChatsByIdsResponse](docs/Model/SearchChatsByIdsResponse.md)
+ - [SearchChatsByReceipentResponse](docs/Model/SearchChatsByReceipentResponse.md)
+ - [SearchChatsResponse](docs/Model/SearchChatsResponse.md)
+ - [SearchContactsResponse](docs/Model/SearchContactsResponse.md)
+ - [SearchInboundMessagesResponse](docs/Model/SearchInboundMessagesResponse.md)
+ - [SearchListsResponse](docs/Model/SearchListsResponse.md)
+ - [SearchOutboundMessagesResponse](docs/Model/SearchOutboundMessagesResponse.md)
+ - [SearchScheduledMessagesResponse](docs/Model/SearchScheduledMessagesResponse.md)
+ - [SearchTemplatesResponse](docs/Model/SearchTemplatesResponse.md)
  - [SendMessageInputObject](docs/Model/SendMessageInputObject.md)
  - [SendMessageResponse](docs/Model/SendMessageResponse.md)
  - [SenderId](docs/Model/SenderId.md)
@@ -384,6 +421,7 @@ Class | Method | HTTP request | Description
  - [UpdateSurveyInputObject](docs/Model/UpdateSurveyInputObject.md)
  - [UpdateSurveyNodeInputObject](docs/Model/UpdateSurveyNodeInputObject.md)
  - [UpdateTemplateInputObject](docs/Model/UpdateTemplateInputObject.md)
+ - [UploadMessageAttachmentResponse](docs/Model/UploadMessageAttachmentResponse.md)
  - [User](docs/Model/User.md)
  - [UserCustomField](docs/Model/UserCustomField.md)
  - [UserImage](docs/Model/UserImage.md)

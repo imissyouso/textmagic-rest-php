@@ -242,7 +242,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllChats**
-> map[string,object] getAllChats($status, $page, $limit, $orderBy, $voice, $flat)
+> \TextMagic\Models\GetAllChatsResponse getAllChats($status, $page, $limit, $orderBy, $voice, $flat)
 
 Get all user chats.
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetAllChatsResponse**](../Model/GetAllChatsResponse.md)
 
 ### Authorization
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getChatMessages**
-> map[string,object] getChatMessages($id, $page, $limit, $query, $start, $end, $direction, $voice)
+> \TextMagic\Models\GetChatMessagesResponse getChatMessages($id, $page, $limit, $query, $start, $end, $direction, $voice)
 
 Fetch messages from chat with specified chat id.
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetChatMessagesResponse**](../Model/GetChatMessagesResponse.md)
 
 ### Authorization
 
@@ -812,7 +812,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchChats**
-> object searchChats($page, $limit, $query)
+> \TextMagic\Models\SearchChatsResponse searchChats($page, $limit, $query)
 
 Find chats by inbound or outbound messages text.
 
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\TextMagic\Models\SearchChatsResponse**](../Model/SearchChatsResponse.md)
 
 ### Authorization
 
@@ -870,7 +870,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchChatsByIds**
-> map[string,object] searchChatsByIds($page, $limit, $ids)
+> \TextMagic\Models\SearchChatsByIdsResponse searchChatsByIds($page, $limit, $ids)
 
 Find chats by IDs.
 
@@ -914,7 +914,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\SearchChatsByIdsResponse**](../Model/SearchChatsByIdsResponse.md)
 
 ### Authorization
 
@@ -928,7 +928,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchChatsByReceipent**
-> map[string,object] searchChatsByReceipent($page, $limit, $query, $orderBy)
+> \TextMagic\Models\SearchChatsByReceipentResponse searchChatsByReceipent($page, $limit, $query, $orderBy)
 
 Find chats by recipient (contact, list name or phone number).
 
@@ -974,7 +974,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\SearchChatsByReceipentResponse**](../Model/SearchChatsByReceipentResponse.md)
 
 ### Authorization
 

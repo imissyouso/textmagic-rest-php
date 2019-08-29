@@ -810,7 +810,7 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetAllOutboundMessagesResponse
      */
     public function getAllOutboundMessages($page = '1', $limit = '10', $lastId = null)
     {
@@ -829,11 +829,11 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllOutboundMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllOutboundMessagesWithHttpInfo($page = '1', $limit = '10', $lastId = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetAllOutboundMessagesResponse';
         $request = $this->getAllOutboundMessagesRequest($page, $limit, $lastId);
 
         try {
@@ -885,7 +885,7 @@ class OutboundMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetAllOutboundMessagesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -947,7 +947,7 @@ class OutboundMessagesApi
      */
     public function getAllOutboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $lastId = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetAllOutboundMessagesResponse';
         $request = $this->getAllOutboundMessagesRequest($page, $limit, $lastId);
 
         return $this->client
@@ -2480,7 +2480,7 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetOutboundMessagesHistoryResponse
      */
     public function getOutboundMessagesHistory($limit = '10', $lastId = null, $query = null, $orderBy = 'id', $direction = 'desc')
     {
@@ -2501,11 +2501,11 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetOutboundMessagesHistoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundMessagesHistoryWithHttpInfo($limit = '10', $lastId = null, $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetOutboundMessagesHistoryResponse';
         $request = $this->getOutboundMessagesHistoryRequest($limit, $lastId, $query, $orderBy, $direction);
 
         try {
@@ -2557,7 +2557,7 @@ class OutboundMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetOutboundMessagesHistoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2623,7 +2623,7 @@ class OutboundMessagesApi
      */
     public function getOutboundMessagesHistoryAsyncWithHttpInfo($limit = '10', $lastId = null, $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetOutboundMessagesHistoryResponse';
         $request = $this->getOutboundMessagesHistoryRequest($limit, $lastId, $query, $orderBy, $direction);
 
         return $this->client
@@ -2791,7 +2791,7 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\SearchOutboundMessagesResponse
      */
     public function searchOutboundMessages($page = '1', $limit = '10', $lastId = null, $ids = null, $sessionId = null, $statuses = null, $includeDeleted = '0', $query = null)
     {
@@ -2815,11 +2815,11 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchOutboundMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchOutboundMessagesWithHttpInfo($page = '1', $limit = '10', $lastId = null, $ids = null, $sessionId = null, $statuses = null, $includeDeleted = '0', $query = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\SearchOutboundMessagesResponse';
         $request = $this->searchOutboundMessagesRequest($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query);
 
         try {
@@ -2871,7 +2871,7 @@ class OutboundMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\SearchOutboundMessagesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2943,7 +2943,7 @@ class OutboundMessagesApi
      */
     public function searchOutboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $lastId = null, $ids = null, $sessionId = null, $statuses = null, $includeDeleted = '0', $query = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\SearchOutboundMessagesResponse';
         $request = $this->searchOutboundMessagesRequest($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query);
 
         return $this->client
@@ -3401,7 +3401,7 @@ class OutboundMessagesApi
     }
 
     /**
-     * Operation uploadMessageAttachement
+     * Operation uploadMessageAttachment
      *
      * Upload a new file to insert it as a link.
      *
@@ -3409,16 +3409,16 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \TextMagic\Models\UploadMessageAttachmentResponse
      */
-    public function uploadMessageAttachement($file)
+    public function uploadMessageAttachment($file)
     {
-        list($response) = $this->uploadMessageAttachementWithHttpInfo($file);
+        list($response) = $this->uploadMessageAttachmentWithHttpInfo($file);
         return $response;
     }
 
     /**
-     * Operation uploadMessageAttachementWithHttpInfo
+     * Operation uploadMessageAttachmentWithHttpInfo
      *
      * Upload a new file to insert it as a link.
      *
@@ -3426,12 +3426,12 @@ class OutboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\UploadMessageAttachmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadMessageAttachementWithHttpInfo($file)
+    public function uploadMessageAttachmentWithHttpInfo($file)
     {
-        $returnType = 'object';
-        $request = $this->uploadMessageAttachementRequest($file);
+        $returnType = '\TextMagic\Models\UploadMessageAttachmentResponse';
+        $request = $this->uploadMessageAttachmentRequest($file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3482,7 +3482,7 @@ class OutboundMessagesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\TextMagic\Models\UploadMessageAttachmentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3509,7 +3509,7 @@ class OutboundMessagesApi
     }
 
     /**
-     * Operation uploadMessageAttachementAsync
+     * Operation uploadMessageAttachmentAsync
      *
      * Upload a new file to insert it as a link.
      *
@@ -3518,9 +3518,9 @@ class OutboundMessagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadMessageAttachementAsync($file)
+    public function uploadMessageAttachmentAsync($file)
     {
-        return $this->uploadMessageAttachementAsyncWithHttpInfo($file)
+        return $this->uploadMessageAttachmentAsyncWithHttpInfo($file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3529,7 +3529,7 @@ class OutboundMessagesApi
     }
 
     /**
-     * Operation uploadMessageAttachementAsyncWithHttpInfo
+     * Operation uploadMessageAttachmentAsyncWithHttpInfo
      *
      * Upload a new file to insert it as a link.
      *
@@ -3538,10 +3538,10 @@ class OutboundMessagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadMessageAttachementAsyncWithHttpInfo($file)
+    public function uploadMessageAttachmentAsyncWithHttpInfo($file)
     {
-        $returnType = 'object';
-        $request = $this->uploadMessageAttachementRequest($file);
+        $returnType = '\TextMagic\Models\UploadMessageAttachmentResponse';
+        $request = $this->uploadMessageAttachmentRequest($file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3581,19 +3581,19 @@ class OutboundMessagesApi
     }
 
     /**
-     * Create request for operation 'uploadMessageAttachement'
+     * Create request for operation 'uploadMessageAttachment'
      *
      * @param  \SplFileObject $file Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadMessageAttachementRequest($file)
+    protected function uploadMessageAttachmentRequest($file)
     {
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling uploadMessageAttachement'
+                'Missing the required parameter $file when calling uploadMessageAttachment'
             );
         }
 

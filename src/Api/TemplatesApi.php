@@ -877,7 +877,7 @@ class TemplatesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetAllTemplatesResponse
      */
     public function getAllTemplates($page = null, $limit = null)
     {
@@ -895,11 +895,11 @@ class TemplatesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllTemplatesWithHttpInfo($page = null, $limit = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetAllTemplatesResponse';
         $request = $this->getAllTemplatesRequest($page, $limit);
 
         try {
@@ -951,7 +951,7 @@ class TemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetAllTemplatesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1003,7 +1003,7 @@ class TemplatesApi
      */
     public function getAllTemplatesAsyncWithHttpInfo($page = null, $limit = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetAllTemplatesResponse';
         $request = $this->getAllTemplatesRequest($page, $limit);
 
         return $this->client
@@ -1435,7 +1435,7 @@ class TemplatesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\SearchTemplatesResponse
      */
     public function searchTemplates($page = '1', $limit = '10', $ids = null, $name = null, $content = null)
     {
@@ -1456,11 +1456,11 @@ class TemplatesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchTemplatesWithHttpInfo($page = '1', $limit = '10', $ids = null, $name = null, $content = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\SearchTemplatesResponse';
         $request = $this->searchTemplatesRequest($page, $limit, $ids, $name, $content);
 
         try {
@@ -1512,7 +1512,7 @@ class TemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\SearchTemplatesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1570,7 +1570,7 @@ class TemplatesApi
      */
     public function searchTemplatesAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null, $name = null, $content = null)
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\SearchTemplatesResponse';
         $request = $this->searchTemplatesRequest($page, $limit, $ids, $name, $content);
 
         return $this->client

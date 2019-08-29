@@ -120,7 +120,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllInboundMessages**
-> map[string,object] getAllInboundMessages($page, $limit, $orderBy, $direction)
+> \TextMagic\Models\GetAllInboundMessagesResponse getAllInboundMessages($page, $limit, $orderBy, $direction)
 
 Get all inbox messages.
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetAllInboundMessagesResponse**](../Model/GetAllInboundMessagesResponse.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchInboundMessages**
-> map[string,object] searchInboundMessages($page, $limit, $ids, $query, $orderBy, $direction, $expand)
+> \TextMagic\Models\SearchInboundMessagesResponse searchInboundMessages($page, $limit, $ids, $query, $orderBy, $direction, $expand)
 
 Find inbound messages by given parameters.
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\SearchInboundMessagesResponse**](../Model/SearchInboundMessagesResponse.md)
 
 ### Authorization
 
