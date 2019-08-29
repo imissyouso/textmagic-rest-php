@@ -287,7 +287,6 @@ Class | Method | HTTP request | Description
  - [CreateSurveyNodeInputObject](docs/Model/CreateSurveyNodeInputObject.md)
  - [CreateTemplateInputObject](docs/Model/CreateTemplateInputObject.md)
  - [Currency](docs/Model/Currency.md)
- - [CustomFieldValues](docs/Model/CustomFieldValues.md)
  - [DeleteChatMessagesBulkInputObject](docs/Model/DeleteChatMessagesBulkInputObject.md)
  - [DeleteChatsBulkInputObject](docs/Model/DeleteChatsBulkInputObject.md)
  - [DeleteContacsFromListObject](docs/Model/DeleteContacsFromListObject.md)
