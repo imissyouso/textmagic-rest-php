@@ -1,6 +1,6 @@
 <?php
 /**
- * BadRequestResponseErrors
+ * CustomFieldValues
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * BadRequestResponseErrors Class Doc Comment
+ * CustomFieldValues Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BadRequestResponseErrors implements ModelInterface, ArrayAccess
+class CustomFieldValues implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BadRequestResponse_errors';
+    protected static $swaggerModelName = 'CustomFieldValues';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'common' => 'string[]',
-        'fields' => 'object'
+        
     ];
 
     /**
@@ -67,8 +66,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'common' => null,
-        'fields' => null
+        
     ];
 
     /**
@@ -98,8 +96,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'common' => 'common',
-        'fields' => 'fields'
+        
     ];
 
     /**
@@ -108,8 +105,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'common' => 'setCommon',
-        'fields' => 'setFields'
+        
     ];
 
     /**
@@ -118,8 +114,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'common' => 'getCommon',
-        'fields' => 'getFields'
+        
     ];
 
     /**
@@ -182,8 +177,6 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['common'] = isset($data['common']) ? $data['common'] : null;
-        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
     }
 
     /**
@@ -209,54 +202,6 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets common
-     *
-     * @return string[]
-     */
-    public function getCommon()
-    {
-        return $this->container['common'];
-    }
-
-    /**
-     * Sets common
-     *
-     * @param string[] $common common
-     *
-     * @return $this
-     */
-    public function setCommon($common)
-    {
-        $this->container['common'] = $common;
-
-        return $this;
-    }
-
-    /**
-     * Gets fields
-     *
-     * @return object
-     */
-    public function getFields()
-    {
-        return $this->container['fields'];
-    }
-
-    /**
-     * Sets fields
-     *
-     * @param object $fields fields
-     *
-     * @return $this
-     */
-    public function setFields($fields)
-    {
-        $this->container['fields'] = $fields;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

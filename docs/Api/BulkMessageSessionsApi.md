@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getAllBulkSessions**
-> map[string,array] getAllBulkSessions($page, $limit)
+> map[string,object] getAllBulkSessions($page, $limit)
 
 Get all bulk sending sessions.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string,array]**](../Model/array.md)
+**map[string,object]**
 
 ### Authorization
 

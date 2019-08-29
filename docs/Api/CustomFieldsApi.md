@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomFields**
-> map[string,array] getCustomFields($page, $limit)
+> map[string,object] getCustomFields($page, $limit)
 
 Get all contact custom fields.
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string,array]**](../Model/array.md)
+**map[string,object]**
 
 ### Authorization
 

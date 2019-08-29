@@ -593,7 +593,7 @@ class InboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getAllInboundMessages($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
@@ -613,11 +613,11 @@ class InboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllInboundMessagesWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllInboundMessagesRequest($page, $limit, $orderBy, $direction);
 
         try {
@@ -669,7 +669,7 @@ class InboundMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -725,7 +725,7 @@ class InboundMessagesApi
      */
     public function getAllInboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllInboundMessagesRequest($page, $limit, $orderBy, $direction);
 
         return $this->client
@@ -1169,7 +1169,7 @@ class InboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function searchInboundMessages($page = '1', $limit = '10', $ids = null, $query = null, $orderBy = 'id', $direction = 'desc', $expand = '0')
     {
@@ -1192,11 +1192,11 @@ class InboundMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function searchInboundMessagesWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $orderBy = 'id', $direction = 'desc', $expand = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchInboundMessagesRequest($page, $limit, $ids, $query, $orderBy, $direction, $expand);
 
         try {
@@ -1248,7 +1248,7 @@ class InboundMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1318,7 +1318,7 @@ class InboundMessagesApi
      */
     public function searchInboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $orderBy = 'id', $direction = 'desc', $expand = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchInboundMessagesRequest($page, $limit, $ids, $query, $orderBy, $direction, $expand);
 
         return $this->client

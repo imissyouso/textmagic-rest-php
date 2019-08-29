@@ -594,7 +594,7 @@ class ScheduledMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getAllScheduledMessages($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
@@ -615,11 +615,11 @@ class ScheduledMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllScheduledMessagesWithHttpInfo($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllScheduledMessagesRequest($page, $limit, $status, $orderBy, $direction);
 
         try {
@@ -671,7 +671,7 @@ class ScheduledMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -729,7 +729,7 @@ class ScheduledMessagesApi
      */
     public function getAllScheduledMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllScheduledMessagesRequest($page, $limit, $status, $orderBy, $direction);
 
         return $this->client
@@ -1178,7 +1178,7 @@ class ScheduledMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function searchScheduledMessages($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
@@ -1201,11 +1201,11 @@ class ScheduledMessagesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function searchScheduledMessagesWithHttpInfo($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchScheduledMessagesRequest($page, $limit, $query, $ids, $status, $orderBy, $direction);
 
         try {
@@ -1257,7 +1257,7 @@ class ScheduledMessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1327,7 +1327,7 @@ class ScheduledMessagesApi
      */
     public function searchScheduledMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchScheduledMessagesRequest($page, $limit, $query, $ids, $status, $orderBy, $direction);
 
         return $this->client

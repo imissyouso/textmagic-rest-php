@@ -97,7 +97,7 @@ class BulkMessageSessionsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getAllBulkSessions($page = '1', $limit = '10')
     {
@@ -115,11 +115,11 @@ class BulkMessageSessionsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllBulkSessionsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllBulkSessionsRequest($page, $limit);
 
         try {
@@ -171,7 +171,7 @@ class BulkMessageSessionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class BulkMessageSessionsApi
      */
     public function getAllBulkSessionsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllBulkSessionsRequest($page, $limit);
 
         return $this->client

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getContactImportSessionProgress**
-> array getContactImportSessionProgress($id)
+> object getContactImportSessionProgress($id)
 
 Get contact import session progress.
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array**](../Model/array.md)
+**object**
 
 ### Authorization
 

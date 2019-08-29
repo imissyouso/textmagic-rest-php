@@ -583,7 +583,7 @@ class OutboundMessageSessionsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getAllMessageSessions($page = '1', $limit = '10')
     {
@@ -601,11 +601,11 @@ class OutboundMessageSessionsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllMessageSessionsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllMessageSessionsRequest($page, $limit);
 
         try {
@@ -657,7 +657,7 @@ class OutboundMessageSessionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -709,7 +709,7 @@ class OutboundMessageSessionsApi
      */
     public function getAllMessageSessionsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllMessageSessionsRequest($page, $limit);
 
         return $this->client
@@ -1432,7 +1432,7 @@ class OutboundMessageSessionsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getMessagesBySessionId($id, $page = '1', $limit = '10', $statuses = null, $includeDeleted = '0')
     {
@@ -1453,11 +1453,11 @@ class OutboundMessageSessionsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessagesBySessionIdWithHttpInfo($id, $page = '1', $limit = '10', $statuses = null, $includeDeleted = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getMessagesBySessionIdRequest($id, $page, $limit, $statuses, $includeDeleted);
 
         try {
@@ -1509,7 +1509,7 @@ class OutboundMessageSessionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1567,7 +1567,7 @@ class OutboundMessageSessionsApi
      */
     public function getMessagesBySessionIdAsyncWithHttpInfo($id, $page = '1', $limit = '10', $statuses = null, $includeDeleted = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getMessagesBySessionIdRequest($id, $page, $limit, $statuses, $includeDeleted);
 
         return $this->client

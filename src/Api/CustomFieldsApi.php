@@ -910,7 +910,7 @@ class CustomFieldsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getCustomFields($page = '1', $limit = '10')
     {
@@ -928,11 +928,11 @@ class CustomFieldsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomFieldsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getCustomFieldsRequest($page, $limit);
 
         try {
@@ -984,7 +984,7 @@ class CustomFieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1036,7 +1036,7 @@ class CustomFieldsApi
      */
     public function getCustomFieldsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getCustomFieldsRequest($page, $limit);
 
         return $this->client

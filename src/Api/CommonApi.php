@@ -350,7 +350,7 @@ class CommonApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getState()
     {
@@ -366,11 +366,11 @@ class CommonApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getStateWithHttpInfo()
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getStateRequest();
 
         try {
@@ -422,7 +422,7 @@ class CommonApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -470,7 +470,7 @@ class CommonApi
      */
     public function getStateAsyncWithHttpInfo()
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getStateRequest();
 
         return $this->client
@@ -606,7 +606,7 @@ class CommonApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array
+     * @return object
      */
     public function getTimezones($full = '0')
     {
@@ -623,11 +623,11 @@ class CommonApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimezonesWithHttpInfo($full = '0')
     {
-        $returnType = 'array';
+        $returnType = 'object';
         $request = $this->getTimezonesRequest($full);
 
         try {
@@ -679,7 +679,7 @@ class CommonApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -737,7 +737,7 @@ class CommonApi
      */
     public function getTimezonesAsyncWithHttpInfo($full = '0')
     {
-        $returnType = 'array';
+        $returnType = 'object';
         $request = $this->getTimezonesRequest($full);
 
         return $this->client

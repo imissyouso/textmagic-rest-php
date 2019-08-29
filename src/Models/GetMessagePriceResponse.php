@@ -59,7 +59,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'total' => 'float',
         'parts' => 'int',
-        'countries' => 'array'
+        'countries' => 'object'
     ];
 
     /**
@@ -276,7 +276,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return array
+     * @return object
      */
     public function getCountries()
     {
@@ -286,7 +286,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param array $countries countries
+     * @param object $countries countries
      *
      * @return $this
      */

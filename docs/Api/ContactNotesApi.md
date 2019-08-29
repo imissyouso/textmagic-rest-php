@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactNotes**
-> map[string,array] getContactNotes($id, $page, $limit)
+> map[string,object] getContactNotes($id, $page, $limit)
 
 Fetch notes assigned to the given contact.
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string,array]**](../Model/array.md)
+**map[string,object]**
 
 ### Authorization
 

@@ -1085,7 +1085,7 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getAllChats($status = null, $page = '1', $limit = '10', $orderBy = 'id', $voice = '0', $flat = '0')
     {
@@ -1107,11 +1107,11 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllChatsWithHttpInfo($status = null, $page = '1', $limit = '10', $orderBy = 'id', $voice = '0', $flat = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllChatsRequest($status, $page, $limit, $orderBy, $voice, $flat);
 
         try {
@@ -1163,7 +1163,7 @@ class ChatsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1223,7 +1223,7 @@ class ChatsApi
      */
     public function getAllChatsAsyncWithHttpInfo($status = null, $page = '1', $limit = '10', $orderBy = 'id', $voice = '0', $flat = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getAllChatsRequest($status, $page, $limit, $orderBy, $voice, $flat);
 
         return $this->client
@@ -1978,7 +1978,7 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function getChatMessages($id, $page = '1', $limit = '10', $query = null, $start = null, $end = null, $direction = 'desc', $voice = '0')
     {
@@ -2002,11 +2002,11 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function getChatMessagesWithHttpInfo($id, $page = '1', $limit = '10', $query = null, $start = null, $end = null, $direction = 'desc', $voice = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getChatMessagesRequest($id, $page, $limit, $query, $start, $end, $direction, $voice);
 
         try {
@@ -2058,7 +2058,7 @@ class ChatsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2114,7 +2114,7 @@ class ChatsApi
      */
     public function getChatMessagesAsyncWithHttpInfo($id, $page = '1', $limit = '10', $query = null, $start = null, $end = null, $direction = 'desc', $voice = '0')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->getChatMessagesRequest($id, $page, $limit, $query, $start, $end, $direction, $voice);
 
         return $this->client
@@ -3847,7 +3847,7 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array
+     * @return object
      */
     public function searchChats($page = '1', $limit = '10', $query = null)
     {
@@ -3866,11 +3866,11 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchChatsWithHttpInfo($page = '1', $limit = '10', $query = null)
     {
-        $returnType = 'array';
+        $returnType = 'object';
         $request = $this->searchChatsRequest($page, $limit, $query);
 
         try {
@@ -3922,7 +3922,7 @@ class ChatsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3976,7 +3976,7 @@ class ChatsApi
      */
     public function searchChatsAsyncWithHttpInfo($page = '1', $limit = '10', $query = null)
     {
-        $returnType = 'array';
+        $returnType = 'object';
         $request = $this->searchChatsRequest($page, $limit, $query);
 
         return $this->client
@@ -4129,7 +4129,7 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function searchChatsByIds($page = '1', $limit = '10', $ids = null)
     {
@@ -4148,11 +4148,11 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function searchChatsByIdsWithHttpInfo($page = '1', $limit = '10', $ids = null)
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchChatsByIdsRequest($page, $limit, $ids);
 
         try {
@@ -4204,7 +4204,7 @@ class ChatsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4258,7 +4258,7 @@ class ChatsApi
      */
     public function searchChatsByIdsAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null)
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchChatsByIdsRequest($page, $limit, $ids);
 
         return $this->client
@@ -4416,7 +4416,7 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function searchChatsByReceipent($page = '1', $limit = '10', $query = null, $orderBy = 'id')
     {
@@ -4436,11 +4436,11 @@ class ChatsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function searchChatsByReceipentWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchChatsByReceipentRequest($page, $limit, $query, $orderBy);
 
         try {
@@ -4492,7 +4492,7 @@ class ChatsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4548,7 +4548,7 @@ class ChatsApi
      */
     public function searchChatsByReceipentAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->searchChatsByReceipentRequest($page, $limit, $query, $orderBy);
 
         return $this->client

@@ -97,7 +97,7 @@ class SurveysApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,array]
+     * @return map[string,object]
      */
     public function apiV2SurveysGet($page = '1', $limit = '10')
     {
@@ -115,11 +115,11 @@ class SurveysApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2SurveysGetWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->apiV2SurveysGetRequest($page, $limit);
 
         try {
@@ -171,7 +171,7 @@ class SurveysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,array]',
+                        'map[string,object]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class SurveysApi
      */
     public function apiV2SurveysGetAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,array]';
+        $returnType = 'map[string,object]';
         $request = $this->apiV2SurveysGetRequest($page, $limit);
 
         return $this->client
