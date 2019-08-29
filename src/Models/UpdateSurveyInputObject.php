@@ -61,7 +61,7 @@ class UpdateSurveyInputObject implements ModelInterface, ArrayAccess
         'contacts' => 'string',
         'lists' => 'string',
         'phones' => 'string',
-        'country' => 'object'
+        'country' => 'array'
     ];
 
     /**
@@ -330,7 +330,7 @@ class UpdateSurveyInputObject implements ModelInterface, ArrayAccess
     /**
      * Gets country
      *
-     * @return object
+     * @return array
      */
     public function getCountry()
     {
@@ -340,7 +340,7 @@ class UpdateSurveyInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param object $country Country values mapping (country => inbound phone id), e.g. country[GB] = \"123\", country[US] = \"123\"
+     * @param array $country Country values mapping (country => inbound phone id), e.g. country[GB] = \"123\", country[US] = \"123\"
      *
      * @return $this
      */

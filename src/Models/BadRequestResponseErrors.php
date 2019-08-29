@@ -58,7 +58,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'common' => 'string[]',
-        'fields' => 'object'
+        'fields' => 'array'
     ];
 
     /**
@@ -237,7 +237,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
     /**
      * Gets fields
      *
-     * @return object
+     * @return array
      */
     public function getFields()
     {
@@ -247,7 +247,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param object $fields fields
+     * @param array $fields fields
      *
      * @return $this
      */

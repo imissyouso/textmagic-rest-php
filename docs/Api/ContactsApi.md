@@ -350,7 +350,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBlockedContacts**
-> map[string,object] getBlockedContacts($page, $limit, $query, $orderBy, $direction)
+> map[string,array] getBlockedContacts($page, $limit, $query, $orderBy, $direction)
 
 Get blocked contacts.
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFavourites**
-> map[string,object] getFavourites($page, $limit, $query)
+> map[string,array] getFavourites($page, $limit, $query)
 
 Get favorite contacts and lists.
 
@@ -676,7 +676,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -744,7 +744,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUnsubscribers**
-> map[string,object] getUnsubscribers($page, $limit)
+> map[string,array] getUnsubscribers($page, $limit)
 
 Get all contact have unsubscribed from your communication.
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserContacts**
-> map[string,object] getUserContacts($page, $limit, $shared, $orderBy, $direction)
+> map[string,array] getUserContacts($page, $limit, $shared, $orderBy, $direction)
 
 Get all user contacts.
 
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -862,7 +862,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchContacts**
-> map[string,object] searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
+> map[string,array] searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
 
 Find user contacts by given parameters.
 
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -1160,7 +1160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **uploadContactAvatar**
-> object uploadContactAvatar($image, $id)
+> array uploadContactAvatar($image, $id)
 
 Add an avatar for the contact.
 
@@ -1202,7 +1202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**array**](../Model/array.md)
 
 ### Authorization
 

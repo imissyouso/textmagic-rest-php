@@ -1637,7 +1637,7 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getBlockedContacts($page = '1', $limit = '10', $query = null, $orderBy = 'id', $direction = 'desc')
     {
@@ -1658,11 +1658,11 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getBlockedContactsWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getBlockedContactsRequest($page, $limit, $query, $orderBy, $direction);
 
         try {
@@ -1714,7 +1714,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1780,7 +1780,7 @@ class ContactsApi
      */
     public function getBlockedContactsAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getBlockedContactsRequest($page, $limit, $query, $orderBy, $direction);
 
         return $this->client
@@ -3073,7 +3073,7 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getFavourites($page = '1', $limit = '10', $query = 'A')
     {
@@ -3092,11 +3092,11 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getFavouritesWithHttpInfo($page = '1', $limit = '10', $query = 'A')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getFavouritesRequest($page, $limit, $query);
 
         try {
@@ -3148,7 +3148,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3202,7 +3202,7 @@ class ContactsApi
      */
     public function getFavouritesAsyncWithHttpInfo($page = '1', $limit = '10', $query = 'A')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getFavouritesRequest($page, $limit, $query);
 
         return $this->client
@@ -3636,7 +3636,7 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getUnsubscribers($page = '1', $limit = '10')
     {
@@ -3654,11 +3654,11 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getUnsubscribersWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getUnsubscribersRequest($page, $limit);
 
         try {
@@ -3710,7 +3710,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3762,7 +3762,7 @@ class ContactsApi
      */
     public function getUnsubscribersAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getUnsubscribersRequest($page, $limit);
 
         return $this->client
@@ -3912,7 +3912,7 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getUserContacts($page = '1', $limit = '10', $shared = '0', $orderBy = 'id', $direction = 'desc')
     {
@@ -3933,11 +3933,11 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserContactsWithHttpInfo($page = '1', $limit = '10', $shared = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getUserContactsRequest($page, $limit, $shared, $orderBy, $direction);
 
         try {
@@ -3989,7 +3989,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4047,7 +4047,7 @@ class ContactsApi
      */
     public function getUserContactsAsyncWithHttpInfo($page = '1', $limit = '10', $shared = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getUserContactsRequest($page, $limit, $shared, $orderBy, $direction);
 
         return $this->client
@@ -4218,7 +4218,7 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function searchContacts($page = '1', $limit = '10', $shared = '0', $ids = null, $listId = null, $includeBlocked = null, $query = null, $local = '0', $country = null, $orderBy = 'id', $direction = 'desc')
     {
@@ -4245,11 +4245,11 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function searchContactsWithHttpInfo($page = '1', $limit = '10', $shared = '0', $ids = null, $listId = null, $includeBlocked = null, $query = null, $local = '0', $country = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->searchContactsRequest($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction);
 
         try {
@@ -4301,7 +4301,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4371,7 +4371,7 @@ class ContactsApi
      */
     public function searchContactsAsyncWithHttpInfo($page = '1', $limit = '10', $shared = '0', $ids = null, $listId = null, $includeBlocked = null, $query = null, $local = '0', $country = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->searchContactsRequest($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction);
 
         return $this->client
@@ -5688,7 +5688,7 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return array
      */
     public function uploadContactAvatar($image, $id)
     {
@@ -5706,11 +5706,11 @@ class ContactsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadContactAvatarWithHttpInfo($image, $id)
     {
-        $returnType = 'object';
+        $returnType = 'array';
         $request = $this->uploadContactAvatarRequest($image, $id);
 
         try {
@@ -5762,7 +5762,7 @@ class ContactsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        'array',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5830,7 +5830,7 @@ class ContactsApi
      */
     public function uploadContactAvatarAsyncWithHttpInfo($image, $id)
     {
-        $returnType = 'object';
+        $returnType = 'array';
         $request = $this->uploadContactAvatarRequest($image, $id);
 
         return $this->client

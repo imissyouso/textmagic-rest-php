@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSenderIds**
-> map[string,object] getSenderIds($page, $limit)
+> map[string,array] getSenderIds($page, $limit)
 
 Get all sender IDs of current user.
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserDedicatedNumbers**
-> map[string,object] getUserDedicatedNumbers($page, $limit, $surveyId)
+> map[string,array] getUserDedicatedNumbers($page, $limit, $surveyId)
 
 Get user's dedicated numbers.
 
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 

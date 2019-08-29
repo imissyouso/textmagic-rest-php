@@ -120,7 +120,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllScheduledMessages**
-> map[string,object] getAllScheduledMessages($page, $limit, $status, $orderBy, $direction)
+> map[string,array] getAllScheduledMessages($page, $limit, $status, $orderBy, $direction)
 
 Get all scheduled messages.
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchScheduledMessages**
-> map[string,object] searchScheduledMessages($page, $limit, $query, $ids, $status, $orderBy, $direction)
+> map[string,array] searchScheduledMessages($page, $limit, $query, $ids, $status, $orderBy, $direction)
 
 Find scheduled messages by given parameters.
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 

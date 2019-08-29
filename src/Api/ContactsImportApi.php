@@ -96,7 +96,7 @@ class ContactsImportApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return array
      */
     public function getContactImportSessionProgress($id)
     {
@@ -113,11 +113,11 @@ class ContactsImportApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactImportSessionProgressWithHttpInfo($id)
     {
-        $returnType = 'object';
+        $returnType = 'array';
         $request = $this->getContactImportSessionProgressRequest($id);
 
         try {
@@ -169,7 +169,7 @@ class ContactsImportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        'array',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -227,7 +227,7 @@ class ContactsImportApi
      */
     public function getContactImportSessionProgressAsyncWithHttpInfo($id)
     {
-        $returnType = 'object';
+        $returnType = 'array';
         $request = $this->getContactImportSessionProgressRequest($id);
 
         return $this->client

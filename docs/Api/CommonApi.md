@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getState**
-> map[string,object] getState()
+> map[string,array] getState()
 
 Get current entities state
 
@@ -98,7 +98,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTimezones**
-> object getTimezones($full)
+> array getTimezones($full)
 
 Return all available timezone IDs.
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**array**](../Model/array.md)
 
 ### Authorization
 

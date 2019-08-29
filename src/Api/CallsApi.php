@@ -95,7 +95,7 @@ class CallsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getCallsPrices()
     {
@@ -111,11 +111,11 @@ class CallsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCallsPricesWithHttpInfo()
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getCallsPricesRequest();
 
         try {
@@ -167,7 +167,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -215,7 +215,7 @@ class CallsApi
      */
     public function getCallsPricesAsyncWithHttpInfo()
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getCallsPricesRequest();
 
         return $this->client
@@ -352,7 +352,7 @@ class CallsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getForwardedCalls($page = '1', $limit = '10')
     {
@@ -370,11 +370,11 @@ class CallsApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getForwardedCallsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getForwardedCallsRequest($page, $limit);
 
         try {
@@ -426,7 +426,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -478,7 +478,7 @@ class CallsApi
      */
     public function getForwardedCallsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getForwardedCallsRequest($page, $limit);
 
         return $this->client

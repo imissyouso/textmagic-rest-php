@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getCallsPrices**
-> map[string,object] getCallsPrices()
+> map[string,array] getCallsPrices()
 
 Check pricing for a inbound/outbound call.
 
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getForwardedCalls**
-> map[string,object] getForwardedCalls($page, $limit)
+> map[string,array] getForwardedCalls($page, $limit)
 
 Get all forwarded calls.
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 

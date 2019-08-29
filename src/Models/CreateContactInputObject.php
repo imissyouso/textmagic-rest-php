@@ -66,7 +66,7 @@ class CreateContactInputObject implements ModelInterface, ArrayAccess
         'favorited' => 'bool',
         'blocked' => 'bool',
         'type' => 'int',
-        'customFieldValues' => 'object',
+        'customFieldValues' => 'array',
         'local' => 'int',
         'country' => 'string'
     ];
@@ -495,7 +495,7 @@ class CreateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Gets customFieldValues
      *
-     * @return object
+     * @return array
      */
     public function getCustomFieldValues()
     {
@@ -505,7 +505,7 @@ class CreateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets customFieldValues
      *
-     * @param object $customFieldValues customFieldValues
+     * @param array $customFieldValues customFieldValues
      *
      * @return $this
      */

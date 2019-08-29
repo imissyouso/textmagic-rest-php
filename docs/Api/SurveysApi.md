@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **apiV2SurveysGet**
-> map[string,object] apiV2SurveysGet($page, $limit)
+> map[string,array] apiV2SurveysGet($page, $limit)
 
 Get all user surveys.
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 

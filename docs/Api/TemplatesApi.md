@@ -178,7 +178,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllTemplates**
-> map[string,object] getAllTemplates($page, $limit)
+> map[string,array] getAllTemplates($page, $limit)
 
 Get all user templates.
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchTemplates**
-> map[string,object] searchTemplates($page, $limit, $ids, $name, $content)
+> map[string,array] searchTemplates($page, $limit, $ids, $name, $content)
 
 Find user templates by given parameters.
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string,object]**
+[**map[string,array]**](../Model/array.md)
 
 ### Authorization
 

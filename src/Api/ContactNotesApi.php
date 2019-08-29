@@ -1214,7 +1214,7 @@ class ContactNotesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return map[string,array]
      */
     public function getContactNotes($id, $page = '1', $limit = '10')
     {
@@ -1233,11 +1233,11 @@ class ContactNotesApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,array], HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactNotesWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getContactNotesRequest($id, $page, $limit);
 
         try {
@@ -1289,7 +1289,7 @@ class ContactNotesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        'map[string,array]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1351,7 +1351,7 @@ class ContactNotesApi
      */
     public function getContactNotesAsyncWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
+        $returnType = 'map[string,array]';
         $request = $this->getContactNotesRequest($id, $page, $limit);
 
         return $this->client

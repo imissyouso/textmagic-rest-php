@@ -57,9 +57,9 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user' => 'object',
-        'special' => 'object',
-        'other' => 'object'
+        'user' => 'array',
+        'special' => 'array',
+        'other' => 'array'
     ];
 
     /**
@@ -228,7 +228,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return object
+     * @return array
      */
     public function getUser()
     {
@@ -238,7 +238,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param object $user user
+     * @param array $user user
      *
      * @return $this
      */
@@ -252,7 +252,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets special
      *
-     * @return object
+     * @return array
      */
     public function getSpecial()
     {
@@ -262,7 +262,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets special
      *
-     * @param object $special special
+     * @param array $special special
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets other
      *
-     * @return object
+     * @return array
      */
     public function getOther()
     {
@@ -286,7 +286,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets other
      *
-     * @param object $other other
+     * @param array $other other
      *
      * @return $this
      */
