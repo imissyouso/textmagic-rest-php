@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **blockContact**
-> \TextMagic\Models\ResourceLinkResponse blockContact($blockContactInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse blockContact($blockContactInputObject, $xIgnoreNullValues)
 
 Block contact from inbound and outbound communication by phone number.
 
@@ -50,10 +50,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
     $config
 );
 $blockContactInputObject = new \TextMagic\Models\BlockContactInputObject(); // \TextMagic\Models\BlockContactInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->blockContact($blockContactInputObject, $xIgnoreNullable);
+    $result = $apiInstance->blockContact($blockContactInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->blockContact: ', $e->getMessage(), PHP_EOL;
@@ -66,7 +66,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockContactInputObject** | [**\TextMagic\Models\BlockContactInputObject**](../Model/BlockContactInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContact**
-> \TextMagic\Models\ResourceLinkResponse createContact($createContactInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createContact($createContactInputObject, $xIgnoreNullValues)
 
 Create a new contact from the submitted data.
 
@@ -106,10 +106,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
     $config
 );
 $createContactInputObject = new \TextMagic\Models\CreateContactInputObject(); // \TextMagic\Models\CreateContactInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createContact($createContactInputObject, $xIgnoreNullable);
+    $result = $apiInstance->createContact($createContactInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->createContact: ', $e->getMessage(), PHP_EOL;
@@ -122,7 +122,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createContactInputObject** | [**\TextMagic\Models\CreateContactInputObject**](../Model/CreateContactInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -295,7 +295,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteContactsByIds**
-> deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullable)
+> deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullValues)
 
 Delete contact by given ID(s) or delete all contacts.
 
@@ -317,10 +317,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
     $config
 );
 $deleteContactsByIdsInputObject = new \TextMagic\Models\DeleteContactsByIdsInputObject(); // \TextMagic\Models\DeleteContactsByIdsInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullable);
+    $apiInstance->deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->deleteContactsByIds: ', $e->getMessage(), PHP_EOL;
 }
@@ -332,7 +332,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteContactsByIdsInputObject** | [**\TextMagic\Models\DeleteContactsByIdsInputObject**](../Model/DeleteContactsByIdsInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -936,7 +936,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unblockContact**
-> unblockContact($unblockContactInputObject, $xIgnoreNullable)
+> unblockContact($unblockContactInputObject, $xIgnoreNullValues)
 
 Unblock contact by phone number.
 
@@ -958,10 +958,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
     $config
 );
 $unblockContactInputObject = new \TextMagic\Models\UnblockContactInputObject(); // \TextMagic\Models\UnblockContactInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->unblockContact($unblockContactInputObject, $xIgnoreNullable);
+    $apiInstance->unblockContact($unblockContactInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->unblockContact: ', $e->getMessage(), PHP_EOL;
 }
@@ -973,7 +973,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unblockContactInputObject** | [**\TextMagic\Models\UnblockContactInputObject**](../Model/UnblockContactInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -991,7 +991,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unblockContactsBulk**
-> unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullable)
+> unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullValues)
 
 Unblock several contacts by blocked contact ids or unblock all contacts
 
@@ -1013,10 +1013,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
     $config
 );
 $unblockContactsBulkInputObject = new \TextMagic\Models\UnblockContactsBulkInputObject(); // \TextMagic\Models\UnblockContactsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->unblockContactsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -1028,7 +1028,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unblockContactsBulkInputObject** | [**\TextMagic\Models\UnblockContactsBulkInputObject**](../Model/UnblockContactsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1046,7 +1046,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unsubscribeContact**
-> \TextMagic\Models\ResourceLinkResponse unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullValues)
 
 Unsubscribe contact from your communication by phone number.
 
@@ -1068,10 +1068,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
     $config
 );
 $unsubscribeContactInputObject = new \TextMagic\Models\UnsubscribeContactInputObject(); // \TextMagic\Models\UnsubscribeContactInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullable);
+    $result = $apiInstance->unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->unsubscribeContact: ', $e->getMessage(), PHP_EOL;
@@ -1084,7 +1084,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unsubscribeContactInputObject** | [**\TextMagic\Models\UnsubscribeContactInputObject**](../Model/UnsubscribeContactInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1102,7 +1102,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContact**
-> \TextMagic\Models\ResourceLinkResponse updateContact($updateContactInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateContact($updateContactInputObject, $id, $xIgnoreNullValues)
 
 Update existing contact.
 
@@ -1125,10 +1125,10 @@ $apiInstance = new TextMagic\Api\ContactsApi(
 );
 $updateContactInputObject = new \TextMagic\Models\UpdateContactInputObject(); // \TextMagic\Models\UpdateContactInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateContact($updateContactInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateContact($updateContactInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->updateContact: ', $e->getMessage(), PHP_EOL;
@@ -1142,7 +1142,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateContactInputObject** | [**\TextMagic\Models\UpdateContactInputObject**](../Model/UpdateContactInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

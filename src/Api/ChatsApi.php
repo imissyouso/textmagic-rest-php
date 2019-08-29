@@ -93,15 +93,15 @@ class ChatsApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->closeChatsBulkWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullable);
+        $this->closeChatsBulkWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -110,16 +110,16 @@ class ChatsApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function closeChatsBulkWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function closeChatsBulkWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,14 +180,14 @@ class ChatsApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function closeChatsBulkAsync($closeChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function closeChatsBulkAsync($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullable)
+        return $this->closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -201,15 +201,15 @@ class ChatsApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -238,12 +238,12 @@ class ChatsApi
      * Create request for operation 'closeChatsBulk'
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'closeChatsBulkInputObject' is set
         if ($closeChatsBulkInputObject === null || (is_array($closeChatsBulkInputObject) && count($closeChatsBulkInputObject) === 0)) {
@@ -260,8 +260,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -561,15 +561,15 @@ class ChatsApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject deleteChatMessagesBulkInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        $this->deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable);
+        $this->deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
     }
 
     /**
@@ -579,16 +579,16 @@ class ChatsApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable);
+        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -650,14 +650,14 @@ class ChatsApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatMessagesAsync($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteChatMessagesAsync($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable)
+        return $this->deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -672,15 +672,15 @@ class ChatsApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable);
+        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -710,12 +710,12 @@ class ChatsApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable = 'true')
+    protected function deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteChatMessagesBulkInputObject' is set
         if ($deleteChatMessagesBulkInputObject === null || (is_array($deleteChatMessagesBulkInputObject) && count($deleteChatMessagesBulkInputObject) === 0)) {
@@ -738,8 +738,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -828,15 +828,15 @@ class ChatsApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullable);
+        $this->deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -845,16 +845,16 @@ class ChatsApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -915,14 +915,14 @@ class ChatsApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatsBulkAsync($deleteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteChatsBulkAsync($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullable)
+        return $this->deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -936,15 +936,15 @@ class ChatsApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -973,12 +973,12 @@ class ChatsApi
      * Create request for operation 'deleteChatsBulk'
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteChatsBulkInputObject' is set
         if ($deleteChatsBulkInputObject === null || (is_array($deleteChatsBulkInputObject) && count($deleteChatsBulkInputObject) === 0)) {
@@ -995,8 +995,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -2552,15 +2552,15 @@ class ChatsApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullable);
+        $this->markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -2569,16 +2569,16 @@ class ChatsApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullable);
+        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2639,14 +2639,14 @@ class ChatsApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsReadBulkAsync($markChatsReadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsReadBulkAsync($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullable)
+        return $this->markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2660,15 +2660,15 @@ class ChatsApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullable);
+        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2697,12 +2697,12 @@ class ChatsApi
      * Create request for operation 'markChatsReadBulk'
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullable = 'true')
+    protected function markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'markChatsReadBulkInputObject' is set
         if ($markChatsReadBulkInputObject === null || (is_array($markChatsReadBulkInputObject) && count($markChatsReadBulkInputObject) === 0)) {
@@ -2719,8 +2719,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -2801,15 +2801,15 @@ class ChatsApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullable);
+        $this->markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -2818,16 +2818,16 @@ class ChatsApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullable);
+        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2888,14 +2888,14 @@ class ChatsApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsUnreadBulkAsync($markChatsUnreadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsUnreadBulkAsync($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullable)
+        return $this->markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2909,15 +2909,15 @@ class ChatsApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullable = 'true')
+    public function markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullable);
+        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2946,12 +2946,12 @@ class ChatsApi
      * Create request for operation 'markChatsUnreadBulk'
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullable = 'true')
+    protected function markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'markChatsUnreadBulkInputObject' is set
         if ($markChatsUnreadBulkInputObject === null || (is_array($markChatsUnreadBulkInputObject) && count($markChatsUnreadBulkInputObject) === 0)) {
@@ -2968,8 +2968,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -3050,15 +3050,15 @@ class ChatsApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject muteChatInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function muteChat($muteChatInputObject, $xIgnoreNullable = 'true')
+    public function muteChat($muteChatInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->muteChatWithHttpInfo($muteChatInputObject, $xIgnoreNullable);
+        list($response) = $this->muteChatWithHttpInfo($muteChatInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -3068,16 +3068,16 @@ class ChatsApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function muteChatWithHttpInfo($muteChatInputObject, $xIgnoreNullable = 'true')
+    public function muteChatWithHttpInfo($muteChatInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->muteChatRequest($muteChatInputObject, $xIgnoreNullable);
+        $request = $this->muteChatRequest($muteChatInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3168,14 +3168,14 @@ class ChatsApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatAsync($muteChatInputObject, $xIgnoreNullable = 'true')
+    public function muteChatAsync($muteChatInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->muteChatAsyncWithHttpInfo($muteChatInputObject, $xIgnoreNullable)
+        return $this->muteChatAsyncWithHttpInfo($muteChatInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3189,15 +3189,15 @@ class ChatsApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatAsyncWithHttpInfo($muteChatInputObject, $xIgnoreNullable = 'true')
+    public function muteChatAsyncWithHttpInfo($muteChatInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->muteChatRequest($muteChatInputObject, $xIgnoreNullable);
+        $request = $this->muteChatRequest($muteChatInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3240,12 +3240,12 @@ class ChatsApi
      * Create request for operation 'muteChat'
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function muteChatRequest($muteChatInputObject, $xIgnoreNullable = 'true')
+    protected function muteChatRequest($muteChatInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'muteChatInputObject' is set
         if ($muteChatInputObject === null || (is_array($muteChatInputObject) && count($muteChatInputObject) === 0)) {
@@ -3262,8 +3262,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -3344,15 +3344,15 @@ class ChatsApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->muteChatsBulkWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullable);
+        $this->muteChatsBulkWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -3361,16 +3361,16 @@ class ChatsApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function muteChatsBulkWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function muteChatsBulkWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3431,14 +3431,14 @@ class ChatsApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatsBulkAsync($muteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function muteChatsBulkAsync($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullable)
+        return $this->muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3452,15 +3452,15 @@ class ChatsApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3489,12 +3489,12 @@ class ChatsApi
      * Create request for operation 'muteChatsBulk'
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'muteChatsBulkInputObject' is set
         if ($muteChatsBulkInputObject === null || (is_array($muteChatsBulkInputObject) && count($muteChatsBulkInputObject) === 0)) {
@@ -3511,8 +3511,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -3593,15 +3593,15 @@ class ChatsApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullable);
+        $this->reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -3610,16 +3610,16 @@ class ChatsApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3680,14 +3680,14 @@ class ChatsApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reopenChatsBulkAsync($reopenChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function reopenChatsBulkAsync($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullable)
+        return $this->reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3701,15 +3701,15 @@ class ChatsApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3738,12 +3738,12 @@ class ChatsApi
      * Create request for operation 'reopenChatsBulk'
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'reopenChatsBulkInputObject' is set
         if ($reopenChatsBulkInputObject === null || (is_array($reopenChatsBulkInputObject) && count($reopenChatsBulkInputObject) === 0)) {
@@ -3760,8 +3760,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -4701,15 +4701,15 @@ class ChatsApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function setChatStatus($setChatStatusInputObject, $xIgnoreNullable = 'true')
+    public function setChatStatus($setChatStatusInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->setChatStatusWithHttpInfo($setChatStatusInputObject, $xIgnoreNullable);
+        list($response) = $this->setChatStatusWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -4719,16 +4719,16 @@ class ChatsApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setChatStatusWithHttpInfo($setChatStatusInputObject, $xIgnoreNullable = 'true')
+    public function setChatStatusWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullable);
+        $request = $this->setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4811,14 +4811,14 @@ class ChatsApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setChatStatusAsync($setChatStatusInputObject, $xIgnoreNullable = 'true')
+    public function setChatStatusAsync($setChatStatusInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->setChatStatusAsyncWithHttpInfo($setChatStatusInputObject, $xIgnoreNullable)
+        return $this->setChatStatusAsyncWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4832,15 +4832,15 @@ class ChatsApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setChatStatusAsyncWithHttpInfo($setChatStatusInputObject, $xIgnoreNullable = 'true')
+    public function setChatStatusAsyncWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullable);
+        $request = $this->setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4883,12 +4883,12 @@ class ChatsApi
      * Create request for operation 'setChatStatus'
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullable = 'true')
+    protected function setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'setChatStatusInputObject' is set
         if ($setChatStatusInputObject === null || (is_array($setChatStatusInputObject) && count($setChatStatusInputObject) === 0)) {
@@ -4905,8 +4905,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -4987,15 +4987,15 @@ class ChatsApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullable);
+        $this->unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -5004,16 +5004,16 @@ class ChatsApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5074,14 +5074,14 @@ class ChatsApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unmuteChatsBulkAsync($unmuteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unmuteChatsBulkAsync($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullable)
+        return $this->unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5095,15 +5095,15 @@ class ChatsApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullable);
+        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5132,12 +5132,12 @@ class ChatsApi
      * Create request for operation 'unmuteChatsBulk'
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'unmuteChatsBulkInputObject' is set
         if ($unmuteChatsBulkInputObject === null || (is_array($unmuteChatsBulkInputObject) && count($unmuteChatsBulkInputObject) === 0)) {
@@ -5154,8 +5154,8 @@ class ChatsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **createContactNote**
-> \TextMagic\Models\ResourceLinkResponse createContactNote($createContactNoteInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createContactNote($createContactNoteInputObject, $id, $xIgnoreNullValues)
 
 Create a new contact note.
 
@@ -36,10 +36,10 @@ $apiInstance = new TextMagic\Api\ContactNotesApi(
 );
 $createContactNoteInputObject = new \TextMagic\Models\CreateContactNoteInputObject(); // \TextMagic\Models\CreateContactNoteInputObject | 
 $id = 56; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createContactNote($createContactNoteInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->createContactNote($createContactNoteInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactNotesApi->createContactNote: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createContactNoteInputObject** | [**\TextMagic\Models\CreateContactNoteInputObject**](../Model/CreateContactNoteInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -124,7 +124,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteContactNotesBulk**
-> deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable)
+> deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues)
 
 Delete contact note by given ID(s) or delete all contact notes.
 
@@ -147,10 +147,10 @@ $apiInstance = new TextMagic\Api\ContactNotesApi(
 );
 $id = 1; // int | 
 $deleteContactNotesBulkInputObject = new \TextMagic\Models\DeleteContactNotesBulkInputObject(); // \TextMagic\Models\DeleteContactNotesBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ContactNotesApi->deleteContactNotesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  |
  **deleteContactNotesBulkInputObject** | [**\TextMagic\Models\DeleteContactNotesBulkInputObject**](../Model/DeleteContactNotesBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContactNote**
-> \TextMagic\Models\ResourceLinkResponse updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullValues)
 
 Update existing contact note.
 
@@ -316,10 +316,10 @@ $apiInstance = new TextMagic\Api\ContactNotesApi(
 );
 $updateContactNoteInputObject = new \TextMagic\Models\UpdateContactNoteInputObject(); // \TextMagic\Models\UpdateContactNoteInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactNotesApi->updateContactNote: ', $e->getMessage(), PHP_EOL;
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateContactNoteInputObject** | [**\TextMagic\Models\UpdateContactNoteInputObject**](../Model/UpdateContactNoteInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

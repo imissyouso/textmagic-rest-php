@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **createTemplate**
-> \TextMagic\Models\ResourceLinkResponse createTemplate($createTemplateInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createTemplate($createTemplateInputObject, $xIgnoreNullValues)
 
 Create a new template from the submitted data.
 
@@ -36,10 +36,10 @@ $apiInstance = new TextMagic\Api\TemplatesApi(
     $config
 );
 $createTemplateInputObject = new \TextMagic\Models\CreateTemplateInputObject(); // \TextMagic\Models\CreateTemplateInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createTemplate($createTemplateInputObject, $xIgnoreNullable);
+    $result = $apiInstance->createTemplate($createTemplateInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->createTemplate: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +52,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createTemplateInputObject** | [**\TextMagic\Models\CreateTemplateInputObject**](../Model/CreateTemplateInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -123,7 +123,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTemplatesBulk**
-> deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullable)
+> deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullValues)
 
 Delete template by given ID(s) or delete all templates.
 
@@ -145,10 +145,10 @@ $apiInstance = new TextMagic\Api\TemplatesApi(
     $config
 );
 $deleteTemplatesBulkInputObject = new \TextMagic\Models\DeleteTemplatesBulkInputObject(); // \TextMagic\Models\DeleteTemplatesBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->deleteTemplatesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -160,7 +160,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteTemplatesBulkInputObject** | [**\TextMagic\Models\DeleteTemplatesBulkInputObject**](../Model/DeleteTemplatesBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTemplate**
-> \TextMagic\Models\ResourceLinkResponse updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullValues)
 
 Update existing template.
 
@@ -373,10 +373,10 @@ $apiInstance = new TextMagic\Api\TemplatesApi(
 );
 $updateTemplateInputObject = new \TextMagic\Models\UpdateTemplateInputObject(); // \TextMagic\Models\UpdateTemplateInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->updateTemplate: ', $e->getMessage(), PHP_EOL;
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateTemplateInputObject** | [**\TextMagic\Models\UpdateTemplateInputObject**](../Model/UpdateTemplateInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **closeChatsBulk**
-> closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullable)
+> closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullValues)
 
 Close chats by chat ids or close all chats
 
@@ -48,10 +48,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $closeChatsBulkInputObject = new \TextMagic\Models\CloseChatsBulkInputObject(); // \TextMagic\Models\CloseChatsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->closeChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -63,7 +63,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **closeChatsBulkInputObject** | [**\TextMagic\Models\CloseChatsBulkInputObject**](../Model/CloseChatsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -130,7 +130,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteChatMessages**
-> deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable)
+> deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues)
 
 Delete messages from chat by given messages ID(s).
 
@@ -153,10 +153,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
 );
 $deleteChatMessagesBulkInputObject = new \TextMagic\Models\DeleteChatMessagesBulkInputObject(); // \TextMagic\Models\DeleteChatMessagesBulkInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullable);
+    $apiInstance->deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->deleteChatMessages: ', $e->getMessage(), PHP_EOL;
 }
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteChatMessagesBulkInputObject** | [**\TextMagic\Models\DeleteChatMessagesBulkInputObject**](../Model/DeleteChatMessagesBulkInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -187,7 +187,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteChatsBulk**
-> deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullable)
+> deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullValues)
 
 Delete chats by given ID(s) or delete all chats.
 
@@ -209,10 +209,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $deleteChatsBulkInputObject = new \TextMagic\Models\DeleteChatsBulkInputObject(); // \TextMagic\Models\DeleteChatsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->deleteChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -224,7 +224,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteChatsBulkInputObject** | [**\TextMagic\Models\DeleteChatsBulkInputObject**](../Model/DeleteChatsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -536,7 +536,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **markChatsReadBulk**
-> markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullable)
+> markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullValues)
 
 Mark several chats as read by chat ids or mark all chats as read
 
@@ -558,10 +558,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $markChatsReadBulkInputObject = new \TextMagic\Models\MarkChatsReadBulkInputObject(); // \TextMagic\Models\MarkChatsReadBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullable);
+    $apiInstance->markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->markChatsReadBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -573,7 +573,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **markChatsReadBulkInputObject** | [**\TextMagic\Models\MarkChatsReadBulkInputObject**](../Model/MarkChatsReadBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -591,7 +591,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **markChatsUnreadBulk**
-> markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullable)
+> markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullValues)
 
 Mark several chats as UNread by chat ids or mark all chats as UNread
 
@@ -613,10 +613,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $markChatsUnreadBulkInputObject = new \TextMagic\Models\MarkChatsUnreadBulkInputObject(); // \TextMagic\Models\MarkChatsUnreadBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullable);
+    $apiInstance->markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->markChatsUnreadBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -628,7 +628,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **markChatsUnreadBulkInputObject** | [**\TextMagic\Models\MarkChatsUnreadBulkInputObject**](../Model/MarkChatsUnreadBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -646,7 +646,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **muteChat**
-> \TextMagic\Models\ResourceLinkResponse muteChat($muteChatInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse muteChat($muteChatInputObject, $xIgnoreNullValues)
 
 Set mute mode.
 
@@ -668,10 +668,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $muteChatInputObject = new \TextMagic\Models\MuteChatInputObject(); // \TextMagic\Models\MuteChatInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->muteChat($muteChatInputObject, $xIgnoreNullable);
+    $result = $apiInstance->muteChat($muteChatInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->muteChat: ', $e->getMessage(), PHP_EOL;
@@ -684,7 +684,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteChatInputObject** | [**\TextMagic\Models\MuteChatInputObject**](../Model/MuteChatInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **muteChatsBulk**
-> muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullable)
+> muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullValues)
 
 Mute several chats by chat ids or mute all chats
 
@@ -724,10 +724,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $muteChatsBulkInputObject = new \TextMagic\Models\MuteChatsBulkInputObject(); // \TextMagic\Models\MuteChatsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->muteChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -739,7 +739,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteChatsBulkInputObject** | [**\TextMagic\Models\MuteChatsBulkInputObject**](../Model/MuteChatsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -757,7 +757,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **reopenChatsBulk**
-> reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullable)
+> reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullValues)
 
 Reopen chats by chat ids or reopen all chats
 
@@ -779,10 +779,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $reopenChatsBulkInputObject = new \TextMagic\Models\ReopenChatsBulkInputObject(); // \TextMagic\Models\ReopenChatsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->reopenChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -794,7 +794,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reopenChatsBulkInputObject** | [**\TextMagic\Models\ReopenChatsBulkInputObject**](../Model/ReopenChatsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -988,7 +988,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setChatStatus**
-> \TextMagic\Models\ResourceLinkResponse setChatStatus($setChatStatusInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse setChatStatus($setChatStatusInputObject, $xIgnoreNullValues)
 
 Set status of the chat given by ID.
 
@@ -1010,10 +1010,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $setChatStatusInputObject = new \TextMagic\Models\SetChatStatusInputObject(); // \TextMagic\Models\SetChatStatusInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->setChatStatus($setChatStatusInputObject, $xIgnoreNullable);
+    $result = $apiInstance->setChatStatus($setChatStatusInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->setChatStatus: ', $e->getMessage(), PHP_EOL;
@@ -1026,7 +1026,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **setChatStatusInputObject** | [**\TextMagic\Models\SetChatStatusInputObject**](../Model/SetChatStatusInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1044,7 +1044,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unmuteChatsBulk**
-> unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullable)
+> unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullValues)
 
 Unmute several chats by chat ids or unmute all chats
 
@@ -1066,10 +1066,10 @@ $apiInstance = new TextMagic\Api\ChatsApi(
     $config
 );
 $unmuteChatsBulkInputObject = new \TextMagic\Models\UnmuteChatsBulkInputObject(); // \TextMagic\Models\UnmuteChatsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ChatsApi->unmuteChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -1081,7 +1081,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unmuteChatsBulkInputObject** | [**\TextMagic\Models\UnmuteChatsBulkInputObject**](../Model/UnmuteChatsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

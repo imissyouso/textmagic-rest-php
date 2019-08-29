@@ -701,15 +701,15 @@ class ContactListsApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject createListInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createList($createListInputObject, $xIgnoreNullable = 'true')
+    public function createList($createListInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createListWithHttpInfo($createListInputObject, $xIgnoreNullable);
+        list($response) = $this->createListWithHttpInfo($createListInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -719,16 +719,16 @@ class ContactListsApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createListWithHttpInfo($createListInputObject, $xIgnoreNullable = 'true')
+    public function createListWithHttpInfo($createListInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createListRequest($createListInputObject, $xIgnoreNullable);
+        $request = $this->createListRequest($createListInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -811,14 +811,14 @@ class ContactListsApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListAsync($createListInputObject, $xIgnoreNullable = 'true')
+    public function createListAsync($createListInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->createListAsyncWithHttpInfo($createListInputObject, $xIgnoreNullable)
+        return $this->createListAsyncWithHttpInfo($createListInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -832,15 +832,15 @@ class ContactListsApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListAsyncWithHttpInfo($createListInputObject, $xIgnoreNullable = 'true')
+    public function createListAsyncWithHttpInfo($createListInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createListRequest($createListInputObject, $xIgnoreNullable);
+        $request = $this->createListRequest($createListInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -883,12 +883,12 @@ class ContactListsApi
      * Create request for operation 'createList'
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createListRequest($createListInputObject, $xIgnoreNullable = 'true')
+    protected function createListRequest($createListInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createListInputObject' is set
         if ($createListInputObject === null || (is_array($createListInputObject) && count($createListInputObject) === 0)) {
@@ -905,8 +905,8 @@ class ContactListsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1737,15 +1737,15 @@ class ContactListsApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject deleteListContactsBulkInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        $this->deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullable);
+        $this->deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
     }
 
     /**
@@ -1755,16 +1755,16 @@ class ContactListsApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullable);
+        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1834,14 +1834,14 @@ class ContactListsApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListContactsBulkAsync($deleteListContactsBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteListContactsBulkAsync($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullable)
+        return $this->deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1856,15 +1856,15 @@ class ContactListsApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullable = 'true')
+    public function deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullable);
+        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1894,12 +1894,12 @@ class ContactListsApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullable = 'true')
+    protected function deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteListContactsBulkInputObject' is set
         if ($deleteListContactsBulkInputObject === null || (is_array($deleteListContactsBulkInputObject) && count($deleteListContactsBulkInputObject) === 0)) {
@@ -1922,8 +1922,8 @@ class ContactListsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -2012,15 +2012,15 @@ class ContactListsApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteListsBulkWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullable);
+        $this->deleteListsBulkWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -2029,16 +2029,16 @@ class ContactListsApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListsBulkWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteListsBulkWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2107,14 +2107,14 @@ class ContactListsApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListsBulkAsync($deleteListsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteListsBulkAsync($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullable)
+        return $this->deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2128,15 +2128,15 @@ class ContactListsApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2165,12 +2165,12 @@ class ContactListsApi
      * Create request for operation 'deleteListsBulk'
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteListsBulkInputObject' is set
         if ($deleteListsBulkInputObject === null || (is_array($deleteListsBulkInputObject) && count($deleteListsBulkInputObject) === 0)) {
@@ -2187,8 +2187,8 @@ class ContactListsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

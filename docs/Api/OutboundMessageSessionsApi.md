@@ -66,7 +66,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteMessageSessionsBulk**
-> deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullable)
+> deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues)
 
 Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
 
@@ -88,10 +88,10 @@ $apiInstance = new TextMagic\Api\OutboundMessageSessionsApi(
     $config
 );
 $deleteMessageSessionsBulkInputObject = new \TextMagic\Models\DeleteMessageSessionsBulkInputObject(); // \TextMagic\Models\DeleteMessageSessionsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling OutboundMessageSessionsApi->deleteMessageSessionsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -103,7 +103,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteMessageSessionsBulkInputObject** | [**\TextMagic\Models\DeleteMessageSessionsBulkInputObject**](../Model/DeleteMessageSessionsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

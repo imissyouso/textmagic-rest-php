@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **createCustomField**
-> \TextMagic\Models\ResourceLinkResponse createCustomField($createCustomFieldInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createCustomField($createCustomFieldInputObject, $xIgnoreNullValues)
 
 Create a new custom field from the submitted data.
 
@@ -35,10 +35,10 @@ $apiInstance = new TextMagic\Api\CustomFieldsApi(
     $config
 );
 $createCustomFieldInputObject = new \TextMagic\Models\CreateCustomFieldInputObject(); // \TextMagic\Models\CreateCustomFieldInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createCustomField($createCustomFieldInputObject, $xIgnoreNullable);
+    $result = $apiInstance->createCustomField($createCustomFieldInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsApi->createCustomField: ', $e->getMessage(), PHP_EOL;
@@ -51,7 +51,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createCustomFieldInputObject** | [**\TextMagic\Models\CreateCustomFieldInputObject**](../Model/CreateCustomFieldInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomField**
-> \TextMagic\Models\ResourceLinkResponse updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullValues)
 
 Update existing custom field.
 
@@ -255,10 +255,10 @@ $apiInstance = new TextMagic\Api\CustomFieldsApi(
 );
 $updateCustomFieldInputObject = new \TextMagic\Models\UpdateCustomFieldInputObject(); // \TextMagic\Models\UpdateCustomFieldInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsApi->updateCustomField: ', $e->getMessage(), PHP_EOL;
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCustomFieldInputObject** | [**\TextMagic\Models\UpdateCustomFieldInputObject**](../Model/UpdateCustomFieldInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomFieldValue**
-> \TextMagic\Models\ResourceLinkResponse updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues)
 
 Update contact's custom field value.
 
@@ -313,10 +313,10 @@ $apiInstance = new TextMagic\Api\CustomFieldsApi(
 );
 $updateCustomFieldValueInputObject = new \TextMagic\Models\UpdateCustomFieldValueInputObject(); // \TextMagic\Models\UpdateCustomFieldValueInputObject | 
 $id = "id_example"; // string | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomFieldsApi->updateCustomFieldValue: ', $e->getMessage(), PHP_EOL;
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCustomFieldValueInputObject** | [**\TextMagic\Models\UpdateCustomFieldValueInputObject**](../Model/UpdateCustomFieldValueInputObject.md)|  |
  **id** | **string**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

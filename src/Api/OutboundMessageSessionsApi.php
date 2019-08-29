@@ -338,15 +338,15 @@ class OutboundMessageSessionsApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullable);
+        $this->deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -355,16 +355,16 @@ class OutboundMessageSessionsApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -417,14 +417,14 @@ class OutboundMessageSessionsApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageSessionsBulkAsync($deleteMessageSessionsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteMessageSessionsBulkAsync($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullable)
+        return $this->deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -438,15 +438,15 @@ class OutboundMessageSessionsApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -475,12 +475,12 @@ class OutboundMessageSessionsApi
      * Create request for operation 'deleteMessageSessionsBulk'
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteMessageSessionsBulkInputObject' is set
         if ($deleteMessageSessionsBulkInputObject === null || (is_array($deleteMessageSessionsBulkInputObject) && count($deleteMessageSessionsBulkInputObject) === 0)) {
@@ -497,8 +497,8 @@ class OutboundMessageSessionsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

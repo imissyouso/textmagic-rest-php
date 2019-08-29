@@ -270,7 +270,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBalanceNotificationSettings**
-> updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullable)
+> updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues)
 
 Update balance notification settings
 
@@ -292,10 +292,10 @@ $apiInstance = new TextMagic\Api\UserSettingsApi(
     $config
 );
 $updateBalanceNotificationSettingsInputObject = new \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject(); // \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullable);
+    $apiInstance->updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling UserSettingsApi->updateBalanceNotificationSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -307,7 +307,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateBalanceNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateBalanceNotificationSettingsInputObject**](../Model/UpdateBalanceNotificationSettingsInputObject.md)|  | [optional]
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -325,7 +325,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCallbackSettings**
-> updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullable)
+> updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullValues)
 
 Update callback URL settings
 
@@ -347,10 +347,10 @@ $apiInstance = new TextMagic\Api\UserSettingsApi(
     $config
 );
 $updateCallbackSettingsInputObject = new \TextMagic\Models\UpdateCallbackSettingsInputObject(); // \TextMagic\Models\UpdateCallbackSettingsInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullable);
+    $apiInstance->updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling UserSettingsApi->updateCallbackSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -362,7 +362,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCallbackSettingsInputObject** | [**\TextMagic\Models\UpdateCallbackSettingsInputObject**](../Model/UpdateCallbackSettingsInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -380,7 +380,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateChatDesktopNotificationSettings**
-> updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable)
+> updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues)
 
 Update chat desktop notification settings
 
@@ -402,10 +402,10 @@ $apiInstance = new TextMagic\Api\UserSettingsApi(
     $config
 );
 $updateChatDesktopNotificationSettingsInputObject = new \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject(); // \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable);
+    $apiInstance->updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling UserSettingsApi->updateChatDesktopNotificationSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -417,7 +417,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChatDesktopNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject**](../Model/UpdateChatDesktopNotificationSettingsInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -435,7 +435,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInboundMessagesNotificationSettings**
-> updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable)
+> updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues)
 
 Update inbound messages notification settings
 
@@ -457,10 +457,10 @@ $apiInstance = new TextMagic\Api\UserSettingsApi(
     $config
 );
 $updateInboundMessagesNotificationSettingsInputObject = new \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject(); // \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable);
+    $apiInstance->updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling UserSettingsApi->updateInboundMessagesNotificationSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -472,7 +472,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateInboundMessagesNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject**](../Model/UpdateInboundMessagesNotificationSettingsInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

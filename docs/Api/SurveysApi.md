@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSurvey**
-> \TextMagic\Models\ResourceLinkResponse createSurvey($createSurveyInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createSurvey($createSurveyInputObject, $xIgnoreNullValues)
 
 Create a new survey from the submitted data.
 
@@ -154,10 +154,10 @@ $apiInstance = new TextMagic\Api\SurveysApi(
     $config
 );
 $createSurveyInputObject = new \TextMagic\Models\CreateSurveyInputObject(); // \TextMagic\Models\CreateSurveyInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createSurvey($createSurveyInputObject, $xIgnoreNullable);
+    $result = $apiInstance->createSurvey($createSurveyInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SurveysApi->createSurvey: ', $e->getMessage(), PHP_EOL;
@@ -170,7 +170,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createSurveyInputObject** | [**\TextMagic\Models\CreateSurveyInputObject**](../Model/CreateSurveyInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSurveyNode**
-> \TextMagic\Models\ResourceLinkResponse createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullValues)
 
 Create a new node from the submitted data.
 
@@ -211,10 +211,10 @@ $apiInstance = new TextMagic\Api\SurveysApi(
 );
 $createSurveyNodeInputObject = new \TextMagic\Models\CreateSurveyNodeInputObject(); // \TextMagic\Models\CreateSurveyNodeInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SurveysApi->createSurveyNode: ', $e->getMessage(), PHP_EOL;
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createSurveyNodeInputObject** | [**\TextMagic\Models\CreateSurveyNodeInputObject**](../Model/CreateSurveyNodeInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **mergeSurveyNodes**
-> mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullable)
+> mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullValues)
 
 Merge two question nodes.
 
@@ -590,10 +590,10 @@ $apiInstance = new TextMagic\Api\SurveysApi(
     $config
 );
 $mergeSurveyNodesInputObject = new \TextMagic\Models\MergeSurveyNodesInputObject(); // \TextMagic\Models\MergeSurveyNodesInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullable);
+    $apiInstance->mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling SurveysApi->mergeSurveyNodes: ', $e->getMessage(), PHP_EOL;
 }
@@ -605,7 +605,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mergeSurveyNodesInputObject** | [**\TextMagic\Models\MergeSurveyNodesInputObject**](../Model/MergeSurveyNodesInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSurvey**
-> \TextMagic\Models\ResourceLinkResponse updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullValues)
 
 Update existing survey.
 
@@ -754,10 +754,10 @@ $apiInstance = new TextMagic\Api\SurveysApi(
 );
 $updateSurveyInputObject = new \TextMagic\Models\UpdateSurveyInputObject(); // \TextMagic\Models\UpdateSurveyInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SurveysApi->updateSurvey: ', $e->getMessage(), PHP_EOL;
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateSurveyInputObject** | [**\TextMagic\Models\UpdateSurveyInputObject**](../Model/UpdateSurveyInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -789,7 +789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSurveyNode**
-> \TextMagic\Models\ResourceLinkResponse updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullValues)
 
 Update existing node.
 
@@ -812,10 +812,10 @@ $apiInstance = new TextMagic\Api\SurveysApi(
 );
 $updateSurveyNodeInputObject = new \TextMagic\Models\UpdateSurveyNodeInputObject(); // \TextMagic\Models\UpdateSurveyNodeInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullable);
+    $result = $apiInstance->updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SurveysApi->updateSurveyNode: ', $e->getMessage(), PHP_EOL;
@@ -829,7 +829,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateSurveyNodeInputObject** | [**\TextMagic\Models\UpdateSurveyNodeInputObject**](../Model/UpdateSurveyNodeInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

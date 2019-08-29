@@ -65,7 +65,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteInboundMessagesBulk**
-> deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullable)
+> deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues)
 
 Delete inbound messages by given ID(s) or delete all inbound messages.
 
@@ -87,10 +87,10 @@ $apiInstance = new TextMagic\Api\InboundMessagesApi(
     $config
 );
 $deleteInboundMessagesBulkInputObject = new \TextMagic\Models\DeleteInboundMessagesBulkInputObject(); // \TextMagic\Models\DeleteInboundMessagesBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling InboundMessagesApi->deleteInboundMessagesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -102,7 +102,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteInboundMessagesBulkInputObject** | [**\TextMagic\Models\DeleteInboundMessagesBulkInputObject**](../Model/DeleteInboundMessagesBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

@@ -68,10 +68,10 @@ $apiInstance = new TextMagic\Api\AuthenticationApi(
     $config
 );
 $checkPhoneVerificationCodeInputObject = new \TextMagic\Models\CheckPhoneVerificationCodeInputObject(); // \TextMagic\Models\CheckPhoneVerificationCodeInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullable);
+    $apiInstance->checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->checkPhoneVerificationCode: ', $e->getMessage(), PHP_EOL;
 }

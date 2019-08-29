@@ -338,15 +338,15 @@ class ScheduledMessagesApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable);
+        $this->deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -355,16 +355,16 @@ class ScheduledMessagesApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -425,14 +425,14 @@ class ScheduledMessagesApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduledMessagesBulkAsync($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteScheduledMessagesBulkAsync($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable)
+        return $this->deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -446,15 +446,15 @@ class ScheduledMessagesApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -483,12 +483,12 @@ class ScheduledMessagesApi
      * Create request for operation 'deleteScheduledMessagesBulk'
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteScheduledMessagesBulkInputObject' is set
         if ($deleteScheduledMessagesBulkInputObject === null || (is_array($deleteScheduledMessagesBulkInputObject) && count($deleteScheduledMessagesBulkInputObject) === 0)) {
@@ -505,8 +505,8 @@ class ScheduledMessagesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

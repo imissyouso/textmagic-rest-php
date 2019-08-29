@@ -93,15 +93,15 @@ class AuthenticationApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullable = 'true')
+    public function checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullable);
+        $this->checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -110,16 +110,16 @@ class AuthenticationApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullable = 'true')
+    public function checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullable);
+        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,14 +180,14 @@ class AuthenticationApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkPhoneVerificationCodeAsync($checkPhoneVerificationCodeInputObject, $xIgnoreNullable = 'true')
+    public function checkPhoneVerificationCodeAsync($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullable)
+        return $this->checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -201,15 +201,15 @@ class AuthenticationApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullable = 'true')
+    public function checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullable);
+        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -238,12 +238,12 @@ class AuthenticationApi
      * Create request for operation 'checkPhoneVerificationCode'
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullable = 'true')
+    protected function checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'checkPhoneVerificationCodeInputObject' is set
         if ($checkPhoneVerificationCodeInputObject === null || (is_array($checkPhoneVerificationCodeInputObject) && count($checkPhoneVerificationCodeInputObject) === 0)) {
@@ -260,8 +260,8 @@ class AuthenticationApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -342,15 +342,15 @@ class AuthenticationApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject doAuthInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\DoAuthResponse
      */
-    public function doAuth($doAuthInputObject, $xIgnoreNullable = 'true')
+    public function doAuth($doAuthInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->doAuthWithHttpInfo($doAuthInputObject, $xIgnoreNullable);
+        list($response) = $this->doAuthWithHttpInfo($doAuthInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -360,16 +360,16 @@ class AuthenticationApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\DoAuthResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function doAuthWithHttpInfo($doAuthInputObject, $xIgnoreNullable = 'true')
+    public function doAuthWithHttpInfo($doAuthInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\DoAuthResponse';
-        $request = $this->doAuthRequest($doAuthInputObject, $xIgnoreNullable);
+        $request = $this->doAuthRequest($doAuthInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -444,14 +444,14 @@ class AuthenticationApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function doAuthAsync($doAuthInputObject, $xIgnoreNullable = 'true')
+    public function doAuthAsync($doAuthInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->doAuthAsyncWithHttpInfo($doAuthInputObject, $xIgnoreNullable)
+        return $this->doAuthAsyncWithHttpInfo($doAuthInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -465,15 +465,15 @@ class AuthenticationApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function doAuthAsyncWithHttpInfo($doAuthInputObject, $xIgnoreNullable = 'true')
+    public function doAuthAsyncWithHttpInfo($doAuthInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\DoAuthResponse';
-        $request = $this->doAuthRequest($doAuthInputObject, $xIgnoreNullable);
+        $request = $this->doAuthRequest($doAuthInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -516,12 +516,12 @@ class AuthenticationApi
      * Create request for operation 'doAuth'
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function doAuthRequest($doAuthInputObject, $xIgnoreNullable = 'true')
+    protected function doAuthRequest($doAuthInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'doAuthInputObject' is set
         if ($doAuthInputObject === null || (is_array($doAuthInputObject) && count($doAuthInputObject) === 0)) {
@@ -538,8 +538,8 @@ class AuthenticationApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1068,15 +1068,15 @@ class AuthenticationApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updatePassword($updatePasswordInputObject, $xIgnoreNullable = 'true')
+    public function updatePassword($updatePasswordInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->updatePasswordWithHttpInfo($updatePasswordInputObject, $xIgnoreNullable);
+        $this->updatePasswordWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -1085,16 +1085,16 @@ class AuthenticationApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePasswordWithHttpInfo($updatePasswordInputObject, $xIgnoreNullable = 'true')
+    public function updatePasswordWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullable);
+        $request = $this->updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1155,14 +1155,14 @@ class AuthenticationApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePasswordAsync($updatePasswordInputObject, $xIgnoreNullable = 'true')
+    public function updatePasswordAsync($updatePasswordInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->updatePasswordAsyncWithHttpInfo($updatePasswordInputObject, $xIgnoreNullable)
+        return $this->updatePasswordAsyncWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1176,15 +1176,15 @@ class AuthenticationApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePasswordAsyncWithHttpInfo($updatePasswordInputObject, $xIgnoreNullable = 'true')
+    public function updatePasswordAsyncWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullable);
+        $request = $this->updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1213,12 +1213,12 @@ class AuthenticationApi
      * Create request for operation 'updatePassword'
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullable = 'true')
+    protected function updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updatePasswordInputObject' is set
         if ($updatePasswordInputObject === null || (is_array($updatePasswordInputObject) && count($updatePasswordInputObject) === 0)) {
@@ -1235,8 +1235,8 @@ class AuthenticationApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

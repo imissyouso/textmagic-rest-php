@@ -93,15 +93,15 @@ class CustomFieldsApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createCustomField($createCustomFieldInputObject, $xIgnoreNullable = 'true')
+    public function createCustomField($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createCustomFieldWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullable);
+        list($response) = $this->createCustomFieldWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -111,16 +111,16 @@ class CustomFieldsApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCustomFieldWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullable = 'true')
+    public function createCustomFieldWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullable);
+        $request = $this->createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -211,14 +211,14 @@ class CustomFieldsApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomFieldAsync($createCustomFieldInputObject, $xIgnoreNullable = 'true')
+    public function createCustomFieldAsync($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullable)
+        return $this->createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -232,15 +232,15 @@ class CustomFieldsApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullable = 'true')
+    public function createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullable);
+        $request = $this->createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -283,12 +283,12 @@ class CustomFieldsApi
      * Create request for operation 'createCustomField'
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullable = 'true')
+    protected function createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createCustomFieldInputObject' is set
         if ($createCustomFieldInputObject === null || (is_array($createCustomFieldInputObject) && count($createCustomFieldInputObject) === 0)) {
@@ -305,8 +305,8 @@ class CustomFieldsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1180,15 +1180,15 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject updateCustomFieldInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -1199,16 +1199,16 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1300,14 +1300,14 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldAsync($updateCustomFieldInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldAsync($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullable)
+        return $this->updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1322,15 +1322,15 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1374,12 +1374,12 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateCustomFieldInputObject' is set
         if ($updateCustomFieldInputObject === null || (is_array($updateCustomFieldInputObject) && count($updateCustomFieldInputObject) === 0)) {
@@ -1402,8 +1402,8 @@ class CustomFieldsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -1493,15 +1493,15 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject updateCustomFieldValueInputObject (required)
      * @param  string $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -1512,16 +1512,16 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1613,14 +1613,14 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldValueAsync($updateCustomFieldValueInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldValueAsync($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullable)
+        return $this->updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1635,15 +1635,15 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1687,12 +1687,12 @@ class CustomFieldsApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateCustomFieldValueInputObject' is set
         if ($updateCustomFieldValueInputObject === null || (is_array($updateCustomFieldValueInputObject) && count($updateCustomFieldValueInputObject) === 0)) {
@@ -1715,8 +1715,8 @@ class CustomFieldsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params

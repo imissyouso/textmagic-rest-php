@@ -1377,15 +1377,15 @@ class UserSettingsApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject updateBalanceNotificationSettingsInputObject (optional)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullable = 'true')
+    public function updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullValues = 'true')
     {
-        $this->updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullable);
+        $this->updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -1394,16 +1394,16 @@ class UserSettingsApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (optional)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullable = 'true')
+    public function updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1464,14 +1464,14 @@ class UserSettingsApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (optional)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBalanceNotificationSettingsAsync($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullable = 'true')
+    public function updateBalanceNotificationSettingsAsync($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullValues = 'true')
     {
-        return $this->updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullable)
+        return $this->updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1485,15 +1485,15 @@ class UserSettingsApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (optional)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullable = 'true')
+    public function updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1522,12 +1522,12 @@ class UserSettingsApi
      * Create request for operation 'updateBalanceNotificationSettings'
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (optional)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullable = 'true')
+    protected function updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject = null, $xIgnoreNullValues = 'true')
     {
 
         $resourcePath = '/api/v2/user/notification/balance';
@@ -1538,8 +1538,8 @@ class UserSettingsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1620,15 +1620,15 @@ class UserSettingsApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullable);
+        $this->updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -1637,16 +1637,16 @@ class UserSettingsApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1707,14 +1707,14 @@ class UserSettingsApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCallbackSettingsAsync($updateCallbackSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateCallbackSettingsAsync($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullable)
+        return $this->updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1728,15 +1728,15 @@ class UserSettingsApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1765,12 +1765,12 @@ class UserSettingsApi
      * Create request for operation 'updateCallbackSettings'
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullable = 'true')
+    protected function updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateCallbackSettingsInputObject' is set
         if ($updateCallbackSettingsInputObject === null || (is_array($updateCallbackSettingsInputObject) && count($updateCallbackSettingsInputObject) === 0)) {
@@ -1787,8 +1787,8 @@ class UserSettingsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1869,15 +1869,15 @@ class UserSettingsApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable);
+        $this->updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -1886,16 +1886,16 @@ class UserSettingsApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1956,14 +1956,14 @@ class UserSettingsApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChatDesktopNotificationSettingsAsync($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateChatDesktopNotificationSettingsAsync($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable)
+        return $this->updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1977,15 +1977,15 @@ class UserSettingsApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2014,12 +2014,12 @@ class UserSettingsApi
      * Create request for operation 'updateChatDesktopNotificationSettings'
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    protected function updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateChatDesktopNotificationSettingsInputObject' is set
         if ($updateChatDesktopNotificationSettingsInputObject === null || (is_array($updateChatDesktopNotificationSettingsInputObject) && count($updateChatDesktopNotificationSettingsInputObject) === 0)) {
@@ -2036,8 +2036,8 @@ class UserSettingsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -2118,15 +2118,15 @@ class UserSettingsApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable);
+        $this->updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -2135,16 +2135,16 @@ class UserSettingsApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2205,14 +2205,14 @@ class UserSettingsApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInboundMessagesNotificationSettingsAsync($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateInboundMessagesNotificationSettingsAsync($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable)
+        return $this->updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2226,15 +2226,15 @@ class UserSettingsApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    public function updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable);
+        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2263,12 +2263,12 @@ class UserSettingsApi
      * Create request for operation 'updateInboundMessagesNotificationSettings'
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullable = 'true')
+    protected function updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateInboundMessagesNotificationSettingsInputObject' is set
         if ($updateInboundMessagesNotificationSettingsInputObject === null || (is_array($updateInboundMessagesNotificationSettingsInputObject) && count($updateInboundMessagesNotificationSettingsInputObject) === 0)) {
@@ -2285,8 +2285,8 @@ class UserSettingsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

@@ -121,7 +121,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteOutboundMessagesBulk**
-> deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable)
+> deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues)
 
 Delete outbound messages by given ID(s) or delete all outbound messages.
 
@@ -143,10 +143,10 @@ $apiInstance = new TextMagic\Api\OutboundMessagesApi(
     $config
 );
 $deleteOutboundMessagesBulkInputObject = new \TextMagic\Models\DeleteOutboundMessagesBulkInputObject(); // \TextMagic\Models\DeleteOutboundMessagesBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling OutboundMessagesApi->deleteOutboundMessagesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -158,7 +158,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteOutboundMessagesBulkInputObject** | [**\TextMagic\Models\DeleteOutboundMessagesBulkInputObject**](../Model/DeleteOutboundMessagesBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendMessage**
-> \TextMagic\Models\SendMessageResponse sendMessage($sendMessageInputObject, $xIgnoreNullable)
+> \TextMagic\Models\SendMessageResponse sendMessage($sendMessageInputObject, $xIgnoreNullValues)
 
 Send a new outbound message.
 
@@ -664,10 +664,10 @@ $apiInstance = new TextMagic\Api\OutboundMessagesApi(
     $config
 );
 $sendMessageInputObject = new \TextMagic\Models\SendMessageInputObject(); // \TextMagic\Models\SendMessageInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->sendMessage($sendMessageInputObject, $xIgnoreNullable);
+    $result = $apiInstance->sendMessage($sendMessageInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OutboundMessagesApi->sendMessage: ', $e->getMessage(), PHP_EOL;
@@ -680,7 +680,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sendMessageInputObject** | [**\TextMagic\Models\SendMessageInputObject**](../Model/SendMessageInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

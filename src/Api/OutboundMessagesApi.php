@@ -556,15 +556,15 @@ class OutboundMessagesApi
      * Delete outbound messages by given ID(s) or delete all outbound messages.
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable);
+        $this->deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -573,16 +573,16 @@ class OutboundMessagesApi
      * Delete outbound messages by given ID(s) or delete all outbound messages.
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -643,14 +643,14 @@ class OutboundMessagesApi
      * Delete outbound messages by given ID(s) or delete all outbound messages.
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOutboundMessagesBulkAsync($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteOutboundMessagesBulkAsync($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable)
+        return $this->deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -664,15 +664,15 @@ class OutboundMessagesApi
      * Delete outbound messages by given ID(s) or delete all outbound messages.
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -701,12 +701,12 @@ class OutboundMessagesApi
      * Create request for operation 'deleteOutboundMessagesBulk'
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteOutboundMessagesBulkInputObject' is set
         if ($deleteOutboundMessagesBulkInputObject === null || (is_array($deleteOutboundMessagesBulkInputObject) && count($deleteOutboundMessagesBulkInputObject) === 0)) {
@@ -723,8 +723,8 @@ class OutboundMessagesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -3120,15 +3120,15 @@ class OutboundMessagesApi
      * Send a new outbound message.
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\SendMessageResponse
      */
-    public function sendMessage($sendMessageInputObject, $xIgnoreNullable = 'true')
+    public function sendMessage($sendMessageInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->sendMessageWithHttpInfo($sendMessageInputObject, $xIgnoreNullable);
+        list($response) = $this->sendMessageWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -3138,16 +3138,16 @@ class OutboundMessagesApi
      * Send a new outbound message.
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\SendMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendMessageWithHttpInfo($sendMessageInputObject, $xIgnoreNullable = 'true')
+    public function sendMessageWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\SendMessageResponse';
-        $request = $this->sendMessageRequest($sendMessageInputObject, $xIgnoreNullable);
+        $request = $this->sendMessageRequest($sendMessageInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3230,14 +3230,14 @@ class OutboundMessagesApi
      * Send a new outbound message.
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMessageAsync($sendMessageInputObject, $xIgnoreNullable = 'true')
+    public function sendMessageAsync($sendMessageInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->sendMessageAsyncWithHttpInfo($sendMessageInputObject, $xIgnoreNullable)
+        return $this->sendMessageAsyncWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3251,15 +3251,15 @@ class OutboundMessagesApi
      * Send a new outbound message.
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMessageAsyncWithHttpInfo($sendMessageInputObject, $xIgnoreNullable = 'true')
+    public function sendMessageAsyncWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\SendMessageResponse';
-        $request = $this->sendMessageRequest($sendMessageInputObject, $xIgnoreNullable);
+        $request = $this->sendMessageRequest($sendMessageInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3302,12 +3302,12 @@ class OutboundMessagesApi
      * Create request for operation 'sendMessage'
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendMessageRequest($sendMessageInputObject, $xIgnoreNullable = 'true')
+    protected function sendMessageRequest($sendMessageInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'sendMessageInputObject' is set
         if ($sendMessageInputObject === null || (is_array($sendMessageInputObject) && count($sendMessageInputObject) === 0)) {
@@ -3324,8 +3324,8 @@ class OutboundMessagesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

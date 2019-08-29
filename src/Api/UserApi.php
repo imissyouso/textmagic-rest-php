@@ -829,15 +829,15 @@ class UserApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\UpdateCurrentUserResponse
      */
-    public function updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullable = 'true')
+    public function updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateCurrentUserWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullable);
+        list($response) = $this->updateCurrentUserWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -847,16 +847,16 @@ class UserApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\UpdateCurrentUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCurrentUserWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullable = 'true')
+    public function updateCurrentUserWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\UpdateCurrentUserResponse';
-        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullable);
+        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -939,14 +939,14 @@ class UserApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCurrentUserAsync($updateCurrentUserInputObject, $xIgnoreNullable = 'true')
+    public function updateCurrentUserAsync($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullable)
+        return $this->updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -960,15 +960,15 @@ class UserApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullable = 'true')
+    public function updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\UpdateCurrentUserResponse';
-        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullable);
+        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1011,12 +1011,12 @@ class UserApi
      * Create request for operation 'updateCurrentUser'
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullable = 'true')
+    protected function updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateCurrentUserInputObject' is set
         if ($updateCurrentUserInputObject === null || (is_array($updateCurrentUserInputObject) && count($updateCurrentUserInputObject) === 0)) {
@@ -1033,8 +1033,8 @@ class UserApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

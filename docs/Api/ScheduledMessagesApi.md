@@ -65,7 +65,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteScheduledMessagesBulk**
-> deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable)
+> deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues)
 
 Delete scheduled messages by given ID(s) or delete all scheduled messages.
 
@@ -87,10 +87,10 @@ $apiInstance = new TextMagic\Api\ScheduledMessagesApi(
     $config
 );
 $deleteScheduledMessagesBulkInputObject = new \TextMagic\Models\DeleteScheduledMessagesBulkInputObject(); // \TextMagic\Models\DeleteScheduledMessagesBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ScheduledMessagesApi->deleteScheduledMessagesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -102,7 +102,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteScheduledMessagesBulkInputObject** | [**\TextMagic\Models\DeleteScheduledMessagesBulkInputObject**](../Model/DeleteScheduledMessagesBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

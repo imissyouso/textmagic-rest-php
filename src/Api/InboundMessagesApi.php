@@ -338,15 +338,15 @@ class InboundMessagesApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullable);
+        $this->deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -355,16 +355,16 @@ class InboundMessagesApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -425,14 +425,14 @@ class InboundMessagesApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteInboundMessagesBulkAsync($deleteInboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteInboundMessagesBulkAsync($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullable)
+        return $this->deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -446,15 +446,15 @@ class InboundMessagesApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -483,12 +483,12 @@ class InboundMessagesApi
      * Create request for operation 'deleteInboundMessagesBulk'
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteInboundMessagesBulkInputObject' is set
         if ($deleteInboundMessagesBulkInputObject === null || (is_array($deleteInboundMessagesBulkInputObject) && count($deleteInboundMessagesBulkInputObject) === 0)) {
@@ -505,8 +505,8 @@ class InboundMessagesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

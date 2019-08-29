@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **createPushToken**
-> createPushToken($createPushTokenInputObject, $xIgnoreNullable)
+> createPushToken($createPushTokenInputObject, $xIgnoreNullValues)
 
 Add or update a device token.
 
@@ -32,10 +32,10 @@ $apiInstance = new TextMagic\Api\IntegrationApi(
     $config
 );
 $createPushTokenInputObject = new \TextMagic\Models\CreatePushTokenInputObject(); // \TextMagic\Models\CreatePushTokenInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->createPushToken($createPushTokenInputObject, $xIgnoreNullable);
+    $apiInstance->createPushToken($createPushTokenInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationApi->createPushToken: ', $e->getMessage(), PHP_EOL;
 }
@@ -47,7 +47,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createPushTokenInputObject** | [**\TextMagic\Models\CreatePushTokenInputObject**](../Model/CreatePushTokenInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

@@ -93,15 +93,15 @@ class NumbersApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullable = 'true')
+    public function buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullable);
+        $this->buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -110,16 +110,16 @@ class NumbersApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullable = 'true')
+    public function buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullable);
+        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -188,14 +188,14 @@ class NumbersApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buyDedicatedNumberAsync($buyDedicatedNumberInputObject, $xIgnoreNullable = 'true')
+    public function buyDedicatedNumberAsync($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullable)
+        return $this->buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,15 +209,15 @@ class NumbersApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullable = 'true')
+    public function buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullable);
+        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -246,12 +246,12 @@ class NumbersApi
      * Create request for operation 'buyDedicatedNumber'
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullable = 'true')
+    protected function buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'buyDedicatedNumberInputObject' is set
         if ($buyDedicatedNumberInputObject === null || (is_array($buyDedicatedNumberInputObject) && count($buyDedicatedNumberInputObject) === 0)) {
@@ -268,8 +268,8 @@ class NumbersApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -2535,15 +2535,15 @@ class NumbersApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function requestSenderId($requestSenderIdInputObject, $xIgnoreNullable = 'true')
+    public function requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->requestSenderIdWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullable);
+        list($response) = $this->requestSenderIdWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -2553,16 +2553,16 @@ class NumbersApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestSenderIdWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullable = 'true')
+    public function requestSenderIdWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullable);
+        $request = $this->requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2645,14 +2645,14 @@ class NumbersApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestSenderIdAsync($requestSenderIdInputObject, $xIgnoreNullable = 'true')
+    public function requestSenderIdAsync($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullable)
+        return $this->requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2666,15 +2666,15 @@ class NumbersApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullable = 'true')
+    public function requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullable);
+        $request = $this->requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2717,12 +2717,12 @@ class NumbersApi
      * Create request for operation 'requestSenderId'
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullable = 'true')
+    protected function requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'requestSenderIdInputObject' is set
         if ($requestSenderIdInputObject === null || (is_array($requestSenderIdInputObject) && count($requestSenderIdInputObject) === 0)) {
@@ -2739,8 +2739,8 @@ class NumbersApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -2821,15 +2821,15 @@ class NumbersApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullable = 'true')
+    public function updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->updateSenderSettingWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullable);
+        $this->updateSenderSettingWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -2838,16 +2838,16 @@ class NumbersApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSenderSettingWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullable = 'true')
+    public function updateSenderSettingWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullable);
+        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2916,14 +2916,14 @@ class NumbersApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSenderSettingAsync($updateSenderSettingInputObject, $xIgnoreNullable = 'true')
+    public function updateSenderSettingAsync($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullable)
+        return $this->updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2937,15 +2937,15 @@ class NumbersApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullable = 'true')
+    public function updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullable);
+        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2974,12 +2974,12 @@ class NumbersApi
      * Create request for operation 'updateSenderSetting'
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullable = 'true')
+    protected function updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateSenderSettingInputObject' is set
         if ($updateSenderSettingInputObject === null || (is_array($updateSenderSettingInputObject) && count($updateSenderSettingInputObject) === 0)) {
@@ -2996,8 +2996,8 @@ class NumbersApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

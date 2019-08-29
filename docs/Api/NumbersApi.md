@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **buyDedicatedNumber**
-> buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullable)
+> buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues)
 
 Buy a dedicated number and assign it to the specified account.
 
@@ -40,10 +40,10 @@ $apiInstance = new TextMagic\Api\NumbersApi(
     $config
 );
 $buyDedicatedNumberInputObject = new \TextMagic\Models\BuyDedicatedNumberInputObject(); // \TextMagic\Models\BuyDedicatedNumberInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullable);
+    $apiInstance->buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling NumbersApi->buyDedicatedNumber: ', $e->getMessage(), PHP_EOL;
 }
@@ -55,7 +55,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **buyDedicatedNumberInputObject** | [**\TextMagic\Models\BuyDedicatedNumberInputObject**](../Model/BuyDedicatedNumberInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestSenderId**
-> \TextMagic\Models\ResourceLinkResponse requestSenderId($requestSenderIdInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues)
 
 Request for a new Sender ID.
 
@@ -535,10 +535,10 @@ $apiInstance = new TextMagic\Api\NumbersApi(
     $config
 );
 $requestSenderIdInputObject = new \TextMagic\Models\RequestSenderIdInputObject(); // \TextMagic\Models\RequestSenderIdInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->requestSenderId($requestSenderIdInputObject, $xIgnoreNullable);
+    $result = $apiInstance->requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NumbersApi->requestSenderId: ', $e->getMessage(), PHP_EOL;
@@ -551,7 +551,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestSenderIdInputObject** | [**\TextMagic\Models\RequestSenderIdInputObject**](../Model/RequestSenderIdInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSenderSetting**
-> updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullable)
+> updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullValues)
 
 Change sender settings for specified country.
 
@@ -591,10 +591,10 @@ $apiInstance = new TextMagic\Api\NumbersApi(
     $config
 );
 $updateSenderSettingInputObject = new \TextMagic\Models\UpdateSenderSettingInputObject(); // \TextMagic\Models\UpdateSenderSettingInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullable);
+    $apiInstance->updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling NumbersApi->updateSenderSetting: ', $e->getMessage(), PHP_EOL;
 }
@@ -606,7 +606,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateSenderSettingInputObject** | [**\TextMagic\Models\UpdateSenderSettingInputObject**](../Model/UpdateSenderSettingInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

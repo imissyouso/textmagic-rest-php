@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createList**
-> \TextMagic\Models\ResourceLinkResponse createList($createListInputObject, $xIgnoreNullable)
+> \TextMagic\Models\ResourceLinkResponse createList($createListInputObject, $xIgnoreNullValues)
 
 Create a new list from the submitted data.
 
@@ -157,10 +157,10 @@ $apiInstance = new TextMagic\Api\ContactListsApi(
     $config
 );
 $createListInputObject = new \TextMagic\Models\CreateListInputObject(); // \TextMagic\Models\CreateListInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createList($createListInputObject, $xIgnoreNullable);
+    $result = $apiInstance->createList($createListInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListsApi->createList: ', $e->getMessage(), PHP_EOL;
@@ -173,7 +173,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createListInputObject** | [**\TextMagic\Models\CreateListInputObject**](../Model/CreateListInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -352,7 +352,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteListContactsBulk**
-> deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullable)
+> deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues)
 
 Delete contact from list by given ID(s) or all contacts from list.
 
@@ -375,10 +375,10 @@ $apiInstance = new TextMagic\Api\ContactListsApi(
 );
 $deleteListContactsBulkInputObject = new \TextMagic\Models\DeleteListContactsBulkInputObject(); // \TextMagic\Models\DeleteListContactsBulkInputObject | 
 $id = 1; // int | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullable);
+    $apiInstance->deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListsApi->deleteListContactsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteListContactsBulkInputObject** | [**\TextMagic\Models\DeleteListContactsBulkInputObject**](../Model/DeleteListContactsBulkInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -409,7 +409,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteListsBulk**
-> deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullable)
+> deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullValues)
 
 Delete list by given ID(s) or delete all lists.
 
@@ -431,10 +431,10 @@ $apiInstance = new TextMagic\Api\ContactListsApi(
     $config
 );
 $deleteListsBulkInputObject = new \TextMagic\Models\DeleteListsBulkInputObject(); // \TextMagic\Models\DeleteListsBulkInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullable);
+    $apiInstance->deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListsApi->deleteListsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -446,7 +446,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteListsBulkInputObject** | [**\TextMagic\Models\DeleteListsBulkInputObject**](../Model/DeleteListsBulkInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

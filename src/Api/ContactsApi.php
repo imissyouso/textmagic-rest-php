@@ -93,15 +93,15 @@ class ContactsApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject blockContactInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function blockContact($blockContactInputObject, $xIgnoreNullable = 'true')
+    public function blockContact($blockContactInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->blockContactWithHttpInfo($blockContactInputObject, $xIgnoreNullable);
+        list($response) = $this->blockContactWithHttpInfo($blockContactInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -111,16 +111,16 @@ class ContactsApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function blockContactWithHttpInfo($blockContactInputObject, $xIgnoreNullable = 'true')
+    public function blockContactWithHttpInfo($blockContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->blockContactRequest($blockContactInputObject, $xIgnoreNullable);
+        $request = $this->blockContactRequest($blockContactInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -211,14 +211,14 @@ class ContactsApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockContactAsync($blockContactInputObject, $xIgnoreNullable = 'true')
+    public function blockContactAsync($blockContactInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->blockContactAsyncWithHttpInfo($blockContactInputObject, $xIgnoreNullable)
+        return $this->blockContactAsyncWithHttpInfo($blockContactInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -232,15 +232,15 @@ class ContactsApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockContactAsyncWithHttpInfo($blockContactInputObject, $xIgnoreNullable = 'true')
+    public function blockContactAsyncWithHttpInfo($blockContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->blockContactRequest($blockContactInputObject, $xIgnoreNullable);
+        $request = $this->blockContactRequest($blockContactInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -283,12 +283,12 @@ class ContactsApi
      * Create request for operation 'blockContact'
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function blockContactRequest($blockContactInputObject, $xIgnoreNullable = 'true')
+    protected function blockContactRequest($blockContactInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'blockContactInputObject' is set
         if ($blockContactInputObject === null || (is_array($blockContactInputObject) && count($blockContactInputObject) === 0)) {
@@ -305,8 +305,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -387,15 +387,15 @@ class ContactsApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject createContactInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createContact($createContactInputObject, $xIgnoreNullable = 'true')
+    public function createContact($createContactInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createContactWithHttpInfo($createContactInputObject, $xIgnoreNullable);
+        list($response) = $this->createContactWithHttpInfo($createContactInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -405,16 +405,16 @@ class ContactsApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactWithHttpInfo($createContactInputObject, $xIgnoreNullable = 'true')
+    public function createContactWithHttpInfo($createContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactRequest($createContactInputObject, $xIgnoreNullable);
+        $request = $this->createContactRequest($createContactInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -497,14 +497,14 @@ class ContactsApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsync($createContactInputObject, $xIgnoreNullable = 'true')
+    public function createContactAsync($createContactInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->createContactAsyncWithHttpInfo($createContactInputObject, $xIgnoreNullable)
+        return $this->createContactAsyncWithHttpInfo($createContactInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -518,15 +518,15 @@ class ContactsApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsyncWithHttpInfo($createContactInputObject, $xIgnoreNullable = 'true')
+    public function createContactAsyncWithHttpInfo($createContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactRequest($createContactInputObject, $xIgnoreNullable);
+        $request = $this->createContactRequest($createContactInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -569,12 +569,12 @@ class ContactsApi
      * Create request for operation 'createContact'
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactRequest($createContactInputObject, $xIgnoreNullable = 'true')
+    protected function createContactRequest($createContactInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createContactInputObject' is set
         if ($createContactInputObject === null || (is_array($createContactInputObject) && count($createContactInputObject) === 0)) {
@@ -591,8 +591,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1373,15 +1373,15 @@ class ContactsApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullable);
+        $this->deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -1390,16 +1390,16 @@ class ContactsApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullable);
+        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1468,14 +1468,14 @@ class ContactsApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactsByIdsAsync($deleteContactsByIdsInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactsByIdsAsync($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullable)
+        return $this->deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1489,15 +1489,15 @@ class ContactsApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullable);
+        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1526,12 +1526,12 @@ class ContactsApi
      * Create request for operation 'deleteContactsByIds'
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullable = 'true')
+    protected function deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteContactsByIdsInputObject' is set
         if ($deleteContactsByIdsInputObject === null || (is_array($deleteContactsByIdsInputObject) && count($deleteContactsByIdsInputObject) === 0)) {
@@ -1548,8 +1548,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -4563,15 +4563,15 @@ class ContactsApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unblockContact($unblockContactInputObject, $xIgnoreNullable = 'true')
+    public function unblockContact($unblockContactInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->unblockContactWithHttpInfo($unblockContactInputObject, $xIgnoreNullable);
+        $this->unblockContactWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -4580,16 +4580,16 @@ class ContactsApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unblockContactWithHttpInfo($unblockContactInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->unblockContactRequest($unblockContactInputObject, $xIgnoreNullable);
+        $request = $this->unblockContactRequest($unblockContactInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4658,14 +4658,14 @@ class ContactsApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactAsync($unblockContactInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactAsync($unblockContactInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->unblockContactAsyncWithHttpInfo($unblockContactInputObject, $xIgnoreNullable)
+        return $this->unblockContactAsyncWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4679,15 +4679,15 @@ class ContactsApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactAsyncWithHttpInfo($unblockContactInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactAsyncWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->unblockContactRequest($unblockContactInputObject, $xIgnoreNullable);
+        $request = $this->unblockContactRequest($unblockContactInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4716,12 +4716,12 @@ class ContactsApi
      * Create request for operation 'unblockContact'
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unblockContactRequest($unblockContactInputObject, $xIgnoreNullable = 'true')
+    protected function unblockContactRequest($unblockContactInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'unblockContactInputObject' is set
         if ($unblockContactInputObject === null || (is_array($unblockContactInputObject) && count($unblockContactInputObject) === 0)) {
@@ -4738,8 +4738,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -4820,15 +4820,15 @@ class ContactsApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullable);
+        $this->unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -4837,16 +4837,16 @@ class ContactsApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullable);
+        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4915,14 +4915,14 @@ class ContactsApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactsBulkAsync($unblockContactsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactsBulkAsync($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullable)
+        return $this->unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4936,15 +4936,15 @@ class ContactsApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullable = 'true')
+    public function unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullable);
+        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4973,12 +4973,12 @@ class ContactsApi
      * Create request for operation 'unblockContactsBulk'
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullable = 'true')
+    protected function unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'unblockContactsBulkInputObject' is set
         if ($unblockContactsBulkInputObject === null || (is_array($unblockContactsBulkInputObject) && count($unblockContactsBulkInputObject) === 0)) {
@@ -4995,8 +4995,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -5077,15 +5077,15 @@ class ContactsApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullable = 'true')
+    public function unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->unsubscribeContactWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullable);
+        list($response) = $this->unsubscribeContactWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -5095,16 +5095,16 @@ class ContactsApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unsubscribeContactWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullable = 'true')
+    public function unsubscribeContactWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullable);
+        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5195,14 +5195,14 @@ class ContactsApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unsubscribeContactAsync($unsubscribeContactInputObject, $xIgnoreNullable = 'true')
+    public function unsubscribeContactAsync($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullable)
+        return $this->unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5216,15 +5216,15 @@ class ContactsApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullable = 'true')
+    public function unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullable);
+        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5267,12 +5267,12 @@ class ContactsApi
      * Create request for operation 'unsubscribeContact'
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullable = 'true')
+    protected function unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'unsubscribeContactInputObject' is set
         if ($unsubscribeContactInputObject === null || (is_array($unsubscribeContactInputObject) && count($unsubscribeContactInputObject) === 0)) {
@@ -5289,8 +5289,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -5372,15 +5372,15 @@ class ContactsApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject updateContactInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateContact($updateContactInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContact($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateContactWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateContactWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -5391,16 +5391,16 @@ class ContactsApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateContactWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactRequest($updateContactInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateContactRequest($updateContactInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5492,14 +5492,14 @@ class ContactsApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactAsync($updateContactInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactAsync($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateContactAsyncWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullable)
+        return $this->updateContactAsyncWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5514,15 +5514,15 @@ class ContactsApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactAsyncWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactAsyncWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactRequest($updateContactInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateContactRequest($updateContactInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5566,12 +5566,12 @@ class ContactsApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateContactRequest($updateContactInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateContactRequest($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateContactInputObject' is set
         if ($updateContactInputObject === null || (is_array($updateContactInputObject) && count($updateContactInputObject) === 0)) {
@@ -5594,8 +5594,8 @@ class ContactsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params

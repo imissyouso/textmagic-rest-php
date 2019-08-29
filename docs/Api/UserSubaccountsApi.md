@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubaccountsWithTokens**
-> \TextMagic\Models\GetSubaccountsWithTokensResponse getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullable)
+> \TextMagic\Models\GetSubaccountsWithTokensResponse getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues)
 
 Get all subaccounts with their REST API tokens associated with specified app name.
 
@@ -202,10 +202,10 @@ $apiInstance = new TextMagic\Api\UserSubaccountsApi(
 $getSubaccountsWithTokensInputObject = new \TextMagic\Models\GetSubaccountsWithTokensInputObject(); // \TextMagic\Models\GetSubaccountsWithTokensInputObject | 
 $page = 1; // float | Fetch specified results page
 $limit = 10; // int | How many results to return
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullable);
+    $result = $apiInstance->getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserSubaccountsApi->getSubaccountsWithTokens: ', $e->getMessage(), PHP_EOL;
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
  **getSubaccountsWithTokensInputObject** | [**\TextMagic\Models\GetSubaccountsWithTokensInputObject**](../Model/GetSubaccountsWithTokensInputObject.md)|  | [optional]
  **page** | **float**| Fetch specified results page | [optional] [default to 1]
  **limit** | **int**| How many results to return | [optional] [default to 10]
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **inviteSubaccount**
-> inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullable)
+> inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullValues)
 
 Invite new subaccount.
 
@@ -260,10 +260,10 @@ $apiInstance = new TextMagic\Api\UserSubaccountsApi(
     $config
 );
 $inviteSubaccountInputObject = new \TextMagic\Models\InviteSubaccountInputObject(); // \TextMagic\Models\InviteSubaccountInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullable);
+    $apiInstance->inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling UserSubaccountsApi->inviteSubaccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -275,7 +275,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inviteSubaccountInputObject** | [**\TextMagic\Models\InviteSubaccountInputObject**](../Model/InviteSubaccountInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -293,7 +293,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestNewSubaccountToken**
-> \TextMagic\Models\User requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullable)
+> \TextMagic\Models\User requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullValues)
 
 Request a new REST API token for subaccount.
 
@@ -317,10 +317,10 @@ $apiInstance = new TextMagic\Api\UserSubaccountsApi(
     $config
 );
 $requestNewSubaccountTokenInputObject = new \TextMagic\Models\RequestNewSubaccountTokenInputObject(); // \TextMagic\Models\RequestNewSubaccountTokenInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullable);
+    $result = $apiInstance->requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserSubaccountsApi->requestNewSubaccountToken: ', $e->getMessage(), PHP_EOL;
@@ -333,7 +333,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestNewSubaccountTokenInputObject** | [**\TextMagic\Models\RequestNewSubaccountTokenInputObject**](../Model/RequestNewSubaccountTokenInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

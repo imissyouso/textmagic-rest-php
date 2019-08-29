@@ -648,15 +648,15 @@ class SurveysApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createSurvey($createSurveyInputObject, $xIgnoreNullable = 'true')
+    public function createSurvey($createSurveyInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createSurveyWithHttpInfo($createSurveyInputObject, $xIgnoreNullable);
+        list($response) = $this->createSurveyWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -666,16 +666,16 @@ class SurveysApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSurveyWithHttpInfo($createSurveyInputObject, $xIgnoreNullable = 'true')
+    public function createSurveyWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyRequest($createSurveyInputObject, $xIgnoreNullable);
+        $request = $this->createSurveyRequest($createSurveyInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -758,14 +758,14 @@ class SurveysApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyAsync($createSurveyInputObject, $xIgnoreNullable = 'true')
+    public function createSurveyAsync($createSurveyInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->createSurveyAsyncWithHttpInfo($createSurveyInputObject, $xIgnoreNullable)
+        return $this->createSurveyAsyncWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -779,15 +779,15 @@ class SurveysApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyAsyncWithHttpInfo($createSurveyInputObject, $xIgnoreNullable = 'true')
+    public function createSurveyAsyncWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyRequest($createSurveyInputObject, $xIgnoreNullable);
+        $request = $this->createSurveyRequest($createSurveyInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -830,12 +830,12 @@ class SurveysApi
      * Create request for operation 'createSurvey'
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSurveyRequest($createSurveyInputObject, $xIgnoreNullable = 'true')
+    protected function createSurveyRequest($createSurveyInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createSurveyInputObject' is set
         if ($createSurveyInputObject === null || (is_array($createSurveyInputObject) && count($createSurveyInputObject) === 0)) {
@@ -852,8 +852,8 @@ class SurveysApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -935,15 +935,15 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject createSurveyNodeInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -954,16 +954,16 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullable);
+        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1047,14 +1047,14 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyNodeAsync($createSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function createSurveyNodeAsync($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullable)
+        return $this->createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1069,15 +1069,15 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullable);
+        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1121,12 +1121,12 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    protected function createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createSurveyNodeInputObject' is set
         if ($createSurveyNodeInputObject === null || (is_array($createSurveyNodeInputObject) && count($createSurveyNodeInputObject) === 0)) {
@@ -1149,8 +1149,8 @@ class SurveysApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -2841,15 +2841,15 @@ class SurveysApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullable = 'true')
+    public function mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullable);
+        $this->mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -2858,16 +2858,16 @@ class SurveysApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullable = 'true')
+    public function mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullable);
+        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2936,14 +2936,14 @@ class SurveysApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mergeSurveyNodesAsync($mergeSurveyNodesInputObject, $xIgnoreNullable = 'true')
+    public function mergeSurveyNodesAsync($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullable)
+        return $this->mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2957,15 +2957,15 @@ class SurveysApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullable = 'true')
+    public function mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullable);
+        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2994,12 +2994,12 @@ class SurveysApi
      * Create request for operation 'mergeSurveyNodes'
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullable = 'true')
+    protected function mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'mergeSurveyNodesInputObject' is set
         if ($mergeSurveyNodesInputObject === null || (is_array($mergeSurveyNodesInputObject) && count($mergeSurveyNodesInputObject) === 0)) {
@@ -3016,8 +3016,8 @@ class SurveysApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -3671,15 +3671,15 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject updateSurveyInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateSurveyWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateSurveyWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -3690,16 +3690,16 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSurveyWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3791,14 +3791,14 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyAsync($updateSurveyInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyAsync($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullable)
+        return $this->updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3813,15 +3813,15 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3865,12 +3865,12 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateSurveyInputObject' is set
         if ($updateSurveyInputObject === null || (is_array($updateSurveyInputObject) && count($updateSurveyInputObject) === 0)) {
@@ -3893,8 +3893,8 @@ class SurveysApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -3984,15 +3984,15 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject updateSurveyNodeInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -4003,16 +4003,16 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4104,14 +4104,14 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyNodeAsync($updateSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyNodeAsync($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullable)
+        return $this->updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4126,15 +4126,15 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4178,12 +4178,12 @@ class SurveysApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateSurveyNodeInputObject' is set
         if ($updateSurveyNodeInputObject === null || (is_array($updateSurveyNodeInputObject) && count($updateSurveyNodeInputObject) === 0)) {
@@ -4206,8 +4206,8 @@ class SurveysApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params

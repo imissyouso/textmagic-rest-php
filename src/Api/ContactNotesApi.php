@@ -94,15 +94,15 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject createContactNoteInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createContactNote($createContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function createContactNote($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createContactNoteWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->createContactNoteWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -113,16 +113,16 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactNoteWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function createContactNoteWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullable);
+        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -214,14 +214,14 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactNoteAsync($createContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function createContactNoteAsync($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullable)
+        return $this->createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -236,15 +236,15 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullable);
+        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -288,12 +288,12 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    protected function createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createContactNoteInputObject' is set
         if ($createContactNoteInputObject === null || (is_array($createContactNoteInputObject) && count($createContactNoteInputObject) === 0)) {
@@ -316,8 +316,8 @@ class ContactNotesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -652,15 +652,15 @@ class ContactNotesApi
      *
      * @param  int $id id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable);
+        $this->deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -670,16 +670,16 @@ class ContactNotesApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -749,14 +749,14 @@ class ContactNotesApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactNotesBulkAsync($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactNotesBulkAsync($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable)
+        return $this->deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -771,15 +771,15 @@ class ContactNotesApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -809,12 +809,12 @@ class ContactNotesApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -837,8 +837,8 @@ class ContactNotesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
@@ -1510,15 +1510,15 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject updateContactNoteInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -1529,16 +1529,16 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1630,14 +1630,14 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactNoteAsync($updateContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactNoteAsync($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullable)
+        return $this->updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1652,15 +1652,15 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1704,12 +1704,12 @@ class ContactNotesApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateContactNoteInputObject' is set
         if ($updateContactNoteInputObject === null || (is_array($updateContactNoteInputObject) && count($updateContactNoteInputObject) === 0)) {
@@ -1732,8 +1732,8 @@ class ContactNotesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params

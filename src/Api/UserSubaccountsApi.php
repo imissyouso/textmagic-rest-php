@@ -895,15 +895,15 @@ class UserSubaccountsApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject getSubaccountsWithTokensInputObject (optional)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\GetSubaccountsWithTokensResponse
      */
-    public function getSubaccountsWithTokens($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullable = 'true')
+    public function getSubaccountsWithTokens($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullable);
+        list($response) = $this->getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
         return $response;
     }
 
@@ -915,16 +915,16 @@ class UserSubaccountsApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (optional)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\GetSubaccountsWithTokensResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullable = 'true')
+    public function getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\GetSubaccountsWithTokensResponse';
-        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullable);
+        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1009,14 +1009,14 @@ class UserSubaccountsApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (optional)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubaccountsWithTokensAsync($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullable = 'true')
+    public function getSubaccountsWithTokensAsync($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
     {
-        return $this->getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullable)
+        return $this->getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1032,15 +1032,15 @@ class UserSubaccountsApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (optional)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullable = 'true')
+    public function getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\GetSubaccountsWithTokensResponse';
-        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullable);
+        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1085,12 +1085,12 @@ class UserSubaccountsApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (optional)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullable = 'true')
+    protected function getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject = null, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
     {
 
         $resourcePath = '/api/v2/subaccounts/tokens/list';
@@ -1109,8 +1109,8 @@ class UserSubaccountsApi
             $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
         }
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1191,15 +1191,15 @@ class UserSubaccountsApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullable = 'true')
+    public function inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->inviteSubaccountWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullable);
+        $this->inviteSubaccountWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -1208,16 +1208,16 @@ class UserSubaccountsApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteSubaccountWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullable = 'true')
+    public function inviteSubaccountWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullable);
+        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1286,14 +1286,14 @@ class UserSubaccountsApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function inviteSubaccountAsync($inviteSubaccountInputObject, $xIgnoreNullable = 'true')
+    public function inviteSubaccountAsync($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullable)
+        return $this->inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1307,15 +1307,15 @@ class UserSubaccountsApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullable = 'true')
+    public function inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullable);
+        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1344,12 +1344,12 @@ class UserSubaccountsApi
      * Create request for operation 'inviteSubaccount'
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullable = 'true')
+    protected function inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'inviteSubaccountInputObject' is set
         if ($inviteSubaccountInputObject === null || (is_array($inviteSubaccountInputObject) && count($inviteSubaccountInputObject) === 0)) {
@@ -1366,8 +1366,8 @@ class UserSubaccountsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1448,15 +1448,15 @@ class UserSubaccountsApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\User
      */
-    public function requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullable = 'true')
+    public function requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullable);
+        list($response) = $this->requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -1466,16 +1466,16 @@ class UserSubaccountsApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullable = 'true')
+    public function requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\User';
-        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullable);
+        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1558,14 +1558,14 @@ class UserSubaccountsApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestNewSubaccountTokenAsync($requestNewSubaccountTokenInputObject, $xIgnoreNullable = 'true')
+    public function requestNewSubaccountTokenAsync($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullable)
+        return $this->requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1579,15 +1579,15 @@ class UserSubaccountsApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullable = 'true')
+    public function requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\User';
-        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullable);
+        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1630,12 +1630,12 @@ class UserSubaccountsApi
      * Create request for operation 'requestNewSubaccountToken'
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullable = 'true')
+    protected function requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'requestNewSubaccountTokenInputObject' is set
         if ($requestNewSubaccountTokenInputObject === null || (is_array($requestNewSubaccountTokenInputObject) && count($requestNewSubaccountTokenInputObject) === 0)) {
@@ -1652,8 +1652,8 @@ class UserSubaccountsApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

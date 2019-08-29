@@ -161,7 +161,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCurrentUser**
-> \TextMagic\Models\UpdateCurrentUserResponse updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullable)
+> \TextMagic\Models\UpdateCurrentUserResponse updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullValues)
 
 Update current user info.
 
@@ -183,10 +183,10 @@ $apiInstance = new TextMagic\Api\UserApi(
     $config
 );
 $updateCurrentUserInputObject = new \TextMagic\Models\UpdateCurrentUserInputObject(); // \TextMagic\Models\UpdateCurrentUserInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullable);
+    $result = $apiInstance->updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updateCurrentUser: ', $e->getMessage(), PHP_EOL;
@@ -199,7 +199,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCurrentUserInputObject** | [**\TextMagic\Models\UpdateCurrentUserInputObject**](../Model/UpdateCurrentUserInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

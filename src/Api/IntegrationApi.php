@@ -93,15 +93,15 @@ class IntegrationApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createPushToken($createPushTokenInputObject, $xIgnoreNullable = 'true')
+    public function createPushToken($createPushTokenInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->createPushTokenWithHttpInfo($createPushTokenInputObject, $xIgnoreNullable);
+        $this->createPushTokenWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -110,16 +110,16 @@ class IntegrationApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPushTokenWithHttpInfo($createPushTokenInputObject, $xIgnoreNullable = 'true')
+    public function createPushTokenWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullable);
+        $request = $this->createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,14 +180,14 @@ class IntegrationApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPushTokenAsync($createPushTokenInputObject, $xIgnoreNullable = 'true')
+    public function createPushTokenAsync($createPushTokenInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->createPushTokenAsyncWithHttpInfo($createPushTokenInputObject, $xIgnoreNullable)
+        return $this->createPushTokenAsyncWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -201,15 +201,15 @@ class IntegrationApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPushTokenAsyncWithHttpInfo($createPushTokenInputObject, $xIgnoreNullable = 'true')
+    public function createPushTokenAsyncWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullable);
+        $request = $this->createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -238,12 +238,12 @@ class IntegrationApi
      * Create request for operation 'createPushToken'
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullable = 'true')
+    protected function createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createPushTokenInputObject' is set
         if ($createPushTokenInputObject === null || (is_array($createPushTokenInputObject) && count($createPushTokenInputObject) === 0)) {
@@ -260,8 +260,8 @@ class IntegrationApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 

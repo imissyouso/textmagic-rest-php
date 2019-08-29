@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **checkPhoneVerificationCode**
-> checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullable)
+> checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues)
 
 Check user phone verification code
 
@@ -34,10 +34,10 @@ $apiInstance = new TextMagic\Api\AuthenticationApi(
     $config
 );
 $checkPhoneVerificationCodeInputObject = new \TextMagic\Models\CheckPhoneVerificationCodeInputObject(); // \TextMagic\Models\CheckPhoneVerificationCodeInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullable);
+    $apiInstance->checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->checkPhoneVerificationCode: ', $e->getMessage(), PHP_EOL;
 }
@@ -49,7 +49,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **checkPhoneVerificationCodeInputObject** | [**\TextMagic\Models\CheckPhoneVerificationCodeInputObject**](../Model/CheckPhoneVerificationCodeInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -67,7 +67,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **doAuth**
-> \TextMagic\Models\DoAuthResponse doAuth($doAuthInputObject, $xIgnoreNullable)
+> \TextMagic\Models\DoAuthResponse doAuth($doAuthInputObject, $xIgnoreNullValues)
 
 Authenticate user by given username and password.
 
@@ -84,10 +84,10 @@ $apiInstance = new TextMagic\Api\AuthenticationApi(
     new GuzzleHttp\Client()
 );
 $doAuthInputObject = new \TextMagic\Models\DoAuthInputObject(); // \TextMagic\Models\DoAuthInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->doAuth($doAuthInputObject, $xIgnoreNullable);
+    $result = $apiInstance->doAuth($doAuthInputObject, $xIgnoreNullValues);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->doAuth: ', $e->getMessage(), PHP_EOL;
@@ -100,7 +100,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **doAuthInputObject** | [**\TextMagic\Models\DoAuthInputObject**](../Model/DoAuthInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -216,7 +216,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePassword**
-> updatePassword($updatePasswordInputObject, $xIgnoreNullable)
+> updatePassword($updatePasswordInputObject, $xIgnoreNullValues)
 
 Change user password.
 
@@ -238,10 +238,10 @@ $apiInstance = new TextMagic\Api\AuthenticationApi(
     $config
 );
 $updatePasswordInputObject = new \TextMagic\Models\UpdatePasswordInputObject(); // \TextMagic\Models\UpdatePasswordInputObject | 
-$xIgnoreNullable = true; // bool | 
+$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updatePassword($updatePasswordInputObject, $xIgnoreNullable);
+    $apiInstance->updatePassword($updatePasswordInputObject, $xIgnoreNullValues);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->updatePassword: ', $e->getMessage(), PHP_EOL;
 }
@@ -253,7 +253,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePasswordInputObject** | [**\TextMagic\Models\UpdatePasswordInputObject**](../Model/UpdatePasswordInputObject.md)|  |
- **xIgnoreNullable** | **bool**|  | [optional] [default to true]
+ **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

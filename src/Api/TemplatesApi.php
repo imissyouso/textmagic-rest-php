@@ -93,15 +93,15 @@ class TemplatesApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createTemplate($createTemplateInputObject, $xIgnoreNullable = 'true')
+    public function createTemplate($createTemplateInputObject, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->createTemplateWithHttpInfo($createTemplateInputObject, $xIgnoreNullable);
+        list($response) = $this->createTemplateWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues);
         return $response;
     }
 
@@ -111,16 +111,16 @@ class TemplatesApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTemplateWithHttpInfo($createTemplateInputObject, $xIgnoreNullable = 'true')
+    public function createTemplateWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createTemplateRequest($createTemplateInputObject, $xIgnoreNullable);
+        $request = $this->createTemplateRequest($createTemplateInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -195,14 +195,14 @@ class TemplatesApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateAsync($createTemplateInputObject, $xIgnoreNullable = 'true')
+    public function createTemplateAsync($createTemplateInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->createTemplateAsyncWithHttpInfo($createTemplateInputObject, $xIgnoreNullable)
+        return $this->createTemplateAsyncWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -216,15 +216,15 @@ class TemplatesApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateAsyncWithHttpInfo($createTemplateInputObject, $xIgnoreNullable = 'true')
+    public function createTemplateAsyncWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createTemplateRequest($createTemplateInputObject, $xIgnoreNullable);
+        $request = $this->createTemplateRequest($createTemplateInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -267,12 +267,12 @@ class TemplatesApi
      * Create request for operation 'createTemplate'
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createTemplateRequest($createTemplateInputObject, $xIgnoreNullable = 'true')
+    protected function createTemplateRequest($createTemplateInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'createTemplateInputObject' is set
         if ($createTemplateInputObject === null || (is_array($createTemplateInputObject) && count($createTemplateInputObject) === 0)) {
@@ -289,8 +289,8 @@ class TemplatesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -616,15 +616,15 @@ class TemplatesApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        $this->deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullable);
+        $this->deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
     }
 
     /**
@@ -633,16 +633,16 @@ class TemplatesApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -711,14 +711,14 @@ class TemplatesApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTemplatesBulkAsync($deleteTemplatesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteTemplatesBulkAsync($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
     {
-        return $this->deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullable)
+        return $this->deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -732,15 +732,15 @@ class TemplatesApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullable = 'true')
+    public function deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         $returnType = '';
-        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullable);
+        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -769,12 +769,12 @@ class TemplatesApi
      * Create request for operation 'deleteTemplatesBulk'
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullable = 'true')
+    protected function deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'deleteTemplatesBulkInputObject' is set
         if ($deleteTemplatesBulkInputObject === null || (is_array($deleteTemplatesBulkInputObject) && count($deleteTemplatesBulkInputObject) === 0)) {
@@ -791,8 +791,8 @@ class TemplatesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -1729,15 +1729,15 @@ class TemplatesApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject updateTemplateInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullable xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        list($response) = $this->updateTemplateWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullable);
+        list($response) = $this->updateTemplateWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues);
         return $response;
     }
 
@@ -1748,16 +1748,16 @@ class TemplatesApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTemplateWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateTemplateWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullValues);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1841,14 +1841,14 @@ class TemplatesApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTemplateAsync($updateTemplateInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateTemplateAsync($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
     {
-        return $this->updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullable)
+        return $this->updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1863,15 +1863,15 @@ class TemplatesApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullable = 'true')
+    public function updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullable);
+        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullValues);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1915,12 +1915,12 @@ class TemplatesApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullable (optional, default to true)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullable = 'true')
+    protected function updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
     {
         // verify the required parameter 'updateTemplateInputObject' is set
         if ($updateTemplateInputObject === null || (is_array($updateTemplateInputObject) && count($updateTemplateInputObject) === 0)) {
@@ -1943,8 +1943,8 @@ class TemplatesApi
         $multipart = false;
 
         // header params
-        if ($xIgnoreNullable !== null) {
-            $headerParams['X-Ignore-Nullable'] = ObjectSerializer::toHeaderValue($xIgnoreNullable);
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
         // path params
