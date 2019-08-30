@@ -1,17 +1,17 @@
-# TextMagic\BulkMessageSessionsApi
+# TextMagic\BillingApi
 
 All URIs are relative to *http://my.textmagic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllBulkSessions**](BulkMessageSessionsApi.md#getAllBulkSessions) | **GET** /api/v2/bulks | Get all bulk sending sessions.
-[**getBulkSession**](BulkMessageSessionsApi.md#getBulkSession) | **GET** /api/v2/bulks/{id} | Get bulk message session status.
+[**getInvoices**](BillingApi.md#getInvoices) | **GET** /api/v2/invoices | Return account invoices.
+[**getSpendingStat**](BillingApi.md#getSpendingStat) | **GET** /api/v2/stats/spending | Return account spending statistics.
 
 
-# **getAllBulkSessions**
-> \TextMagic\Models\GetAllBulkSessionsResponse getAllBulkSessions($page, $limit)
+# **getInvoices**
+> \TextMagic\Models\GetInvoicesResponse getInvoices($page, $limit)
 
-Get all bulk sending sessions.
+Return account invoices.
 
 ### Example
 ```php
@@ -24,7 +24,7 @@ $config = TextMagic\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new TextMagic\Api\BulkMessageSessionsApi(
+$apiInstance = new TextMagic\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -34,10 +34,10 @@ $page = 1; // int | Fetch specified results page
 $limit = 10; // int | How many results to return
 
 try {
-    $result = $apiInstance->getAllBulkSessions($page, $limit);
+    $result = $apiInstance->getInvoices($page, $limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BulkMessageSessionsApi->getAllBulkSessions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingApi->getInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllBulkSessionsResponse**](../Model/GetAllBulkSessionsResponse.md)
+[**\TextMagic\Models\GetInvoicesResponse**](../Model/GetInvoicesResponse.md)
 
 ### Authorization
 
@@ -64,10 +64,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getBulkSession**
-> \TextMagic\Models\BulkSession getBulkSession($id)
+# **getSpendingStat**
+> \TextMagic\Models\GetSpendingStatResponse getSpendingStat($page, $limit, $start, $end)
 
-Get bulk message session status.
+Return account spending statistics.
 
 ### Example
 ```php
@@ -80,19 +80,22 @@ $config = TextMagic\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new TextMagic\Api\BulkMessageSessionsApi(
+$apiInstance = new TextMagic\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | 
+$page = 1; // int | Fetch specified results page
+$limit = 10; // int | How many results to return
+$start = 56; // int | Optional. Start date in unix timestamp format. Default is 7 days ago
+$end = 56; // int | Optional. End date in unix timestamp format. Default is now
 
 try {
-    $result = $apiInstance->getBulkSession($id);
+    $result = $apiInstance->getSpendingStat($page, $limit, $start, $end);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BulkMessageSessionsApi->getBulkSession: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingApi->getSpendingStat: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -101,11 +104,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **page** | **int**| Fetch specified results page | [optional] [default to 1]
+ **limit** | **int**| How many results to return | [optional] [default to 10]
+ **start** | **int**| Optional. Start date in unix timestamp format. Default is 7 days ago | [optional]
+ **end** | **int**| Optional. End date in unix timestamp format. Default is now | [optional]
 
 ### Return type
 
-[**\TextMagic\Models\BulkSession**](../Model/BulkSession.md)
+[**\TextMagic\Models\GetSpendingStatResponse**](../Model/GetSpendingStatResponse.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * CallsApi
+ * BillingApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use TextMagic\HeaderSelector;
 use TextMagic\ObjectSerializer;
 
 /**
- * CallsApi Class Doc Comment
+ * BillingApi Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CallsApi
+class BillingApi
 {
     /**
      * @var ClientInterface
@@ -88,35 +88,39 @@ class CallsApi
     }
 
     /**
-     * Operation getCallsPrices
+     * Operation getInvoices
      *
-     * Check pricing for a inbound/outbound call.
+     * Return account invoices.
      *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetInvoicesResponse
      */
-    public function getCallsPrices()
+    public function getInvoices($page = '1', $limit = '10')
     {
-        list($response) = $this->getCallsPricesWithHttpInfo();
+        list($response) = $this->getInvoicesWithHttpInfo($page, $limit);
         return $response;
     }
 
     /**
-     * Operation getCallsPricesWithHttpInfo
+     * Operation getInvoicesWithHttpInfo
      *
-     * Check pricing for a inbound/outbound call.
+     * Return account invoices.
      *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetInvoicesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCallsPricesWithHttpInfo()
+    public function getInvoicesWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
-        $request = $this->getCallsPricesRequest();
+        $returnType = '\TextMagic\Models\GetInvoicesResponse';
+        $request = $this->getInvoicesRequest($page, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -167,7 +171,15 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetInvoicesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\BadRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -186,17 +198,19 @@ class CallsApi
     }
 
     /**
-     * Operation getCallsPricesAsync
+     * Operation getInvoicesAsync
      *
-     * Check pricing for a inbound/outbound call.
+     * Return account invoices.
      *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCallsPricesAsync()
+    public function getInvoicesAsync($page = '1', $limit = '10')
     {
-        return $this->getCallsPricesAsyncWithHttpInfo()
+        return $this->getInvoicesAsyncWithHttpInfo($page, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -205,18 +219,20 @@ class CallsApi
     }
 
     /**
-     * Operation getCallsPricesAsyncWithHttpInfo
+     * Operation getInvoicesAsyncWithHttpInfo
      *
-     * Check pricing for a inbound/outbound call.
+     * Return account invoices.
      *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCallsPricesAsyncWithHttpInfo()
+    public function getInvoicesAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = 'map[string,object]';
-        $request = $this->getCallsPricesRequest();
+        $returnType = '\TextMagic\Models\GetInvoicesResponse';
+        $request = $this->getInvoicesRequest($page, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -256,22 +272,32 @@ class CallsApi
     }
 
     /**
-     * Create request for operation 'getCallsPrices'
+     * Create request for operation 'getInvoices'
      *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCallsPricesRequest()
+    protected function getInvoicesRequest($page = '1', $limit = '10')
     {
 
-        $resourcePath = '/api/v2/calls/price';
+        $resourcePath = '/api/v2/invoices';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
 
 
         // body params
@@ -343,39 +369,43 @@ class CallsApi
     }
 
     /**
-     * Operation getForwardedCalls
+     * Operation getSpendingStat
      *
-     * Get all forwarded calls.
+     * Return account spending statistics.
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
+     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetForwardedCallsResponse
+     * @return \TextMagic\Models\GetSpendingStatResponse
      */
-    public function getForwardedCalls($page = '1', $limit = '10')
+    public function getSpendingStat($page = '1', $limit = '10', $start = null, $end = null)
     {
-        list($response) = $this->getForwardedCallsWithHttpInfo($page, $limit);
+        list($response) = $this->getSpendingStatWithHttpInfo($page, $limit, $start, $end);
         return $response;
     }
 
     /**
-     * Operation getForwardedCallsWithHttpInfo
+     * Operation getSpendingStatWithHttpInfo
      *
-     * Get all forwarded calls.
+     * Return account spending statistics.
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
+     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetForwardedCallsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetSpendingStatResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getForwardedCallsWithHttpInfo($page = '1', $limit = '10')
+    public function getSpendingStatWithHttpInfo($page = '1', $limit = '10', $start = null, $end = null)
     {
-        $returnType = '\TextMagic\Models\GetForwardedCallsResponse';
-        $request = $this->getForwardedCallsRequest($page, $limit);
+        $returnType = '\TextMagic\Models\GetSpendingStatResponse';
+        $request = $this->getSpendingStatRequest($page, $limit, $start, $end);
 
         try {
             $options = $this->createHttpClientOption();
@@ -426,7 +456,15 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetForwardedCallsResponse',
+                        '\TextMagic\Models\GetSpendingStatResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\BadRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -445,19 +483,21 @@ class CallsApi
     }
 
     /**
-     * Operation getForwardedCallsAsync
+     * Operation getSpendingStatAsync
      *
-     * Get all forwarded calls.
+     * Return account spending statistics.
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
+     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getForwardedCallsAsync($page = '1', $limit = '10')
+    public function getSpendingStatAsync($page = '1', $limit = '10', $start = null, $end = null)
     {
-        return $this->getForwardedCallsAsyncWithHttpInfo($page, $limit)
+        return $this->getSpendingStatAsyncWithHttpInfo($page, $limit, $start, $end)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -466,20 +506,22 @@ class CallsApi
     }
 
     /**
-     * Operation getForwardedCallsAsyncWithHttpInfo
+     * Operation getSpendingStatAsyncWithHttpInfo
      *
-     * Get all forwarded calls.
+     * Return account spending statistics.
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
+     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getForwardedCallsAsyncWithHttpInfo($page = '1', $limit = '10')
+    public function getSpendingStatAsyncWithHttpInfo($page = '1', $limit = '10', $start = null, $end = null)
     {
-        $returnType = '\TextMagic\Models\GetForwardedCallsResponse';
-        $request = $this->getForwardedCallsRequest($page, $limit);
+        $returnType = '\TextMagic\Models\GetSpendingStatResponse';
+        $request = $this->getSpendingStatRequest($page, $limit, $start, $end);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,18 +561,20 @@ class CallsApi
     }
 
     /**
-     * Create request for operation 'getForwardedCalls'
+     * Create request for operation 'getSpendingStat'
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
+     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getForwardedCallsRequest($page = '1', $limit = '10')
+    protected function getSpendingStatRequest($page = '1', $limit = '10', $start = null, $end = null)
     {
 
-        $resourcePath = '/api/v2/calls';
+        $resourcePath = '/api/v2/stats/spending';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -544,6 +588,14 @@ class CallsApi
         // query params
         if ($limit !== null) {
             $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($start !== null) {
+            $queryParams['start'] = ObjectSerializer::toQueryValue($start);
+        }
+        // query params
+        if ($end !== null) {
+            $queryParams['end'] = ObjectSerializer::toQueryValue($end);
         }
 
 
