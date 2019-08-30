@@ -15,17 +15,17 @@ PHP 5.5 and later
 
 To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
 
-```
+```javascript
 {
-"repositories": [
-{
-"type": "git",
-"url": "https://github.com/imissyouso/textmagic-rest-php.git"
-}
-],
-"require": {
-"imissyouso/textmagic-rest-php": "*@dev"
-}
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/imissyouso/textmagic-rest-php.git"
+        }
+    ],
+        "require": {
+        "imissyouso/textmagic-rest-php": "*@dev"
+    }
 }
 ```
 
@@ -44,28 +44,28 @@ require_once(__DIR__.'/vendor/autoload.php');
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
-        <?php
+<?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: BasicAuth
 $config = TextMagic\Configuration::getDefaultConfiguration()
     ->setUsername('YOUR_USERNAME')
-->setPassword('YOUR_PASSWORD');
+    ->setPassword('YOUR_PASSWORD');
 
 $apiInstance = new TextMagic\Api\TextMagicApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-new GuzzleHttp\Client(),
-$config
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
 );
 $assignContactsToListInputObject = new \TextMagic\Models\AssignContactsToListInputObject(); // \TextMagic\Models\AssignContactsToListInputObject | Contact ID(s), separated by comma or 'all' to add all contacts belonging to the current user
 $id = 1; // int | 
 
 try {
-$result = $apiInstance->assignContactsToList($assignContactsToListInputObject, $id);
+    $result = $apiInstance->assignContactsToList($assignContactsToListInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
-echo 'Exception when calling TextMagicApi->assignContactsToList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TextMagicApi->assignContactsToList: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
