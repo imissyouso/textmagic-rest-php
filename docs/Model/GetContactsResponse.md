@@ -1,4 +1,4 @@
-# GetUserContactsResponse
+# GetContactsResponse
 
 ## Properties
 Name | Type | Description | Notes

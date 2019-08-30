@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**getInboundMessagesNotificationSettings**](UserSettingsApi.md#getInboundMessagesNotificationSettings) | **GET** /api/v2/user/notification/inbound | Get inbound messages notification settings
 [**updateBalanceNotificationSettings**](UserSettingsApi.md#updateBalanceNotificationSettings) | **PUT** /api/v2/user/notification/balance | Update balance notification settings
 [**updateCallbackSettings**](UserSettingsApi.md#updateCallbackSettings) | **PUT** /api/v2/callback/settings | Update callback URL settings
-[**updateChatDesktopNotificationSettings**](UserSettingsApi.md#updateChatDesktopNotificationSettings) | **PUT** /api/v2/user/desktop/notification | Update chat desktop notification settings
 [**updateInboundMessagesNotificationSettings**](UserSettingsApi.md#updateInboundMessagesNotificationSettings) | **PUT** /api/v2/user/notification/inbound | Update inbound messages notification settings
 
 
@@ -306,7 +305,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateBalanceNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateBalanceNotificationSettingsInputObject**](../Model/UpdateBalanceNotificationSettingsInputObject.md)|  | [optional]
+ **updateBalanceNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateBalanceNotificationSettingsInputObject**](../Model/UpdateBalanceNotificationSettingsInputObject.md)|  |
  **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
@@ -362,61 +361,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCallbackSettingsInputObject** | [**\TextMagic\Models\UpdateCallbackSettingsInputObject**](../Model/UpdateCallbackSettingsInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateChatDesktopNotificationSettings**
-> updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues)
-
-Update chat desktop notification settings
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\UserSettingsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$updateChatDesktopNotificationSettingsInputObject = new \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject(); // \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject | 
-$xIgnoreNullValues = true; // bool | 
-
-try {
-    $apiInstance->updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
-} catch (Exception $e) {
-    echo 'Exception when calling UserSettingsApi->updateChatDesktopNotificationSettings: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **updateChatDesktopNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject**](../Model/UpdateChatDesktopNotificationSettingsInputObject.md)|  |
  **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type

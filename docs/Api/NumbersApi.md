@@ -4,73 +4,14 @@ All URIs are relative to *http://my.textmagic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**buyDedicatedNumber**](NumbersApi.md#buyDedicatedNumber) | **POST** /api/v2/numbers | Buy a dedicated number and assign it to the specified account.
 [**deleteDedicatedNumber**](NumbersApi.md#deleteDedicatedNumber) | **DELETE** /api/v2/numbers/{id} | Cancel dedicated number subscription.
 [**deleteSenderId**](NumbersApi.md#deleteSenderId) | **DELETE** /api/v2/senderids/{id} | Delete a Sender ID.
 [**getAvailableDedicatedNumbers**](NumbersApi.md#getAvailableDedicatedNumbers) | **GET** /api/v2/numbers/available | Find available dedicated numbers to buy.
 [**getDedicatedNumber**](NumbersApi.md#getDedicatedNumber) | **GET** /api/v2/numbers/{id} | Get a single dedicated number.
 [**getSenderId**](NumbersApi.md#getSenderId) | **GET** /api/v2/senderids/{id} | Get a single Sender ID.
-[**getSenderIds**](NumbersApi.md#getSenderIds) | **GET** /api/v2/senderids | Get all sender IDs of current user.
 [**getSenderSettings**](NumbersApi.md#getSenderSettings) | **GET** /api/v2/sender/settings | Get current user sender settings.
-[**getUserDedicatedNumbers**](NumbersApi.md#getUserDedicatedNumbers) | **GET** /api/v2/numbers | Get user&#39;s dedicated numbers.
-[**requestSenderId**](NumbersApi.md#requestSenderId) | **POST** /api/v2/senderids | Request for a new Sender ID.
 [**updateSenderSetting**](NumbersApi.md#updateSenderSetting) | **PUT** /api/v2/sender/settings | Change sender settings for specified country.
 
-
-# **buyDedicatedNumber**
-> buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues)
-
-Buy a dedicated number and assign it to the specified account.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\NumbersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$buyDedicatedNumberInputObject = new \TextMagic\Models\BuyDedicatedNumberInputObject(); // \TextMagic\Models\BuyDedicatedNumberInputObject | 
-$xIgnoreNullValues = true; // bool | 
-
-try {
-    $apiInstance->buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues);
-} catch (Exception $e) {
-    echo 'Exception when calling NumbersApi->buyDedicatedNumber: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **buyDedicatedNumberInputObject** | [**\TextMagic\Models\BuyDedicatedNumberInputObject**](../Model/BuyDedicatedNumberInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteDedicatedNumber**
 > deleteDedicatedNumber($id)
@@ -344,62 +285,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getSenderIds**
-> \TextMagic\Models\GetSenderIdsResponse getSenderIds($page, $limit)
-
-Get all sender IDs of current user.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\NumbersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
-
-try {
-    $result = $apiInstance->getSenderIds($page, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling NumbersApi->getSenderIds: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
-
-### Return type
-
-[**\TextMagic\Models\GetSenderIdsResponse**](../Model/GetSenderIdsResponse.md)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getSenderSettings**
 > \TextMagic\Models\GetSenderSettingsResponse getSenderSettings($country)
 
@@ -442,120 +327,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\TextMagic\Models\GetSenderSettingsResponse**](../Model/GetSenderSettingsResponse.md)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getUserDedicatedNumbers**
-> \TextMagic\Models\GetUserDedicatedNumbersResponse getUserDedicatedNumbers($page, $limit, $surveyId)
-
-Get user's dedicated numbers.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\NumbersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
-$surveyId = 56; // int | Fetch only that numbers which are ready for the survey
-
-try {
-    $result = $apiInstance->getUserDedicatedNumbers($page, $limit, $surveyId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling NumbersApi->getUserDedicatedNumbers: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
- **surveyId** | **int**| Fetch only that numbers which are ready for the survey | [optional]
-
-### Return type
-
-[**\TextMagic\Models\GetUserDedicatedNumbersResponse**](../Model/GetUserDedicatedNumbersResponse.md)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **requestSenderId**
-> \TextMagic\Models\ResourceLinkResponse requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues)
-
-Request for a new Sender ID.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\NumbersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$requestSenderIdInputObject = new \TextMagic\Models\RequestSenderIdInputObject(); // \TextMagic\Models\RequestSenderIdInputObject | 
-$xIgnoreNullValues = true; // bool | 
-
-try {
-    $result = $apiInstance->requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling NumbersApi->requestSenderId: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestSenderIdInputObject** | [**\TextMagic\Models\RequestSenderIdInputObject**](../Model/RequestSenderIdInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
-
-### Return type
-
-[**\TextMagic\Models\ResourceLinkResponse**](../Model/ResourceLinkResponse.md)
 
 ### Authorization
 
