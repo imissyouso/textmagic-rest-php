@@ -23,8 +23,8 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
             "url": "https://github.com/imissyouso/textmagic-rest-php.git"
         }
     ],
-        "require": {
-        "imissyouso/textmagic-rest-php": "*@dev"
+    "require": {
+    "imissyouso/textmagic-rest-php": "*@dev"
     }
 }
 ```
