@@ -58,8 +58,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$assignContactsToListInputObject = new \TextMagic\Models\AssignContactsToListInputObject(); // \TextMagic\Models\AssignContactsToListInputObject | Contact ID(s), separated by comma or 'all' to add all contacts belonging to the current user
-$id = 1; // int | 
+$assignContactsToListInputObject = new \TextMagic\Models\AssignContactsToListInputObject();
+$id = 1;
 
 try {
     $result = $apiInstance->assignContactsToList($assignContactsToListInputObject, $id);
