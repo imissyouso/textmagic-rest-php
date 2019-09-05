@@ -1,0 +1,1514 @@
+<?php
+/**
+ * ScheduledMessagesApi
+ * PHP version 5
+ *
+ * @category Class
+ * @package  TextMagic
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
+ */
+
+/**
+ * TextMagic API Documentation
+ *
+ * # Introduction TextMagic SMS API is a platform for building your own messaging app using our messaging infrastructure. It allows you to send and receive SMS text messages, query information about inbound and outbound messages, manage contacts, create templates (i.e. message formats and static texts) and schedule recurrent SMS messages as well as process bulk SMS messages.  # Getting started Get Started with the TextMagic REST API To start sending text messages using the TextMagic REST API, just follow these steps: 1. Generate the API credentials 1. Connect to our API endpoint This page provides all the information you need to get started. Here, we explain the following steps:  How to obtain the API credentials The API endpoint How the REST API works The next step How to obtain the API credentials  ## How to obtain the API credentials To start sending text messages, you need to create an API key. API keys are similar to an account password; the difference is that an API key only provides access to the API: you cannot log in to TextMagic Online using the API key.  Your program sends the login credentials with each API request as HTTP headers: X-TM-Username is your TextMagic username, while X-TM-Key is your API key.  How to obtain an API key:  1. Log in to TextMagic (or start a free trial if you haven’t registered yet). 1. Go to the API settings page. 1. Click the Add new API key button. 1. Enter an app name for this key. Note, it’s just a label, so pick any name. 1. Click Generate new key. 1. You should now see your new API key in the green notification banner above the table:  > Note for API v1 users > V1 keys are not compatible with the V2 version of the TextMagic REST API, so you will need to generate a new API key to use the V2 endpoint.  ## The API endpoint The TextMagic REST API endpoint is: ``` https://rest.textmagic.com/api/v2 ``` All the URLs referenced in this documentation should use this base URL.  ## How the REST API works REST APIs use the HTTP protocol to send and receive messages. REST messages are usually encoded as JSON documents and are an improvement over older methods such as the XML based SOAP protocol. REST APIs use the same set of methods that web browsers use: POST, GET, PUT or DELETE. These correspond to the CRUD operations: create, read, update and delete. Often, REST URIs provide direct CRUD access to entities or collections of entities, for example: http://api.foo.com/people. In this instance, to delete a person’s endpoint, you might simply call the endpoint DELETE http://api.foo.com/people/{id}. REST makes these types of operations simple.  > Example > > Let’s take the entity most often used in messaging: contacts. Imagine you want to perform operations on your contacts list: well, it’s only a matter of calling the following endpoints: > GET /api/v2/contacts (get all of your contacts) > GET /api/v2/contacts/{id} (get a specific contact) > POST /api/v2/contacts (create a new contact) > PUT /api/v2/contacts/{id} (update an existing contact) > DELETE /api/v2/contacts/{id} (delete an existing contact) It’s that simple! In fact, that’s all you need to do to manage the contacts in your TextMagic account!  # SDK wrappers ## PHP Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar quam diam, vitae ultricies neque commodo sed. Vivamus facilisis massa vitae urna dictum luctus. Morbi vitae ante ex. Nulla facilisi. Praesent tristique dolor ut leo pellentesque gravida. Curabitur non consequat sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras consequat quis elit vel vestibulum. Donec tempor orci sed tortor aliquet fringilla. Nulla accumsan posuere velit. Nullam sollicitudin sodales ligula, sit amet lobortis justo. Quisque a vulputate libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam varius urna est, quis accumsan odio euismod non. Etiam volutpat felis pellentesque, vehicula nisi ac, iaculis quam. Nunc vulputate, lectus in pulvinar tristique, tellus arcu fermentum ligula, vel tincidunt quam eros et est.  ## JavaScript Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar quam diam, vitae ultricies neque commodo sed. Vivamus facilisis massa vitae urna dictum luctus. Morbi vitae ante ex. Nulla facilisi. Praesent tristique dolor ut leo pellentesque gravida. Curabitur non consequat sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras consequat quis elit vel vestibulum. Donec tempor orci sed tortor aliquet fringilla. Nulla accumsan posuere velit. Nullam sollicitudin sodales ligula, sit amet lobortis justo. Quisque a vulputate libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam varius urna est, quis accumsan odio euismod non. Etiam volutpat felis pellentesque, vehicula nisi ac, iaculis quam. Nunc vulputate, lectus in pulvinar tristique, tellus arcu fermentum ligula, vel tincidunt quam eros et est.  # Live Sandbox Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar quam diam, vitae ultricies neque commodo sed. Vivamus facilisis massa vitae urna dictum luctus. Morbi vitae ante ex. Nulla facilisi. Praesent tristique dolor ut leo pellentesque gravida. Curabitur non consequat sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras consequat quis elit vel vestibulum. Donec tempor orci sed tortor aliquet fringilla. Nulla accumsan posuere velit. Nullam sollicitudin sodales ligula, sit amet lobortis justo. Quisque a vulputate libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam varius urna est, quis accumsan odio euismod non. Etiam volutpat felis pellentesque, vehicula nisi ac, iaculis quam. Nunc vulputate, lectus in pulvinar tristique, tellus arcu fermentum ligula, vel tincidunt quam eros et est.
+ *
+ * OpenAPI spec version: 2
+ * Contact: support@textmagi.biz
+ * Generated by: https://github.com/swagger-api/swagger-codegen.git
+ * Swagger Codegen version: 2.4.8
+ */
+
+/**
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen
+ * Do not edit the class manually.
+ */
+
+namespace TextMagic\Api;
+
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\RequestOptions;
+use TextMagic\ApiException;
+use TextMagic\Configuration;
+use TextMagic\HeaderSelector;
+use TextMagic\ObjectSerializer;
+
+/**
+ * ScheduledMessagesApi Class Doc Comment
+ *
+ * @category Class
+ * @package  TextMagic
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
+ */
+class ScheduledMessagesApi
+{
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
+
+    /**
+     * @var Configuration
+     */
+    protected $config;
+
+    /**
+     * @var HeaderSelector
+     */
+    protected $headerSelector;
+
+    /**
+     * @param ClientInterface $client
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
+     */
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null
+    ) {
+        $this->client = $client ?: new Client();
+        $this->config = $config ?: new Configuration();
+        $this->headerSelector = $selector ?: new HeaderSelector();
+    }
+
+    /**
+     * @return Configuration
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * Operation deleteScheduledMessage
+     *
+     * Delete a message session, together with all nested messages.
+     *
+     * @param  int $id id (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteScheduledMessage($id)
+    {
+        $this->deleteScheduledMessageWithHttpInfo($id);
+    }
+
+    /**
+     * Operation deleteScheduledMessageWithHttpInfo
+     *
+     * Delete a message session, together with all nested messages.
+     *
+     * @param  int $id (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteScheduledMessageWithHttpInfo($id)
+    {
+        $returnType = '';
+        $request = $this->deleteScheduledMessageRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\NotFoundResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteScheduledMessageAsync
+     *
+     * Delete a message session, together with all nested messages.
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteScheduledMessageAsync($id)
+    {
+        return $this->deleteScheduledMessageAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteScheduledMessageAsyncWithHttpInfo
+     *
+     * Delete a message session, together with all nested messages.
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteScheduledMessageAsyncWithHttpInfo($id)
+    {
+        $returnType = '';
+        $request = $this->deleteScheduledMessageRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteScheduledMessage'
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteScheduledMessageRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteScheduledMessage'
+            );
+        }
+
+        $resourcePath = '/api/v2/schedules/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteScheduledMessagesBulk
+     *
+     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     *
+     * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject deleteScheduledMessagesBulkInputObject (required)
+     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    {
+        $this->deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+    }
+
+    /**
+     * Operation deleteScheduledMessagesBulkWithHttpInfo
+     *
+     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     *
+     * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    {
+        $returnType = '';
+        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\NotFoundResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteScheduledMessagesBulkAsync
+     *
+     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     *
+     * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteScheduledMessagesBulkAsync($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    {
+        return $this->deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteScheduledMessagesBulkAsyncWithHttpInfo
+     *
+     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     *
+     * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    {
+        $returnType = '';
+        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteScheduledMessagesBulk'
+     *
+     * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
+     * @param  bool $xIgnoreNullValues (optional, default to true)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    {
+        // verify the required parameter 'deleteScheduledMessagesBulkInputObject' is set
+        if ($deleteScheduledMessagesBulkInputObject === null || (is_array($deleteScheduledMessagesBulkInputObject) && count($deleteScheduledMessagesBulkInputObject) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $deleteScheduledMessagesBulkInputObject when calling deleteScheduledMessagesBulk'
+            );
+        }
+
+        $resourcePath = '/api/v2/schedules/delete';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xIgnoreNullValues !== null) {
+            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($deleteScheduledMessagesBulkInputObject)) {
+            $_tempBody = $deleteScheduledMessagesBulkInputObject;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAllScheduledMessages
+     *
+     * Get all scheduled messages.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TextMagic\Models\GetAllScheduledMessagesResponse
+     */
+    public function getAllScheduledMessages($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        list($response) = $this->getAllScheduledMessagesWithHttpInfo($page, $limit, $status, $orderBy, $direction);
+        return $response;
+    }
+
+    /**
+     * Operation getAllScheduledMessagesWithHttpInfo
+     *
+     * Get all scheduled messages.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TextMagic\Models\GetAllScheduledMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAllScheduledMessagesWithHttpInfo($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        $returnType = '\TextMagic\Models\GetAllScheduledMessagesResponse';
+        $request = $this->getAllScheduledMessagesRequest($page, $limit, $status, $orderBy, $direction);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\GetAllScheduledMessagesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAllScheduledMessagesAsync
+     *
+     * Get all scheduled messages.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllScheduledMessagesAsync($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        return $this->getAllScheduledMessagesAsyncWithHttpInfo($page, $limit, $status, $orderBy, $direction)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAllScheduledMessagesAsyncWithHttpInfo
+     *
+     * Get all scheduled messages.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllScheduledMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        $returnType = '\TextMagic\Models\GetAllScheduledMessagesResponse';
+        $request = $this->getAllScheduledMessagesRequest($page, $limit, $status, $orderBy, $direction);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAllScheduledMessages'
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAllScheduledMessagesRequest($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+
+        $resourcePath = '/api/v2/schedules';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($status !== null) {
+            $queryParams['status'] = ObjectSerializer::toQueryValue($status);
+        }
+        // query params
+        if ($orderBy !== null) {
+            $queryParams['orderBy'] = ObjectSerializer::toQueryValue($orderBy);
+        }
+        // query params
+        if ($direction !== null) {
+            $queryParams['direction'] = ObjectSerializer::toQueryValue($direction);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getScheduledMessage
+     *
+     * Get message schedule.
+     *
+     * @param  int $id id (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TextMagic\Models\MessagesIcs
+     */
+    public function getScheduledMessage($id)
+    {
+        list($response) = $this->getScheduledMessageWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation getScheduledMessageWithHttpInfo
+     *
+     * Get message schedule.
+     *
+     * @param  int $id (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TextMagic\Models\MessagesIcs, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getScheduledMessageWithHttpInfo($id)
+    {
+        $returnType = '\TextMagic\Models\MessagesIcs';
+        $request = $this->getScheduledMessageRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\MessagesIcs',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\NotFoundResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getScheduledMessageAsync
+     *
+     * Get message schedule.
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getScheduledMessageAsync($id)
+    {
+        return $this->getScheduledMessageAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getScheduledMessageAsyncWithHttpInfo
+     *
+     * Get message schedule.
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getScheduledMessageAsyncWithHttpInfo($id)
+    {
+        $returnType = '\TextMagic\Models\MessagesIcs';
+        $request = $this->getScheduledMessageRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getScheduledMessage'
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getScheduledMessageRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getScheduledMessage'
+            );
+        }
+
+        $resourcePath = '/api/v2/schedules/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation searchScheduledMessages
+     *
+     * Find scheduled messages by given parameters.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $query Find messages by specified search query (optional)
+     * @param  string $ids Find schedules by ID(s) (optional)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TextMagic\Models\SearchScheduledMessagesResponse
+     */
+    public function searchScheduledMessages($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        list($response) = $this->searchScheduledMessagesWithHttpInfo($page, $limit, $query, $ids, $status, $orderBy, $direction);
+        return $response;
+    }
+
+    /**
+     * Operation searchScheduledMessagesWithHttpInfo
+     *
+     * Find scheduled messages by given parameters.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $query Find messages by specified search query (optional)
+     * @param  string $ids Find schedules by ID(s) (optional)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TextMagic\Models\SearchScheduledMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchScheduledMessagesWithHttpInfo($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        $returnType = '\TextMagic\Models\SearchScheduledMessagesResponse';
+        $request = $this->searchScheduledMessagesRequest($page, $limit, $query, $ids, $status, $orderBy, $direction);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\SearchScheduledMessagesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\BadRequestResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchScheduledMessagesAsync
+     *
+     * Find scheduled messages by given parameters.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $query Find messages by specified search query (optional)
+     * @param  string $ids Find schedules by ID(s) (optional)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchScheduledMessagesAsync($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        return $this->searchScheduledMessagesAsyncWithHttpInfo($page, $limit, $query, $ids, $status, $orderBy, $direction)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchScheduledMessagesAsyncWithHttpInfo
+     *
+     * Find scheduled messages by given parameters.
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $query Find messages by specified search query (optional)
+     * @param  string $ids Find schedules by ID(s) (optional)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchScheduledMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        $returnType = '\TextMagic\Models\SearchScheduledMessagesResponse';
+        $request = $this->searchScheduledMessagesRequest($page, $limit, $query, $ids, $status, $orderBy, $direction);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchScheduledMessages'
+     *
+     * @param  int $page Fetch specified results page (optional, default to 1)
+     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  string $query Find messages by specified search query (optional)
+     * @param  string $ids Find schedules by ID(s) (optional)
+     * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function searchScheduledMessagesRequest($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
+    {
+        if ($ids !== null && !preg_match("/[,\\d]+/", $ids)) {
+            throw new \InvalidArgumentException("invalid value for \"ids\" when calling ScheduledMessagesApi.searchScheduledMessages, must conform to the pattern /[,\\d]+/.");
+        }
+
+
+        $resourcePath = '/api/v2/schedules/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($query !== null) {
+            $queryParams['query'] = ObjectSerializer::toQueryValue($query);
+        }
+        // query params
+        if ($ids !== null) {
+            $queryParams['ids'] = ObjectSerializer::toQueryValue($ids);
+        }
+        // query params
+        if ($status !== null) {
+            $queryParams['status'] = ObjectSerializer::toQueryValue($status);
+        }
+        // query params
+        if ($orderBy !== null) {
+            $queryParams['orderBy'] = ObjectSerializer::toQueryValue($orderBy);
+        }
+        // query params
+        if ($direction !== null) {
+            $queryParams['direction'] = ObjectSerializer::toQueryValue($direction);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Create http client option
+     *
+     * @throws \RuntimeException on file opening failure
+     * @return array of http client options
+     */
+    protected function createHttpClientOption()
+    {
+        $options = [];
+        if ($this->config->getDebug()) {
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            if (!$options[RequestOptions::DEBUG]) {
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+            }
+        }
+
+        return $options;
+    }
+}
