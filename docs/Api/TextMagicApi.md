@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**createSurveyNode**](TextMagicApi.md#createSurveyNode) | **POST** /api/v2/surveys/{id}/nodes | Create a new node from the submitted data.
 [**createTemplate**](TextMagicApi.md#createTemplate) | **POST** /api/v2/templates | Create a new template from the submitted data.
 [**deleteAllContacts**](TextMagicApi.md#deleteAllContacts) | **DELETE** /api/v2/contact/all | Delete all contacts.
-[**deleteAllOutboundMessages**](TextMagicApi.md#deleteAllOutboundMessages) | **DELETE** /api/v2/message/all | Delete all messages
+[**deleteAllOutboundMessages**](TextMagicApi.md#deleteAllOutboundMessages) | **DELETE** /api/v2/message/all | Delete all messages.
 [**deleteAvatar**](TextMagicApi.md#deleteAvatar) | **DELETE** /api/v2/user/avatar | Delete an avatar for the current user.\\
 [**deleteChatMessages**](TextMagicApi.md#deleteChatMessages) | **POST** /api/v2/chats/{id}/messages/delete | Delete messages from chat by given messages ID(s).
 [**deleteChatsBulk**](TextMagicApi.md#deleteChatsBulk) | **POST** /api/v2/chats/delete | Delete chats by given ID(s) or delete all chats.
@@ -42,8 +42,8 @@ Method | HTTP request | Description
 [**deleteListsBulk**](TextMagicApi.md#deleteListsBulk) | **POST** /api/v2/lists/delete | Delete list by given ID(s) or delete all lists.
 [**deleteMessageSession**](TextMagicApi.md#deleteMessageSession) | **DELETE** /api/v2/sessions/{id} | Delete a message session, together with all nested messages.
 [**deleteMessageSessionsBulk**](TextMagicApi.md#deleteMessageSessionsBulk) | **POST** /api/v2/sessions/delete | Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
-[**deleteOutboundMessage**](TextMagicApi.md#deleteOutboundMessage) | **DELETE** /api/v2/messages/{id} | Delete message
-[**deleteOutboundMessagesBulk**](TextMagicApi.md#deleteOutboundMessagesBulk) | **POST** /api/v2/messages/delete | Delete messages by IDs
+[**deleteOutboundMessage**](TextMagicApi.md#deleteOutboundMessage) | **DELETE** /api/v2/messages/{id} | Delete a single message.
+[**deleteOutboundMessagesBulk**](TextMagicApi.md#deleteOutboundMessagesBulk) | **POST** /api/v2/messages/delete | Delete outbound messages by given ID(s) or delete all outbound messages.
 [**deletePushToken**](TextMagicApi.md#deletePushToken) | **DELETE** /api/v2/push/tokens/{type}/{deviceId} | Delete a push notification device token.
 [**deleteScheduledMessage**](TextMagicApi.md#deleteScheduledMessage) | **DELETE** /api/v2/schedules/{id} | Delete a message session, together with all nested messages.
 [**deleteScheduledMessagesBulk**](TextMagicApi.md#deleteScheduledMessagesBulk) | **POST** /api/v2/schedules/delete | Delete scheduled messages by given ID(s) or delete all scheduled messages.
@@ -60,7 +60,7 @@ Method | HTTP request | Description
 [**getAllChats**](TextMagicApi.md#getAllChats) | **GET** /api/v2/chats | Get all user chats.
 [**getAllInboundMessages**](TextMagicApi.md#getAllInboundMessages) | **GET** /api/v2/replies | Get all inbox messages.
 [**getAllMessageSessions**](TextMagicApi.md#getAllMessageSessions) | **GET** /api/v2/sessions | Get all message sending sessions.
-[**getAllOutboundMessages**](TextMagicApi.md#getAllOutboundMessages) | **GET** /api/v2/messages | Get all messages
+[**getAllOutboundMessages**](TextMagicApi.md#getAllOutboundMessages) | **GET** /api/v2/messages | Get all user oubound messages.
 [**getAllScheduledMessages**](TextMagicApi.md#getAllScheduledMessages) | **GET** /api/v2/schedules | Get all scheduled messages.
 [**getAllTemplates**](TextMagicApi.md#getAllTemplates) | **GET** /api/v2/templates | Get all user templates.
 [**getAvailableDedicatedNumbers**](TextMagicApi.md#getAvailableDedicatedNumbers) | **GET** /api/v2/numbers/available | Find available dedicated numbers to buy.
@@ -97,16 +97,16 @@ Method | HTTP request | Description
 [**getList**](TextMagicApi.md#getList) | **GET** /api/v2/lists/{id} | Get a single list.
 [**getListContactsIds**](TextMagicApi.md#getListContactsIds) | **GET** /api/v2/lists/{id}/contacts/ids | Fetch all contacts IDs belonging to the list with ID.
 [**getListsOfContact**](TextMagicApi.md#getListsOfContact) | **GET** /api/v2/contacts/{id}/lists | Return lists which contact belongs to.
-[**getMessagePreview**](TextMagicApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Preview message
-[**getMessagePrice**](TextMagicApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check price
-[**getMessagePrices**](TextMagicApi.md#getMessagePrices) | **GET** /api/v2/messages/prices | Get pricing
+[**getMessagePreview**](TextMagicApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Get messages preview (with tags merged) up to 100 messages per session.
+[**getMessagePrice**](TextMagicApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check pricing for a new outbound message.
+[**getMessagePrices**](TextMagicApi.md#getMessagePrices) | **GET** /api/v2/messages/prices | Get message prices for all countries.
 [**getMessageSession**](TextMagicApi.md#getMessageSession) | **GET** /api/v2/sessions/{id} | Get a message session.
 [**getMessageSessionStat**](TextMagicApi.md#getMessageSessionStat) | **GET** /api/v2/sessions/{id}/stat | Get sending session statistics.
 [**getMessagesBySessionId**](TextMagicApi.md#getMessagesBySessionId) | **GET** /api/v2/sessions/{id}/messages | Fetch messages by given session id.
 [**getMessagingCounters**](TextMagicApi.md#getMessagingCounters) | **GET** /api/v2/stats/messaging/data | Return counters for messaging data views.
 [**getMessagingStat**](TextMagicApi.md#getMessagingStat) | **GET** /api/v2/stats/messaging | Return messaging statistics.
-[**getOutboundMessage**](TextMagicApi.md#getOutboundMessage) | **GET** /api/v2/messages/{id} | Get a single message
-[**getOutboundMessagesHistory**](TextMagicApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get history
+[**getOutboundMessage**](TextMagicApi.md#getOutboundMessage) | **GET** /api/v2/messages/{id} | Get a single outgoing message.
+[**getOutboundMessagesHistory**](TextMagicApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get outbound messages history.
 [**getPushTokens**](TextMagicApi.md#getPushTokens) | **GET** /api/v2/push/tokens | Get all device tokens assigned to the current account
 [**getScheduledMessage**](TextMagicApi.md#getScheduledMessage) | **GET** /api/v2/schedules/{id} | Get message schedule.
 [**getSenderId**](TextMagicApi.md#getSenderId) | **GET** /api/v2/senderids/{id} | Get a single Sender ID.
@@ -146,11 +146,11 @@ Method | HTTP request | Description
 [**searchContacts**](TextMagicApi.md#searchContacts) | **GET** /api/v2/contacts/search | Find user contacts by given parameters.
 [**searchInboundMessages**](TextMagicApi.md#searchInboundMessages) | **GET** /api/v2/replies/search | Find inbound messages by given parameters.
 [**searchLists**](TextMagicApi.md#searchLists) | **GET** /api/v2/lists/search | Find contact lists by given parameters.
-[**searchOutboundMessages**](TextMagicApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find messages
+[**searchOutboundMessages**](TextMagicApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find outbound messages by given parameters.
 [**searchScheduledMessages**](TextMagicApi.md#searchScheduledMessages) | **GET** /api/v2/schedules/search | Find scheduled messages by given parameters.
 [**searchTemplates**](TextMagicApi.md#searchTemplates) | **GET** /api/v2/templates/search | Find user templates by given parameters.
 [**sendEmailVerificationCode**](TextMagicApi.md#sendEmailVerificationCode) | **GET** /api/v2/user/email/verification | Send user email verification
-[**sendMessage**](TextMagicApi.md#sendMessage) | **POST** /api/v2/messages | Send message
+[**sendMessage**](TextMagicApi.md#sendMessage) | **POST** /api/v2/messages | Send a new outbound message.
 [**sendPhoneVerificationCode**](TextMagicApi.md#sendPhoneVerificationCode) | **GET** /api/v2/user/phone/verification | Send user phone verification
 [**setChatStatus**](TextMagicApi.md#setChatStatus) | **POST** /api/v2/chats/status | Set status of the chat given by ID.
 [**startSurvey**](TextMagicApi.md#startSurvey) | **PUT** /api/v2/surveys/{id}/start | Start a survey.
@@ -176,7 +176,7 @@ Method | HTTP request | Description
 [**uploadAvatar**](TextMagicApi.md#uploadAvatar) | **POST** /api/v2/user/avatar | Add an avatar for the current user.
 [**uploadContactAvatar**](TextMagicApi.md#uploadContactAvatar) | **POST** /api/v2/contacts/{id}/avatar | Add an avatar for the contact.
 [**uploadListAvatar**](TextMagicApi.md#uploadListAvatar) | **POST** /api/v2/lists/{id}/avatar | Add an avatar for the list.
-[**uploadMessageAttachment**](TextMagicApi.md#uploadMessageAttachment) | **POST** /api/v2/messages/attachment | Upload message attachment
+[**uploadMessageAttachment**](TextMagicApi.md#uploadMessageAttachment) | **POST** /api/v2/messages/attachment | Upload a new file to insert it as a link.
 
 
 # **assignContactsToList**
@@ -1170,8 +1170,6 @@ void (empty response body)
 
 # **deleteAllOutboundMessages**
 > deleteAllOutboundMessages()
-
-Delete all messages
 
 Delete all messages.
 
@@ -2249,8 +2247,6 @@ void (empty response body)
 # **deleteOutboundMessage**
 > deleteOutboundMessage($id)
 
-Delete message
-
 Delete a single message.
 
 ### Example
@@ -2303,8 +2299,6 @@ void (empty response body)
 
 # **deleteOutboundMessagesBulk**
 > deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues)
-
-Delete messages by IDs
 
 Delete outbound messages by given ID(s) or delete all outbound messages.
 
@@ -3241,8 +3235,6 @@ Name | Type | Description  | Notes
 
 # **getAllOutboundMessages**
 > \TextMagic\Models\GetAllOutboundMessagesResponse getAllOutboundMessages($page, $limit, $lastId)
-
-Get all messages
 
 Get all user oubound messages.
 
@@ -5294,8 +5286,6 @@ Name | Type | Description  | Notes
 # **getMessagePreview**
 > \TextMagic\Models\GetMessagePreviewResponse getMessagePreview($text, $templateId, $sendingTime, $sendingDateTime, $sendingTimezone, $contacts, $lists, $phones, $cutExtra, $partsCount, $referenceId, $from, $rule, $createChat, $tts, $local, $localCountry)
 
-Preview message
-
 Get messages preview (with tags merged) up to 100 messages per session.
 
 ### Example
@@ -5381,8 +5371,6 @@ Name | Type | Description  | Notes
 
 # **getMessagePrice**
 > \TextMagic\Models\GetMessagePriceResponse getMessagePrice($includeBlocked, $text, $templateId, $sendingTime, $sendingDateTime, $sendingTimezone, $contacts, $lists, $phones, $cutExtra, $partsCount, $referenceId, $from, $rule, $createChat, $tts, $local, $localCountry)
-
-Check price
 
 Check pricing for a new outbound message.
 
@@ -5471,8 +5459,6 @@ Name | Type | Description  | Notes
 
 # **getMessagePrices**
 > \TextMagic\Models\GetMessagePricesResponse getMessagePrices()
-
-Get pricing
 
 Get message prices for all countries.
 
@@ -5806,8 +5792,6 @@ Name | Type | Description  | Notes
 # **getOutboundMessage**
 > \TextMagic\Models\MessageOut getOutboundMessage($id)
 
-Get a single message
-
 Get a single outgoing message.
 
 ### Example
@@ -5861,8 +5845,6 @@ Name | Type | Description  | Notes
 
 # **getOutboundMessagesHistory**
 > \TextMagic\Models\GetOutboundMessagesHistoryResponse getOutboundMessagesHistory($limit, $lastId, $query, $orderBy, $direction)
-
-Get history
 
 Get outbound messages history.
 
@@ -8122,8 +8104,6 @@ Name | Type | Description  | Notes
 # **searchOutboundMessages**
 > \TextMagic\Models\SearchOutboundMessagesResponse searchOutboundMessages($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query)
 
-Find messages
-
 Find outbound messages by given parameters.
 
 ### Example
@@ -8369,9 +8349,7 @@ void (empty response body)
 # **sendMessage**
 > \TextMagic\Models\SendMessageResponse sendMessage($sendMessageInputObject, $xIgnoreNullValues)
 
-Send message
-
-The main entrypoint to send messages. See examples above for the reference.
+Send a new outbound message.
 
 ### Example
 ```php
@@ -9819,8 +9797,6 @@ Name | Type | Description  | Notes
 
 # **uploadMessageAttachment**
 > \TextMagic\Models\UploadMessageAttachmentResponse uploadMessageAttachment($file)
-
-Upload message attachment
 
 Upload a new file to insert it as a link.
 
