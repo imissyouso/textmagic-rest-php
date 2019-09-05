@@ -1,16 +1,16 @@
 # TextMagic PHP SDK
 
-The TextMagic SMS API PHP wrapper can save you a lot of time, as it includes all the necessary API commands. It only takes a few seconds to download it from GitHub and to install it into your own app or software. After installation, you'll then be able to send text messages.
+PHP client for TextMagic API
 
 - API version: 2
 
-For more information, please visit [https://www.textmagic.com/docs/api/](https://www.textmagic.com/docs/api/)
+    For detailed documentation, please visit [https://www.textmagic.com/docs/api/](https://www.textmagic.com/docs/api/)
 
 ## Requirements
 
 PHP 5.5 and later
 
-## Installation & Usage
+## Installation
 ### Composer
 
 To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
@@ -39,6 +39,11 @@ Download the files and include `autoload.php`:
 require_once(__DIR__.'/vendor/autoload.php');
 ```
 
-## Documentation & How to use
+## Usage Example
 
-Detailed documentation available at https://OURREDOC_DOCS.com/api/v2
+Please follow the [installation](#installation) instruction and execute the following PHP code:
+
+```php
+
+
+```
