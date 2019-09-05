@@ -2,7 +2,7 @@
 
 PHP client for TextMagic API
 
-For detailed documentation, please visit [https://www.textmagic.com/docs/api/](https://www.textmagic.com/docs/api/)
+For detailed documentation, please visit [http://docs.textmagictesting.com/](http://docs.textmagictesting.com/)
 
 ## Requirements
 
