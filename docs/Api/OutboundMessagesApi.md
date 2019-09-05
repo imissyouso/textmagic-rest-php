@@ -4,22 +4,24 @@ All URIs are relative to *http://my.textmagic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteAllOutboundMessages**](OutboundMessagesApi.md#deleteAllOutboundMessages) | **DELETE** /api/v2/message/all | Delete all messages.
-[**deleteOutboundMessage**](OutboundMessagesApi.md#deleteOutboundMessage) | **DELETE** /api/v2/messages/{id} | Delete a single message.
-[**deleteOutboundMessagesBulk**](OutboundMessagesApi.md#deleteOutboundMessagesBulk) | **POST** /api/v2/messages/delete | Delete outbound messages by given ID(s) or delete all outbound messages.
-[**getAllOutboundMessages**](OutboundMessagesApi.md#getAllOutboundMessages) | **GET** /api/v2/messages | Get all user oubound messages.
-[**getMessagePreview**](OutboundMessagesApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Get messages preview (with tags merged) up to 100 messages per session.
-[**getMessagePrice**](OutboundMessagesApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check pricing for a new outbound message.
-[**getMessagePrices**](OutboundMessagesApi.md#getMessagePrices) | **GET** /api/v2/messages/prices | Get message prices for all countries.
-[**getOutboundMessage**](OutboundMessagesApi.md#getOutboundMessage) | **GET** /api/v2/messages/{id} | Get a single outgoing message.
-[**getOutboundMessagesHistory**](OutboundMessagesApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get outbound messages history.
-[**searchOutboundMessages**](OutboundMessagesApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find outbound messages by given parameters.
-[**sendMessage**](OutboundMessagesApi.md#sendMessage) | **POST** /api/v2/messages | Send a new outbound message.
-[**uploadMessageAttachment**](OutboundMessagesApi.md#uploadMessageAttachment) | **POST** /api/v2/messages/attachment | Upload a new file to insert it as a link.
+[**deleteAllOutboundMessages**](OutboundMessagesApi.md#deleteAllOutboundMessages) | **DELETE** /api/v2/message/all | Delete all messages
+[**deleteOutboundMessage**](OutboundMessagesApi.md#deleteOutboundMessage) | **DELETE** /api/v2/messages/{id} | Delete message
+[**deleteOutboundMessagesBulk**](OutboundMessagesApi.md#deleteOutboundMessagesBulk) | **POST** /api/v2/messages/delete | Delete messages by IDs
+[**getAllOutboundMessages**](OutboundMessagesApi.md#getAllOutboundMessages) | **GET** /api/v2/messages | Get all messages
+[**getMessagePreview**](OutboundMessagesApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Preview message
+[**getMessagePrice**](OutboundMessagesApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check price
+[**getMessagePrices**](OutboundMessagesApi.md#getMessagePrices) | **GET** /api/v2/messages/prices | Get pricing
+[**getOutboundMessage**](OutboundMessagesApi.md#getOutboundMessage) | **GET** /api/v2/messages/{id} | Get a single message
+[**getOutboundMessagesHistory**](OutboundMessagesApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get history
+[**searchOutboundMessages**](OutboundMessagesApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find messages
+[**sendMessage**](OutboundMessagesApi.md#sendMessage) | **POST** /api/v2/messages | Send message
+[**uploadMessageAttachment**](OutboundMessagesApi.md#uploadMessageAttachment) | **POST** /api/v2/messages/attachment | Upload message attachment
 
 
 # **deleteAllOutboundMessages**
 > deleteAllOutboundMessages()
+
+Delete all messages
 
 Delete all messages.
 
@@ -69,6 +71,8 @@ void (empty response body)
 
 # **deleteOutboundMessage**
 > deleteOutboundMessage($id)
+
+Delete message
 
 Delete a single message.
 
@@ -122,6 +126,8 @@ void (empty response body)
 
 # **deleteOutboundMessagesBulk**
 > deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues)
+
+Delete messages by IDs
 
 Delete outbound messages by given ID(s) or delete all outbound messages.
 
@@ -177,6 +183,8 @@ void (empty response body)
 
 # **getAllOutboundMessages**
 > \TextMagic\Models\GetAllOutboundMessagesResponse getAllOutboundMessages($page, $limit, $lastId)
+
+Get all messages
 
 Get all user oubound messages.
 
@@ -235,6 +243,8 @@ Name | Type | Description  | Notes
 
 # **getMessagePreview**
 > \TextMagic\Models\GetMessagePreviewResponse getMessagePreview($text, $templateId, $sendingTime, $sendingDateTime, $sendingTimezone, $contacts, $lists, $phones, $cutExtra, $partsCount, $referenceId, $from, $rule, $createChat, $tts, $local, $localCountry)
+
+Preview message
 
 Get messages preview (with tags merged) up to 100 messages per session.
 
@@ -321,6 +331,8 @@ Name | Type | Description  | Notes
 
 # **getMessagePrice**
 > \TextMagic\Models\GetMessagePriceResponse getMessagePrice($includeBlocked, $text, $templateId, $sendingTime, $sendingDateTime, $sendingTimezone, $contacts, $lists, $phones, $cutExtra, $partsCount, $referenceId, $from, $rule, $createChat, $tts, $local, $localCountry)
+
+Check price
 
 Check pricing for a new outbound message.
 
@@ -410,6 +422,8 @@ Name | Type | Description  | Notes
 # **getMessagePrices**
 > \TextMagic\Models\GetMessagePricesResponse getMessagePrices()
 
+Get pricing
+
 Get message prices for all countries.
 
 ### Example
@@ -459,6 +473,8 @@ This endpoint does not need any parameter.
 
 # **getOutboundMessage**
 > \TextMagic\Models\MessageOut getOutboundMessage($id)
+
+Get a single message
 
 Get a single outgoing message.
 
@@ -513,6 +529,8 @@ Name | Type | Description  | Notes
 
 # **getOutboundMessagesHistory**
 > \TextMagic\Models\GetOutboundMessagesHistoryResponse getOutboundMessagesHistory($limit, $lastId, $query, $orderBy, $direction)
+
+Get history
 
 Get outbound messages history.
 
@@ -575,6 +593,8 @@ Name | Type | Description  | Notes
 
 # **searchOutboundMessages**
 > \TextMagic\Models\SearchOutboundMessagesResponse searchOutboundMessages($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query)
+
+Find messages
 
 Find outbound messages by given parameters.
 
@@ -644,7 +664,9 @@ Name | Type | Description  | Notes
 # **sendMessage**
 > \TextMagic\Models\SendMessageResponse sendMessage($sendMessageInputObject, $xIgnoreNullValues)
 
-Send a new outbound message.
+Send message
+
+The main entrypoint to send messages. See examples above for the reference.
 
 ### Example
 ```php
@@ -699,6 +721,8 @@ Name | Type | Description  | Notes
 
 # **uploadMessageAttachment**
 > \TextMagic\Models\UploadMessageAttachmentResponse uploadMessageAttachment($file)
+
+Upload message attachment
 
 Upload a new file to insert it as a link.
 

@@ -12,7 +12,7 @@
 /**
  * TextMagic API Documentation
  *
- * # Introduction TextMagic SMS API is a platform for building your own messaging app using our messaging infrastructure. It allows you to send and receive SMS text messages, query information about inbound and outbound messages, manage contacts, create templates (i.e. message formats and static texts) and schedule recurrent SMS messages as well as process bulk SMS messages.  # Getting started Get Started with the TextMagic REST API To start sending text messages using the TextMagic REST API, just follow these steps: 1. Generate the API credentials 1. Connect to our API endpoint This page provides all the information you need to get started. Here, we explain the following steps:  How to obtain the API credentials The API endpoint How the REST API works The next step How to obtain the API credentials  ## How to obtain the API credentials To start sending text messages, you need to create an API key. API keys are similar to an account password; the difference is that an API key only provides access to the API: you cannot log in to TextMagic Online using the API key.  Your program sends the login credentials with each API request as HTTP headers: X-TM-Username is your TextMagic username, while X-TM-Key is your API key.  How to obtain an API key:  1. Log in to TextMagic (or start a free trial if you haven’t registered yet). 1. Go to the API settings page. 1. Click the Add new API key button. 1. Enter an app name for this key. Note, it’s just a label, so pick any name. 1. Click Generate new key. 1. You should now see your new API key in the green notification banner above the table:  > Note for API v1 users > V1 keys are not compatible with the V2 version of the TextMagic REST API, so you will need to generate a new API key to use the V2 endpoint.  ## The API endpoint The TextMagic REST API endpoint is: ``` https://rest.textmagic.com/api/v2 ``` All the URLs referenced in this documentation should use this base URL.  ## How the REST API works REST APIs use the HTTP protocol to send and receive messages. REST messages are usually encoded as JSON documents and are an improvement over older methods such as the XML based SOAP protocol. REST APIs use the same set of methods that web browsers use: POST, GET, PUT or DELETE. These correspond to the CRUD operations: create, read, update and delete. Often, REST URIs provide direct CRUD access to entities or collections of entities, for example: http://api.foo.com/people. In this instance, to delete a person’s endpoint, you might simply call the endpoint DELETE http://api.foo.com/people/{id}. REST makes these types of operations simple.  > Example > > Let’s take the entity most often used in messaging: contacts. Imagine you want to perform operations on your contacts list: well, it’s only a matter of calling the following endpoints: > GET /api/v2/contacts (get all of your contacts) > GET /api/v2/contacts/{id} (get a specific contact) > POST /api/v2/contacts (create a new contact) > PUT /api/v2/contacts/{id} (update an existing contact) > DELETE /api/v2/contacts/{id} (delete an existing contact) It’s that simple! In fact, that’s all you need to do to manage the contacts in your TextMagic account!  # SDK wrappers ## PHP Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar quam diam, vitae ultricies neque commodo sed. Vivamus facilisis massa vitae urna dictum luctus. Morbi vitae ante ex. Nulla facilisi. Praesent tristique dolor ut leo pellentesque gravida. Curabitur non consequat sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras consequat quis elit vel vestibulum. Donec tempor orci sed tortor aliquet fringilla. Nulla accumsan posuere velit. Nullam sollicitudin sodales ligula, sit amet lobortis justo. Quisque a vulputate libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam varius urna est, quis accumsan odio euismod non. Etiam volutpat felis pellentesque, vehicula nisi ac, iaculis quam. Nunc vulputate, lectus in pulvinar tristique, tellus arcu fermentum ligula, vel tincidunt quam eros et est.  ## JavaScript Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar quam diam, vitae ultricies neque commodo sed. Vivamus facilisis massa vitae urna dictum luctus. Morbi vitae ante ex. Nulla facilisi. Praesent tristique dolor ut leo pellentesque gravida. Curabitur non consequat sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras consequat quis elit vel vestibulum. Donec tempor orci sed tortor aliquet fringilla. Nulla accumsan posuere velit. Nullam sollicitudin sodales ligula, sit amet lobortis justo. Quisque a vulputate libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam varius urna est, quis accumsan odio euismod non. Etiam volutpat felis pellentesque, vehicula nisi ac, iaculis quam. Nunc vulputate, lectus in pulvinar tristique, tellus arcu fermentum ligula, vel tincidunt quam eros et est.  # Live Sandbox Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar quam diam, vitae ultricies neque commodo sed. Vivamus facilisis massa vitae urna dictum luctus. Morbi vitae ante ex. Nulla facilisi. Praesent tristique dolor ut leo pellentesque gravida. Curabitur non consequat sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras consequat quis elit vel vestibulum. Donec tempor orci sed tortor aliquet fringilla. Nulla accumsan posuere velit. Nullam sollicitudin sodales ligula, sit amet lobortis justo. Quisque a vulputate libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam varius urna est, quis accumsan odio euismod non. Etiam volutpat felis pellentesque, vehicula nisi ac, iaculis quam. Nunc vulputate, lectus in pulvinar tristique, tellus arcu fermentum ligula, vel tincidunt quam eros et est.
+ * # Overview ## Introduction test <img style=\"float: right; margin-left: 10px; width: 100px;\" src=\"images/phone.png\"> TextMagic SMS API is a platform for building your own messaging app using our messaging infrastructure. It allows you to send and receive SMS text messages, query information about inbound and outbound messages, manage contacts, create templates (i.e. message formats and static texts) and schedule recurrent SMS messages as well as process bulk SMS messages. <button name=\"button\" onclick=\"http://www.google.com\" class=\"btn\">Try TextMagic API for Free</button>  ### Two Ways to Use TextMagic API * [REST API](https://www.textmagic.com/docs/api/start/) – get full access to TextMagic’s messaging gateway features * [Email to SMS API](https://www.textmagic.com/docs/api/send-email-to-sms/) – set up two-way SMS communication without the need to write any additional code  ### Code Libraries We have created a set of client libraries for the most popular programming languages (such as REST API Java and REST API PHP). These libraries allow you to integrate our API into your code in minutes. Just choose your preferred language to get started:  ## Getting started Get Started with the TextMagic REST API To start sending text messages using the TextMagic REST API, just follow these steps: 1. Generate the API credentials 1. Connect to our API endpoint This page provides all the information you need to get started. Here, we explain the following steps:  How to obtain the API credentials The API endpoint How the REST API works The next step How to obtain the API credentials  ### How to obtain the API credentials To start sending text messages, you need to create an API key. API keys are similar to an account password; the difference is that an API key only provides access to the API: you cannot log in to TextMagic Online using the API key.  Your program sends the login credentials with each API request as HTTP headers: `X-TM-Username` is your TextMagic username, while `X-TM-Key` is your API key.  How to obtain an API key:  1. Log in to TextMagic (or start a free trial if you haven’t registered yet). 1. Go to the API settings page. 1. Click the Add new API key button. 1. Enter an app name for this key. Note, it’s just a label, so pick any name. 1. Click Generate new key. 1. You should now see your new API key in the green notification banner above the table:  ![alt text](images/credentials.png)  > Note for API v1 users > V1 keys are not compatible with the V2 version of the TextMagic REST API, so you will need to generate a new API key to use the V2 endpoint.  ### The API endpoint The TextMagic REST API endpoint is: ``` https://rest.textmagic.com/api/v2 ``` All the URLs referenced in this documentation should use this base URL.  ### How the REST API works REST APIs use the HTTP protocol to send and receive messages. REST messages are usually encoded as JSON documents and are an improvement over older methods such as the XML based SOAP protocol. REST APIs use the same set of methods that web browsers use: POST, GET, PUT or DELETE. These correspond to the CRUD operations: create, read, update and delete. Often, REST URIs provide direct CRUD access to entities or collections of entities, for example: http://api.foo.com/people. In this instance, to delete a person’s endpoint, you might simply call the endpoint DELETE http://api.foo.com/people/{id}. REST makes these types of operations simple.  > Example > > Let’s take the entity most often used in messaging: contacts. Imagine you want to perform operations on your contacts list: well, it’s only a matter of calling the following endpoints: > * GET /api/v2/contacts (get all of your contacts) > * GET /api/v2/contacts/{id} (get a specific contact) > * POST /api/v2/contacts (create a new contact) > * PUT /api/v2/contacts/{id} (update an existing contact) > * DELETE /api/v2/contacts/{id} (delete an existing contact) It’s that simple! In fact, that’s all you need to do to manage the contacts in your TextMagic account!  ## Sandbox Sandbox is a tool to test TextMagic REST API requests without the need to install any applications or write any code. Here, we explain the following details about Sandbox: * The credentials area * Command documentation * How it works  <a href=\"\">Go to TextMagic Sandbox</a>  ### The credentials area To make requests using your TextMagic account, you need to enter your account username and your API key into the corresponding fields. You may also Save them in your browser or press Clear to erase them.  ![alt text](images/sandbox.png)
  *
  * OpenAPI spec version: 2
  * Contact: support@textmagi.biz
@@ -90,7 +90,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteAllOutboundMessages
      *
-     * Delete all messages.
+     * Delete all messages
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -105,7 +105,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteAllOutboundMessagesWithHttpInfo
      *
-     * Delete all messages.
+     * Delete all messages
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -165,7 +165,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteAllOutboundMessagesAsync
      *
-     * Delete all messages.
+     * Delete all messages
      *
      *
      * @throws \InvalidArgumentException
@@ -184,7 +184,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteAllOutboundMessagesAsyncWithHttpInfo
      *
-     * Delete all messages.
+     * Delete all messages
      *
      *
      * @throws \InvalidArgumentException
@@ -308,7 +308,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessage
      *
-     * Delete a single message.
+     * Delete message
      *
      * @param  int $id id (required)
      *
@@ -324,7 +324,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessageWithHttpInfo
      *
-     * Delete a single message.
+     * Delete message
      *
      * @param  int $id (required)
      *
@@ -393,7 +393,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessageAsync
      *
-     * Delete a single message.
+     * Delete message
      *
      * @param  int $id (required)
      *
@@ -413,7 +413,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessageAsyncWithHttpInfo
      *
-     * Delete a single message.
+     * Delete message
      *
      * @param  int $id (required)
      *
@@ -553,7 +553,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessagesBulk
      *
-     * Delete outbound messages by given ID(s) or delete all outbound messages.
+     * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject deleteOutboundMessagesBulkInputObject (required)
      * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
@@ -570,7 +570,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessagesBulkWithHttpInfo
      *
-     * Delete outbound messages by given ID(s) or delete all outbound messages.
+     * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
      * @param  bool $xIgnoreNullValues (optional, default to true)
@@ -640,7 +640,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessagesBulkAsync
      *
-     * Delete outbound messages by given ID(s) or delete all outbound messages.
+     * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
      * @param  bool $xIgnoreNullValues (optional, default to true)
@@ -661,7 +661,7 @@ class OutboundMessagesApi
     /**
      * Operation deleteOutboundMessagesBulkAsyncWithHttpInfo
      *
-     * Delete outbound messages by given ID(s) or delete all outbound messages.
+     * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
      * @param  bool $xIgnoreNullValues (optional, default to true)
@@ -802,7 +802,7 @@ class OutboundMessagesApi
     /**
      * Operation getAllOutboundMessages
      *
-     * Get all user oubound messages.
+     * Get all messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -821,7 +821,7 @@ class OutboundMessagesApi
     /**
      * Operation getAllOutboundMessagesWithHttpInfo
      *
-     * Get all user oubound messages.
+     * Get all messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -914,7 +914,7 @@ class OutboundMessagesApi
     /**
      * Operation getAllOutboundMessagesAsync
      *
-     * Get all user oubound messages.
+     * Get all messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -936,7 +936,7 @@ class OutboundMessagesApi
     /**
      * Operation getAllOutboundMessagesAsyncWithHttpInfo
      *
-     * Get all user oubound messages.
+     * Get all messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -1092,7 +1092,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePreview
      *
-     * Get messages preview (with tags merged) up to 100 messages per session.
+     * Preview message
      *
      * @param  string $text Message text. Required if template_id is not set (optional)
      * @param  int $templateId Template used instead of message text. Required if text is not set (optional)
@@ -1125,7 +1125,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePreviewWithHttpInfo
      *
-     * Get messages preview (with tags merged) up to 100 messages per session.
+     * Preview message
      *
      * @param  string $text Message text. Required if template_id is not set (optional)
      * @param  int $templateId Template used instead of message text. Required if text is not set (optional)
@@ -1232,7 +1232,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePreviewAsync
      *
-     * Get messages preview (with tags merged) up to 100 messages per session.
+     * Preview message
      *
      * @param  string $text Message text. Required if template_id is not set (optional)
      * @param  int $templateId Template used instead of message text. Required if text is not set (optional)
@@ -1268,7 +1268,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePreviewAsyncWithHttpInfo
      *
-     * Get messages preview (with tags merged) up to 100 messages per session.
+     * Preview message
      *
      * @param  string $text Message text. Required if template_id is not set (optional)
      * @param  int $templateId Template used instead of message text. Required if text is not set (optional)
@@ -1508,7 +1508,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePrice
      *
-     * Check pricing for a new outbound message.
+     * Check price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -1542,7 +1542,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePriceWithHttpInfo
      *
-     * Check pricing for a new outbound message.
+     * Check price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -1650,7 +1650,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePriceAsync
      *
-     * Check pricing for a new outbound message.
+     * Check price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -1687,7 +1687,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePriceAsyncWithHttpInfo
      *
-     * Check pricing for a new outbound message.
+     * Check price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -1933,7 +1933,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePrices
      *
-     * Get message prices for all countries.
+     * Get pricing
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -1949,7 +1949,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePricesWithHttpInfo
      *
-     * Get message prices for all countries.
+     * Get pricing
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -2031,7 +2031,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePricesAsync
      *
-     * Get message prices for all countries.
+     * Get pricing
      *
      *
      * @throws \InvalidArgumentException
@@ -2050,7 +2050,7 @@ class OutboundMessagesApi
     /**
      * Operation getMessagePricesAsyncWithHttpInfo
      *
-     * Get message prices for all countries.
+     * Get pricing
      *
      *
      * @throws \InvalidArgumentException
@@ -2188,7 +2188,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessage
      *
-     * Get a single outgoing message.
+     * Get a single message
      *
      * @param  int $id id (required)
      *
@@ -2205,7 +2205,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessageWithHttpInfo
      *
-     * Get a single outgoing message.
+     * Get a single message
      *
      * @param  int $id (required)
      *
@@ -2296,7 +2296,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessageAsync
      *
-     * Get a single outgoing message.
+     * Get a single message
      *
      * @param  int $id (required)
      *
@@ -2316,7 +2316,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessageAsyncWithHttpInfo
      *
-     * Get a single outgoing message.
+     * Get a single message
      *
      * @param  int $id (required)
      *
@@ -2470,7 +2470,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessagesHistory
      *
-     * Get outbound messages history.
+     * Get history
      *
      * @param  int $limit How many results to return (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
@@ -2491,7 +2491,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessagesHistoryWithHttpInfo
      *
-     * Get outbound messages history.
+     * Get history
      *
      * @param  int $limit How many results to return (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
@@ -2586,7 +2586,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessagesHistoryAsync
      *
-     * Get outbound messages history.
+     * Get history
      *
      * @param  int $limit How many results to return (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
@@ -2610,7 +2610,7 @@ class OutboundMessagesApi
     /**
      * Operation getOutboundMessagesHistoryAsyncWithHttpInfo
      *
-     * Get outbound messages history.
+     * Get history
      *
      * @param  int $limit How many results to return (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
@@ -2778,7 +2778,7 @@ class OutboundMessagesApi
     /**
      * Operation searchOutboundMessages
      *
-     * Find outbound messages by given parameters.
+     * Find messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -2802,7 +2802,7 @@ class OutboundMessagesApi
     /**
      * Operation searchOutboundMessagesWithHttpInfo
      *
-     * Find outbound messages by given parameters.
+     * Find messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -2900,7 +2900,7 @@ class OutboundMessagesApi
     /**
      * Operation searchOutboundMessagesAsync
      *
-     * Find outbound messages by given parameters.
+     * Find messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -2927,7 +2927,7 @@ class OutboundMessagesApi
     /**
      * Operation searchOutboundMessagesAsyncWithHttpInfo
      *
-     * Find outbound messages by given parameters.
+     * Find messages
      *
      * @param  int $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
@@ -3117,7 +3117,7 @@ class OutboundMessagesApi
     /**
      * Operation sendMessage
      *
-     * Send a new outbound message.
+     * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject sendMessageInputObject (required)
      * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
@@ -3135,7 +3135,7 @@ class OutboundMessagesApi
     /**
      * Operation sendMessageWithHttpInfo
      *
-     * Send a new outbound message.
+     * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
      * @param  bool $xIgnoreNullValues (optional, default to true)
@@ -3227,7 +3227,7 @@ class OutboundMessagesApi
     /**
      * Operation sendMessageAsync
      *
-     * Send a new outbound message.
+     * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
      * @param  bool $xIgnoreNullValues (optional, default to true)
@@ -3248,7 +3248,7 @@ class OutboundMessagesApi
     /**
      * Operation sendMessageAsyncWithHttpInfo
      *
-     * Send a new outbound message.
+     * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
      * @param  bool $xIgnoreNullValues (optional, default to true)
@@ -3403,7 +3403,7 @@ class OutboundMessagesApi
     /**
      * Operation uploadMessageAttachment
      *
-     * Upload a new file to insert it as a link.
+     * Upload message attachment
      *
      * @param  \SplFileObject $file Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats (required)
      *
@@ -3420,7 +3420,7 @@ class OutboundMessagesApi
     /**
      * Operation uploadMessageAttachmentWithHttpInfo
      *
-     * Upload a new file to insert it as a link.
+     * Upload message attachment
      *
      * @param  \SplFileObject $file Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats (required)
      *
@@ -3511,7 +3511,7 @@ class OutboundMessagesApi
     /**
      * Operation uploadMessageAttachmentAsync
      *
-     * Upload a new file to insert it as a link.
+     * Upload message attachment
      *
      * @param  \SplFileObject $file Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats (required)
      *
@@ -3531,7 +3531,7 @@ class OutboundMessagesApi
     /**
      * Operation uploadMessageAttachmentAsyncWithHttpInfo
      *
-     * Upload a new file to insert it as a link.
+     * Upload message attachment
      *
      * @param  \SplFileObject $file Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats (required)
      *
