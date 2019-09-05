@@ -2,9 +2,7 @@
 
 PHP client for TextMagic API
 
-- API version: 2
-
-    For detailed documentation, please visit [https://www.textmagic.com/docs/api/](https://www.textmagic.com/docs/api/)
+For detailed documentation, please visit [https://www.textmagic.com/docs/api/](https://www.textmagic.com/docs/api/)
 
 ## Requirements
 
@@ -24,7 +22,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
         }
     ],
     "require": {
-    "imissyouso/textmagic-rest-php": "*@dev"
+        "imissyouso/textmagic-rest-php": "*@dev"
     }
 }
 ```
