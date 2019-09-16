@@ -57,8 +57,8 @@ class GetSurveyNodesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'nodes' => '\TextMagic\Models\SurveyNode[]',
-        'rows' => 'int[][]'
+        'nodes' => 'object',
+        'rows' => 'object'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetSurveyNodesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets nodes
      *
-     * @return \TextMagic\Models\SurveyNode[]
+     * @return object
      */
     public function getNodes()
     {
@@ -229,7 +229,7 @@ class GetSurveyNodesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets nodes
      *
-     * @param \TextMagic\Models\SurveyNode[] $nodes nodes
+     * @param object $nodes nodes
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class GetSurveyNodesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets rows
      *
-     * @return int[][]
+     * @return object
      */
     public function getRows()
     {
@@ -253,7 +253,7 @@ class GetSurveyNodesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets rows
      *
-     * @param int[][] $rows rows
+     * @param object $rows rows
      *
      * @return $this
      */
