@@ -1,4 +1,3 @@
-<?php
 # TextMagic PHP SDK
 
 PHP client for TextMagic API
@@ -23,7 +22,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
         }
     ],
     "require": {
-        "imissyouso/textmagic-rest-php": "dev-master#v2.0.323"
+        "imissyouso/textmagic-rest-php": "dev-master#v2.0.324"
     }
 }
 ```
