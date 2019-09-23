@@ -24,7 +24,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
         }
     ],
     "require": {
-        "imissyouso/textmagic-rest-php": "dev-master#v2.0.325"
+        "imissyouso/textmagic-rest-php": "dev-master#v2.0.326"
     }
 }
 ```
@@ -59,6 +59,15 @@ $api = new TextMagicApi(
     $config
 );
 
+// Simple ping request example
+try {
+    $result = $api->ping();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->ping: ', $e->getMessage(), PHP_EOL;
+}
+
+// Send a new message request example
 $input = new SendMessageInputObject();
 $input->setText('Test message test');
 $input->setPhones('+19993322111,+19993322110');
@@ -69,6 +78,24 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->sendMessage: ', $e->getMessage(), PHP_EOL;
 }
+
+// Get all outgoing messages request example
+try {
+    $result = $api->getAllOutboundMessages(1, 10);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->getAllOutboundMessages: ', $e->getMessage(), PHP_EOL;
+}
+
+// Upload an avatar for a contacts list (group) example. 3223 number here it is sample list ID
+try {
+    $file = new SplFileObject("test.jpg");
+    $result = $api->uploadListAvatar($file, 3223);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->uploadListAvatar: ', $e->getMessage(), PHP_EOL;
+}
+
 ```
 
 ## License
