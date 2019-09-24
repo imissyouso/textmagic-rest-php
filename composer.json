@@ -1,8 +1,8 @@
 {
     "name": "imissyouso/textmagic-rest-php",
-    "version": "2.0.357",
+    "version": "2.0.358",
     "description": "",
-        "keywords": [
+    "keywords": [
         "swagger",
         "php",
         "sdk",
@@ -11,10 +11,10 @@
     "homepage": "http://swagger.io",
     "license": "proprietary",
     "authors": [
-    {
-        "name": "Swagger and contributors",
-        "homepage": "https://github.com/swagger-api/swagger-codegen"
-    }
+        {
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
+        }
     ],
     "require": {
         "php": ">=5.5",
