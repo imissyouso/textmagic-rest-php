@@ -1,5 +1,5 @@
 # TextMagic PHP SDK
-
+test
 This library provides you with an easy solution to send SMS and receive replies by integrating TextMagic SMS Gateway to your PHP application.
 
 ## What is TextMagic?
@@ -25,7 +25,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
         }
     ],
     "require": {
-        "imissyouso/textmagic-rest-php": "dev-master#v2.0.375"
+        "imissyouso/textmagic-rest-php": "dev-master#v2.0.384"
     }
 }
 ```
