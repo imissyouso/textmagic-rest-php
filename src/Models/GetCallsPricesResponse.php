@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContactsAutocompleteResponse
+ * GetCallsPricesResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetContactsAutocompleteResponse Class Doc Comment
+ * GetCallsPricesResponse Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
+class GetCallsPricesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactsAutocompleteResponse';
+    protected static $swaggerModelName = 'GetCallsPricesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -186,7 +186,7 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }

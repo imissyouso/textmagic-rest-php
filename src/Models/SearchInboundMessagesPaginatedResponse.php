@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContactsAutocompleteResponse
+ * SearchInboundMessagesPaginatedResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetContactsAutocompleteResponse Class Doc Comment
+ * SearchInboundMessagesPaginatedResponse Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
+class SearchInboundMessagesPaginatedResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactsAutocompleteResponse';
+    protected static $swaggerModelName = 'SearchInboundMessagesPaginatedResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,10 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'page' => 'int',
+        'pageCount' => 'int',
+        'limit' => 'int',
+        'resources' => '\TextMagic\Models\MessageIn[]'
     ];
 
     /**
@@ -66,7 +69,10 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'page' => null,
+        'pageCount' => null,
+        'limit' => null,
+        'resources' => null
     ];
 
     /**
@@ -96,7 +102,10 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'page' => 'page',
+        'pageCount' => 'pageCount',
+        'limit' => 'limit',
+        'resources' => 'resources'
     ];
 
     /**
@@ -105,7 +114,10 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'page' => 'setPage',
+        'pageCount' => 'setPageCount',
+        'limit' => 'setLimit',
+        'resources' => 'setResources'
     ];
 
     /**
@@ -114,7 +126,10 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'page' => 'getPage',
+        'pageCount' => 'getPageCount',
+        'limit' => 'getLimit',
+        'resources' => 'getResources'
     ];
 
     /**
@@ -177,6 +192,10 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
     }
 
     /**
@@ -186,8 +205,20 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
+        if ($this->container['page'] === null) {
+            $invalidProperties[] = "'page' can't be null";
+        }
+        if ($this->container['pageCount'] === null) {
+            $invalidProperties[] = "'pageCount' can't be null";
+        }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['resources'] === null) {
+            $invalidProperties[] = "'resources' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -202,6 +233,102 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets page
+     *
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param int $page page
+     *
+     * @return $this
+     */
+    public function setPage($page)
+    {
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets pageCount
+     *
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return $this->container['pageCount'];
+    }
+
+    /**
+     * Sets pageCount
+     *
+     * @param int $pageCount pageCount
+     *
+     * @return $this
+     */
+    public function setPageCount($pageCount)
+    {
+        $this->container['pageCount'] = $pageCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit limit
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets resources
+     *
+     * @return \TextMagic\Models\MessageIn[]
+     */
+    public function getResources()
+    {
+        return $this->container['resources'];
+    }
+
+    /**
+     * Sets resources
+     *
+     * @param \TextMagic\Models\MessageIn[] $resources resources
+     *
+     * @return $this
+     */
+    public function setResources($resources)
+    {
+        $this->container['resources'] = $resources;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

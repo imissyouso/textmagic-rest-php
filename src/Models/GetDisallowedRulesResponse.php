@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContactsAutocompleteResponse
+ * GetDisallowedRulesResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetContactsAutocompleteResponse Class Doc Comment
+ * GetDisallowedRulesResponse Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
+class GetDisallowedRulesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContactsAutocompleteResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactsAutocompleteResponse';
+    protected static $swaggerModelName = 'GetDisallowedRulesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

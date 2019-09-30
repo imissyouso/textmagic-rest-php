@@ -1,4 +1,4 @@
-# GetContactsAutocompleteResponse
+# GetCallsPricesResponse
 
 ## Properties
 Name | Type | Description | Notes

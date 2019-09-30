@@ -13381,7 +13381,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllBulkSessionsResponse
+     * @return \TextMagic\Models\GetAllBulkSessionsPaginatedResponse
      */
     public function getAllBulkSessions($page = '1', $limit = '10')
     {
@@ -13399,11 +13399,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllBulkSessionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllBulkSessionsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllBulkSessionsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetAllBulkSessionsResponse';
+        $returnType = '\TextMagic\Models\GetAllBulkSessionsPaginatedResponse';
         $request = $this->getAllBulkSessionsRequest($page, $limit);
 
         try {
@@ -13455,7 +13455,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllBulkSessionsResponse',
+                        '\TextMagic\Models\GetAllBulkSessionsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13507,7 +13507,7 @@ class TextMagicApi
      */
     public function getAllBulkSessionsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetAllBulkSessionsResponse';
+        $returnType = '\TextMagic\Models\GetAllBulkSessionsPaginatedResponse';
         $request = $this->getAllBulkSessionsRequest($page, $limit);
 
         return $this->client
@@ -13658,7 +13658,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllChatsResponse
+     * @return \TextMagic\Models\GetAllChatsPaginatedResponse
      */
     public function getAllChats($status = null, $page = '1', $limit = '10', $orderBy = 'id', $voice = '0', $flat = '0')
     {
@@ -13680,11 +13680,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllChatsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllChatsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllChatsWithHttpInfo($status = null, $page = '1', $limit = '10', $orderBy = 'id', $voice = '0', $flat = '0')
     {
-        $returnType = '\TextMagic\Models\GetAllChatsResponse';
+        $returnType = '\TextMagic\Models\GetAllChatsPaginatedResponse';
         $request = $this->getAllChatsRequest($status, $page, $limit, $orderBy, $voice, $flat);
 
         try {
@@ -13736,7 +13736,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllChatsResponse',
+                        '\TextMagic\Models\GetAllChatsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13796,7 +13796,7 @@ class TextMagicApi
      */
     public function getAllChatsAsyncWithHttpInfo($status = null, $page = '1', $limit = '10', $orderBy = 'id', $voice = '0', $flat = '0')
     {
-        $returnType = '\TextMagic\Models\GetAllChatsResponse';
+        $returnType = '\TextMagic\Models\GetAllChatsPaginatedResponse';
         $request = $this->getAllChatsRequest($status, $page, $limit, $orderBy, $voice, $flat);
 
         return $this->client
@@ -13965,7 +13965,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllInboundMessagesResponse
+     * @return \TextMagic\Models\GetAllInboundMessagesPaginatedResponse
      */
     public function getAllInboundMessages($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
@@ -13985,11 +13985,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllInboundMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllInboundMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllInboundMessagesWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetAllInboundMessagesResponse';
+        $returnType = '\TextMagic\Models\GetAllInboundMessagesPaginatedResponse';
         $request = $this->getAllInboundMessagesRequest($page, $limit, $orderBy, $direction);
 
         try {
@@ -14041,7 +14041,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllInboundMessagesResponse',
+                        '\TextMagic\Models\GetAllInboundMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14097,7 +14097,7 @@ class TextMagicApi
      */
     public function getAllInboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetAllInboundMessagesResponse';
+        $returnType = '\TextMagic\Models\GetAllInboundMessagesPaginatedResponse';
         $request = $this->getAllInboundMessagesRequest($page, $limit, $orderBy, $direction);
 
         return $this->client
@@ -14254,7 +14254,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllMessageSessionsResponse
+     * @return \TextMagic\Models\GetAllMessageSessionsPaginatedResponse
      */
     public function getAllMessageSessions($page = '1', $limit = '10')
     {
@@ -14272,11 +14272,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllMessageSessionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllMessageSessionsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllMessageSessionsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetAllMessageSessionsResponse';
+        $returnType = '\TextMagic\Models\GetAllMessageSessionsPaginatedResponse';
         $request = $this->getAllMessageSessionsRequest($page, $limit);
 
         try {
@@ -14328,7 +14328,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllMessageSessionsResponse',
+                        '\TextMagic\Models\GetAllMessageSessionsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14380,7 +14380,7 @@ class TextMagicApi
      */
     public function getAllMessageSessionsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetAllMessageSessionsResponse';
+        $returnType = '\TextMagic\Models\GetAllMessageSessionsPaginatedResponse';
         $request = $this->getAllMessageSessionsRequest($page, $limit);
 
         return $this->client
@@ -14528,7 +14528,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllOutboundMessagesResponse
+     * @return \TextMagic\Models\GetAllOutboundMessagesPaginatedResponse
      */
     public function getAllOutboundMessages($page = '1', $limit = '10', $lastId = null)
     {
@@ -14547,11 +14547,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllOutboundMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllOutboundMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllOutboundMessagesWithHttpInfo($page = '1', $limit = '10', $lastId = null)
     {
-        $returnType = '\TextMagic\Models\GetAllOutboundMessagesResponse';
+        $returnType = '\TextMagic\Models\GetAllOutboundMessagesPaginatedResponse';
         $request = $this->getAllOutboundMessagesRequest($page, $limit, $lastId);
 
         try {
@@ -14603,7 +14603,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllOutboundMessagesResponse',
+                        '\TextMagic\Models\GetAllOutboundMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14665,7 +14665,7 @@ class TextMagicApi
      */
     public function getAllOutboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $lastId = null)
     {
-        $returnType = '\TextMagic\Models\GetAllOutboundMessagesResponse';
+        $returnType = '\TextMagic\Models\GetAllOutboundMessagesPaginatedResponse';
         $request = $this->getAllOutboundMessagesRequest($page, $limit, $lastId);
 
         return $this->client
@@ -14820,7 +14820,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllScheduledMessagesResponse
+     * @return \TextMagic\Models\GetAllScheduledMessagesPaginatedResponse
      */
     public function getAllScheduledMessages($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
@@ -14841,11 +14841,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllScheduledMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllScheduledMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllScheduledMessagesWithHttpInfo($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetAllScheduledMessagesResponse';
+        $returnType = '\TextMagic\Models\GetAllScheduledMessagesPaginatedResponse';
         $request = $this->getAllScheduledMessagesRequest($page, $limit, $status, $orderBy, $direction);
 
         try {
@@ -14897,7 +14897,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllScheduledMessagesResponse',
+                        '\TextMagic\Models\GetAllScheduledMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14955,7 +14955,7 @@ class TextMagicApi
      */
     public function getAllScheduledMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetAllScheduledMessagesResponse';
+        $returnType = '\TextMagic\Models\GetAllScheduledMessagesPaginatedResponse';
         $request = $this->getAllScheduledMessagesRequest($page, $limit, $status, $orderBy, $direction);
 
         return $this->client
@@ -15117,7 +15117,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetAllTemplatesResponse
+     * @return \TextMagic\Models\GetAllTemplatesPaginatedResponse
      */
     public function getAllTemplates($page = null, $limit = null)
     {
@@ -15135,11 +15135,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetAllTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetAllTemplatesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllTemplatesWithHttpInfo($page = null, $limit = null)
     {
-        $returnType = '\TextMagic\Models\GetAllTemplatesResponse';
+        $returnType = '\TextMagic\Models\GetAllTemplatesPaginatedResponse';
         $request = $this->getAllTemplatesRequest($page, $limit);
 
         try {
@@ -15191,7 +15191,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetAllTemplatesResponse',
+                        '\TextMagic\Models\GetAllTemplatesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15243,7 +15243,7 @@ class TextMagicApi
      */
     public function getAllTemplatesAsyncWithHttpInfo($page = null, $limit = null)
     {
-        $returnType = '\TextMagic\Models\GetAllTemplatesResponse';
+        $returnType = '\TextMagic\Models\GetAllTemplatesPaginatedResponse';
         $request = $this->getAllTemplatesRequest($page, $limit);
 
         return $this->client
@@ -16471,7 +16471,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetBlockedContactsResponse
+     * @return \TextMagic\Models\GetBlockedContactsPaginatedResponse
      */
     public function getBlockedContacts($page = '1', $limit = '10', $query = null, $orderBy = 'id', $direction = 'desc')
     {
@@ -16492,11 +16492,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetBlockedContactsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetBlockedContactsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBlockedContactsWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetBlockedContactsResponse';
+        $returnType = '\TextMagic\Models\GetBlockedContactsPaginatedResponse';
         $request = $this->getBlockedContactsRequest($page, $limit, $query, $orderBy, $direction);
 
         try {
@@ -16548,7 +16548,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetBlockedContactsResponse',
+                        '\TextMagic\Models\GetBlockedContactsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16614,7 +16614,7 @@ class TextMagicApi
      */
     public function getBlockedContactsAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetBlockedContactsResponse';
+        $returnType = '\TextMagic\Models\GetBlockedContactsPaginatedResponse';
         $request = $this->getBlockedContactsRequest($page, $limit, $query, $orderBy, $direction);
 
         return $this->client
@@ -17311,7 +17311,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return map[string,object]
+     * @return \TextMagic\Models\GetCallsPricesResponse
      */
     public function getCallsPrices()
     {
@@ -17327,11 +17327,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of map[string,object], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetCallsPricesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCallsPricesWithHttpInfo()
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetCallsPricesResponse';
         $request = $this->getCallsPricesRequest();
 
         try {
@@ -17383,7 +17383,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'map[string,object]',
+                        '\TextMagic\Models\GetCallsPricesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17431,7 +17431,7 @@ class TextMagicApi
      */
     public function getCallsPricesAsyncWithHttpInfo()
     {
-        $returnType = 'map[string,object]';
+        $returnType = '\TextMagic\Models\GetCallsPricesResponse';
         $request = $this->getCallsPricesRequest();
 
         return $this->client
@@ -18156,7 +18156,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetChatMessagesResponse
+     * @return \TextMagic\Models\GetChatMessagesPaginatedResponse
      */
     public function getChatMessages($id, $page = '1', $limit = '10', $query = null, $start = null, $end = null, $direction = 'desc', $voice = '0')
     {
@@ -18180,11 +18180,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetChatMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetChatMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getChatMessagesWithHttpInfo($id, $page = '1', $limit = '10', $query = null, $start = null, $end = null, $direction = 'desc', $voice = '0')
     {
-        $returnType = '\TextMagic\Models\GetChatMessagesResponse';
+        $returnType = '\TextMagic\Models\GetChatMessagesPaginatedResponse';
         $request = $this->getChatMessagesRequest($id, $page, $limit, $query, $start, $end, $direction, $voice);
 
         try {
@@ -18236,7 +18236,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetChatMessagesResponse',
+                        '\TextMagic\Models\GetChatMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18292,7 +18292,7 @@ class TextMagicApi
      */
     public function getChatMessagesAsyncWithHttpInfo($id, $page = '1', $limit = '10', $query = null, $start = null, $end = null, $direction = 'desc', $voice = '0')
     {
-        $returnType = '\TextMagic\Models\GetChatMessagesResponse';
+        $returnType = '\TextMagic\Models\GetChatMessagesPaginatedResponse';
         $request = $this->getChatMessagesRequest($id, $page, $limit, $query, $start, $end, $direction, $voice);
 
         return $this->client
@@ -19886,7 +19886,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetContactNotesResponse
+     * @return \TextMagic\Models\GetContactNotesPaginatedResponse
      */
     public function getContactNotes($id, $page = '1', $limit = '10')
     {
@@ -19905,11 +19905,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetContactNotesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetContactNotesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactNotesWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetContactNotesResponse';
+        $returnType = '\TextMagic\Models\GetContactNotesPaginatedResponse';
         $request = $this->getContactNotesRequest($id, $page, $limit);
 
         try {
@@ -19961,7 +19961,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetContactNotesResponse',
+                        '\TextMagic\Models\GetContactNotesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20023,7 +20023,7 @@ class TextMagicApi
      */
     public function getContactNotesAsyncWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetContactNotesResponse';
+        $returnType = '\TextMagic\Models\GetContactNotesPaginatedResponse';
         $request = $this->getContactNotesRequest($id, $page, $limit);
 
         return $this->client
@@ -20188,7 +20188,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetContactsResponse
+     * @return \TextMagic\Models\GetContactsPaginatedResponse
      */
     public function getContacts($page = '1', $limit = '10', $shared = '0', $orderBy = 'id', $direction = 'desc')
     {
@@ -20209,11 +20209,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetContactsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetContactsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactsWithHttpInfo($page = '1', $limit = '10', $shared = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetContactsResponse';
+        $returnType = '\TextMagic\Models\GetContactsPaginatedResponse';
         $request = $this->getContactsRequest($page, $limit, $shared, $orderBy, $direction);
 
         try {
@@ -20265,7 +20265,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetContactsResponse',
+                        '\TextMagic\Models\GetContactsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20323,7 +20323,7 @@ class TextMagicApi
      */
     public function getContactsAsyncWithHttpInfo($page = '1', $limit = '10', $shared = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetContactsResponse';
+        $returnType = '\TextMagic\Models\GetContactsPaginatedResponse';
         $request = $this->getContactsRequest($page, $limit, $shared, $orderBy, $direction);
 
         return $this->client
@@ -20486,7 +20486,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetContactsAutocompleteResponse[]
+     * @return \TextMagic\Models\GetContactsAutocompleteResponse
      */
     public function getContactsAutocomplete($query, $limit = '10', $lists = '0')
     {
@@ -20505,11 +20505,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetContactsAutocompleteResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetContactsAutocompleteResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactsAutocompleteWithHttpInfo($query, $limit = '10', $lists = '0')
     {
-        $returnType = '\TextMagic\Models\GetContactsAutocompleteResponse[]';
+        $returnType = '\TextMagic\Models\GetContactsAutocompleteResponse';
         $request = $this->getContactsAutocompleteRequest($query, $limit, $lists);
 
         try {
@@ -20561,7 +20561,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetContactsAutocompleteResponse[]',
+                        '\TextMagic\Models\GetContactsAutocompleteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20615,7 +20615,7 @@ class TextMagicApi
      */
     public function getContactsAutocompleteAsyncWithHttpInfo($query, $limit = '10', $lists = '0')
     {
-        $returnType = '\TextMagic\Models\GetContactsAutocompleteResponse[]';
+        $returnType = '\TextMagic\Models\GetContactsAutocompleteResponse';
         $request = $this->getContactsAutocompleteRequest($query, $limit, $lists);
 
         return $this->client
@@ -20776,7 +20776,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetContactsByListIdResponse
+     * @return \TextMagic\Models\GetContactsByListIdPaginatedResponse
      */
     public function getContactsByListId($id, $page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
@@ -20797,11 +20797,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetContactsByListIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetContactsByListIdPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactsByListIdWithHttpInfo($id, $page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetContactsByListIdResponse';
+        $returnType = '\TextMagic\Models\GetContactsByListIdPaginatedResponse';
         $request = $this->getContactsByListIdRequest($id, $page, $limit, $orderBy, $direction);
 
         try {
@@ -20853,7 +20853,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetContactsByListIdResponse',
+                        '\TextMagic\Models\GetContactsByListIdPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20919,7 +20919,7 @@ class TextMagicApi
      */
     public function getContactsByListIdAsyncWithHttpInfo($id, $page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetContactsByListIdResponse';
+        $returnType = '\TextMagic\Models\GetContactsByListIdPaginatedResponse';
         $request = $this->getContactsByListIdRequest($id, $page, $limit, $orderBy, $direction);
 
         return $this->client
@@ -21089,7 +21089,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\Country[]
+     * @return \TextMagic\Models\GetCountriesResponse
      */
     public function getCountries()
     {
@@ -21105,11 +21105,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\Country[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetCountriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCountriesWithHttpInfo()
     {
-        $returnType = '\TextMagic\Models\Country[]';
+        $returnType = '\TextMagic\Models\GetCountriesResponse';
         $request = $this->getCountriesRequest();
 
         try {
@@ -21161,7 +21161,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\Country[]',
+                        '\TextMagic\Models\GetCountriesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21209,7 +21209,7 @@ class TextMagicApi
      */
     public function getCountriesAsyncWithHttpInfo()
     {
-        $returnType = '\TextMagic\Models\Country[]';
+        $returnType = '\TextMagic\Models\GetCountriesResponse';
         $request = $this->getCountriesRequest();
 
         return $this->client
@@ -21883,7 +21883,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetCustomFieldsResponse
+     * @return \TextMagic\Models\GetCustomFieldsPaginatedResponse
      */
     public function getCustomFields($page = '1', $limit = '10')
     {
@@ -21901,11 +21901,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetCustomFieldsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetCustomFieldsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomFieldsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetCustomFieldsResponse';
+        $returnType = '\TextMagic\Models\GetCustomFieldsPaginatedResponse';
         $request = $this->getCustomFieldsRequest($page, $limit);
 
         try {
@@ -21957,7 +21957,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetCustomFieldsResponse',
+                        '\TextMagic\Models\GetCustomFieldsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22009,7 +22009,7 @@ class TextMagicApi
      */
     public function getCustomFieldsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetCustomFieldsResponse';
+        $returnType = '\TextMagic\Models\GetCustomFieldsPaginatedResponse';
         $request = $this->getCustomFieldsRequest($page, $limit);
 
         return $this->client
@@ -22436,7 +22436,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string[]
+     * @return \TextMagic\Models\GetDisallowedRulesResponse
      */
     public function getDisallowedRules()
     {
@@ -22452,11 +22452,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetDisallowedRulesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDisallowedRulesWithHttpInfo()
     {
-        $returnType = 'string[]';
+        $returnType = '\TextMagic\Models\GetDisallowedRulesResponse';
         $request = $this->getDisallowedRulesRequest();
 
         try {
@@ -22508,7 +22508,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string[]',
+                        '\TextMagic\Models\GetDisallowedRulesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22556,7 +22556,7 @@ class TextMagicApi
      */
     public function getDisallowedRulesAsyncWithHttpInfo()
     {
-        $returnType = 'string[]';
+        $returnType = '\TextMagic\Models\GetDisallowedRulesResponse';
         $request = $this->getDisallowedRulesRequest();
 
         return $this->client
@@ -22694,7 +22694,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetFavouritesResponse
+     * @return \TextMagic\Models\GetFavouritesPaginatedResponse
      */
     public function getFavourites($page = '1', $limit = '10', $query = 'A')
     {
@@ -22713,11 +22713,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetFavouritesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetFavouritesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFavouritesWithHttpInfo($page = '1', $limit = '10', $query = 'A')
     {
-        $returnType = '\TextMagic\Models\GetFavouritesResponse';
+        $returnType = '\TextMagic\Models\GetFavouritesPaginatedResponse';
         $request = $this->getFavouritesRequest($page, $limit, $query);
 
         try {
@@ -22769,7 +22769,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetFavouritesResponse',
+                        '\TextMagic\Models\GetFavouritesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22823,7 +22823,7 @@ class TextMagicApi
      */
     public function getFavouritesAsyncWithHttpInfo($page = '1', $limit = '10', $query = 'A')
     {
-        $returnType = '\TextMagic\Models\GetFavouritesResponse';
+        $returnType = '\TextMagic\Models\GetFavouritesPaginatedResponse';
         $request = $this->getFavouritesRequest($page, $limit, $query);
 
         return $this->client
@@ -22975,7 +22975,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetForwardedCallsResponse
+     * @return \TextMagic\Models\GetForwardedCallsPaginatedResponse
      */
     public function getForwardedCalls($page = '1', $limit = '10')
     {
@@ -22993,11 +22993,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetForwardedCallsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetForwardedCallsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getForwardedCallsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetForwardedCallsResponse';
+        $returnType = '\TextMagic\Models\GetForwardedCallsPaginatedResponse';
         $request = $this->getForwardedCallsRequest($page, $limit);
 
         try {
@@ -23049,7 +23049,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetForwardedCallsResponse',
+                        '\TextMagic\Models\GetForwardedCallsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23101,7 +23101,7 @@ class TextMagicApi
      */
     public function getForwardedCallsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetForwardedCallsResponse';
+        $returnType = '\TextMagic\Models\GetForwardedCallsPaginatedResponse';
         $request = $this->getForwardedCallsRequest($page, $limit);
 
         return $this->client
@@ -23785,7 +23785,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetInvoicesResponse
+     * @return \TextMagic\Models\GetInvoicesPaginatedResponse
      */
     public function getInvoices($page = '1', $limit = '10')
     {
@@ -23803,11 +23803,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetInvoicesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetInvoicesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoicesWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetInvoicesResponse';
+        $returnType = '\TextMagic\Models\GetInvoicesPaginatedResponse';
         $request = $this->getInvoicesRequest($page, $limit);
 
         try {
@@ -23859,7 +23859,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetInvoicesResponse',
+                        '\TextMagic\Models\GetInvoicesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23919,7 +23919,7 @@ class TextMagicApi
      */
     public function getInvoicesAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetInvoicesResponse';
+        $returnType = '\TextMagic\Models\GetInvoicesPaginatedResponse';
         $request = $this->getInvoicesRequest($page, $limit);
 
         return $this->client
@@ -24631,7 +24631,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetListsOfContactResponse
+     * @return \TextMagic\Models\GetListsOfContactPaginatedResponse
      */
     public function getListsOfContact($id, $page = '1', $limit = '10')
     {
@@ -24650,11 +24650,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetListsOfContactResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetListsOfContactPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getListsOfContactWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetListsOfContactResponse';
+        $returnType = '\TextMagic\Models\GetListsOfContactPaginatedResponse';
         $request = $this->getListsOfContactRequest($id, $page, $limit);
 
         try {
@@ -24706,7 +24706,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetListsOfContactResponse',
+                        '\TextMagic\Models\GetListsOfContactPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24768,7 +24768,7 @@ class TextMagicApi
      */
     public function getListsOfContactAsyncWithHttpInfo($id, $page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetListsOfContactResponse';
+        $returnType = '\TextMagic\Models\GetListsOfContactPaginatedResponse';
         $request = $this->getListsOfContactRequest($id, $page, $limit);
 
         return $this->client
@@ -26602,7 +26602,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetMessagesBySessionIdResponse
+     * @return \TextMagic\Models\GetMessagesBySessionIdPaginatedResponse
      */
     public function getMessagesBySessionId($id, $page = '1', $limit = '10', $statuses = null, $includeDeleted = '0')
     {
@@ -26623,11 +26623,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetMessagesBySessionIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetMessagesBySessionIdPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessagesBySessionIdWithHttpInfo($id, $page = '1', $limit = '10', $statuses = null, $includeDeleted = '0')
     {
-        $returnType = '\TextMagic\Models\GetMessagesBySessionIdResponse';
+        $returnType = '\TextMagic\Models\GetMessagesBySessionIdPaginatedResponse';
         $request = $this->getMessagesBySessionIdRequest($id, $page, $limit, $statuses, $includeDeleted);
 
         try {
@@ -26679,7 +26679,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetMessagesBySessionIdResponse',
+                        '\TextMagic\Models\GetMessagesBySessionIdPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26737,7 +26737,7 @@ class TextMagicApi
      */
     public function getMessagesBySessionIdAsyncWithHttpInfo($id, $page = '1', $limit = '10', $statuses = null, $includeDeleted = '0')
     {
-        $returnType = '\TextMagic\Models\GetMessagesBySessionIdResponse';
+        $returnType = '\TextMagic\Models\GetMessagesBySessionIdPaginatedResponse';
         $request = $this->getMessagesBySessionIdRequest($id, $page, $limit, $statuses, $includeDeleted);
 
         return $this->client
@@ -27739,7 +27739,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetOutboundMessagesHistoryResponse
+     * @return \TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse
      */
     public function getOutboundMessagesHistory($limit = '10', $lastId = null, $query = null, $orderBy = 'id', $direction = 'desc')
     {
@@ -27760,11 +27760,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetOutboundMessagesHistoryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundMessagesHistoryWithHttpInfo($limit = '10', $lastId = null, $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetOutboundMessagesHistoryResponse';
+        $returnType = '\TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse';
         $request = $this->getOutboundMessagesHistoryRequest($limit, $lastId, $query, $orderBy, $direction);
 
         try {
@@ -27816,7 +27816,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetOutboundMessagesHistoryResponse',
+                        '\TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27882,7 +27882,7 @@ class TextMagicApi
      */
     public function getOutboundMessagesHistoryAsyncWithHttpInfo($limit = '10', $lastId = null, $query = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\GetOutboundMessagesHistoryResponse';
+        $returnType = '\TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse';
         $request = $this->getOutboundMessagesHistoryRequest($limit, $lastId, $query, $orderBy, $direction);
 
         return $this->client
@@ -28863,7 +28863,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetSenderIdsResponse
+     * @return \TextMagic\Models\GetSenderIdsPaginatedResponse
      */
     public function getSenderIds($page = '1', $limit = '10')
     {
@@ -28881,11 +28881,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetSenderIdsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetSenderIdsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSenderIdsWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetSenderIdsResponse';
+        $returnType = '\TextMagic\Models\GetSenderIdsPaginatedResponse';
         $request = $this->getSenderIdsRequest($page, $limit);
 
         try {
@@ -28937,7 +28937,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetSenderIdsResponse',
+                        '\TextMagic\Models\GetSenderIdsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28989,7 +28989,7 @@ class TextMagicApi
      */
     public function getSenderIdsAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetSenderIdsResponse';
+        $returnType = '\TextMagic\Models\GetSenderIdsPaginatedResponse';
         $request = $this->getSenderIdsRequest($page, $limit);
 
         return $this->client
@@ -29402,7 +29402,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetSpendingStatResponse
+     * @return \TextMagic\Models\GetSpendingStatPaginatedResponse
      */
     public function getSpendingStat($page = '1', $limit = '10', $start = null, $end = null)
     {
@@ -29422,11 +29422,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetSpendingStatResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetSpendingStatPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSpendingStatWithHttpInfo($page = '1', $limit = '10', $start = null, $end = null)
     {
-        $returnType = '\TextMagic\Models\GetSpendingStatResponse';
+        $returnType = '\TextMagic\Models\GetSpendingStatPaginatedResponse';
         $request = $this->getSpendingStatRequest($page, $limit, $start, $end);
 
         try {
@@ -29478,7 +29478,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetSpendingStatResponse',
+                        '\TextMagic\Models\GetSpendingStatPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29542,7 +29542,7 @@ class TextMagicApi
      */
     public function getSpendingStatAsyncWithHttpInfo($page = '1', $limit = '10', $start = null, $end = null)
     {
-        $returnType = '\TextMagic\Models\GetSpendingStatResponse';
+        $returnType = '\TextMagic\Models\GetSpendingStatPaginatedResponse';
         $request = $this->getSpendingStatRequest($page, $limit, $start, $end);
 
         return $this->client
@@ -31650,7 +31650,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetSurveysResponse
+     * @return \TextMagic\Models\GetSurveysPaginatedResponse
      */
     public function getSurveys($page = '1', $limit = '10')
     {
@@ -31668,11 +31668,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetSurveysResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetSurveysPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSurveysWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetSurveysResponse';
+        $returnType = '\TextMagic\Models\GetSurveysPaginatedResponse';
         $request = $this->getSurveysRequest($page, $limit);
 
         try {
@@ -31724,7 +31724,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetSurveysResponse',
+                        '\TextMagic\Models\GetSurveysPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31776,7 +31776,7 @@ class TextMagicApi
      */
     public function getSurveysAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetSurveysResponse';
+        $returnType = '\TextMagic\Models\GetSurveysPaginatedResponse';
         $request = $this->getSurveysRequest($page, $limit);
 
         return $this->client
@@ -32204,7 +32204,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \TextMagic\Models\GetTimezonesResponse
      */
     public function getTimezones($full = '0')
     {
@@ -32221,11 +32221,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetTimezonesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimezonesWithHttpInfo($full = '0')
     {
-        $returnType = 'object';
+        $returnType = '\TextMagic\Models\GetTimezonesResponse';
         $request = $this->getTimezonesRequest($full);
 
         try {
@@ -32277,7 +32277,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\TextMagic\Models\GetTimezonesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32335,7 +32335,7 @@ class TextMagicApi
      */
     public function getTimezonesAsyncWithHttpInfo($full = '0')
     {
-        $returnType = 'object';
+        $returnType = '\TextMagic\Models\GetTimezonesResponse';
         $request = $this->getTimezonesRequest($full);
 
         return $this->client
@@ -33014,7 +33014,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetUnsubscribersResponse
+     * @return \TextMagic\Models\GetUnsubscribersPaginatedResponse
      */
     public function getUnsubscribers($page = '1', $limit = '10')
     {
@@ -33032,11 +33032,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetUnsubscribersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetUnsubscribersPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUnsubscribersWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetUnsubscribersResponse';
+        $returnType = '\TextMagic\Models\GetUnsubscribersPaginatedResponse';
         $request = $this->getUnsubscribersRequest($page, $limit);
 
         try {
@@ -33088,7 +33088,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetUnsubscribersResponse',
+                        '\TextMagic\Models\GetUnsubscribersPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33140,7 +33140,7 @@ class TextMagicApi
      */
     public function getUnsubscribersAsyncWithHttpInfo($page = '1', $limit = '10')
     {
-        $returnType = '\TextMagic\Models\GetUnsubscribersResponse';
+        $returnType = '\TextMagic\Models\GetUnsubscribersPaginatedResponse';
         $request = $this->getUnsubscribersRequest($page, $limit);
 
         return $this->client
@@ -33288,7 +33288,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetUserDedicatedNumbersResponse
+     * @return \TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse
      */
     public function getUserDedicatedNumbers($page = '1', $limit = '10', $surveyId = null)
     {
@@ -33307,11 +33307,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetUserDedicatedNumbersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserDedicatedNumbersWithHttpInfo($page = '1', $limit = '10', $surveyId = null)
     {
-        $returnType = '\TextMagic\Models\GetUserDedicatedNumbersResponse';
+        $returnType = '\TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse';
         $request = $this->getUserDedicatedNumbersRequest($page, $limit, $surveyId);
 
         try {
@@ -33363,7 +33363,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetUserDedicatedNumbersResponse',
+                        '\TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33425,7 +33425,7 @@ class TextMagicApi
      */
     public function getUserDedicatedNumbersAsyncWithHttpInfo($page = '1', $limit = '10', $surveyId = null)
     {
-        $returnType = '\TextMagic\Models\GetUserDedicatedNumbersResponse';
+        $returnType = '\TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse';
         $request = $this->getUserDedicatedNumbersRequest($page, $limit, $surveyId);
 
         return $this->client
@@ -33581,7 +33581,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetUserListsResponse
+     * @return \TextMagic\Models\GetUserListsPaginatedResponse
      */
     public function getUserLists($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
     {
@@ -33603,11 +33603,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetUserListsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\GetUserListsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserListsWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
     {
-        $returnType = '\TextMagic\Models\GetUserListsResponse';
+        $returnType = '\TextMagic\Models\GetUserListsPaginatedResponse';
         $request = $this->getUserListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
 
         try {
@@ -33659,7 +33659,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\GetUserListsResponse',
+                        '\TextMagic\Models\GetUserListsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33727,7 +33727,7 @@ class TextMagicApi
      */
     public function getUserListsAsyncWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
     {
-        $returnType = '\TextMagic\Models\GetUserListsResponse';
+        $returnType = '\TextMagic\Models\GetUserListsPaginatedResponse';
         $request = $this->getUserListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
 
         return $this->client
@@ -36982,7 +36982,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchChatsResponse
+     * @return \TextMagic\Models\SearchChatsPaginatedResponse
      */
     public function searchChats($page = '1', $limit = '10', $query = null)
     {
@@ -37001,11 +37001,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchChatsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchChatsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchChatsWithHttpInfo($page = '1', $limit = '10', $query = null)
     {
-        $returnType = '\TextMagic\Models\SearchChatsResponse';
+        $returnType = '\TextMagic\Models\SearchChatsPaginatedResponse';
         $request = $this->searchChatsRequest($page, $limit, $query);
 
         try {
@@ -37057,7 +37057,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchChatsResponse',
+                        '\TextMagic\Models\SearchChatsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37111,7 +37111,7 @@ class TextMagicApi
      */
     public function searchChatsAsyncWithHttpInfo($page = '1', $limit = '10', $query = null)
     {
-        $returnType = '\TextMagic\Models\SearchChatsResponse';
+        $returnType = '\TextMagic\Models\SearchChatsPaginatedResponse';
         $request = $this->searchChatsRequest($page, $limit, $query);
 
         return $this->client
@@ -37264,7 +37264,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchChatsByIdsResponse
+     * @return \TextMagic\Models\SearchChatsByIdsPaginatedResponse
      */
     public function searchChatsByIds($page = '1', $limit = '10', $ids = null)
     {
@@ -37283,11 +37283,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchChatsByIdsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchChatsByIdsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchChatsByIdsWithHttpInfo($page = '1', $limit = '10', $ids = null)
     {
-        $returnType = '\TextMagic\Models\SearchChatsByIdsResponse';
+        $returnType = '\TextMagic\Models\SearchChatsByIdsPaginatedResponse';
         $request = $this->searchChatsByIdsRequest($page, $limit, $ids);
 
         try {
@@ -37339,7 +37339,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchChatsByIdsResponse',
+                        '\TextMagic\Models\SearchChatsByIdsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37393,7 +37393,7 @@ class TextMagicApi
      */
     public function searchChatsByIdsAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null)
     {
-        $returnType = '\TextMagic\Models\SearchChatsByIdsResponse';
+        $returnType = '\TextMagic\Models\SearchChatsByIdsPaginatedResponse';
         $request = $this->searchChatsByIdsRequest($page, $limit, $ids);
 
         return $this->client
@@ -37551,7 +37551,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchChatsByReceipentResponse
+     * @return \TextMagic\Models\SearchChatsByReceipentPaginatedResponse
      */
     public function searchChatsByReceipent($page = '1', $limit = '10', $query = null, $orderBy = 'id')
     {
@@ -37571,11 +37571,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchChatsByReceipentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchChatsByReceipentPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchChatsByReceipentWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id')
     {
-        $returnType = '\TextMagic\Models\SearchChatsByReceipentResponse';
+        $returnType = '\TextMagic\Models\SearchChatsByReceipentPaginatedResponse';
         $request = $this->searchChatsByReceipentRequest($page, $limit, $query, $orderBy);
 
         try {
@@ -37627,7 +37627,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchChatsByReceipentResponse',
+                        '\TextMagic\Models\SearchChatsByReceipentPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37683,7 +37683,7 @@ class TextMagicApi
      */
     public function searchChatsByReceipentAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $orderBy = 'id')
     {
-        $returnType = '\TextMagic\Models\SearchChatsByReceipentResponse';
+        $returnType = '\TextMagic\Models\SearchChatsByReceipentPaginatedResponse';
         $request = $this->searchChatsByReceipentRequest($page, $limit, $query, $orderBy);
 
         return $this->client
@@ -37849,7 +37849,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchContactsResponse
+     * @return \TextMagic\Models\SearchContactsPaginatedResponse
      */
     public function searchContacts($page = '1', $limit = '10', $shared = '0', $ids = null, $listId = null, $includeBlocked = null, $query = null, $local = '0', $country = null, $orderBy = 'id', $direction = 'desc')
     {
@@ -37876,11 +37876,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchContactsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchContactsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchContactsWithHttpInfo($page = '1', $limit = '10', $shared = '0', $ids = null, $listId = null, $includeBlocked = null, $query = null, $local = '0', $country = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\SearchContactsResponse';
+        $returnType = '\TextMagic\Models\SearchContactsPaginatedResponse';
         $request = $this->searchContactsRequest($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction);
 
         try {
@@ -37932,7 +37932,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchContactsResponse',
+                        '\TextMagic\Models\SearchContactsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38002,7 +38002,7 @@ class TextMagicApi
      */
     public function searchContactsAsyncWithHttpInfo($page = '1', $limit = '10', $shared = '0', $ids = null, $listId = null, $includeBlocked = null, $query = null, $local = '0', $country = null, $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\SearchContactsResponse';
+        $returnType = '\TextMagic\Models\SearchContactsPaginatedResponse';
         $request = $this->searchContactsRequest($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction);
 
         return $this->client
@@ -38203,7 +38203,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchInboundMessagesResponse
+     * @return \TextMagic\Models\SearchInboundMessagesPaginatedResponse
      */
     public function searchInboundMessages($page = '1', $limit = '10', $ids = null, $query = null, $orderBy = 'id', $direction = 'desc', $expand = '0')
     {
@@ -38226,11 +38226,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchInboundMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchInboundMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchInboundMessagesWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $orderBy = 'id', $direction = 'desc', $expand = '0')
     {
-        $returnType = '\TextMagic\Models\SearchInboundMessagesResponse';
+        $returnType = '\TextMagic\Models\SearchInboundMessagesPaginatedResponse';
         $request = $this->searchInboundMessagesRequest($page, $limit, $ids, $query, $orderBy, $direction, $expand);
 
         try {
@@ -38282,7 +38282,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchInboundMessagesResponse',
+                        '\TextMagic\Models\SearchInboundMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38352,7 +38352,7 @@ class TextMagicApi
      */
     public function searchInboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $orderBy = 'id', $direction = 'desc', $expand = '0')
     {
-        $returnType = '\TextMagic\Models\SearchInboundMessagesResponse';
+        $returnType = '\TextMagic\Models\SearchInboundMessagesPaginatedResponse';
         $request = $this->searchInboundMessagesRequest($page, $limit, $ids, $query, $orderBy, $direction, $expand);
 
         return $this->client
@@ -38534,7 +38534,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchListsResponse
+     * @return \TextMagic\Models\SearchListsPaginatedResponse
      */
     public function searchLists($page = '1', $limit = '10', $ids = null, $query = null, $onlyMine = '0', $onlyDefault = '0', $orderBy = 'id', $direction = 'desc')
     {
@@ -38558,11 +38558,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchListsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchListsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchListsWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $onlyMine = '0', $onlyDefault = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\SearchListsResponse';
+        $returnType = '\TextMagic\Models\SearchListsPaginatedResponse';
         $request = $this->searchListsRequest($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction);
 
         try {
@@ -38614,7 +38614,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchListsResponse',
+                        '\TextMagic\Models\SearchListsPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38686,7 +38686,7 @@ class TextMagicApi
      */
     public function searchListsAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null, $query = null, $onlyMine = '0', $onlyDefault = '0', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\SearchListsResponse';
+        $returnType = '\TextMagic\Models\SearchListsPaginatedResponse';
         $request = $this->searchListsRequest($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction);
 
         return $this->client
@@ -38869,7 +38869,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchOutboundMessagesResponse
+     * @return \TextMagic\Models\SearchOutboundMessagesPaginatedResponse
      */
     public function searchOutboundMessages($page = '1', $limit = '10', $lastId = null, $ids = null, $sessionId = null, $statuses = null, $includeDeleted = '0', $query = null)
     {
@@ -38893,11 +38893,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchOutboundMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchOutboundMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchOutboundMessagesWithHttpInfo($page = '1', $limit = '10', $lastId = null, $ids = null, $sessionId = null, $statuses = null, $includeDeleted = '0', $query = null)
     {
-        $returnType = '\TextMagic\Models\SearchOutboundMessagesResponse';
+        $returnType = '\TextMagic\Models\SearchOutboundMessagesPaginatedResponse';
         $request = $this->searchOutboundMessagesRequest($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query);
 
         try {
@@ -38949,7 +38949,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchOutboundMessagesResponse',
+                        '\TextMagic\Models\SearchOutboundMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -39021,7 +39021,7 @@ class TextMagicApi
      */
     public function searchOutboundMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $lastId = null, $ids = null, $sessionId = null, $statuses = null, $includeDeleted = '0', $query = null)
     {
-        $returnType = '\TextMagic\Models\SearchOutboundMessagesResponse';
+        $returnType = '\TextMagic\Models\SearchOutboundMessagesPaginatedResponse';
         $request = $this->searchOutboundMessagesRequest($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query);
 
         return $this->client
@@ -39207,7 +39207,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchScheduledMessagesResponse
+     * @return \TextMagic\Models\SearchScheduledMessagesPaginatedResponse
      */
     public function searchScheduledMessages($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
@@ -39230,11 +39230,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchScheduledMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchScheduledMessagesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchScheduledMessagesWithHttpInfo($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\SearchScheduledMessagesResponse';
+        $returnType = '\TextMagic\Models\SearchScheduledMessagesPaginatedResponse';
         $request = $this->searchScheduledMessagesRequest($page, $limit, $query, $ids, $status, $orderBy, $direction);
 
         try {
@@ -39286,7 +39286,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchScheduledMessagesResponse',
+                        '\TextMagic\Models\SearchScheduledMessagesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -39356,7 +39356,7 @@ class TextMagicApi
      */
     public function searchScheduledMessagesAsyncWithHttpInfo($page = '1', $limit = '10', $query = null, $ids = null, $status = 'x', $orderBy = 'id', $direction = 'desc')
     {
-        $returnType = '\TextMagic\Models\SearchScheduledMessagesResponse';
+        $returnType = '\TextMagic\Models\SearchScheduledMessagesPaginatedResponse';
         $request = $this->searchScheduledMessagesRequest($page, $limit, $query, $ids, $status, $orderBy, $direction);
 
         return $this->client
@@ -39535,7 +39535,7 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\SearchTemplatesResponse
+     * @return \TextMagic\Models\SearchTemplatesPaginatedResponse
      */
     public function searchTemplates($page = '1', $limit = '10', $ids = null, $name = null, $content = null)
     {
@@ -39556,11 +39556,11 @@ class TextMagicApi
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\SearchTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\SearchTemplatesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchTemplatesWithHttpInfo($page = '1', $limit = '10', $ids = null, $name = null, $content = null)
     {
-        $returnType = '\TextMagic\Models\SearchTemplatesResponse';
+        $returnType = '\TextMagic\Models\SearchTemplatesPaginatedResponse';
         $request = $this->searchTemplatesRequest($page, $limit, $ids, $name, $content);
 
         try {
@@ -39612,7 +39612,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\SearchTemplatesResponse',
+                        '\TextMagic\Models\SearchTemplatesPaginatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -39670,7 +39670,7 @@ class TextMagicApi
      */
     public function searchTemplatesAsyncWithHttpInfo($page = '1', $limit = '10', $ids = null, $name = null, $content = null)
     {
-        $returnType = '\TextMagic\Models\SearchTemplatesResponse';
+        $returnType = '\TextMagic\Models\SearchTemplatesPaginatedResponse';
         $request = $this->searchTemplatesRequest($page, $limit, $ids, $name, $content);
 
         return $this->client

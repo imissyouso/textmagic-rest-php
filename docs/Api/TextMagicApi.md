@@ -2956,7 +2956,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllBulkSessions**
-> \TextMagic\Models\GetAllBulkSessionsResponse getAllBulkSessions($page, $limit)
+> \TextMagic\Models\GetAllBulkSessionsPaginatedResponse getAllBulkSessions($page, $limit)
 
 Get all bulk sending sessions.
 
@@ -2998,7 +2998,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllBulkSessionsResponse**](../Model/GetAllBulkSessionsResponse.md)
+[**\TextMagic\Models\GetAllBulkSessionsPaginatedResponse**](../Model/GetAllBulkSessionsPaginatedResponse.md)
 
 ### Authorization
 
@@ -3012,7 +3012,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllChats**
-> \TextMagic\Models\GetAllChatsResponse getAllChats($status, $page, $limit, $orderBy, $voice, $flat)
+> \TextMagic\Models\GetAllChatsPaginatedResponse getAllChats($status, $page, $limit, $orderBy, $voice, $flat)
 
 Get all user chats.
 
@@ -3062,7 +3062,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllChatsResponse**](../Model/GetAllChatsResponse.md)
+[**\TextMagic\Models\GetAllChatsPaginatedResponse**](../Model/GetAllChatsPaginatedResponse.md)
 
 ### Authorization
 
@@ -3076,7 +3076,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllInboundMessages**
-> \TextMagic\Models\GetAllInboundMessagesResponse getAllInboundMessages($page, $limit, $orderBy, $direction)
+> \TextMagic\Models\GetAllInboundMessagesPaginatedResponse getAllInboundMessages($page, $limit, $orderBy, $direction)
 
 Get all inbox messages.
 
@@ -3122,7 +3122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllInboundMessagesResponse**](../Model/GetAllInboundMessagesResponse.md)
+[**\TextMagic\Models\GetAllInboundMessagesPaginatedResponse**](../Model/GetAllInboundMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -3136,7 +3136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllMessageSessions**
-> \TextMagic\Models\GetAllMessageSessionsResponse getAllMessageSessions($page, $limit)
+> \TextMagic\Models\GetAllMessageSessionsPaginatedResponse getAllMessageSessions($page, $limit)
 
 Get all message sending sessions.
 
@@ -3178,7 +3178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllMessageSessionsResponse**](../Model/GetAllMessageSessionsResponse.md)
+[**\TextMagic\Models\GetAllMessageSessionsPaginatedResponse**](../Model/GetAllMessageSessionsPaginatedResponse.md)
 
 ### Authorization
 
@@ -3192,7 +3192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllOutboundMessages**
-> \TextMagic\Models\GetAllOutboundMessagesResponse getAllOutboundMessages($page, $limit, $lastId)
+> \TextMagic\Models\GetAllOutboundMessagesPaginatedResponse getAllOutboundMessages($page, $limit, $lastId)
 
 Get all messages
 
@@ -3238,7 +3238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllOutboundMessagesResponse**](../Model/GetAllOutboundMessagesResponse.md)
+[**\TextMagic\Models\GetAllOutboundMessagesPaginatedResponse**](../Model/GetAllOutboundMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -3252,7 +3252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllScheduledMessages**
-> \TextMagic\Models\GetAllScheduledMessagesResponse getAllScheduledMessages($page, $limit, $status, $orderBy, $direction)
+> \TextMagic\Models\GetAllScheduledMessagesPaginatedResponse getAllScheduledMessages($page, $limit, $status, $orderBy, $direction)
 
 Get all scheduled messages.
 
@@ -3300,7 +3300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllScheduledMessagesResponse**](../Model/GetAllScheduledMessagesResponse.md)
+[**\TextMagic\Models\GetAllScheduledMessagesPaginatedResponse**](../Model/GetAllScheduledMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -3314,7 +3314,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllTemplates**
-> \TextMagic\Models\GetAllTemplatesResponse getAllTemplates($page, $limit)
+> \TextMagic\Models\GetAllTemplatesPaginatedResponse getAllTemplates($page, $limit)
 
 Get all user templates.
 
@@ -3356,7 +3356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetAllTemplatesResponse**](../Model/GetAllTemplatesResponse.md)
+[**\TextMagic\Models\GetAllTemplatesPaginatedResponse**](../Model/GetAllTemplatesPaginatedResponse.md)
 
 ### Authorization
 
@@ -3582,7 +3582,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBlockedContacts**
-> \TextMagic\Models\GetBlockedContactsResponse getBlockedContacts($page, $limit, $query, $orderBy, $direction)
+> \TextMagic\Models\GetBlockedContactsPaginatedResponse getBlockedContacts($page, $limit, $query, $orderBy, $direction)
 
 Get blocked contacts.
 
@@ -3630,7 +3630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetBlockedContactsResponse**](../Model/GetBlockedContactsResponse.md)
+[**\TextMagic\Models\GetBlockedContactsPaginatedResponse**](../Model/GetBlockedContactsPaginatedResponse.md)
 
 ### Authorization
 
@@ -3748,7 +3748,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCallsPrices**
-> map[string,object] getCallsPrices()
+> \TextMagic\Models\GetCallsPricesResponse getCallsPrices()
 
 Check pricing for a inbound/outbound call.
 
@@ -3784,7 +3784,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**map[string,object]**
+[**\TextMagic\Models\GetCallsPricesResponse**](../Model/GetCallsPricesResponse.md)
 
 ### Authorization
 
@@ -3910,7 +3910,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getChatMessages**
-> \TextMagic\Models\GetChatMessagesResponse getChatMessages($id, $page, $limit, $query, $start, $end, $direction, $voice)
+> \TextMagic\Models\GetChatMessagesPaginatedResponse getChatMessages($id, $page, $limit, $query, $start, $end, $direction, $voice)
 
 Fetch messages from chat with specified chat id.
 
@@ -3964,7 +3964,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetChatMessagesResponse**](../Model/GetChatMessagesResponse.md)
+[**\TextMagic\Models\GetChatMessagesPaginatedResponse**](../Model/GetChatMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -4248,7 +4248,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactNotes**
-> \TextMagic\Models\GetContactNotesResponse getContactNotes($id, $page, $limit)
+> \TextMagic\Models\GetContactNotesPaginatedResponse getContactNotes($id, $page, $limit)
 
 Fetch notes assigned to the given contact.
 
@@ -4292,7 +4292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetContactNotesResponse**](../Model/GetContactNotesResponse.md)
+[**\TextMagic\Models\GetContactNotesPaginatedResponse**](../Model/GetContactNotesPaginatedResponse.md)
 
 ### Authorization
 
@@ -4306,7 +4306,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContacts**
-> \TextMagic\Models\GetContactsResponse getContacts($page, $limit, $shared, $orderBy, $direction)
+> \TextMagic\Models\GetContactsPaginatedResponse getContacts($page, $limit, $shared, $orderBy, $direction)
 
 Get all user contacts.
 
@@ -4354,7 +4354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetContactsResponse**](../Model/GetContactsResponse.md)
+[**\TextMagic\Models\GetContactsPaginatedResponse**](../Model/GetContactsPaginatedResponse.md)
 
 ### Authorization
 
@@ -4368,7 +4368,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactsAutocomplete**
-> \TextMagic\Models\GetContactsAutocompleteResponse[] getContactsAutocomplete($query, $limit, $lists)
+> \TextMagic\Models\GetContactsAutocompleteResponse getContactsAutocomplete($query, $limit, $lists)
 
 Get contacts autocomplete suggestions by given search term.
 
@@ -4412,7 +4412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetContactsAutocompleteResponse[]**](../Model/GetContactsAutocompleteResponse.md)
+[**\TextMagic\Models\GetContactsAutocompleteResponse**](../Model/GetContactsAutocompleteResponse.md)
 
 ### Authorization
 
@@ -4426,7 +4426,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactsByListId**
-> \TextMagic\Models\GetContactsByListIdResponse getContactsByListId($id, $page, $limit, $orderBy, $direction)
+> \TextMagic\Models\GetContactsByListIdPaginatedResponse getContactsByListId($id, $page, $limit, $orderBy, $direction)
 
 Fetch user contacts by given group id.
 
@@ -4476,7 +4476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetContactsByListIdResponse**](../Model/GetContactsByListIdResponse.md)
+[**\TextMagic\Models\GetContactsByListIdPaginatedResponse**](../Model/GetContactsByListIdPaginatedResponse.md)
 
 ### Authorization
 
@@ -4490,7 +4490,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCountries**
-> \TextMagic\Models\Country[] getCountries()
+> \TextMagic\Models\GetCountriesResponse getCountries()
 
 Return list of countries.
 
@@ -4526,7 +4526,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\TextMagic\Models\Country[]**](../Model/Country.md)
+[**\TextMagic\Models\GetCountriesResponse**](../Model/GetCountriesResponse.md)
 
 ### Authorization
 
@@ -4644,7 +4644,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomFields**
-> \TextMagic\Models\GetCustomFieldsResponse getCustomFields($page, $limit)
+> \TextMagic\Models\GetCustomFieldsPaginatedResponse getCustomFields($page, $limit)
 
 Get all contact custom fields.
 
@@ -4686,7 +4686,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetCustomFieldsResponse**](../Model/GetCustomFieldsResponse.md)
+[**\TextMagic\Models\GetCustomFieldsPaginatedResponse**](../Model/GetCustomFieldsPaginatedResponse.md)
 
 ### Authorization
 
@@ -4754,7 +4754,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDisallowedRules**
-> string[] getDisallowedRules()
+> \TextMagic\Models\GetDisallowedRulesResponse getDisallowedRules()
 
 Get an array of all rules that are disallowed to the current account.
 
@@ -4790,7 +4790,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**string[]**
+[**\TextMagic\Models\GetDisallowedRulesResponse**](../Model/GetDisallowedRulesResponse.md)
 
 ### Authorization
 
@@ -4804,7 +4804,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFavourites**
-> \TextMagic\Models\GetFavouritesResponse getFavourites($page, $limit, $query)
+> \TextMagic\Models\GetFavouritesPaginatedResponse getFavourites($page, $limit, $query)
 
 Get favorite contacts and lists.
 
@@ -4848,7 +4848,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetFavouritesResponse**](../Model/GetFavouritesResponse.md)
+[**\TextMagic\Models\GetFavouritesPaginatedResponse**](../Model/GetFavouritesPaginatedResponse.md)
 
 ### Authorization
 
@@ -4862,7 +4862,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getForwardedCalls**
-> \TextMagic\Models\GetForwardedCallsResponse getForwardedCalls($page, $limit)
+> \TextMagic\Models\GetForwardedCallsPaginatedResponse getForwardedCalls($page, $limit)
 
 Get all forwarded calls.
 
@@ -4904,7 +4904,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetForwardedCallsResponse**](../Model/GetForwardedCallsResponse.md)
+[**\TextMagic\Models\GetForwardedCallsPaginatedResponse**](../Model/GetForwardedCallsPaginatedResponse.md)
 
 ### Authorization
 
@@ -5022,7 +5022,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoices**
-> \TextMagic\Models\GetInvoicesResponse getInvoices($page, $limit)
+> \TextMagic\Models\GetInvoicesPaginatedResponse getInvoices($page, $limit)
 
 Return account invoices.
 
@@ -5064,7 +5064,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetInvoicesResponse**](../Model/GetInvoicesResponse.md)
+[**\TextMagic\Models\GetInvoicesPaginatedResponse**](../Model/GetInvoicesPaginatedResponse.md)
 
 ### Authorization
 
@@ -5186,7 +5186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getListsOfContact**
-> \TextMagic\Models\GetListsOfContactResponse getListsOfContact($id, $page, $limit)
+> \TextMagic\Models\GetListsOfContactPaginatedResponse getListsOfContact($id, $page, $limit)
 
 Return lists which contact belongs to.
 
@@ -5230,7 +5230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetListsOfContactResponse**](../Model/GetListsOfContactResponse.md)
+[**\TextMagic\Models\GetListsOfContactPaginatedResponse**](../Model/GetListsOfContactPaginatedResponse.md)
 
 ### Authorization
 
@@ -5584,7 +5584,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMessagesBySessionId**
-> \TextMagic\Models\GetMessagesBySessionIdResponse getMessagesBySessionId($id, $page, $limit, $statuses, $includeDeleted)
+> \TextMagic\Models\GetMessagesBySessionIdPaginatedResponse getMessagesBySessionId($id, $page, $limit, $statuses, $includeDeleted)
 
 Fetch messages by given session id.
 
@@ -5634,7 +5634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetMessagesBySessionIdResponse**](../Model/GetMessagesBySessionIdResponse.md)
+[**\TextMagic\Models\GetMessagesBySessionIdPaginatedResponse**](../Model/GetMessagesBySessionIdPaginatedResponse.md)
 
 ### Authorization
 
@@ -5812,7 +5812,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOutboundMessagesHistory**
-> \TextMagic\Models\GetOutboundMessagesHistoryResponse getOutboundMessagesHistory($limit, $lastId, $query, $orderBy, $direction)
+> \TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse getOutboundMessagesHistory($limit, $lastId, $query, $orderBy, $direction)
 
 Get history
 
@@ -5862,7 +5862,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetOutboundMessagesHistoryResponse**](../Model/GetOutboundMessagesHistoryResponse.md)
+[**\TextMagic\Models\GetOutboundMessagesHistoryPaginatedResponse**](../Model/GetOutboundMessagesHistoryPaginatedResponse.md)
 
 ### Authorization
 
@@ -6034,7 +6034,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSenderIds**
-> \TextMagic\Models\GetSenderIdsResponse getSenderIds($page, $limit)
+> \TextMagic\Models\GetSenderIdsPaginatedResponse getSenderIds($page, $limit)
 
 Get all sender IDs of current user.
 
@@ -6076,7 +6076,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetSenderIdsResponse**](../Model/GetSenderIdsResponse.md)
+[**\TextMagic\Models\GetSenderIdsPaginatedResponse**](../Model/GetSenderIdsPaginatedResponse.md)
 
 ### Authorization
 
@@ -6144,7 +6144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSpendingStat**
-> \TextMagic\Models\GetSpendingStatResponse getSpendingStat($page, $limit, $start, $end)
+> \TextMagic\Models\GetSpendingStatPaginatedResponse getSpendingStat($page, $limit, $start, $end)
 
 Return account spending statistics.
 
@@ -6190,7 +6190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetSpendingStatResponse**](../Model/GetSpendingStatResponse.md)
+[**\TextMagic\Models\GetSpendingStatPaginatedResponse**](../Model/GetSpendingStatPaginatedResponse.md)
 
 ### Authorization
 
@@ -6586,7 +6586,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSurveys**
-> \TextMagic\Models\GetSurveysResponse getSurveys($page, $limit)
+> \TextMagic\Models\GetSurveysPaginatedResponse getSurveys($page, $limit)
 
 Get all user surveys.
 
@@ -6628,7 +6628,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetSurveysResponse**](../Model/GetSurveysResponse.md)
+[**\TextMagic\Models\GetSurveysPaginatedResponse**](../Model/GetSurveysPaginatedResponse.md)
 
 ### Authorization
 
@@ -6696,7 +6696,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTimezones**
-> object getTimezones($full)
+> \TextMagic\Models\GetTimezonesResponse getTimezones($full)
 
 Return all available timezone IDs.
 
@@ -6736,7 +6736,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\TextMagic\Models\GetTimezonesResponse**](../Model/GetTimezonesResponse.md)
 
 ### Authorization
 
@@ -6854,7 +6854,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUnsubscribers**
-> \TextMagic\Models\GetUnsubscribersResponse getUnsubscribers($page, $limit)
+> \TextMagic\Models\GetUnsubscribersPaginatedResponse getUnsubscribers($page, $limit)
 
 Get all contact have unsubscribed from your communication.
 
@@ -6896,7 +6896,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetUnsubscribersResponse**](../Model/GetUnsubscribersResponse.md)
+[**\TextMagic\Models\GetUnsubscribersPaginatedResponse**](../Model/GetUnsubscribersPaginatedResponse.md)
 
 ### Authorization
 
@@ -6910,7 +6910,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserDedicatedNumbers**
-> \TextMagic\Models\GetUserDedicatedNumbersResponse getUserDedicatedNumbers($page, $limit, $surveyId)
+> \TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse getUserDedicatedNumbers($page, $limit, $surveyId)
 
 Get user's dedicated numbers.
 
@@ -6954,7 +6954,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetUserDedicatedNumbersResponse**](../Model/GetUserDedicatedNumbersResponse.md)
+[**\TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse**](../Model/GetUserDedicatedNumbersPaginatedResponse.md)
 
 ### Authorization
 
@@ -6968,7 +6968,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserLists**
-> \TextMagic\Models\GetUserListsResponse getUserLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
+> \TextMagic\Models\GetUserListsPaginatedResponse getUserLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
 
 Get all user lists.
 
@@ -7018,7 +7018,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\GetUserListsResponse**](../Model/GetUserListsResponse.md)
+[**\TextMagic\Models\GetUserListsPaginatedResponse**](../Model/GetUserListsPaginatedResponse.md)
 
 ### Authorization
 
@@ -7668,7 +7668,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchChats**
-> \TextMagic\Models\SearchChatsResponse searchChats($page, $limit, $query)
+> \TextMagic\Models\SearchChatsPaginatedResponse searchChats($page, $limit, $query)
 
 Find chats by inbound or outbound messages text.
 
@@ -7712,7 +7712,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchChatsResponse**](../Model/SearchChatsResponse.md)
+[**\TextMagic\Models\SearchChatsPaginatedResponse**](../Model/SearchChatsPaginatedResponse.md)
 
 ### Authorization
 
@@ -7726,7 +7726,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchChatsByIds**
-> \TextMagic\Models\SearchChatsByIdsResponse searchChatsByIds($page, $limit, $ids)
+> \TextMagic\Models\SearchChatsByIdsPaginatedResponse searchChatsByIds($page, $limit, $ids)
 
 Find chats by IDs.
 
@@ -7770,7 +7770,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchChatsByIdsResponse**](../Model/SearchChatsByIdsResponse.md)
+[**\TextMagic\Models\SearchChatsByIdsPaginatedResponse**](../Model/SearchChatsByIdsPaginatedResponse.md)
 
 ### Authorization
 
@@ -7784,7 +7784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchChatsByReceipent**
-> \TextMagic\Models\SearchChatsByReceipentResponse searchChatsByReceipent($page, $limit, $query, $orderBy)
+> \TextMagic\Models\SearchChatsByReceipentPaginatedResponse searchChatsByReceipent($page, $limit, $query, $orderBy)
 
 Find chats by recipient (contact, list name or phone number).
 
@@ -7830,7 +7830,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchChatsByReceipentResponse**](../Model/SearchChatsByReceipentResponse.md)
+[**\TextMagic\Models\SearchChatsByReceipentPaginatedResponse**](../Model/SearchChatsByReceipentPaginatedResponse.md)
 
 ### Authorization
 
@@ -7844,7 +7844,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchContacts**
-> \TextMagic\Models\SearchContactsResponse searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
+> \TextMagic\Models\SearchContactsPaginatedResponse searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
 
 Find user contacts by given parameters.
 
@@ -7904,7 +7904,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchContactsResponse**](../Model/SearchContactsResponse.md)
+[**\TextMagic\Models\SearchContactsPaginatedResponse**](../Model/SearchContactsPaginatedResponse.md)
 
 ### Authorization
 
@@ -7918,7 +7918,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchInboundMessages**
-> \TextMagic\Models\SearchInboundMessagesResponse searchInboundMessages($page, $limit, $ids, $query, $orderBy, $direction, $expand)
+> \TextMagic\Models\SearchInboundMessagesPaginatedResponse searchInboundMessages($page, $limit, $ids, $query, $orderBy, $direction, $expand)
 
 Find inbound messages by given parameters.
 
@@ -7970,7 +7970,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchInboundMessagesResponse**](../Model/SearchInboundMessagesResponse.md)
+[**\TextMagic\Models\SearchInboundMessagesPaginatedResponse**](../Model/SearchInboundMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -7984,7 +7984,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchLists**
-> \TextMagic\Models\SearchListsResponse searchLists($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction)
+> \TextMagic\Models\SearchListsPaginatedResponse searchLists($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction)
 
 Find contact lists by given parameters.
 
@@ -8038,7 +8038,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchListsResponse**](../Model/SearchListsResponse.md)
+[**\TextMagic\Models\SearchListsPaginatedResponse**](../Model/SearchListsPaginatedResponse.md)
 
 ### Authorization
 
@@ -8052,7 +8052,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchOutboundMessages**
-> \TextMagic\Models\SearchOutboundMessagesResponse searchOutboundMessages($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query)
+> \TextMagic\Models\SearchOutboundMessagesPaginatedResponse searchOutboundMessages($page, $limit, $lastId, $ids, $sessionId, $statuses, $includeDeleted, $query)
 
 Find messages
 
@@ -8108,7 +8108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchOutboundMessagesResponse**](../Model/SearchOutboundMessagesResponse.md)
+[**\TextMagic\Models\SearchOutboundMessagesPaginatedResponse**](../Model/SearchOutboundMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -8122,7 +8122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchScheduledMessages**
-> \TextMagic\Models\SearchScheduledMessagesResponse searchScheduledMessages($page, $limit, $query, $ids, $status, $orderBy, $direction)
+> \TextMagic\Models\SearchScheduledMessagesPaginatedResponse searchScheduledMessages($page, $limit, $query, $ids, $status, $orderBy, $direction)
 
 Find scheduled messages by given parameters.
 
@@ -8174,7 +8174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchScheduledMessagesResponse**](../Model/SearchScheduledMessagesResponse.md)
+[**\TextMagic\Models\SearchScheduledMessagesPaginatedResponse**](../Model/SearchScheduledMessagesPaginatedResponse.md)
 
 ### Authorization
 
@@ -8188,7 +8188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchTemplates**
-> \TextMagic\Models\SearchTemplatesResponse searchTemplates($page, $limit, $ids, $name, $content)
+> \TextMagic\Models\SearchTemplatesPaginatedResponse searchTemplates($page, $limit, $ids, $name, $content)
 
 Find user templates by given parameters.
 
@@ -8236,7 +8236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\SearchTemplatesResponse**](../Model/SearchTemplatesResponse.md)
+[**\TextMagic\Models\SearchTemplatesPaginatedResponse**](../Model/SearchTemplatesPaginatedResponse.md)
 
 ### Authorization
 
