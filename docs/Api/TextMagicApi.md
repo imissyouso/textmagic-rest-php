@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **blockContact**
-> \TextMagic\Models\ResourceLinkResponse blockContact($blockContactInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse blockContact($blockContactInputObject)
 
 Block contact from inbound and outbound communication by phone number.
 
@@ -258,10 +258,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $blockContactInputObject = new \TextMagic\Models\BlockContactInputObject(); // \TextMagic\Models\BlockContactInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->blockContact($blockContactInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->blockContact($blockContactInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->blockContact: ', $e->getMessage(), PHP_EOL;
@@ -274,7 +273,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockContactInputObject** | [**\TextMagic\Models\BlockContactInputObject**](../Model/BlockContactInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -292,7 +290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **buyDedicatedNumber**
-> buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues)
+> buyDedicatedNumber($buyDedicatedNumberInputObject)
 
 Buy a dedicated number and assign it to the specified account.
 
@@ -314,10 +312,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $buyDedicatedNumberInputObject = new \TextMagic\Models\BuyDedicatedNumberInputObject(); // \TextMagic\Models\BuyDedicatedNumberInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues);
+    $apiInstance->buyDedicatedNumber($buyDedicatedNumberInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->buyDedicatedNumber: ', $e->getMessage(), PHP_EOL;
 }
@@ -329,7 +326,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **buyDedicatedNumberInputObject** | [**\TextMagic\Models\BuyDedicatedNumberInputObject**](../Model/BuyDedicatedNumberInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -401,7 +397,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkPhoneVerificationCode**
-> checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues)
+> checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject)
 
 Check user phone verification code
 
@@ -423,10 +419,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $checkPhoneVerificationCodeInputObject = new \TextMagic\Models\CheckPhoneVerificationCodeInputObject(); // \TextMagic\Models\CheckPhoneVerificationCodeInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
+    $apiInstance->checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->checkPhoneVerificationCode: ', $e->getMessage(), PHP_EOL;
 }
@@ -438,7 +433,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **checkPhoneVerificationCodeInputObject** | [**\TextMagic\Models\CheckPhoneVerificationCodeInputObject**](../Model/CheckPhoneVerificationCodeInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -512,7 +506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **closeChatsBulk**
-> closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullValues)
+> closeChatsBulk($closeChatsBulkInputObject)
 
 Close chats by chat ids or close all chats
 
@@ -534,10 +528,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $closeChatsBulkInputObject = new \TextMagic\Models\CloseChatsBulkInputObject(); // \TextMagic\Models\CloseChatsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->closeChatsBulk($closeChatsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->closeChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -549,7 +542,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **closeChatsBulkInputObject** | [**\TextMagic\Models\CloseChatsBulkInputObject**](../Model/CloseChatsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -669,7 +661,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContact**
-> \TextMagic\Models\ResourceLinkResponse createContact($createContactInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createContact($createContactInputObject)
 
 Create a new contact from the submitted data.
 
@@ -691,10 +683,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $createContactInputObject = new \TextMagic\Models\CreateContactInputObject(); // \TextMagic\Models\CreateContactInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createContact($createContactInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->createContact($createContactInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createContact: ', $e->getMessage(), PHP_EOL;
@@ -707,7 +698,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createContactInputObject** | [**\TextMagic\Models\CreateContactInputObject**](../Model/CreateContactInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -725,7 +715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactNote**
-> \TextMagic\Models\ResourceLinkResponse createContactNote($createContactNoteInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createContactNote($createContactNoteInputObject, $id)
 
 Create a new contact note.
 
@@ -748,10 +738,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $createContactNoteInputObject = new \TextMagic\Models\CreateContactNoteInputObject(); // \TextMagic\Models\CreateContactNoteInputObject | 
 $id = 56; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createContactNote($createContactNoteInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->createContactNote($createContactNoteInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createContactNote: ', $e->getMessage(), PHP_EOL;
@@ -765,7 +754,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createContactNoteInputObject** | [**\TextMagic\Models\CreateContactNoteInputObject**](../Model/CreateContactNoteInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -783,7 +771,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCustomField**
-> \TextMagic\Models\ResourceLinkResponse createCustomField($createCustomFieldInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createCustomField($createCustomFieldInputObject)
 
 Create a new custom field from the submitted data.
 
@@ -805,10 +793,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $createCustomFieldInputObject = new \TextMagic\Models\CreateCustomFieldInputObject(); // \TextMagic\Models\CreateCustomFieldInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createCustomField($createCustomFieldInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->createCustomField($createCustomFieldInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createCustomField: ', $e->getMessage(), PHP_EOL;
@@ -821,7 +808,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createCustomFieldInputObject** | [**\TextMagic\Models\CreateCustomFieldInputObject**](../Model/CreateCustomFieldInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -839,7 +825,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createList**
-> \TextMagic\Models\ResourceLinkResponse createList($createListInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createList($createListInputObject)
 
 Create a new list from the submitted data.
 
@@ -861,10 +847,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $createListInputObject = new \TextMagic\Models\CreateListInputObject(); // \TextMagic\Models\CreateListInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createList($createListInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->createList($createListInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createList: ', $e->getMessage(), PHP_EOL;
@@ -877,7 +862,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createListInputObject** | [**\TextMagic\Models\CreateListInputObject**](../Model/CreateListInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -895,7 +879,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPushToken**
-> createPushToken($createPushTokenInputObject, $xIgnoreNullValues)
+> createPushToken($createPushTokenInputObject)
 
 Add or update a device token.
 
@@ -917,10 +901,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $createPushTokenInputObject = new \TextMagic\Models\CreatePushTokenInputObject(); // \TextMagic\Models\CreatePushTokenInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->createPushToken($createPushTokenInputObject, $xIgnoreNullValues);
+    $apiInstance->createPushToken($createPushTokenInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createPushToken: ', $e->getMessage(), PHP_EOL;
 }
@@ -932,7 +915,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createPushTokenInputObject** | [**\TextMagic\Models\CreatePushTokenInputObject**](../Model/CreatePushTokenInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -950,7 +932,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSurvey**
-> \TextMagic\Models\ResourceLinkResponse createSurvey($createSurveyInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createSurvey($createSurveyInputObject)
 
 Create a new survey from the submitted data.
 
@@ -972,10 +954,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $createSurveyInputObject = new \TextMagic\Models\CreateSurveyInputObject(); // \TextMagic\Models\CreateSurveyInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createSurvey($createSurveyInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->createSurvey($createSurveyInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createSurvey: ', $e->getMessage(), PHP_EOL;
@@ -988,7 +969,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createSurveyInputObject** | [**\TextMagic\Models\CreateSurveyInputObject**](../Model/CreateSurveyInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1006,7 +986,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSurveyNode**
-> \TextMagic\Models\ResourceLinkResponse createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createSurveyNode($createSurveyNodeInputObject, $id)
 
 Create a new node from the submitted data.
 
@@ -1029,10 +1009,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $createSurveyNodeInputObject = new \TextMagic\Models\CreateSurveyNodeInputObject(); // \TextMagic\Models\CreateSurveyNodeInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->createSurveyNode($createSurveyNodeInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createSurveyNode: ', $e->getMessage(), PHP_EOL;
@@ -1046,7 +1025,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createSurveyNodeInputObject** | [**\TextMagic\Models\CreateSurveyNodeInputObject**](../Model/CreateSurveyNodeInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1064,7 +1042,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTemplate**
-> \TextMagic\Models\ResourceLinkResponse createTemplate($createTemplateInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse createTemplate($createTemplateInputObject)
 
 Create a new template from the submitted data.
 
@@ -1086,10 +1064,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $createTemplateInputObject = new \TextMagic\Models\CreateTemplateInputObject(); // \TextMagic\Models\CreateTemplateInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->createTemplate($createTemplateInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->createTemplate($createTemplateInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->createTemplate: ', $e->getMessage(), PHP_EOL;
@@ -1102,7 +1079,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createTemplateInputObject** | [**\TextMagic\Models\CreateTemplateInputObject**](../Model/CreateTemplateInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1269,7 +1245,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteChatMessages**
-> deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues)
+> deleteChatMessages($deleteChatMessagesBulkInputObject, $id)
 
 Delete messages from chat by given messages ID(s).
 
@@ -1292,10 +1268,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $deleteChatMessagesBulkInputObject = new \TextMagic\Models\DeleteChatMessagesBulkInputObject(); // \TextMagic\Models\DeleteChatMessagesBulkInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
+    $apiInstance->deleteChatMessages($deleteChatMessagesBulkInputObject, $id);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteChatMessages: ', $e->getMessage(), PHP_EOL;
 }
@@ -1308,7 +1283,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteChatMessagesBulkInputObject** | [**\TextMagic\Models\DeleteChatMessagesBulkInputObject**](../Model/DeleteChatMessagesBulkInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1326,7 +1300,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteChatsBulk**
-> deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullValues)
+> deleteChatsBulk($deleteChatsBulkInputObject)
 
 Delete chats by given ID(s) or delete all chats.
 
@@ -1348,10 +1322,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteChatsBulkInputObject = new \TextMagic\Models\DeleteChatsBulkInputObject(); // \TextMagic\Models\DeleteChatsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteChatsBulk($deleteChatsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -1363,7 +1336,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteChatsBulkInputObject** | [**\TextMagic\Models\DeleteChatsBulkInputObject**](../Model/DeleteChatsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1540,7 +1512,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteContactNotesBulk**
-> deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues)
+> deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject)
 
 Delete contact note by given ID(s) or delete all contact notes.
 
@@ -1563,10 +1535,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $id = 1; // int | 
 $deleteContactNotesBulkInputObject = new \TextMagic\Models\DeleteContactNotesBulkInputObject(); // \TextMagic\Models\DeleteContactNotesBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteContactNotesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -1579,7 +1550,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  |
  **deleteContactNotesBulkInputObject** | [**\TextMagic\Models\DeleteContactNotesBulkInputObject**](../Model/DeleteContactNotesBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1597,7 +1567,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteContactsByIds**
-> deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullValues)
+> deleteContactsByIds($deleteContactsByIdsInputObject)
 
 Delete contact by given ID(s) or delete all contacts.
 
@@ -1619,10 +1589,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteContactsByIdsInputObject = new \TextMagic\Models\DeleteContactsByIdsInputObject(); // \TextMagic\Models\DeleteContactsByIdsInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteContactsByIds($deleteContactsByIdsInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteContactsByIds: ', $e->getMessage(), PHP_EOL;
 }
@@ -1634,7 +1603,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteContactsByIdsInputObject** | [**\TextMagic\Models\DeleteContactsByIdsInputObject**](../Model/DeleteContactsByIdsInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -1866,7 +1834,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteInboundMessagesBulk**
-> deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues)
+> deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject)
 
 Delete inbound messages by given ID(s) or delete all inbound messages.
 
@@ -1888,10 +1856,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteInboundMessagesBulkInputObject = new \TextMagic\Models\DeleteInboundMessagesBulkInputObject(); // \TextMagic\Models\DeleteInboundMessagesBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteInboundMessagesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -1903,7 +1870,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteInboundMessagesBulkInputObject** | [**\TextMagic\Models\DeleteInboundMessagesBulkInputObject**](../Model/DeleteInboundMessagesBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2027,7 +1993,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteListContactsBulk**
-> deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues)
+> deleteListContactsBulk($deleteListContactsBulkInputObject, $id)
 
 Delete contact from list by given ID(s) or all contacts from list.
 
@@ -2050,10 +2016,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $deleteListContactsBulkInputObject = new \TextMagic\Models\DeleteListContactsBulkInputObject(); // \TextMagic\Models\DeleteListContactsBulkInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
+    $apiInstance->deleteListContactsBulk($deleteListContactsBulkInputObject, $id);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteListContactsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -2066,7 +2031,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteListContactsBulkInputObject** | [**\TextMagic\Models\DeleteListContactsBulkInputObject**](../Model/DeleteListContactsBulkInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2084,7 +2048,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteListsBulk**
-> deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullValues)
+> deleteListsBulk($deleteListsBulkInputObject)
 
 Delete list by given ID(s) or delete all lists.
 
@@ -2106,10 +2070,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteListsBulkInputObject = new \TextMagic\Models\DeleteListsBulkInputObject(); // \TextMagic\Models\DeleteListsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteListsBulk($deleteListsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteListsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -2121,7 +2084,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteListsBulkInputObject** | [**\TextMagic\Models\DeleteListsBulkInputObject**](../Model/DeleteListsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2192,7 +2154,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteMessageSessionsBulk**
-> deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues)
+> deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject)
 
 Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
 
@@ -2214,10 +2176,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteMessageSessionsBulkInputObject = new \TextMagic\Models\DeleteMessageSessionsBulkInputObject(); // \TextMagic\Models\DeleteMessageSessionsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteMessageSessionsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -2229,7 +2190,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteMessageSessionsBulkInputObject** | [**\TextMagic\Models\DeleteMessageSessionsBulkInputObject**](../Model/DeleteMessageSessionsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2302,7 +2262,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteOutboundMessagesBulk**
-> deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues)
+> deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject)
 
 Delete messages by IDs
 
@@ -2326,10 +2286,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteOutboundMessagesBulkInputObject = new \TextMagic\Models\DeleteOutboundMessagesBulkInputObject(); // \TextMagic\Models\DeleteOutboundMessagesBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteOutboundMessagesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -2341,7 +2300,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteOutboundMessagesBulkInputObject** | [**\TextMagic\Models\DeleteOutboundMessagesBulkInputObject**](../Model/DeleteOutboundMessagesBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2467,7 +2425,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteScheduledMessagesBulk**
-> deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues)
+> deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject)
 
 Delete scheduled messages by given ID(s) or delete all scheduled messages.
 
@@ -2489,10 +2447,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteScheduledMessagesBulkInputObject = new \TextMagic\Models\DeleteScheduledMessagesBulkInputObject(); // \TextMagic\Models\DeleteScheduledMessagesBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteScheduledMessagesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -2504,7 +2461,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteScheduledMessagesBulkInputObject** | [**\TextMagic\Models\DeleteScheduledMessagesBulkInputObject**](../Model/DeleteScheduledMessagesBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2734,7 +2690,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTemplatesBulk**
-> deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullValues)
+> deleteTemplatesBulk($deleteTemplatesBulkInputObject)
 
 Delete template by given ID(s) or delete all templates.
 
@@ -2756,10 +2712,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $deleteTemplatesBulkInputObject = new \TextMagic\Models\DeleteTemplatesBulkInputObject(); // \TextMagic\Models\DeleteTemplatesBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->deleteTemplatesBulk($deleteTemplatesBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->deleteTemplatesBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -2771,7 +2726,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteTemplatesBulkInputObject** | [**\TextMagic\Models\DeleteTemplatesBulkInputObject**](../Model/DeleteTemplatesBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -2789,7 +2743,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **doAuth**
-> \TextMagic\Models\DoAuthResponse doAuth($doAuthInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\DoAuthResponse doAuth($doAuthInputObject)
 
 Authenticate user by given username and password.
 
@@ -2806,10 +2760,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client()
 );
 $doAuthInputObject = new \TextMagic\Models\DoAuthInputObject(); // \TextMagic\Models\DoAuthInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->doAuth($doAuthInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->doAuth($doAuthInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->doAuth: ', $e->getMessage(), PHP_EOL;
@@ -2822,7 +2775,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **doAuthInputObject** | [**\TextMagic\Models\DoAuthInputObject**](../Model/DoAuthInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -6412,7 +6364,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubaccountsWithTokens**
-> \TextMagic\Models\GetSubaccountsWithTokensResponse getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues)
+> \TextMagic\Models\GetSubaccountsWithTokensResponse getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit)
 
 Get all subaccounts with their REST API tokens associated with specified app name.
 
@@ -6438,10 +6390,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 $getSubaccountsWithTokensInputObject = new \TextMagic\Models\GetSubaccountsWithTokensInputObject(); // \TextMagic\Models\GetSubaccountsWithTokensInputObject | 
 $page = 1; // float | Fetch specified results page
 $limit = 10; // int | How many results to return
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
+    $result = $apiInstance->getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->getSubaccountsWithTokens: ', $e->getMessage(), PHP_EOL;
@@ -6456,7 +6407,6 @@ Name | Type | Description  | Notes
  **getSubaccountsWithTokensInputObject** | [**\TextMagic\Models\GetSubaccountsWithTokensInputObject**](../Model/GetSubaccountsWithTokensInputObject.md)|  |
  **page** | **float**| Fetch specified results page | [optional] [default to 1]
  **limit** | **int**| How many results to return | [optional] [default to 10]
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7132,7 +7082,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **inviteSubaccount**
-> inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullValues)
+> inviteSubaccount($inviteSubaccountInputObject)
 
 Invite new subaccount.
 
@@ -7154,10 +7104,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $inviteSubaccountInputObject = new \TextMagic\Models\InviteSubaccountInputObject(); // \TextMagic\Models\InviteSubaccountInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullValues);
+    $apiInstance->inviteSubaccount($inviteSubaccountInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->inviteSubaccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -7169,7 +7118,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inviteSubaccountInputObject** | [**\TextMagic\Models\InviteSubaccountInputObject**](../Model/InviteSubaccountInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7187,7 +7135,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **markChatsReadBulk**
-> markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullValues)
+> markChatsReadBulk($markChatsReadBulkInputObject)
 
 Mark several chats as read by chat ids or mark all chats as read
 
@@ -7209,10 +7157,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $markChatsReadBulkInputObject = new \TextMagic\Models\MarkChatsReadBulkInputObject(); // \TextMagic\Models\MarkChatsReadBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->markChatsReadBulk($markChatsReadBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->markChatsReadBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -7224,7 +7171,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **markChatsReadBulkInputObject** | [**\TextMagic\Models\MarkChatsReadBulkInputObject**](../Model/MarkChatsReadBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7242,7 +7188,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **markChatsUnreadBulk**
-> markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullValues)
+> markChatsUnreadBulk($markChatsUnreadBulkInputObject)
 
 Mark several chats as UNread by chat ids or mark all chats as UNread
 
@@ -7264,10 +7210,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $markChatsUnreadBulkInputObject = new \TextMagic\Models\MarkChatsUnreadBulkInputObject(); // \TextMagic\Models\MarkChatsUnreadBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->markChatsUnreadBulk($markChatsUnreadBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->markChatsUnreadBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -7279,7 +7224,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **markChatsUnreadBulkInputObject** | [**\TextMagic\Models\MarkChatsUnreadBulkInputObject**](../Model/MarkChatsUnreadBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7297,7 +7241,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **mergeSurveyNodes**
-> mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullValues)
+> mergeSurveyNodes($mergeSurveyNodesInputObject)
 
 Merge two question nodes.
 
@@ -7319,10 +7263,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $mergeSurveyNodesInputObject = new \TextMagic\Models\MergeSurveyNodesInputObject(); // \TextMagic\Models\MergeSurveyNodesInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullValues);
+    $apiInstance->mergeSurveyNodes($mergeSurveyNodesInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->mergeSurveyNodes: ', $e->getMessage(), PHP_EOL;
 }
@@ -7334,7 +7277,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mergeSurveyNodesInputObject** | [**\TextMagic\Models\MergeSurveyNodesInputObject**](../Model/MergeSurveyNodesInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7352,7 +7294,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **muteChat**
-> \TextMagic\Models\ResourceLinkResponse muteChat($muteChatInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse muteChat($muteChatInputObject)
 
 Set mute mode.
 
@@ -7374,10 +7316,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $muteChatInputObject = new \TextMagic\Models\MuteChatInputObject(); // \TextMagic\Models\MuteChatInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->muteChat($muteChatInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->muteChat($muteChatInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->muteChat: ', $e->getMessage(), PHP_EOL;
@@ -7390,7 +7331,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteChatInputObject** | [**\TextMagic\Models\MuteChatInputObject**](../Model/MuteChatInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7408,7 +7348,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **muteChatsBulk**
-> muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullValues)
+> muteChatsBulk($muteChatsBulkInputObject)
 
 Mute several chats by chat ids or mute all chats
 
@@ -7430,10 +7370,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $muteChatsBulkInputObject = new \TextMagic\Models\MuteChatsBulkInputObject(); // \TextMagic\Models\MuteChatsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->muteChatsBulk($muteChatsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->muteChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -7445,7 +7384,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **muteChatsBulkInputObject** | [**\TextMagic\Models\MuteChatsBulkInputObject**](../Model/MuteChatsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7513,7 +7451,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **reopenChatsBulk**
-> reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullValues)
+> reopenChatsBulk($reopenChatsBulkInputObject)
 
 Reopen chats by chat ids or reopen all chats
 
@@ -7535,10 +7473,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $reopenChatsBulkInputObject = new \TextMagic\Models\ReopenChatsBulkInputObject(); // \TextMagic\Models\ReopenChatsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->reopenChatsBulk($reopenChatsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->reopenChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -7550,7 +7487,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reopenChatsBulkInputObject** | [**\TextMagic\Models\ReopenChatsBulkInputObject**](../Model/ReopenChatsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7568,7 +7504,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestNewSubaccountToken**
-> \TextMagic\Models\User requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\User requestNewSubaccountToken($requestNewSubaccountTokenInputObject)
 
 Request a new REST API token for subaccount.
 
@@ -7592,10 +7528,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $requestNewSubaccountTokenInputObject = new \TextMagic\Models\RequestNewSubaccountTokenInputObject(); // \TextMagic\Models\RequestNewSubaccountTokenInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->requestNewSubaccountToken($requestNewSubaccountTokenInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->requestNewSubaccountToken: ', $e->getMessage(), PHP_EOL;
@@ -7608,7 +7543,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestNewSubaccountTokenInputObject** | [**\TextMagic\Models\RequestNewSubaccountTokenInputObject**](../Model/RequestNewSubaccountTokenInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -7626,7 +7560,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestSenderId**
-> \TextMagic\Models\ResourceLinkResponse requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse requestSenderId($requestSenderIdInputObject)
 
 Request for a new Sender ID.
 
@@ -7648,10 +7582,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $requestSenderIdInputObject = new \TextMagic\Models\RequestSenderIdInputObject(); // \TextMagic\Models\RequestSenderIdInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->requestSenderId($requestSenderIdInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->requestSenderId: ', $e->getMessage(), PHP_EOL;
@@ -7664,7 +7597,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestSenderIdInputObject** | [**\TextMagic\Models\RequestSenderIdInputObject**](../Model/RequestSenderIdInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8367,7 +8299,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendMessage**
-> \TextMagic\Models\SendMessageResponse sendMessage($sendMessageInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\SendMessageResponse sendMessage($sendMessageInputObject)
 
 Send message
 
@@ -8391,10 +8323,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $sendMessageInputObject = new \TextMagic\Models\SendMessageInputObject(); // \TextMagic\Models\SendMessageInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->sendMessage($sendMessageInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->sendMessage($sendMessageInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->sendMessage: ', $e->getMessage(), PHP_EOL;
@@ -8407,7 +8338,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sendMessageInputObject** | [**\TextMagic\Models\SendMessageInputObject**](../Model/SendMessageInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8474,7 +8404,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setChatStatus**
-> \TextMagic\Models\ResourceLinkResponse setChatStatus($setChatStatusInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse setChatStatus($setChatStatusInputObject)
 
 Set status of the chat given by ID.
 
@@ -8496,10 +8426,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $setChatStatusInputObject = new \TextMagic\Models\SetChatStatusInputObject(); // \TextMagic\Models\SetChatStatusInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->setChatStatus($setChatStatusInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->setChatStatus($setChatStatusInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->setChatStatus: ', $e->getMessage(), PHP_EOL;
@@ -8512,7 +8441,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **setChatStatusInputObject** | [**\TextMagic\Models\SetChatStatusInputObject**](../Model/SetChatStatusInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8584,7 +8512,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unblockContact**
-> unblockContact($unblockContactInputObject, $xIgnoreNullValues)
+> unblockContact($unblockContactInputObject)
 
 Unblock contact by phone number.
 
@@ -8606,10 +8534,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $unblockContactInputObject = new \TextMagic\Models\UnblockContactInputObject(); // \TextMagic\Models\UnblockContactInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->unblockContact($unblockContactInputObject, $xIgnoreNullValues);
+    $apiInstance->unblockContact($unblockContactInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->unblockContact: ', $e->getMessage(), PHP_EOL;
 }
@@ -8621,7 +8548,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unblockContactInputObject** | [**\TextMagic\Models\UnblockContactInputObject**](../Model/UnblockContactInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8639,7 +8565,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unblockContactsBulk**
-> unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullValues)
+> unblockContactsBulk($unblockContactsBulkInputObject)
 
 Unblock several contacts by blocked contact ids or unblock all contacts
 
@@ -8661,10 +8587,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $unblockContactsBulkInputObject = new \TextMagic\Models\UnblockContactsBulkInputObject(); // \TextMagic\Models\UnblockContactsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->unblockContactsBulk($unblockContactsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->unblockContactsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -8676,7 +8601,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unblockContactsBulkInputObject** | [**\TextMagic\Models\UnblockContactsBulkInputObject**](../Model/UnblockContactsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8694,7 +8618,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unmuteChatsBulk**
-> unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullValues)
+> unmuteChatsBulk($unmuteChatsBulkInputObject)
 
 Unmute several chats by chat ids or unmute all chats
 
@@ -8716,10 +8640,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $unmuteChatsBulkInputObject = new \TextMagic\Models\UnmuteChatsBulkInputObject(); // \TextMagic\Models\UnmuteChatsBulkInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullValues);
+    $apiInstance->unmuteChatsBulk($unmuteChatsBulkInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->unmuteChatsBulk: ', $e->getMessage(), PHP_EOL;
 }
@@ -8731,7 +8654,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unmuteChatsBulkInputObject** | [**\TextMagic\Models\UnmuteChatsBulkInputObject**](../Model/UnmuteChatsBulkInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8749,7 +8671,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unsubscribeContact**
-> \TextMagic\Models\ResourceLinkResponse unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse unsubscribeContact($unsubscribeContactInputObject)
 
 Unsubscribe contact from your communication by phone number.
 
@@ -8771,10 +8693,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $unsubscribeContactInputObject = new \TextMagic\Models\UnsubscribeContactInputObject(); // \TextMagic\Models\UnsubscribeContactInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->unsubscribeContact($unsubscribeContactInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->unsubscribeContact: ', $e->getMessage(), PHP_EOL;
@@ -8787,7 +8708,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unsubscribeContactInputObject** | [**\TextMagic\Models\UnsubscribeContactInputObject**](../Model/UnsubscribeContactInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8805,7 +8725,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBalanceNotificationSettings**
-> updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues)
+> updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject)
 
 Update balance notification settings
 
@@ -8827,10 +8747,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updateBalanceNotificationSettingsInputObject = new \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject(); // \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
+    $apiInstance->updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateBalanceNotificationSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -8842,7 +8761,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateBalanceNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateBalanceNotificationSettingsInputObject**](../Model/UpdateBalanceNotificationSettingsInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8860,7 +8778,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCallbackSettings**
-> updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullValues)
+> updateCallbackSettings($updateCallbackSettingsInputObject)
 
 Update callback URL settings
 
@@ -8882,10 +8800,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updateCallbackSettingsInputObject = new \TextMagic\Models\UpdateCallbackSettingsInputObject(); // \TextMagic\Models\UpdateCallbackSettingsInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullValues);
+    $apiInstance->updateCallbackSettings($updateCallbackSettingsInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateCallbackSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -8897,7 +8814,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCallbackSettingsInputObject** | [**\TextMagic\Models\UpdateCallbackSettingsInputObject**](../Model/UpdateCallbackSettingsInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8915,7 +8831,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateChatDesktopNotificationSettings**
-> updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues)
+> updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject)
 
 Update chat desktop notification settings
 
@@ -8937,10 +8853,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updateChatDesktopNotificationSettingsInputObject = new \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject(); // \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
+    $apiInstance->updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateChatDesktopNotificationSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -8952,7 +8867,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateChatDesktopNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject**](../Model/UpdateChatDesktopNotificationSettingsInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -8970,7 +8884,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContact**
-> \TextMagic\Models\ResourceLinkResponse updateContact($updateContactInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateContact($updateContactInputObject, $id)
 
 Update existing contact.
 
@@ -8993,10 +8907,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateContactInputObject = new \TextMagic\Models\UpdateContactInputObject(); // \TextMagic\Models\UpdateContactInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateContact($updateContactInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateContact($updateContactInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateContact: ', $e->getMessage(), PHP_EOL;
@@ -9010,7 +8923,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateContactInputObject** | [**\TextMagic\Models\UpdateContactInputObject**](../Model/UpdateContactInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9028,7 +8940,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContactNote**
-> \TextMagic\Models\ResourceLinkResponse updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateContactNote($updateContactNoteInputObject, $id)
 
 Update existing contact note.
 
@@ -9051,10 +8963,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateContactNoteInputObject = new \TextMagic\Models\UpdateContactNoteInputObject(); // \TextMagic\Models\UpdateContactNoteInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateContactNote($updateContactNoteInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateContactNote: ', $e->getMessage(), PHP_EOL;
@@ -9068,7 +8979,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateContactNoteInputObject** | [**\TextMagic\Models\UpdateContactNoteInputObject**](../Model/UpdateContactNoteInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9086,7 +8996,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCurrentUser**
-> \TextMagic\Models\UpdateCurrentUserResponse updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullValues)
+> \TextMagic\Models\UpdateCurrentUserResponse updateCurrentUser($updateCurrentUserInputObject)
 
 Update current user info.
 
@@ -9108,10 +9018,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updateCurrentUserInputObject = new \TextMagic\Models\UpdateCurrentUserInputObject(); // \TextMagic\Models\UpdateCurrentUserInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullValues);
+    $result = $apiInstance->updateCurrentUser($updateCurrentUserInputObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateCurrentUser: ', $e->getMessage(), PHP_EOL;
@@ -9124,7 +9033,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCurrentUserInputObject** | [**\TextMagic\Models\UpdateCurrentUserInputObject**](../Model/UpdateCurrentUserInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9142,7 +9050,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomField**
-> \TextMagic\Models\ResourceLinkResponse updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateCustomField($updateCustomFieldInputObject, $id)
 
 Update existing custom field.
 
@@ -9165,10 +9073,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateCustomFieldInputObject = new \TextMagic\Models\UpdateCustomFieldInputObject(); // \TextMagic\Models\UpdateCustomFieldInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateCustomField($updateCustomFieldInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateCustomField: ', $e->getMessage(), PHP_EOL;
@@ -9182,7 +9089,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCustomFieldInputObject** | [**\TextMagic\Models\UpdateCustomFieldInputObject**](../Model/UpdateCustomFieldInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9200,7 +9106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomFieldValue**
-> \TextMagic\Models\ResourceLinkResponse updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateCustomFieldValue($updateCustomFieldValueInputObject, $id)
 
 Update contact's custom field value.
 
@@ -9223,10 +9129,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateCustomFieldValueInputObject = new \TextMagic\Models\UpdateCustomFieldValueInputObject(); // \TextMagic\Models\UpdateCustomFieldValueInputObject | 
 $id = "id_example"; // string | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateCustomFieldValue($updateCustomFieldValueInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateCustomFieldValue: ', $e->getMessage(), PHP_EOL;
@@ -9240,7 +9145,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateCustomFieldValueInputObject** | [**\TextMagic\Models\UpdateCustomFieldValueInputObject**](../Model/UpdateCustomFieldValueInputObject.md)|  |
  **id** | **string**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9258,7 +9162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInboundMessagesNotificationSettings**
-> updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues)
+> updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject)
 
 Update inbound messages notification settings
 
@@ -9280,10 +9184,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updateInboundMessagesNotificationSettingsInputObject = new \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject(); // \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
+    $apiInstance->updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateInboundMessagesNotificationSettings: ', $e->getMessage(), PHP_EOL;
 }
@@ -9295,7 +9198,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateInboundMessagesNotificationSettingsInputObject** | [**\TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject**](../Model/UpdateInboundMessagesNotificationSettingsInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9369,7 +9271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePassword**
-> updatePassword($updatePasswordInputObject, $xIgnoreNullValues)
+> updatePassword($updatePasswordInputObject)
 
 Change user password.
 
@@ -9391,10 +9293,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updatePasswordInputObject = new \TextMagic\Models\UpdatePasswordInputObject(); // \TextMagic\Models\UpdatePasswordInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updatePassword($updatePasswordInputObject, $xIgnoreNullValues);
+    $apiInstance->updatePassword($updatePasswordInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updatePassword: ', $e->getMessage(), PHP_EOL;
 }
@@ -9406,7 +9307,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updatePasswordInputObject** | [**\TextMagic\Models\UpdatePasswordInputObject**](../Model/UpdatePasswordInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9424,7 +9324,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSenderSetting**
-> updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullValues)
+> updateSenderSetting($updateSenderSettingInputObject)
 
 Change sender settings for specified country.
 
@@ -9446,10 +9346,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $updateSenderSettingInputObject = new \TextMagic\Models\UpdateSenderSettingInputObject(); // \TextMagic\Models\UpdateSenderSettingInputObject | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $apiInstance->updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullValues);
+    $apiInstance->updateSenderSetting($updateSenderSettingInputObject);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateSenderSetting: ', $e->getMessage(), PHP_EOL;
 }
@@ -9461,7 +9360,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateSenderSettingInputObject** | [**\TextMagic\Models\UpdateSenderSettingInputObject**](../Model/UpdateSenderSettingInputObject.md)|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9479,7 +9377,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSurvey**
-> \TextMagic\Models\ResourceLinkResponse updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateSurvey($updateSurveyInputObject, $id)
 
 Update existing survey.
 
@@ -9502,10 +9400,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateSurveyInputObject = new \TextMagic\Models\UpdateSurveyInputObject(); // \TextMagic\Models\UpdateSurveyInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateSurvey($updateSurveyInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateSurvey: ', $e->getMessage(), PHP_EOL;
@@ -9519,7 +9416,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateSurveyInputObject** | [**\TextMagic\Models\UpdateSurveyInputObject**](../Model/UpdateSurveyInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9537,7 +9433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSurveyNode**
-> \TextMagic\Models\ResourceLinkResponse updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateSurveyNode($updateSurveyNodeInputObject, $id)
 
 Update existing node.
 
@@ -9560,10 +9456,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateSurveyNodeInputObject = new \TextMagic\Models\UpdateSurveyNodeInputObject(); // \TextMagic\Models\UpdateSurveyNodeInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateSurveyNode($updateSurveyNodeInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateSurveyNode: ', $e->getMessage(), PHP_EOL;
@@ -9577,7 +9472,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateSurveyNodeInputObject** | [**\TextMagic\Models\UpdateSurveyNodeInputObject**](../Model/UpdateSurveyNodeInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -9595,7 +9489,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTemplate**
-> \TextMagic\Models\ResourceLinkResponse updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullValues)
+> \TextMagic\Models\ResourceLinkResponse updateTemplate($updateTemplateInputObject, $id)
 
 Update existing template.
 
@@ -9618,10 +9512,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $updateTemplateInputObject = new \TextMagic\Models\UpdateTemplateInputObject(); // \TextMagic\Models\UpdateTemplateInputObject | 
 $id = 1; // int | 
-$xIgnoreNullValues = true; // bool | 
 
 try {
-    $result = $apiInstance->updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullValues);
+    $result = $apiInstance->updateTemplate($updateTemplateInputObject, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->updateTemplate: ', $e->getMessage(), PHP_EOL;
@@ -9635,7 +9528,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateTemplateInputObject** | [**\TextMagic\Models\UpdateTemplateInputObject**](../Model/UpdateTemplateInputObject.md)|  |
  **id** | **int**|  |
- **xIgnoreNullValues** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

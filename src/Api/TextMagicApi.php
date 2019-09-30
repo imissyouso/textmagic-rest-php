@@ -397,15 +397,14 @@ class TextMagicApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject blockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function blockContact($blockContactInputObject, $xIgnoreNullValues = 'true')
+    public function blockContact($blockContactInputObject)
     {
-        list($response) = $this->blockContactWithHttpInfo($blockContactInputObject, $xIgnoreNullValues);
+        list($response) = $this->blockContactWithHttpInfo($blockContactInputObject);
         return $response;
     }
 
@@ -415,16 +414,15 @@ class TextMagicApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function blockContactWithHttpInfo($blockContactInputObject, $xIgnoreNullValues = 'true')
+    public function blockContactWithHttpInfo($blockContactInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->blockContactRequest($blockContactInputObject, $xIgnoreNullValues);
+        $request = $this->blockContactRequest($blockContactInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -515,14 +513,13 @@ class TextMagicApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockContactAsync($blockContactInputObject, $xIgnoreNullValues = 'true')
+    public function blockContactAsync($blockContactInputObject)
     {
-        return $this->blockContactAsyncWithHttpInfo($blockContactInputObject, $xIgnoreNullValues)
+        return $this->blockContactAsyncWithHttpInfo($blockContactInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -536,15 +533,14 @@ class TextMagicApi
      * Block contact from inbound and outbound communication by phone number.
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockContactAsyncWithHttpInfo($blockContactInputObject, $xIgnoreNullValues = 'true')
+    public function blockContactAsyncWithHttpInfo($blockContactInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->blockContactRequest($blockContactInputObject, $xIgnoreNullValues);
+        $request = $this->blockContactRequest($blockContactInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -587,12 +583,11 @@ class TextMagicApi
      * Create request for operation 'blockContact'
      *
      * @param  \TextMagic\Models\BlockContactInputObject $blockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function blockContactRequest($blockContactInputObject, $xIgnoreNullValues = 'true')
+    protected function blockContactRequest($blockContactInputObject)
     {
         // verify the required parameter 'blockContactInputObject' is set
         if ($blockContactInputObject === null || (is_array($blockContactInputObject) && count($blockContactInputObject) === 0)) {
@@ -608,10 +603,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -691,15 +682,14 @@ class TextMagicApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function buyDedicatedNumber($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
+    public function buyDedicatedNumber($buyDedicatedNumberInputObject)
     {
-        $this->buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues);
+        $this->buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject);
     }
 
     /**
@@ -708,16 +698,15 @@ class TextMagicApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
+    public function buyDedicatedNumberWithHttpInfo($buyDedicatedNumberInputObject)
     {
         $returnType = '';
-        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullValues);
+        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -786,14 +775,13 @@ class TextMagicApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buyDedicatedNumberAsync($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
+    public function buyDedicatedNumberAsync($buyDedicatedNumberInputObject)
     {
-        return $this->buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues)
+        return $this->buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -807,15 +795,14 @@ class TextMagicApi
      * Buy a dedicated number and assign it to the specified account.
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
+    public function buyDedicatedNumberAsyncWithHttpInfo($buyDedicatedNumberInputObject)
     {
         $returnType = '';
-        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullValues);
+        $request = $this->buyDedicatedNumberRequest($buyDedicatedNumberInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -844,12 +831,11 @@ class TextMagicApi
      * Create request for operation 'buyDedicatedNumber'
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function buyDedicatedNumberRequest($buyDedicatedNumberInputObject, $xIgnoreNullValues = 'true')
+    protected function buyDedicatedNumberRequest($buyDedicatedNumberInputObject)
     {
         // verify the required parameter 'buyDedicatedNumberInputObject' is set
         if ($buyDedicatedNumberInputObject === null || (is_array($buyDedicatedNumberInputObject) && count($buyDedicatedNumberInputObject) === 0)) {
@@ -865,10 +851,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -1230,15 +1212,14 @@ class TextMagicApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
+    public function checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject)
     {
-        $this->checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
+        $this->checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject);
     }
 
     /**
@@ -1247,16 +1228,15 @@ class TextMagicApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
+    public function checkPhoneVerificationCodeWithHttpInfo($checkPhoneVerificationCodeInputObject)
     {
         $returnType = '';
-        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
+        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1317,14 +1297,13 @@ class TextMagicApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkPhoneVerificationCodeAsync($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
+    public function checkPhoneVerificationCodeAsync($checkPhoneVerificationCodeInputObject)
     {
-        return $this->checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues)
+        return $this->checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1338,15 +1317,14 @@ class TextMagicApi
      * Check user phone verification code
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
+    public function checkPhoneVerificationCodeAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
     {
         $returnType = '';
-        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues);
+        $request = $this->checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1375,12 +1353,11 @@ class TextMagicApi
      * Create request for operation 'checkPhoneVerificationCode'
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject $checkPhoneVerificationCodeInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject, $xIgnoreNullValues = 'true')
+    protected function checkPhoneVerificationCodeRequest($checkPhoneVerificationCodeInputObject)
     {
         // verify the required parameter 'checkPhoneVerificationCodeInputObject' is set
         if ($checkPhoneVerificationCodeInputObject === null || (is_array($checkPhoneVerificationCodeInputObject) && count($checkPhoneVerificationCodeInputObject) === 0)) {
@@ -1396,10 +1373,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -1783,15 +1756,14 @@ class TextMagicApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function closeChatsBulk($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function closeChatsBulk($closeChatsBulkInputObject)
     {
-        $this->closeChatsBulkWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues);
+        $this->closeChatsBulkWithHttpInfo($closeChatsBulkInputObject);
     }
 
     /**
@@ -1800,16 +1772,15 @@ class TextMagicApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function closeChatsBulkWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function closeChatsBulkWithHttpInfo($closeChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1870,14 +1841,13 @@ class TextMagicApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function closeChatsBulkAsync($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function closeChatsBulkAsync($closeChatsBulkInputObject)
     {
-        return $this->closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues)
+        return $this->closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1891,15 +1861,14 @@ class TextMagicApi
      * Close chats by chat ids or close all chats
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function closeChatsBulkAsyncWithHttpInfo($closeChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->closeChatsBulkRequest($closeChatsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1928,12 +1897,11 @@ class TextMagicApi
      * Create request for operation 'closeChatsBulk'
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function closeChatsBulkRequest($closeChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function closeChatsBulkRequest($closeChatsBulkInputObject)
     {
         // verify the required parameter 'closeChatsBulkInputObject' is set
         if ($closeChatsBulkInputObject === null || (is_array($closeChatsBulkInputObject) && count($closeChatsBulkInputObject) === 0)) {
@@ -1949,10 +1917,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -2495,15 +2459,14 @@ class TextMagicApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject createContactInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createContact($createContactInputObject, $xIgnoreNullValues = 'true')
+    public function createContact($createContactInputObject)
     {
-        list($response) = $this->createContactWithHttpInfo($createContactInputObject, $xIgnoreNullValues);
+        list($response) = $this->createContactWithHttpInfo($createContactInputObject);
         return $response;
     }
 
@@ -2513,16 +2476,15 @@ class TextMagicApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactWithHttpInfo($createContactInputObject, $xIgnoreNullValues = 'true')
+    public function createContactWithHttpInfo($createContactInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactRequest($createContactInputObject, $xIgnoreNullValues);
+        $request = $this->createContactRequest($createContactInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2605,14 +2567,13 @@ class TextMagicApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsync($createContactInputObject, $xIgnoreNullValues = 'true')
+    public function createContactAsync($createContactInputObject)
     {
-        return $this->createContactAsyncWithHttpInfo($createContactInputObject, $xIgnoreNullValues)
+        return $this->createContactAsyncWithHttpInfo($createContactInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2626,15 +2587,14 @@ class TextMagicApi
      * Create a new contact from the submitted data.
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsyncWithHttpInfo($createContactInputObject, $xIgnoreNullValues = 'true')
+    public function createContactAsyncWithHttpInfo($createContactInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactRequest($createContactInputObject, $xIgnoreNullValues);
+        $request = $this->createContactRequest($createContactInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2677,12 +2637,11 @@ class TextMagicApi
      * Create request for operation 'createContact'
      *
      * @param  \TextMagic\Models\CreateContactInputObject $createContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactRequest($createContactInputObject, $xIgnoreNullValues = 'true')
+    protected function createContactRequest($createContactInputObject)
     {
         // verify the required parameter 'createContactInputObject' is set
         if ($createContactInputObject === null || (is_array($createContactInputObject) && count($createContactInputObject) === 0)) {
@@ -2698,10 +2657,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -2782,15 +2737,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject createContactNoteInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createContactNote($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createContactNote($createContactNoteInputObject, $id)
     {
-        list($response) = $this->createContactNoteWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->createContactNoteWithHttpInfo($createContactNoteInputObject, $id);
         return $response;
     }
 
@@ -2801,16 +2755,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactNoteWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createContactNoteWithHttpInfo($createContactNoteInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullValues);
+        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2902,14 +2855,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactNoteAsync($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createContactNoteAsync($createContactNoteInputObject, $id)
     {
-        return $this->createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues)
+        return $this->createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2924,15 +2876,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createContactNoteAsyncWithHttpInfo($createContactNoteInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullValues);
+        $request = $this->createContactNoteRequest($createContactNoteInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2976,12 +2927,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateContactNoteInputObject $createContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactNoteRequest($createContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function createContactNoteRequest($createContactNoteInputObject, $id)
     {
         // verify the required parameter 'createContactNoteInputObject' is set
         if ($createContactNoteInputObject === null || (is_array($createContactNoteInputObject) && count($createContactNoteInputObject) === 0)) {
@@ -3003,10 +2953,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -3094,15 +3040,14 @@ class TextMagicApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createCustomField($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
+    public function createCustomField($createCustomFieldInputObject)
     {
-        list($response) = $this->createCustomFieldWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues);
+        list($response) = $this->createCustomFieldWithHttpInfo($createCustomFieldInputObject);
         return $response;
     }
 
@@ -3112,16 +3057,15 @@ class TextMagicApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCustomFieldWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
+    public function createCustomFieldWithHttpInfo($createCustomFieldInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullValues);
+        $request = $this->createCustomFieldRequest($createCustomFieldInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3212,14 +3156,13 @@ class TextMagicApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomFieldAsync($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
+    public function createCustomFieldAsync($createCustomFieldInputObject)
     {
-        return $this->createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues)
+        return $this->createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3233,15 +3176,14 @@ class TextMagicApi
      * Create a new custom field from the submitted data.
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
+    public function createCustomFieldAsyncWithHttpInfo($createCustomFieldInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullValues);
+        $request = $this->createCustomFieldRequest($createCustomFieldInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3284,12 +3226,11 @@ class TextMagicApi
      * Create request for operation 'createCustomField'
      *
      * @param  \TextMagic\Models\CreateCustomFieldInputObject $createCustomFieldInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCustomFieldRequest($createCustomFieldInputObject, $xIgnoreNullValues = 'true')
+    protected function createCustomFieldRequest($createCustomFieldInputObject)
     {
         // verify the required parameter 'createCustomFieldInputObject' is set
         if ($createCustomFieldInputObject === null || (is_array($createCustomFieldInputObject) && count($createCustomFieldInputObject) === 0)) {
@@ -3305,10 +3246,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -3388,15 +3325,14 @@ class TextMagicApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject createListInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createList($createListInputObject, $xIgnoreNullValues = 'true')
+    public function createList($createListInputObject)
     {
-        list($response) = $this->createListWithHttpInfo($createListInputObject, $xIgnoreNullValues);
+        list($response) = $this->createListWithHttpInfo($createListInputObject);
         return $response;
     }
 
@@ -3406,16 +3342,15 @@ class TextMagicApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createListWithHttpInfo($createListInputObject, $xIgnoreNullValues = 'true')
+    public function createListWithHttpInfo($createListInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createListRequest($createListInputObject, $xIgnoreNullValues);
+        $request = $this->createListRequest($createListInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3498,14 +3433,13 @@ class TextMagicApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListAsync($createListInputObject, $xIgnoreNullValues = 'true')
+    public function createListAsync($createListInputObject)
     {
-        return $this->createListAsyncWithHttpInfo($createListInputObject, $xIgnoreNullValues)
+        return $this->createListAsyncWithHttpInfo($createListInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3519,15 +3453,14 @@ class TextMagicApi
      * Create a new list from the submitted data.
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListAsyncWithHttpInfo($createListInputObject, $xIgnoreNullValues = 'true')
+    public function createListAsyncWithHttpInfo($createListInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createListRequest($createListInputObject, $xIgnoreNullValues);
+        $request = $this->createListRequest($createListInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3570,12 +3503,11 @@ class TextMagicApi
      * Create request for operation 'createList'
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createListRequest($createListInputObject, $xIgnoreNullValues = 'true')
+    protected function createListRequest($createListInputObject)
     {
         // verify the required parameter 'createListInputObject' is set
         if ($createListInputObject === null || (is_array($createListInputObject) && count($createListInputObject) === 0)) {
@@ -3591,10 +3523,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -3674,15 +3602,14 @@ class TextMagicApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createPushToken($createPushTokenInputObject, $xIgnoreNullValues = 'true')
+    public function createPushToken($createPushTokenInputObject)
     {
-        $this->createPushTokenWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues);
+        $this->createPushTokenWithHttpInfo($createPushTokenInputObject);
     }
 
     /**
@@ -3691,16 +3618,15 @@ class TextMagicApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPushTokenWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues = 'true')
+    public function createPushTokenWithHttpInfo($createPushTokenInputObject)
     {
         $returnType = '';
-        $request = $this->createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullValues);
+        $request = $this->createPushTokenRequest($createPushTokenInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3761,14 +3687,13 @@ class TextMagicApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPushTokenAsync($createPushTokenInputObject, $xIgnoreNullValues = 'true')
+    public function createPushTokenAsync($createPushTokenInputObject)
     {
-        return $this->createPushTokenAsyncWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues)
+        return $this->createPushTokenAsyncWithHttpInfo($createPushTokenInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3782,15 +3707,14 @@ class TextMagicApi
      * Add or update a device token.
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPushTokenAsyncWithHttpInfo($createPushTokenInputObject, $xIgnoreNullValues = 'true')
+    public function createPushTokenAsyncWithHttpInfo($createPushTokenInputObject)
     {
         $returnType = '';
-        $request = $this->createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullValues);
+        $request = $this->createPushTokenRequest($createPushTokenInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3819,12 +3743,11 @@ class TextMagicApi
      * Create request for operation 'createPushToken'
      *
      * @param  \TextMagic\Models\CreatePushTokenInputObject $createPushTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPushTokenRequest($createPushTokenInputObject, $xIgnoreNullValues = 'true')
+    protected function createPushTokenRequest($createPushTokenInputObject)
     {
         // verify the required parameter 'createPushTokenInputObject' is set
         if ($createPushTokenInputObject === null || (is_array($createPushTokenInputObject) && count($createPushTokenInputObject) === 0)) {
@@ -3840,10 +3763,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -3923,15 +3842,14 @@ class TextMagicApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createSurvey($createSurveyInputObject, $xIgnoreNullValues = 'true')
+    public function createSurvey($createSurveyInputObject)
     {
-        list($response) = $this->createSurveyWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues);
+        list($response) = $this->createSurveyWithHttpInfo($createSurveyInputObject);
         return $response;
     }
 
@@ -3941,16 +3859,15 @@ class TextMagicApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSurveyWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues = 'true')
+    public function createSurveyWithHttpInfo($createSurveyInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyRequest($createSurveyInputObject, $xIgnoreNullValues);
+        $request = $this->createSurveyRequest($createSurveyInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4033,14 +3950,13 @@ class TextMagicApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyAsync($createSurveyInputObject, $xIgnoreNullValues = 'true')
+    public function createSurveyAsync($createSurveyInputObject)
     {
-        return $this->createSurveyAsyncWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues)
+        return $this->createSurveyAsyncWithHttpInfo($createSurveyInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4054,15 +3970,14 @@ class TextMagicApi
      * Create a new survey from the submitted data.
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyAsyncWithHttpInfo($createSurveyInputObject, $xIgnoreNullValues = 'true')
+    public function createSurveyAsyncWithHttpInfo($createSurveyInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyRequest($createSurveyInputObject, $xIgnoreNullValues);
+        $request = $this->createSurveyRequest($createSurveyInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4105,12 +4020,11 @@ class TextMagicApi
      * Create request for operation 'createSurvey'
      *
      * @param  \TextMagic\Models\CreateSurveyInputObject $createSurveyInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSurveyRequest($createSurveyInputObject, $xIgnoreNullValues = 'true')
+    protected function createSurveyRequest($createSurveyInputObject)
     {
         // verify the required parameter 'createSurveyInputObject' is set
         if ($createSurveyInputObject === null || (is_array($createSurveyInputObject) && count($createSurveyInputObject) === 0)) {
@@ -4126,10 +4040,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -4210,15 +4120,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject createSurveyNodeInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createSurveyNode($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createSurveyNode($createSurveyNodeInputObject, $id)
     {
-        list($response) = $this->createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id);
         return $response;
     }
 
@@ -4229,16 +4138,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createSurveyNodeWithHttpInfo($createSurveyNodeInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
+        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4322,14 +4230,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyNodeAsync($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createSurveyNodeAsync($createSurveyNodeInputObject, $id)
     {
-        return $this->createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues)
+        return $this->createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4344,15 +4251,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function createSurveyNodeAsyncWithHttpInfo($createSurveyNodeInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullValues);
+        $request = $this->createSurveyNodeRequest($createSurveyNodeInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4396,12 +4302,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\CreateSurveyNodeInputObject $createSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSurveyNodeRequest($createSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function createSurveyNodeRequest($createSurveyNodeInputObject, $id)
     {
         // verify the required parameter 'createSurveyNodeInputObject' is set
         if ($createSurveyNodeInputObject === null || (is_array($createSurveyNodeInputObject) && count($createSurveyNodeInputObject) === 0)) {
@@ -4423,10 +4328,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -4514,15 +4415,14 @@ class TextMagicApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function createTemplate($createTemplateInputObject, $xIgnoreNullValues = 'true')
+    public function createTemplate($createTemplateInputObject)
     {
-        list($response) = $this->createTemplateWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues);
+        list($response) = $this->createTemplateWithHttpInfo($createTemplateInputObject);
         return $response;
     }
 
@@ -4532,16 +4432,15 @@ class TextMagicApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTemplateWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues = 'true')
+    public function createTemplateWithHttpInfo($createTemplateInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createTemplateRequest($createTemplateInputObject, $xIgnoreNullValues);
+        $request = $this->createTemplateRequest($createTemplateInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4616,14 +4515,13 @@ class TextMagicApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateAsync($createTemplateInputObject, $xIgnoreNullValues = 'true')
+    public function createTemplateAsync($createTemplateInputObject)
     {
-        return $this->createTemplateAsyncWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues)
+        return $this->createTemplateAsyncWithHttpInfo($createTemplateInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4637,15 +4535,14 @@ class TextMagicApi
      * Create a new template from the submitted data.
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateAsyncWithHttpInfo($createTemplateInputObject, $xIgnoreNullValues = 'true')
+    public function createTemplateAsyncWithHttpInfo($createTemplateInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->createTemplateRequest($createTemplateInputObject, $xIgnoreNullValues);
+        $request = $this->createTemplateRequest($createTemplateInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4688,12 +4585,11 @@ class TextMagicApi
      * Create request for operation 'createTemplate'
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createTemplateRequest($createTemplateInputObject, $xIgnoreNullValues = 'true')
+    protected function createTemplateRequest($createTemplateInputObject)
     {
         // verify the required parameter 'createTemplateInputObject' is set
         if ($createTemplateInputObject === null || (is_array($createTemplateInputObject) && count($createTemplateInputObject) === 0)) {
@@ -4709,10 +4605,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -5439,15 +5331,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject deleteChatMessagesBulkInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChatMessages($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteChatMessages($deleteChatMessagesBulkInputObject, $id)
     {
-        $this->deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
+        $this->deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id);
     }
 
     /**
@@ -5457,16 +5348,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteChatMessagesWithHttpInfo($deleteChatMessagesBulkInputObject, $id)
     {
         $returnType = '';
-        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
+        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5528,14 +5418,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatMessagesAsync($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteChatMessagesAsync($deleteChatMessagesBulkInputObject, $id)
     {
-        return $this->deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues)
+        return $this->deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5550,15 +5439,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteChatMessagesAsyncWithHttpInfo($deleteChatMessagesBulkInputObject, $id)
     {
         $returnType = '';
-        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues);
+        $request = $this->deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5588,12 +5476,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function deleteChatMessagesRequest($deleteChatMessagesBulkInputObject, $id)
     {
         // verify the required parameter 'deleteChatMessagesBulkInputObject' is set
         if ($deleteChatMessagesBulkInputObject === null || (is_array($deleteChatMessagesBulkInputObject) && count($deleteChatMessagesBulkInputObject) === 0)) {
@@ -5615,10 +5502,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -5706,15 +5589,14 @@ class TextMagicApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChatsBulk($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteChatsBulk($deleteChatsBulkInputObject)
     {
-        $this->deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues);
+        $this->deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject);
     }
 
     /**
@@ -5723,16 +5605,15 @@ class TextMagicApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteChatsBulkWithHttpInfo($deleteChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5793,14 +5674,13 @@ class TextMagicApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatsBulkAsync($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteChatsBulkAsync($deleteChatsBulkInputObject)
     {
-        return $this->deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5814,15 +5694,14 @@ class TextMagicApi
      * Delete chats by given ID(s) or delete all chats.
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteChatsBulkAsyncWithHttpInfo($deleteChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteChatsBulkRequest($deleteChatsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5851,12 +5730,11 @@ class TextMagicApi
      * Create request for operation 'deleteChatsBulk'
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteChatsBulkRequest($deleteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteChatsBulkRequest($deleteChatsBulkInputObject)
     {
         // verify the required parameter 'deleteChatsBulkInputObject' is set
         if ($deleteChatsBulkInputObject === null || (is_array($deleteChatsBulkInputObject) && count($deleteChatsBulkInputObject) === 0)) {
@@ -5872,10 +5750,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -6691,15 +6565,14 @@ class TextMagicApi
      *
      * @param  int $id id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject)
     {
-        $this->deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
+        $this->deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject);
     }
 
     /**
@@ -6709,16 +6582,15 @@ class TextMagicApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactNotesBulkWithHttpInfo($id, $deleteContactNotesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6788,14 +6660,13 @@ class TextMagicApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactNotesBulkAsync($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactNotesBulkAsync($id, $deleteContactNotesBulkInputObject)
     {
-        return $this->deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6810,15 +6681,14 @@ class TextMagicApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactNotesBulkAsyncWithHttpInfo($id, $deleteContactNotesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6848,12 +6718,11 @@ class TextMagicApi
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\DeleteContactNotesBulkInputObject $deleteContactNotesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteContactNotesBulkRequest($id, $deleteContactNotesBulkInputObject)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -6875,10 +6744,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -6966,15 +6831,14 @@ class TextMagicApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteContactsByIds($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactsByIds($deleteContactsByIdsInputObject)
     {
-        $this->deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues);
+        $this->deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject);
     }
 
     /**
@@ -6983,16 +6847,15 @@ class TextMagicApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactsByIdsWithHttpInfo($deleteContactsByIdsInputObject)
     {
         $returnType = '';
-        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullValues);
+        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7061,14 +6924,13 @@ class TextMagicApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactsByIdsAsync($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactsByIdsAsync($deleteContactsByIdsInputObject)
     {
-        return $this->deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues)
+        return $this->deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7082,15 +6944,14 @@ class TextMagicApi
      * Delete contact by given ID(s) or delete all contacts.
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
+    public function deleteContactsByIdsAsyncWithHttpInfo($deleteContactsByIdsInputObject)
     {
         $returnType = '';
-        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullValues);
+        $request = $this->deleteContactsByIdsRequest($deleteContactsByIdsInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7119,12 +6980,11 @@ class TextMagicApi
      * Create request for operation 'deleteContactsByIds'
      *
      * @param  \TextMagic\Models\DeleteContactsByIdsInputObject $deleteContactsByIdsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteContactsByIdsRequest($deleteContactsByIdsInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteContactsByIdsRequest($deleteContactsByIdsInputObject)
     {
         // verify the required parameter 'deleteContactsByIdsInputObject' is set
         if ($deleteContactsByIdsInputObject === null || (is_array($deleteContactsByIdsInputObject) && count($deleteContactsByIdsInputObject) === 0)) {
@@ -7140,10 +7000,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -8217,15 +8073,14 @@ class TextMagicApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject)
     {
-        $this->deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
+        $this->deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject);
     }
 
     /**
@@ -8234,16 +8089,15 @@ class TextMagicApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteInboundMessagesBulkWithHttpInfo($deleteInboundMessagesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8304,14 +8158,13 @@ class TextMagicApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteInboundMessagesBulkAsync($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteInboundMessagesBulkAsync($deleteInboundMessagesBulkInputObject)
     {
-        return $this->deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8325,15 +8178,14 @@ class TextMagicApi
      * Delete inbound messages by given ID(s) or delete all inbound messages.
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteInboundMessagesBulkAsyncWithHttpInfo($deleteInboundMessagesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8362,12 +8214,11 @@ class TextMagicApi
      * Create request for operation 'deleteInboundMessagesBulk'
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteInboundMessagesBulkRequest($deleteInboundMessagesBulkInputObject)
     {
         // verify the required parameter 'deleteInboundMessagesBulkInputObject' is set
         if ($deleteInboundMessagesBulkInputObject === null || (is_array($deleteInboundMessagesBulkInputObject) && count($deleteInboundMessagesBulkInputObject) === 0)) {
@@ -8383,10 +8234,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -8957,15 +8804,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject deleteListContactsBulkInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteListContactsBulk($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteListContactsBulk($deleteListContactsBulkInputObject, $id)
     {
-        $this->deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
+        $this->deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id);
     }
 
     /**
@@ -8975,16 +8821,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteListContactsBulkWithHttpInfo($deleteListContactsBulkInputObject, $id)
     {
         $returnType = '';
-        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
+        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9054,14 +8899,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListContactsBulkAsync($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteListContactsBulkAsync($deleteListContactsBulkInputObject, $id)
     {
-        return $this->deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues)
+        return $this->deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9076,15 +8920,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    public function deleteListContactsBulkAsyncWithHttpInfo($deleteListContactsBulkInputObject, $id)
     {
         $returnType = '';
-        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues);
+        $request = $this->deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9114,12 +8957,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function deleteListContactsBulkRequest($deleteListContactsBulkInputObject, $id)
     {
         // verify the required parameter 'deleteListContactsBulkInputObject' is set
         if ($deleteListContactsBulkInputObject === null || (is_array($deleteListContactsBulkInputObject) && count($deleteListContactsBulkInputObject) === 0)) {
@@ -9141,10 +8983,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -9232,15 +9070,14 @@ class TextMagicApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteListsBulk($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteListsBulk($deleteListsBulkInputObject)
     {
-        $this->deleteListsBulkWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues);
+        $this->deleteListsBulkWithHttpInfo($deleteListsBulkInputObject);
     }
 
     /**
@@ -9249,16 +9086,15 @@ class TextMagicApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListsBulkWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteListsBulkWithHttpInfo($deleteListsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9327,14 +9163,13 @@ class TextMagicApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListsBulkAsync($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteListsBulkAsync($deleteListsBulkInputObject)
     {
-        return $this->deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9348,15 +9183,14 @@ class TextMagicApi
      * Delete list by given ID(s) or delete all lists.
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteListsBulkAsyncWithHttpInfo($deleteListsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteListsBulkRequest($deleteListsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9385,12 +9219,11 @@ class TextMagicApi
      * Create request for operation 'deleteListsBulk'
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteListsBulkRequest($deleteListsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteListsBulkRequest($deleteListsBulkInputObject)
     {
         // verify the required parameter 'deleteListsBulkInputObject' is set
         if ($deleteListsBulkInputObject === null || (is_array($deleteListsBulkInputObject) && count($deleteListsBulkInputObject) === 0)) {
@@ -9406,10 +9239,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -9734,15 +9563,14 @@ class TextMagicApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject)
     {
-        $this->deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
+        $this->deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject);
     }
 
     /**
@@ -9751,16 +9579,15 @@ class TextMagicApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteMessageSessionsBulkWithHttpInfo($deleteMessageSessionsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9813,14 +9640,13 @@ class TextMagicApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageSessionsBulkAsync($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteMessageSessionsBulkAsync($deleteMessageSessionsBulkInputObject)
     {
-        return $this->deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9834,15 +9660,14 @@ class TextMagicApi
      * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteMessageSessionsBulkAsyncWithHttpInfo($deleteMessageSessionsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9871,12 +9696,11 @@ class TextMagicApi
      * Create request for operation 'deleteMessageSessionsBulk'
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteMessageSessionsBulkRequest($deleteMessageSessionsBulkInputObject)
     {
         // verify the required parameter 'deleteMessageSessionsBulkInputObject' is set
         if ($deleteMessageSessionsBulkInputObject === null || (is_array($deleteMessageSessionsBulkInputObject) && count($deleteMessageSessionsBulkInputObject) === 0)) {
@@ -9892,10 +9716,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -10220,15 +10040,14 @@ class TextMagicApi
      * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject)
     {
-        $this->deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
+        $this->deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject);
     }
 
     /**
@@ -10237,16 +10056,15 @@ class TextMagicApi
      * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteOutboundMessagesBulkWithHttpInfo($deleteOutboundMessagesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10307,14 +10125,13 @@ class TextMagicApi
      * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOutboundMessagesBulkAsync($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteOutboundMessagesBulkAsync($deleteOutboundMessagesBulkInputObject)
     {
-        return $this->deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10328,15 +10145,14 @@ class TextMagicApi
      * Delete messages by IDs
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteOutboundMessagesBulkAsyncWithHttpInfo($deleteOutboundMessagesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10365,12 +10181,11 @@ class TextMagicApi
      * Create request for operation 'deleteOutboundMessagesBulk'
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteOutboundMessagesBulkRequest($deleteOutboundMessagesBulkInputObject)
     {
         // verify the required parameter 'deleteOutboundMessagesBulkInputObject' is set
         if ($deleteOutboundMessagesBulkInputObject === null || (is_array($deleteOutboundMessagesBulkInputObject) && count($deleteOutboundMessagesBulkInputObject) === 0)) {
@@ -10386,10 +10201,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -10986,15 +10797,14 @@ class TextMagicApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject)
     {
-        $this->deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+        $this->deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject);
     }
 
     /**
@@ -11003,16 +10813,15 @@ class TextMagicApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteScheduledMessagesBulkWithHttpInfo($deleteScheduledMessagesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11073,14 +10882,13 @@ class TextMagicApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduledMessagesBulkAsync($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteScheduledMessagesBulkAsync($deleteScheduledMessagesBulkInputObject)
     {
-        return $this->deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11094,15 +10902,14 @@ class TextMagicApi
      * Delete scheduled messages by given ID(s) or delete all scheduled messages.
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteScheduledMessagesBulkAsyncWithHttpInfo($deleteScheduledMessagesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11131,12 +10938,11 @@ class TextMagicApi
      * Create request for operation 'deleteScheduledMessagesBulk'
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteScheduledMessagesBulkRequest($deleteScheduledMessagesBulkInputObject)
     {
         // verify the required parameter 'deleteScheduledMessagesBulkInputObject' is set
         if ($deleteScheduledMessagesBulkInputObject === null || (is_array($deleteScheduledMessagesBulkInputObject) && count($deleteScheduledMessagesBulkInputObject) === 0)) {
@@ -11152,10 +10958,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -12199,15 +12001,14 @@ class TextMagicApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteTemplatesBulk($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteTemplatesBulk($deleteTemplatesBulkInputObject)
     {
-        $this->deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
+        $this->deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject);
     }
 
     /**
@@ -12216,16 +12017,15 @@ class TextMagicApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteTemplatesBulkWithHttpInfo($deleteTemplatesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12294,14 +12094,13 @@ class TextMagicApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTemplatesBulkAsync($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteTemplatesBulkAsync($deleteTemplatesBulkInputObject)
     {
-        return $this->deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues)
+        return $this->deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12315,15 +12114,14 @@ class TextMagicApi
      * Delete template by given ID(s) or delete all templates.
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
+    public function deleteTemplatesBulkAsyncWithHttpInfo($deleteTemplatesBulkInputObject)
     {
         $returnType = '';
-        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullValues);
+        $request = $this->deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12352,12 +12150,11 @@ class TextMagicApi
      * Create request for operation 'deleteTemplatesBulk'
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function deleteTemplatesBulkRequest($deleteTemplatesBulkInputObject)
     {
         // verify the required parameter 'deleteTemplatesBulkInputObject' is set
         if ($deleteTemplatesBulkInputObject === null || (is_array($deleteTemplatesBulkInputObject) && count($deleteTemplatesBulkInputObject) === 0)) {
@@ -12373,10 +12170,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -12456,15 +12249,14 @@ class TextMagicApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject doAuthInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\DoAuthResponse
      */
-    public function doAuth($doAuthInputObject, $xIgnoreNullValues = 'true')
+    public function doAuth($doAuthInputObject)
     {
-        list($response) = $this->doAuthWithHttpInfo($doAuthInputObject, $xIgnoreNullValues);
+        list($response) = $this->doAuthWithHttpInfo($doAuthInputObject);
         return $response;
     }
 
@@ -12474,16 +12266,15 @@ class TextMagicApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\DoAuthResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function doAuthWithHttpInfo($doAuthInputObject, $xIgnoreNullValues = 'true')
+    public function doAuthWithHttpInfo($doAuthInputObject)
     {
         $returnType = '\TextMagic\Models\DoAuthResponse';
-        $request = $this->doAuthRequest($doAuthInputObject, $xIgnoreNullValues);
+        $request = $this->doAuthRequest($doAuthInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12558,14 +12349,13 @@ class TextMagicApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function doAuthAsync($doAuthInputObject, $xIgnoreNullValues = 'true')
+    public function doAuthAsync($doAuthInputObject)
     {
-        return $this->doAuthAsyncWithHttpInfo($doAuthInputObject, $xIgnoreNullValues)
+        return $this->doAuthAsyncWithHttpInfo($doAuthInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12579,15 +12369,14 @@ class TextMagicApi
      * Authenticate user by given username and password.
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function doAuthAsyncWithHttpInfo($doAuthInputObject, $xIgnoreNullValues = 'true')
+    public function doAuthAsyncWithHttpInfo($doAuthInputObject)
     {
         $returnType = '\TextMagic\Models\DoAuthResponse';
-        $request = $this->doAuthRequest($doAuthInputObject, $xIgnoreNullValues);
+        $request = $this->doAuthRequest($doAuthInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12630,12 +12419,11 @@ class TextMagicApi
      * Create request for operation 'doAuth'
      *
      * @param  \TextMagic\Models\DoAuthInputObject $doAuthInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function doAuthRequest($doAuthInputObject, $xIgnoreNullValues = 'true')
+    protected function doAuthRequest($doAuthInputObject)
     {
         // verify the required parameter 'doAuthInputObject' is set
         if ($doAuthInputObject === null || (is_array($doAuthInputObject) && count($doAuthInputObject) === 0)) {
@@ -12651,10 +12439,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -30723,15 +30507,14 @@ class TextMagicApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\GetSubaccountsWithTokensResponse
      */
-    public function getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
+    public function getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10')
     {
-        list($response) = $this->getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
+        list($response) = $this->getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit);
         return $response;
     }
 
@@ -30743,16 +30526,15 @@ class TextMagicApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\GetSubaccountsWithTokensResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
+    public function getSubaccountsWithTokensWithHttpInfo($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10')
     {
         $returnType = '\TextMagic\Models\GetSubaccountsWithTokensResponse';
-        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
+        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -30837,14 +30619,13 @@ class TextMagicApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubaccountsWithTokensAsync($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
+    public function getSubaccountsWithTokensAsync($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10')
     {
-        return $this->getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues)
+        return $this->getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject, $page, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -30860,15 +30641,14 @@ class TextMagicApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
+    public function getSubaccountsWithTokensAsyncWithHttpInfo($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10')
     {
         $returnType = '\TextMagic\Models\GetSubaccountsWithTokensResponse';
-        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit, $xIgnoreNullValues);
+        $request = $this->getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -30913,12 +30693,11 @@ class TextMagicApi
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page (optional, default to 1)
      * @param  int $limit How many results to return (optional, default to 10)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10', $xIgnoreNullValues = 'true')
+    protected function getSubaccountsWithTokensRequest($getSubaccountsWithTokensInputObject, $page = '1', $limit = '10')
     {
         // verify the required parameter 'getSubaccountsWithTokensInputObject' is set
         if ($getSubaccountsWithTokensInputObject === null || (is_array($getSubaccountsWithTokensInputObject) && count($getSubaccountsWithTokensInputObject) === 0)) {
@@ -30941,10 +30720,6 @@ class TextMagicApi
         // query params
         if ($limit !== null) {
             $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
         }
 
 
@@ -34370,15 +34145,14 @@ class TextMagicApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function inviteSubaccount($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
+    public function inviteSubaccount($inviteSubaccountInputObject)
     {
-        $this->inviteSubaccountWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues);
+        $this->inviteSubaccountWithHttpInfo($inviteSubaccountInputObject);
     }
 
     /**
@@ -34387,16 +34161,15 @@ class TextMagicApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteSubaccountWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
+    public function inviteSubaccountWithHttpInfo($inviteSubaccountInputObject)
     {
         $returnType = '';
-        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullValues);
+        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34465,14 +34238,13 @@ class TextMagicApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function inviteSubaccountAsync($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
+    public function inviteSubaccountAsync($inviteSubaccountInputObject)
     {
-        return $this->inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues)
+        return $this->inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34486,15 +34258,14 @@ class TextMagicApi
      * Invite new subaccount.
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
+    public function inviteSubaccountAsyncWithHttpInfo($inviteSubaccountInputObject)
     {
         $returnType = '';
-        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullValues);
+        $request = $this->inviteSubaccountRequest($inviteSubaccountInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -34523,12 +34294,11 @@ class TextMagicApi
      * Create request for operation 'inviteSubaccount'
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function inviteSubaccountRequest($inviteSubaccountInputObject, $xIgnoreNullValues = 'true')
+    protected function inviteSubaccountRequest($inviteSubaccountInputObject)
     {
         // verify the required parameter 'inviteSubaccountInputObject' is set
         if ($inviteSubaccountInputObject === null || (is_array($inviteSubaccountInputObject) && count($inviteSubaccountInputObject) === 0)) {
@@ -34544,10 +34314,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -34627,15 +34393,14 @@ class TextMagicApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function markChatsReadBulk($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsReadBulk($markChatsReadBulkInputObject)
     {
-        $this->markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues);
+        $this->markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject);
     }
 
     /**
@@ -34644,16 +34409,15 @@ class TextMagicApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsReadBulkWithHttpInfo($markChatsReadBulkInputObject)
     {
         $returnType = '';
-        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullValues);
+        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34714,14 +34478,13 @@ class TextMagicApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsReadBulkAsync($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsReadBulkAsync($markChatsReadBulkInputObject)
     {
-        return $this->markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues)
+        return $this->markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34735,15 +34498,14 @@ class TextMagicApi
      * Mark several chats as read by chat ids or mark all chats as read
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsReadBulkAsyncWithHttpInfo($markChatsReadBulkInputObject)
     {
         $returnType = '';
-        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullValues);
+        $request = $this->markChatsReadBulkRequest($markChatsReadBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -34772,12 +34534,11 @@ class TextMagicApi
      * Create request for operation 'markChatsReadBulk'
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function markChatsReadBulkRequest($markChatsReadBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function markChatsReadBulkRequest($markChatsReadBulkInputObject)
     {
         // verify the required parameter 'markChatsReadBulkInputObject' is set
         if ($markChatsReadBulkInputObject === null || (is_array($markChatsReadBulkInputObject) && count($markChatsReadBulkInputObject) === 0)) {
@@ -34793,10 +34554,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -34876,15 +34633,14 @@ class TextMagicApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function markChatsUnreadBulk($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsUnreadBulk($markChatsUnreadBulkInputObject)
     {
-        $this->markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
+        $this->markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject);
     }
 
     /**
@@ -34893,16 +34649,15 @@ class TextMagicApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsUnreadBulkWithHttpInfo($markChatsUnreadBulkInputObject)
     {
         $returnType = '';
-        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
+        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34963,14 +34718,13 @@ class TextMagicApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsUnreadBulkAsync($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsUnreadBulkAsync($markChatsUnreadBulkInputObject)
     {
-        return $this->markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues)
+        return $this->markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34984,15 +34738,14 @@ class TextMagicApi
      * Mark several chats as UNread by chat ids or mark all chats as UNread
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
+    public function markChatsUnreadBulkAsyncWithHttpInfo($markChatsUnreadBulkInputObject)
     {
         $returnType = '';
-        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullValues);
+        $request = $this->markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35021,12 +34774,11 @@ class TextMagicApi
      * Create request for operation 'markChatsUnreadBulk'
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function markChatsUnreadBulkRequest($markChatsUnreadBulkInputObject)
     {
         // verify the required parameter 'markChatsUnreadBulkInputObject' is set
         if ($markChatsUnreadBulkInputObject === null || (is_array($markChatsUnreadBulkInputObject) && count($markChatsUnreadBulkInputObject) === 0)) {
@@ -35042,10 +34794,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -35125,15 +34873,14 @@ class TextMagicApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function mergeSurveyNodes($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
+    public function mergeSurveyNodes($mergeSurveyNodesInputObject)
     {
-        $this->mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues);
+        $this->mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject);
     }
 
     /**
@@ -35142,16 +34889,15 @@ class TextMagicApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
+    public function mergeSurveyNodesWithHttpInfo($mergeSurveyNodesInputObject)
     {
         $returnType = '';
-        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullValues);
+        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -35220,14 +34966,13 @@ class TextMagicApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mergeSurveyNodesAsync($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
+    public function mergeSurveyNodesAsync($mergeSurveyNodesInputObject)
     {
-        return $this->mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues)
+        return $this->mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -35241,15 +34986,14 @@ class TextMagicApi
      * Merge two question nodes.
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
+    public function mergeSurveyNodesAsyncWithHttpInfo($mergeSurveyNodesInputObject)
     {
         $returnType = '';
-        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullValues);
+        $request = $this->mergeSurveyNodesRequest($mergeSurveyNodesInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35278,12 +35022,11 @@ class TextMagicApi
      * Create request for operation 'mergeSurveyNodes'
      *
      * @param  \TextMagic\Models\MergeSurveyNodesInputObject $mergeSurveyNodesInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function mergeSurveyNodesRequest($mergeSurveyNodesInputObject, $xIgnoreNullValues = 'true')
+    protected function mergeSurveyNodesRequest($mergeSurveyNodesInputObject)
     {
         // verify the required parameter 'mergeSurveyNodesInputObject' is set
         if ($mergeSurveyNodesInputObject === null || (is_array($mergeSurveyNodesInputObject) && count($mergeSurveyNodesInputObject) === 0)) {
@@ -35299,10 +35042,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -35382,15 +35121,14 @@ class TextMagicApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject muteChatInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function muteChat($muteChatInputObject, $xIgnoreNullValues = 'true')
+    public function muteChat($muteChatInputObject)
     {
-        list($response) = $this->muteChatWithHttpInfo($muteChatInputObject, $xIgnoreNullValues);
+        list($response) = $this->muteChatWithHttpInfo($muteChatInputObject);
         return $response;
     }
 
@@ -35400,16 +35138,15 @@ class TextMagicApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function muteChatWithHttpInfo($muteChatInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatWithHttpInfo($muteChatInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->muteChatRequest($muteChatInputObject, $xIgnoreNullValues);
+        $request = $this->muteChatRequest($muteChatInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -35500,14 +35237,13 @@ class TextMagicApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatAsync($muteChatInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatAsync($muteChatInputObject)
     {
-        return $this->muteChatAsyncWithHttpInfo($muteChatInputObject, $xIgnoreNullValues)
+        return $this->muteChatAsyncWithHttpInfo($muteChatInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -35521,15 +35257,14 @@ class TextMagicApi
      * Set mute mode.
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatAsyncWithHttpInfo($muteChatInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatAsyncWithHttpInfo($muteChatInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->muteChatRequest($muteChatInputObject, $xIgnoreNullValues);
+        $request = $this->muteChatRequest($muteChatInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35572,12 +35307,11 @@ class TextMagicApi
      * Create request for operation 'muteChat'
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function muteChatRequest($muteChatInputObject, $xIgnoreNullValues = 'true')
+    protected function muteChatRequest($muteChatInputObject)
     {
         // verify the required parameter 'muteChatInputObject' is set
         if ($muteChatInputObject === null || (is_array($muteChatInputObject) && count($muteChatInputObject) === 0)) {
@@ -35593,10 +35327,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -35676,15 +35406,14 @@ class TextMagicApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function muteChatsBulk($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatsBulk($muteChatsBulkInputObject)
     {
-        $this->muteChatsBulkWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues);
+        $this->muteChatsBulkWithHttpInfo($muteChatsBulkInputObject);
     }
 
     /**
@@ -35693,16 +35422,15 @@ class TextMagicApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function muteChatsBulkWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatsBulkWithHttpInfo($muteChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -35763,14 +35491,13 @@ class TextMagicApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatsBulkAsync($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatsBulkAsync($muteChatsBulkInputObject)
     {
-        return $this->muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues)
+        return $this->muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -35784,15 +35511,14 @@ class TextMagicApi
      * Mute several chats by chat ids or mute all chats
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function muteChatsBulkAsyncWithHttpInfo($muteChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->muteChatsBulkRequest($muteChatsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35821,12 +35547,11 @@ class TextMagicApi
      * Create request for operation 'muteChatsBulk'
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function muteChatsBulkRequest($muteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function muteChatsBulkRequest($muteChatsBulkInputObject)
     {
         // verify the required parameter 'muteChatsBulkInputObject' is set
         if ($muteChatsBulkInputObject === null || (is_array($muteChatsBulkInputObject) && count($muteChatsBulkInputObject) === 0)) {
@@ -35842,10 +35567,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -36180,15 +35901,14 @@ class TextMagicApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function reopenChatsBulk($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function reopenChatsBulk($reopenChatsBulkInputObject)
     {
-        $this->reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues);
+        $this->reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject);
     }
 
     /**
@@ -36197,16 +35917,15 @@ class TextMagicApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function reopenChatsBulkWithHttpInfo($reopenChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36267,14 +35986,13 @@ class TextMagicApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reopenChatsBulkAsync($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function reopenChatsBulkAsync($reopenChatsBulkInputObject)
     {
-        return $this->reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues)
+        return $this->reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36288,15 +36006,14 @@ class TextMagicApi
      * Reopen chats by chat ids or reopen all chats
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function reopenChatsBulkAsyncWithHttpInfo($reopenChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->reopenChatsBulkRequest($reopenChatsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36325,12 +36042,11 @@ class TextMagicApi
      * Create request for operation 'reopenChatsBulk'
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function reopenChatsBulkRequest($reopenChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function reopenChatsBulkRequest($reopenChatsBulkInputObject)
     {
         // verify the required parameter 'reopenChatsBulkInputObject' is set
         if ($reopenChatsBulkInputObject === null || (is_array($reopenChatsBulkInputObject) && count($reopenChatsBulkInputObject) === 0)) {
@@ -36346,10 +36062,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -36429,15 +36141,14 @@ class TextMagicApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\User
      */
-    public function requestNewSubaccountToken($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
+    public function requestNewSubaccountToken($requestNewSubaccountTokenInputObject)
     {
-        list($response) = $this->requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
+        list($response) = $this->requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject);
         return $response;
     }
 
@@ -36447,16 +36158,15 @@ class TextMagicApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
+    public function requestNewSubaccountTokenWithHttpInfo($requestNewSubaccountTokenInputObject)
     {
         $returnType = '\TextMagic\Models\User';
-        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
+        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36539,14 +36249,13 @@ class TextMagicApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestNewSubaccountTokenAsync($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
+    public function requestNewSubaccountTokenAsync($requestNewSubaccountTokenInputObject)
     {
-        return $this->requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues)
+        return $this->requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36560,15 +36269,14 @@ class TextMagicApi
      * Request a new REST API token for subaccount.
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
+    public function requestNewSubaccountTokenAsyncWithHttpInfo($requestNewSubaccountTokenInputObject)
     {
         $returnType = '\TextMagic\Models\User';
-        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullValues);
+        $request = $this->requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36611,12 +36319,11 @@ class TextMagicApi
      * Create request for operation 'requestNewSubaccountToken'
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject, $xIgnoreNullValues = 'true')
+    protected function requestNewSubaccountTokenRequest($requestNewSubaccountTokenInputObject)
     {
         // verify the required parameter 'requestNewSubaccountTokenInputObject' is set
         if ($requestNewSubaccountTokenInputObject === null || (is_array($requestNewSubaccountTokenInputObject) && count($requestNewSubaccountTokenInputObject) === 0)) {
@@ -36632,10 +36339,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -36715,15 +36418,14 @@ class TextMagicApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function requestSenderId($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
+    public function requestSenderId($requestSenderIdInputObject)
     {
-        list($response) = $this->requestSenderIdWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues);
+        list($response) = $this->requestSenderIdWithHttpInfo($requestSenderIdInputObject);
         return $response;
     }
 
@@ -36733,16 +36435,15 @@ class TextMagicApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestSenderIdWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
+    public function requestSenderIdWithHttpInfo($requestSenderIdInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullValues);
+        $request = $this->requestSenderIdRequest($requestSenderIdInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36825,14 +36526,13 @@ class TextMagicApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestSenderIdAsync($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
+    public function requestSenderIdAsync($requestSenderIdInputObject)
     {
-        return $this->requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues)
+        return $this->requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36846,15 +36546,14 @@ class TextMagicApi
      * Request for a new Sender ID.
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
+    public function requestSenderIdAsyncWithHttpInfo($requestSenderIdInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullValues);
+        $request = $this->requestSenderIdRequest($requestSenderIdInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36897,12 +36596,11 @@ class TextMagicApi
      * Create request for operation 'requestSenderId'
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function requestSenderIdRequest($requestSenderIdInputObject, $xIgnoreNullValues = 'true')
+    protected function requestSenderIdRequest($requestSenderIdInputObject)
     {
         // verify the required parameter 'requestSenderIdInputObject' is set
         if ($requestSenderIdInputObject === null || (is_array($requestSenderIdInputObject) && count($requestSenderIdInputObject) === 0)) {
@@ -36918,10 +36616,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -40360,15 +40054,14 @@ class TextMagicApi
      * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\SendMessageResponse
      */
-    public function sendMessage($sendMessageInputObject, $xIgnoreNullValues = 'true')
+    public function sendMessage($sendMessageInputObject)
     {
-        list($response) = $this->sendMessageWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues);
+        list($response) = $this->sendMessageWithHttpInfo($sendMessageInputObject);
         return $response;
     }
 
@@ -40378,16 +40071,15 @@ class TextMagicApi
      * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\SendMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendMessageWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues = 'true')
+    public function sendMessageWithHttpInfo($sendMessageInputObject)
     {
         $returnType = '\TextMagic\Models\SendMessageResponse';
-        $request = $this->sendMessageRequest($sendMessageInputObject, $xIgnoreNullValues);
+        $request = $this->sendMessageRequest($sendMessageInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40470,14 +40162,13 @@ class TextMagicApi
      * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMessageAsync($sendMessageInputObject, $xIgnoreNullValues = 'true')
+    public function sendMessageAsync($sendMessageInputObject)
     {
-        return $this->sendMessageAsyncWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues)
+        return $this->sendMessageAsyncWithHttpInfo($sendMessageInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -40491,15 +40182,14 @@ class TextMagicApi
      * Send message
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMessageAsyncWithHttpInfo($sendMessageInputObject, $xIgnoreNullValues = 'true')
+    public function sendMessageAsyncWithHttpInfo($sendMessageInputObject)
     {
         $returnType = '\TextMagic\Models\SendMessageResponse';
-        $request = $this->sendMessageRequest($sendMessageInputObject, $xIgnoreNullValues);
+        $request = $this->sendMessageRequest($sendMessageInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -40542,12 +40232,11 @@ class TextMagicApi
      * Create request for operation 'sendMessage'
      *
      * @param  \TextMagic\Models\SendMessageInputObject $sendMessageInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendMessageRequest($sendMessageInputObject, $xIgnoreNullValues = 'true')
+    protected function sendMessageRequest($sendMessageInputObject)
     {
         // verify the required parameter 'sendMessageInputObject' is set
         if ($sendMessageInputObject === null || (is_array($sendMessageInputObject) && count($sendMessageInputObject) === 0)) {
@@ -40563,10 +40252,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -40872,15 +40557,14 @@ class TextMagicApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function setChatStatus($setChatStatusInputObject, $xIgnoreNullValues = 'true')
+    public function setChatStatus($setChatStatusInputObject)
     {
-        list($response) = $this->setChatStatusWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues);
+        list($response) = $this->setChatStatusWithHttpInfo($setChatStatusInputObject);
         return $response;
     }
 
@@ -40890,16 +40574,15 @@ class TextMagicApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setChatStatusWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues = 'true')
+    public function setChatStatusWithHttpInfo($setChatStatusInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullValues);
+        $request = $this->setChatStatusRequest($setChatStatusInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40982,14 +40665,13 @@ class TextMagicApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setChatStatusAsync($setChatStatusInputObject, $xIgnoreNullValues = 'true')
+    public function setChatStatusAsync($setChatStatusInputObject)
     {
-        return $this->setChatStatusAsyncWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues)
+        return $this->setChatStatusAsyncWithHttpInfo($setChatStatusInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41003,15 +40685,14 @@ class TextMagicApi
      * Set status of the chat given by ID.
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setChatStatusAsyncWithHttpInfo($setChatStatusInputObject, $xIgnoreNullValues = 'true')
+    public function setChatStatusAsyncWithHttpInfo($setChatStatusInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullValues);
+        $request = $this->setChatStatusRequest($setChatStatusInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41054,12 +40735,11 @@ class TextMagicApi
      * Create request for operation 'setChatStatus'
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function setChatStatusRequest($setChatStatusInputObject, $xIgnoreNullValues = 'true')
+    protected function setChatStatusRequest($setChatStatusInputObject)
     {
         // verify the required parameter 'setChatStatusInputObject' is set
         if ($setChatStatusInputObject === null || (is_array($setChatStatusInputObject) && count($setChatStatusInputObject) === 0)) {
@@ -41075,10 +40755,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -41448,15 +41124,14 @@ class TextMagicApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unblockContact($unblockContactInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContact($unblockContactInputObject)
     {
-        $this->unblockContactWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues);
+        $this->unblockContactWithHttpInfo($unblockContactInputObject);
     }
 
     /**
@@ -41465,16 +41140,15 @@ class TextMagicApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unblockContactWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactWithHttpInfo($unblockContactInputObject)
     {
         $returnType = '';
-        $request = $this->unblockContactRequest($unblockContactInputObject, $xIgnoreNullValues);
+        $request = $this->unblockContactRequest($unblockContactInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41543,14 +41217,13 @@ class TextMagicApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactAsync($unblockContactInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactAsync($unblockContactInputObject)
     {
-        return $this->unblockContactAsyncWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues)
+        return $this->unblockContactAsyncWithHttpInfo($unblockContactInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41564,15 +41237,14 @@ class TextMagicApi
      * Unblock contact by phone number.
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactAsyncWithHttpInfo($unblockContactInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactAsyncWithHttpInfo($unblockContactInputObject)
     {
         $returnType = '';
-        $request = $this->unblockContactRequest($unblockContactInputObject, $xIgnoreNullValues);
+        $request = $this->unblockContactRequest($unblockContactInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41601,12 +41273,11 @@ class TextMagicApi
      * Create request for operation 'unblockContact'
      *
      * @param  \TextMagic\Models\UnblockContactInputObject $unblockContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unblockContactRequest($unblockContactInputObject, $xIgnoreNullValues = 'true')
+    protected function unblockContactRequest($unblockContactInputObject)
     {
         // verify the required parameter 'unblockContactInputObject' is set
         if ($unblockContactInputObject === null || (is_array($unblockContactInputObject) && count($unblockContactInputObject) === 0)) {
@@ -41622,10 +41293,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -41705,15 +41372,14 @@ class TextMagicApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unblockContactsBulk($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactsBulk($unblockContactsBulkInputObject)
     {
-        $this->unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues);
+        $this->unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject);
     }
 
     /**
@@ -41722,16 +41388,15 @@ class TextMagicApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactsBulkWithHttpInfo($unblockContactsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41800,14 +41465,13 @@ class TextMagicApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactsBulkAsync($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactsBulkAsync($unblockContactsBulkInputObject)
     {
-        return $this->unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues)
+        return $this->unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41821,15 +41485,14 @@ class TextMagicApi
      * Unblock several contacts by blocked contact ids or unblock all contacts
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unblockContactsBulkAsyncWithHttpInfo($unblockContactsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->unblockContactsBulkRequest($unblockContactsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41858,12 +41521,11 @@ class TextMagicApi
      * Create request for operation 'unblockContactsBulk'
      *
      * @param  \TextMagic\Models\UnblockContactsBulkInputObject $unblockContactsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unblockContactsBulkRequest($unblockContactsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function unblockContactsBulkRequest($unblockContactsBulkInputObject)
     {
         // verify the required parameter 'unblockContactsBulkInputObject' is set
         if ($unblockContactsBulkInputObject === null || (is_array($unblockContactsBulkInputObject) && count($unblockContactsBulkInputObject) === 0)) {
@@ -41879,10 +41541,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -41962,15 +41620,14 @@ class TextMagicApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unmuteChatsBulk($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unmuteChatsBulk($unmuteChatsBulkInputObject)
     {
-        $this->unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues);
+        $this->unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject);
     }
 
     /**
@@ -41979,16 +41636,15 @@ class TextMagicApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unmuteChatsBulkWithHttpInfo($unmuteChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42049,14 +41705,13 @@ class TextMagicApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unmuteChatsBulkAsync($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unmuteChatsBulkAsync($unmuteChatsBulkInputObject)
     {
-        return $this->unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues)
+        return $this->unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42070,15 +41725,14 @@ class TextMagicApi
      * Unmute several chats by chat ids or unmute all chats
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    public function unmuteChatsBulkAsyncWithHttpInfo($unmuteChatsBulkInputObject)
     {
         $returnType = '';
-        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullValues);
+        $request = $this->unmuteChatsBulkRequest($unmuteChatsBulkInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42107,12 +41761,11 @@ class TextMagicApi
      * Create request for operation 'unmuteChatsBulk'
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unmuteChatsBulkRequest($unmuteChatsBulkInputObject, $xIgnoreNullValues = 'true')
+    protected function unmuteChatsBulkRequest($unmuteChatsBulkInputObject)
     {
         // verify the required parameter 'unmuteChatsBulkInputObject' is set
         if ($unmuteChatsBulkInputObject === null || (is_array($unmuteChatsBulkInputObject) && count($unmuteChatsBulkInputObject) === 0)) {
@@ -42128,10 +41781,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -42211,15 +41860,14 @@ class TextMagicApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function unsubscribeContact($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
+    public function unsubscribeContact($unsubscribeContactInputObject)
     {
-        list($response) = $this->unsubscribeContactWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues);
+        list($response) = $this->unsubscribeContactWithHttpInfo($unsubscribeContactInputObject);
         return $response;
     }
 
@@ -42229,16 +41877,15 @@ class TextMagicApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unsubscribeContactWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
+    public function unsubscribeContactWithHttpInfo($unsubscribeContactInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullValues);
+        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42329,14 +41976,13 @@ class TextMagicApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unsubscribeContactAsync($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
+    public function unsubscribeContactAsync($unsubscribeContactInputObject)
     {
-        return $this->unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues)
+        return $this->unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42350,15 +41996,14 @@ class TextMagicApi
      * Unsubscribe contact from your communication by phone number.
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
+    public function unsubscribeContactAsyncWithHttpInfo($unsubscribeContactInputObject)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullValues);
+        $request = $this->unsubscribeContactRequest($unsubscribeContactInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42401,12 +42046,11 @@ class TextMagicApi
      * Create request for operation 'unsubscribeContact'
      *
      * @param  \TextMagic\Models\UnsubscribeContactInputObject $unsubscribeContactInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unsubscribeContactRequest($unsubscribeContactInputObject, $xIgnoreNullValues = 'true')
+    protected function unsubscribeContactRequest($unsubscribeContactInputObject)
     {
         // verify the required parameter 'unsubscribeContactInputObject' is set
         if ($unsubscribeContactInputObject === null || (is_array($unsubscribeContactInputObject) && count($unsubscribeContactInputObject) === 0)) {
@@ -42422,10 +42066,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -42505,15 +42145,14 @@ class TextMagicApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject updateBalanceNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateBalanceNotificationSettings($updateBalanceNotificationSettingsInputObject)
     {
-        $this->updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
+        $this->updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject);
     }
 
     /**
@@ -42522,16 +42161,15 @@ class TextMagicApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateBalanceNotificationSettingsWithHttpInfo($updateBalanceNotificationSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42592,14 +42230,13 @@ class TextMagicApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBalanceNotificationSettingsAsync($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateBalanceNotificationSettingsAsync($updateBalanceNotificationSettingsInputObject)
     {
-        return $this->updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues)
+        return $this->updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42613,15 +42250,14 @@ class TextMagicApi
      * Update balance notification settings
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateBalanceNotificationSettingsAsyncWithHttpInfo($updateBalanceNotificationSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42650,12 +42286,11 @@ class TextMagicApi
      * Create request for operation 'updateBalanceNotificationSettings'
      *
      * @param  \TextMagic\Models\UpdateBalanceNotificationSettingsInputObject $updateBalanceNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    protected function updateBalanceNotificationSettingsRequest($updateBalanceNotificationSettingsInputObject)
     {
         // verify the required parameter 'updateBalanceNotificationSettingsInputObject' is set
         if ($updateBalanceNotificationSettingsInputObject === null || (is_array($updateBalanceNotificationSettingsInputObject) && count($updateBalanceNotificationSettingsInputObject) === 0)) {
@@ -42671,10 +42306,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -42754,15 +42385,14 @@ class TextMagicApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCallbackSettings($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateCallbackSettings($updateCallbackSettingsInputObject)
     {
-        $this->updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues);
+        $this->updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject);
     }
 
     /**
@@ -42771,16 +42401,15 @@ class TextMagicApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateCallbackSettingsWithHttpInfo($updateCallbackSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42841,14 +42470,13 @@ class TextMagicApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCallbackSettingsAsync($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateCallbackSettingsAsync($updateCallbackSettingsInputObject)
     {
-        return $this->updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues)
+        return $this->updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42862,15 +42490,14 @@ class TextMagicApi
      * Update callback URL settings
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateCallbackSettingsAsyncWithHttpInfo($updateCallbackSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateCallbackSettingsRequest($updateCallbackSettingsInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42899,12 +42526,11 @@ class TextMagicApi
      * Create request for operation 'updateCallbackSettings'
      *
      * @param  \TextMagic\Models\UpdateCallbackSettingsInputObject $updateCallbackSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCallbackSettingsRequest($updateCallbackSettingsInputObject, $xIgnoreNullValues = 'true')
+    protected function updateCallbackSettingsRequest($updateCallbackSettingsInputObject)
     {
         // verify the required parameter 'updateCallbackSettingsInputObject' is set
         if ($updateCallbackSettingsInputObject === null || (is_array($updateCallbackSettingsInputObject) && count($updateCallbackSettingsInputObject) === 0)) {
@@ -42920,10 +42546,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -43003,15 +42625,14 @@ class TextMagicApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateChatDesktopNotificationSettings($updateChatDesktopNotificationSettingsInputObject)
     {
-        $this->updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
+        $this->updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject);
     }
 
     /**
@@ -43020,16 +42641,15 @@ class TextMagicApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateChatDesktopNotificationSettingsWithHttpInfo($updateChatDesktopNotificationSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43090,14 +42710,13 @@ class TextMagicApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChatDesktopNotificationSettingsAsync($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateChatDesktopNotificationSettingsAsync($updateChatDesktopNotificationSettingsInputObject)
     {
-        return $this->updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues)
+        return $this->updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -43111,15 +42730,14 @@ class TextMagicApi
      * Update chat desktop notification settings
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateChatDesktopNotificationSettingsAsyncWithHttpInfo($updateChatDesktopNotificationSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -43148,12 +42766,11 @@ class TextMagicApi
      * Create request for operation 'updateChatDesktopNotificationSettings'
      *
      * @param  \TextMagic\Models\UpdateChatDesktopNotificationSettingsInputObject $updateChatDesktopNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    protected function updateChatDesktopNotificationSettingsRequest($updateChatDesktopNotificationSettingsInputObject)
     {
         // verify the required parameter 'updateChatDesktopNotificationSettingsInputObject' is set
         if ($updateChatDesktopNotificationSettingsInputObject === null || (is_array($updateChatDesktopNotificationSettingsInputObject) && count($updateChatDesktopNotificationSettingsInputObject) === 0)) {
@@ -43169,10 +42786,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -43253,15 +42866,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject updateContactInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateContact($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContact($updateContactInputObject, $id)
     {
-        list($response) = $this->updateContactWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateContactWithHttpInfo($updateContactInputObject, $id);
         return $response;
     }
 
@@ -43272,16 +42884,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateContactWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactWithHttpInfo($updateContactInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactRequest($updateContactInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateContactRequest($updateContactInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43373,14 +42984,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactAsync($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactAsync($updateContactInputObject, $id)
     {
-        return $this->updateContactAsyncWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues)
+        return $this->updateContactAsyncWithHttpInfo($updateContactInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -43395,15 +43005,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactAsyncWithHttpInfo($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactAsyncWithHttpInfo($updateContactInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactRequest($updateContactInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateContactRequest($updateContactInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -43447,12 +43056,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactInputObject $updateContactInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateContactRequest($updateContactInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateContactRequest($updateContactInputObject, $id)
     {
         // verify the required parameter 'updateContactInputObject' is set
         if ($updateContactInputObject === null || (is_array($updateContactInputObject) && count($updateContactInputObject) === 0)) {
@@ -43474,10 +43082,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -43566,15 +43170,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject updateContactNoteInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateContactNote($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactNote($updateContactNoteInputObject, $id)
     {
-        list($response) = $this->updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id);
         return $response;
     }
 
@@ -43585,16 +43188,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactNoteWithHttpInfo($updateContactNoteInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43686,14 +43288,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactNoteAsync($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactNoteAsync($updateContactNoteInputObject, $id)
     {
-        return $this->updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues)
+        return $this->updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -43708,15 +43309,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateContactNoteAsyncWithHttpInfo($updateContactNoteInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateContactNoteRequest($updateContactNoteInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -43760,12 +43360,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateContactNoteInputObject $updateContactNoteInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateContactNoteRequest($updateContactNoteInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateContactNoteRequest($updateContactNoteInputObject, $id)
     {
         // verify the required parameter 'updateContactNoteInputObject' is set
         if ($updateContactNoteInputObject === null || (is_array($updateContactNoteInputObject) && count($updateContactNoteInputObject) === 0)) {
@@ -43787,10 +43386,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -43878,15 +43473,14 @@ class TextMagicApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\UpdateCurrentUserResponse
      */
-    public function updateCurrentUser($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
+    public function updateCurrentUser($updateCurrentUserInputObject)
     {
-        list($response) = $this->updateCurrentUserWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues);
+        list($response) = $this->updateCurrentUserWithHttpInfo($updateCurrentUserInputObject);
         return $response;
     }
 
@@ -43896,16 +43490,15 @@ class TextMagicApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\UpdateCurrentUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCurrentUserWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
+    public function updateCurrentUserWithHttpInfo($updateCurrentUserInputObject)
     {
         $returnType = '\TextMagic\Models\UpdateCurrentUserResponse';
-        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullValues);
+        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43988,14 +43581,13 @@ class TextMagicApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCurrentUserAsync($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
+    public function updateCurrentUserAsync($updateCurrentUserInputObject)
     {
-        return $this->updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues)
+        return $this->updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44009,15 +43601,14 @@ class TextMagicApi
      * Update current user info.
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
+    public function updateCurrentUserAsyncWithHttpInfo($updateCurrentUserInputObject)
     {
         $returnType = '\TextMagic\Models\UpdateCurrentUserResponse';
-        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullValues);
+        $request = $this->updateCurrentUserRequest($updateCurrentUserInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44060,12 +43651,11 @@ class TextMagicApi
      * Create request for operation 'updateCurrentUser'
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCurrentUserRequest($updateCurrentUserInputObject, $xIgnoreNullValues = 'true')
+    protected function updateCurrentUserRequest($updateCurrentUserInputObject)
     {
         // verify the required parameter 'updateCurrentUserInputObject' is set
         if ($updateCurrentUserInputObject === null || (is_array($updateCurrentUserInputObject) && count($updateCurrentUserInputObject) === 0)) {
@@ -44081,10 +43671,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -44165,15 +43751,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject updateCustomFieldInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateCustomField($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomField($updateCustomFieldInputObject, $id)
     {
-        list($response) = $this->updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id);
         return $response;
     }
 
@@ -44184,16 +43769,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldWithHttpInfo($updateCustomFieldInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44285,14 +43869,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldAsync($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldAsync($updateCustomFieldInputObject, $id)
     {
-        return $this->updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues)
+        return $this->updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44307,15 +43890,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldAsyncWithHttpInfo($updateCustomFieldInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateCustomFieldRequest($updateCustomFieldInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44359,12 +43941,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldInputObject $updateCustomFieldInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomFieldRequest($updateCustomFieldInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateCustomFieldRequest($updateCustomFieldInputObject, $id)
     {
         // verify the required parameter 'updateCustomFieldInputObject' is set
         if ($updateCustomFieldInputObject === null || (is_array($updateCustomFieldInputObject) && count($updateCustomFieldInputObject) === 0)) {
@@ -44386,10 +43967,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -44478,15 +44055,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject updateCustomFieldValueInputObject (required)
      * @param  string $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateCustomFieldValue($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldValue($updateCustomFieldValueInputObject, $id)
     {
-        list($response) = $this->updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id);
         return $response;
     }
 
@@ -44497,16 +44073,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldValueWithHttpInfo($updateCustomFieldValueInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44598,14 +44173,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldValueAsync($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldValueAsync($updateCustomFieldValueInputObject, $id)
     {
-        return $this->updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues)
+        return $this->updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44620,15 +44194,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateCustomFieldValueAsyncWithHttpInfo($updateCustomFieldValueInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44672,12 +44245,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
      * @param  string $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateCustomFieldValueRequest($updateCustomFieldValueInputObject, $id)
     {
         // verify the required parameter 'updateCustomFieldValueInputObject' is set
         if ($updateCustomFieldValueInputObject === null || (is_array($updateCustomFieldValueInputObject) && count($updateCustomFieldValueInputObject) === 0)) {
@@ -44699,10 +44271,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -44790,15 +44358,14 @@ class TextMagicApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateInboundMessagesNotificationSettings($updateInboundMessagesNotificationSettingsInputObject)
     {
-        $this->updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
+        $this->updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject);
     }
 
     /**
@@ -44807,16 +44374,15 @@ class TextMagicApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateInboundMessagesNotificationSettingsWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44877,14 +44443,13 @@ class TextMagicApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInboundMessagesNotificationSettingsAsync($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateInboundMessagesNotificationSettingsAsync($updateInboundMessagesNotificationSettingsInputObject)
     {
-        return $this->updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues)
+        return $this->updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44898,15 +44463,14 @@ class TextMagicApi
      * Update inbound messages notification settings
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    public function updateInboundMessagesNotificationSettingsAsyncWithHttpInfo($updateInboundMessagesNotificationSettingsInputObject)
     {
         $returnType = '';
-        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues);
+        $request = $this->updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44935,12 +44499,11 @@ class TextMagicApi
      * Create request for operation 'updateInboundMessagesNotificationSettings'
      *
      * @param  \TextMagic\Models\UpdateInboundMessagesNotificationSettingsInputObject $updateInboundMessagesNotificationSettingsInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject, $xIgnoreNullValues = 'true')
+    protected function updateInboundMessagesNotificationSettingsRequest($updateInboundMessagesNotificationSettingsInputObject)
     {
         // verify the required parameter 'updateInboundMessagesNotificationSettingsInputObject' is set
         if ($updateInboundMessagesNotificationSettingsInputObject === null || (is_array($updateInboundMessagesNotificationSettingsInputObject) && count($updateInboundMessagesNotificationSettingsInputObject) === 0)) {
@@ -44956,10 +44519,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -45313,15 +44872,14 @@ class TextMagicApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updatePassword($updatePasswordInputObject, $xIgnoreNullValues = 'true')
+    public function updatePassword($updatePasswordInputObject)
     {
-        $this->updatePasswordWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues);
+        $this->updatePasswordWithHttpInfo($updatePasswordInputObject);
     }
 
     /**
@@ -45330,16 +44888,15 @@ class TextMagicApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePasswordWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues = 'true')
+    public function updatePasswordWithHttpInfo($updatePasswordInputObject)
     {
         $returnType = '';
-        $request = $this->updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullValues);
+        $request = $this->updatePasswordRequest($updatePasswordInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45400,14 +44957,13 @@ class TextMagicApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePasswordAsync($updatePasswordInputObject, $xIgnoreNullValues = 'true')
+    public function updatePasswordAsync($updatePasswordInputObject)
     {
-        return $this->updatePasswordAsyncWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues)
+        return $this->updatePasswordAsyncWithHttpInfo($updatePasswordInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45421,15 +44977,14 @@ class TextMagicApi
      * Change user password.
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePasswordAsyncWithHttpInfo($updatePasswordInputObject, $xIgnoreNullValues = 'true')
+    public function updatePasswordAsyncWithHttpInfo($updatePasswordInputObject)
     {
         $returnType = '';
-        $request = $this->updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullValues);
+        $request = $this->updatePasswordRequest($updatePasswordInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -45458,12 +45013,11 @@ class TextMagicApi
      * Create request for operation 'updatePassword'
      *
      * @param  \TextMagic\Models\UpdatePasswordInputObject $updatePasswordInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePasswordRequest($updatePasswordInputObject, $xIgnoreNullValues = 'true')
+    protected function updatePasswordRequest($updatePasswordInputObject)
     {
         // verify the required parameter 'updatePasswordInputObject' is set
         if ($updatePasswordInputObject === null || (is_array($updatePasswordInputObject) && count($updatePasswordInputObject) === 0)) {
@@ -45479,10 +45033,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -45562,15 +45112,14 @@ class TextMagicApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateSenderSetting($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
+    public function updateSenderSetting($updateSenderSettingInputObject)
     {
-        $this->updateSenderSettingWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues);
+        $this->updateSenderSettingWithHttpInfo($updateSenderSettingInputObject);
     }
 
     /**
@@ -45579,16 +45128,15 @@ class TextMagicApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSenderSettingWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
+    public function updateSenderSettingWithHttpInfo($updateSenderSettingInputObject)
     {
         $returnType = '';
-        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullValues);
+        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45657,14 +45205,13 @@ class TextMagicApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSenderSettingAsync($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
+    public function updateSenderSettingAsync($updateSenderSettingInputObject)
     {
-        return $this->updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues)
+        return $this->updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45678,15 +45225,14 @@ class TextMagicApi
      * Change sender settings for specified country.
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
+    public function updateSenderSettingAsyncWithHttpInfo($updateSenderSettingInputObject)
     {
         $returnType = '';
-        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullValues);
+        $request = $this->updateSenderSettingRequest($updateSenderSettingInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -45715,12 +45261,11 @@ class TextMagicApi
      * Create request for operation 'updateSenderSetting'
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSenderSettingRequest($updateSenderSettingInputObject, $xIgnoreNullValues = 'true')
+    protected function updateSenderSettingRequest($updateSenderSettingInputObject)
     {
         // verify the required parameter 'updateSenderSettingInputObject' is set
         if ($updateSenderSettingInputObject === null || (is_array($updateSenderSettingInputObject) && count($updateSenderSettingInputObject) === 0)) {
@@ -45736,10 +45281,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
 
         // body params
@@ -45820,15 +45361,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject updateSurveyInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateSurvey($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurvey($updateSurveyInputObject, $id)
     {
-        list($response) = $this->updateSurveyWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateSurveyWithHttpInfo($updateSurveyInputObject, $id);
         return $response;
     }
 
@@ -45839,16 +45379,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSurveyWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyWithHttpInfo($updateSurveyInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45940,14 +45479,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyAsync($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyAsync($updateSurveyInputObject, $id)
     {
-        return $this->updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues)
+        return $this->updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45962,15 +45500,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyAsyncWithHttpInfo($updateSurveyInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateSurveyRequest($updateSurveyInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46014,12 +45551,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyInputObject $updateSurveyInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSurveyRequest($updateSurveyInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateSurveyRequest($updateSurveyInputObject, $id)
     {
         // verify the required parameter 'updateSurveyInputObject' is set
         if ($updateSurveyInputObject === null || (is_array($updateSurveyInputObject) && count($updateSurveyInputObject) === 0)) {
@@ -46041,10 +45577,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -46133,15 +45665,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject updateSurveyNodeInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateSurveyNode($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyNode($updateSurveyNodeInputObject, $id)
     {
-        list($response) = $this->updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id);
         return $response;
     }
 
@@ -46152,16 +45683,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyNodeWithHttpInfo($updateSurveyNodeInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -46253,14 +45783,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyNodeAsync($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyNodeAsync($updateSurveyNodeInputObject, $id)
     {
-        return $this->updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues)
+        return $this->updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -46275,15 +45804,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateSurveyNodeAsyncWithHttpInfo($updateSurveyNodeInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateSurveyNodeRequest($updateSurveyNodeInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46327,12 +45855,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateSurveyNodeInputObject $updateSurveyNodeInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSurveyNodeRequest($updateSurveyNodeInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateSurveyNodeRequest($updateSurveyNodeInputObject, $id)
     {
         // verify the required parameter 'updateSurveyNodeInputObject' is set
         if ($updateSurveyNodeInputObject === null || (is_array($updateSurveyNodeInputObject) && count($updateSurveyNodeInputObject) === 0)) {
@@ -46354,10 +45881,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
@@ -46446,15 +45969,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject updateTemplateInputObject (required)
      * @param  int $id id (required)
-     * @param  bool $xIgnoreNullValues xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function updateTemplate($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateTemplate($updateTemplateInputObject, $id)
     {
-        list($response) = $this->updateTemplateWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues);
+        list($response) = $this->updateTemplateWithHttpInfo($updateTemplateInputObject, $id);
         return $response;
     }
 
@@ -46465,16 +45987,15 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTemplateWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateTemplateWithHttpInfo($updateTemplateInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -46558,14 +46079,13 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTemplateAsync($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateTemplateAsync($updateTemplateInputObject, $id)
     {
-        return $this->updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues)
+        return $this->updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -46580,15 +46100,14 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
+    public function updateTemplateAsyncWithHttpInfo($updateTemplateInputObject, $id)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
-        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullValues);
+        $request = $this->updateTemplateRequest($updateTemplateInputObject, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46632,12 +46151,11 @@ class TextMagicApi
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
-     * @param  bool $xIgnoreNullValues (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateTemplateRequest($updateTemplateInputObject, $id, $xIgnoreNullValues = 'true')
+    protected function updateTemplateRequest($updateTemplateInputObject, $id)
     {
         // verify the required parameter 'updateTemplateInputObject' is set
         if ($updateTemplateInputObject === null || (is_array($updateTemplateInputObject) && count($updateTemplateInputObject) === 0)) {
@@ -46659,10 +46177,6 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($xIgnoreNullValues !== null) {
-            $headerParams['X-Ignore-Null-Values'] = ObjectSerializer::toHeaderValue($xIgnoreNullValues);
-        }
 
         // path params
         if ($id !== null) {
