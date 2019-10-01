@@ -184,6 +184,8 @@ Method | HTTP request | Description
 
 Assign contacts to the specified list.
 
+
+
 ### Example
 ```php
 <?php
@@ -240,6 +242,8 @@ Name | Type | Description  | Notes
 
 Block contact from inbound and outbound communication by phone number.
 
+
+
 ### Example
 ```php
 <?php
@@ -294,6 +298,8 @@ Name | Type | Description  | Notes
 
 Buy a dedicated number and assign it to the specified account.
 
+
+
 ### Example
 ```php
 <?php
@@ -346,6 +352,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse cancelSurvey($id)
 
 Cancel a survey.
+
+
 
 ### Example
 ```php
@@ -401,6 +409,8 @@ Name | Type | Description  | Notes
 
 Check user phone verification code
 
+
+
 ### Example
 ```php
 <?php
@@ -453,6 +463,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse clearAndAssignContactsToList($clearAndAssignContactsToListInputObject, $id)
 
 Reset list members to the specified contacts.
+
+
 
 ### Example
 ```php
@@ -510,6 +522,8 @@ Name | Type | Description  | Notes
 
 Close chats by chat ids or close all chats
 
+
+
 ### Example
 ```php
 <?php
@@ -563,6 +577,8 @@ void (empty response body)
 
 Close all chats that have no unread messages.
 
+
+
 ### Example
 ```php
 <?php
@@ -611,6 +627,8 @@ void (empty response body)
 > closeSubaccount($id)
 
 Close subaccount.
+
+
 
 ### Example
 ```php
@@ -665,6 +683,8 @@ void (empty response body)
 
 Create a new contact from the submitted data.
 
+
+
 ### Example
 ```php
 <?php
@@ -718,6 +738,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\ResourceLinkResponse createContactNote($createContactNoteInputObject, $id)
 
 Create a new contact note.
+
+
 
 ### Example
 ```php
@@ -775,6 +797,8 @@ Name | Type | Description  | Notes
 
 Create a new custom field from the submitted data.
 
+
+
 ### Example
 ```php
 <?php
@@ -828,6 +852,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\ResourceLinkResponse createList($createListInputObject)
 
 Create a new list from the submitted data.
+
+
 
 ### Example
 ```php
@@ -883,6 +909,8 @@ Name | Type | Description  | Notes
 
 Add or update a device token.
 
+
+
 ### Example
 ```php
 <?php
@@ -935,6 +963,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse createSurvey($createSurveyInputObject)
 
 Create a new survey from the submitted data.
+
+
 
 ### Example
 ```php
@@ -989,6 +1019,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\ResourceLinkResponse createSurveyNode($createSurveyNodeInputObject, $id)
 
 Create a new node from the submitted data.
+
+
 
 ### Example
 ```php
@@ -1046,6 +1078,8 @@ Name | Type | Description  | Notes
 
 Create a new template from the submitted data.
 
+
+
 ### Example
 ```php
 <?php
@@ -1100,6 +1134,8 @@ Name | Type | Description  | Notes
 
 Delete all contacts.
 
+
+
 ### Example
 ```php
 <?php
@@ -1149,7 +1185,7 @@ void (empty response body)
 
 Delete all messages
 
-Delete all messages.
+
 
 ### Example
 ```php
@@ -1200,6 +1236,8 @@ void (empty response body)
 
 Delete an avatar for the current user.\\
 
+
+
 ### Example
 ```php
 <?php
@@ -1248,6 +1286,8 @@ void (empty response body)
 > deleteChatMessages($deleteChatMessagesBulkInputObject, $id)
 
 Delete messages from chat by given messages ID(s).
+
+
 
 ### Example
 ```php
@@ -1304,6 +1344,8 @@ void (empty response body)
 
 Delete chats by given ID(s) or delete all chats.
 
+
+
 ### Example
 ```php
 <?php
@@ -1356,6 +1398,8 @@ void (empty response body)
 > deleteContact($id)
 
 Delete a single contact.
+
+
 
 ### Example
 ```php
@@ -1410,6 +1454,8 @@ void (empty response body)
 
 Delete an avatar for the contact.
 
+
+
 ### Example
 ```php
 <?php
@@ -1463,6 +1509,8 @@ void (empty response body)
 
 Delete a single contact note.
 
+
+
 ### Example
 ```php
 <?php
@@ -1515,6 +1563,8 @@ void (empty response body)
 > deleteContactNotesBulk($id, $deleteContactNotesBulkInputObject)
 
 Delete contact note by given ID(s) or delete all contact notes.
+
+
 
 ### Example
 ```php
@@ -1571,6 +1621,8 @@ void (empty response body)
 
 Delete contact by given ID(s) or delete all contacts.
 
+
+
 ### Example
 ```php
 <?php
@@ -1623,6 +1675,8 @@ void (empty response body)
 > deleteContactsFromList($deleteContacsFromListObject, $id)
 
 Unassign contacts from the specified list.
+
+
 
 ### Example
 ```php
@@ -1679,6 +1733,8 @@ void (empty response body)
 
 Delete a single custom field.
 
+
+
 ### Example
 ```php
 <?php
@@ -1731,6 +1787,8 @@ void (empty response body)
 > deleteDedicatedNumber($id)
 
 Cancel dedicated number subscription.
+
+
 
 ### Example
 ```php
@@ -1785,6 +1843,8 @@ void (empty response body)
 
 Delete the incoming message.
 
+
+
 ### Example
 ```php
 <?php
@@ -1837,6 +1897,8 @@ void (empty response body)
 > deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject)
 
 Delete inbound messages by given ID(s) or delete all inbound messages.
+
+
 
 ### Example
 ```php
@@ -1891,6 +1953,8 @@ void (empty response body)
 
 Delete a single list.
 
+
+
 ### Example
 ```php
 <?php
@@ -1944,6 +2008,8 @@ void (empty response body)
 
 Delete an avatar for the list.
 
+
+
 ### Example
 ```php
 <?php
@@ -1996,6 +2062,8 @@ void (empty response body)
 > deleteListContactsBulk($deleteListContactsBulkInputObject, $id)
 
 Delete contact from list by given ID(s) or all contacts from list.
+
+
 
 ### Example
 ```php
@@ -2052,6 +2120,8 @@ void (empty response body)
 
 Delete list by given ID(s) or delete all lists.
 
+
+
 ### Example
 ```php
 <?php
@@ -2104,6 +2174,8 @@ void (empty response body)
 > deleteMessageSession($id)
 
 Delete a message session, together with all nested messages.
+
+
 
 ### Example
 ```php
@@ -2158,6 +2230,8 @@ void (empty response body)
 
 Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
 
+
+
 ### Example
 ```php
 <?php
@@ -2211,7 +2285,7 @@ void (empty response body)
 
 Delete message
 
-Delete a single message.
+
 
 ### Example
 ```php
@@ -2266,7 +2340,7 @@ void (empty response body)
 
 Delete messages by IDs
 
-Delete outbound messages by given ID(s) or delete all outbound messages.
+
 
 ### Example
 ```php
@@ -2320,6 +2394,8 @@ void (empty response body)
 > deletePushToken($type, $deviceId)
 
 Delete a push notification device token.
+
+
 
 ### Example
 ```php
@@ -2376,6 +2452,8 @@ void (empty response body)
 
 Delete a message session, together with all nested messages.
 
+
+
 ### Example
 ```php
 <?php
@@ -2428,6 +2506,8 @@ void (empty response body)
 > deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject)
 
 Delete scheduled messages by given ID(s) or delete all scheduled messages.
+
+
 
 ### Example
 ```php
@@ -2482,6 +2562,8 @@ void (empty response body)
 
 Delete a Sender ID.
 
+
+
 ### Example
 ```php
 <?php
@@ -2534,6 +2616,8 @@ void (empty response body)
 > deleteSurvey($id)
 
 Delete a survey.
+
+
 
 ### Example
 ```php
@@ -2588,6 +2672,8 @@ void (empty response body)
 
 Delete a node.
 
+
+
 ### Example
 ```php
 <?php
@@ -2640,6 +2726,8 @@ void (empty response body)
 > deleteTemplate($id)
 
 Delete a single template.
+
+
 
 ### Example
 ```php
@@ -2694,6 +2782,8 @@ void (empty response body)
 
 Delete template by given ID(s) or delete all templates.
 
+
+
 ### Example
 ```php
 <?php
@@ -2747,7 +2837,7 @@ void (empty response body)
 
 Authenticate user by given username and password.
 
-Returning a username and token that you should pass to the all requests (in X-TM-Username and X-TM-Key, respectively)
+
 
 ### Example
 ```php
@@ -2795,6 +2885,8 @@ No authorization required
 > \TextMagic\Models\DoCarrierLookupResponse doCarrierLookup($phone, $country)
 
 Carrier Lookup
+
+
 
 ### Example
 ```php
@@ -2852,6 +2944,8 @@ Name | Type | Description  | Notes
 
 Validate Email address using Email Lookup tool
 
+
+
 ### Example
 ```php
 <?php
@@ -2906,6 +3000,8 @@ Name | Type | Description  | Notes
 
 Duplicate a survey.
 
+
+
 ### Example
 ```php
 <?php
@@ -2959,6 +3055,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetAllBulkSessionsPaginatedResponse getAllBulkSessions($page, $limit)
 
 Get all bulk sending sessions.
+
+
 
 ### Example
 ```php
@@ -3015,6 +3113,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetAllChatsPaginatedResponse getAllChats($status, $page, $limit, $orderBy, $voice, $flat)
 
 Get all user chats.
+
+
 
 ### Example
 ```php
@@ -3080,6 +3180,8 @@ Name | Type | Description  | Notes
 
 Get all inbox messages.
 
+
+
 ### Example
 ```php
 <?php
@@ -3140,6 +3242,8 @@ Name | Type | Description  | Notes
 
 Get all message sending sessions.
 
+
+
 ### Example
 ```php
 <?php
@@ -3196,7 +3300,7 @@ Name | Type | Description  | Notes
 
 Get all messages
 
-Get all user oubound messages.
+
 
 ### Example
 ```php
@@ -3255,6 +3359,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetAllScheduledMessagesPaginatedResponse getAllScheduledMessages($page, $limit, $status, $orderBy, $direction)
 
 Get all scheduled messages.
+
+
 
 ### Example
 ```php
@@ -3318,6 +3424,8 @@ Name | Type | Description  | Notes
 
 Get all user templates.
 
+
+
 ### Example
 ```php
 <?php
@@ -3373,6 +3481,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetAvailableDedicatedNumbersResponse getAvailableDedicatedNumbers($country, $prefix, $tollfree)
 
 Find available dedicated numbers to buy.
+
+
 
 ### Example
 ```php
@@ -3432,6 +3542,8 @@ Name | Type | Description  | Notes
 
 Get all available sender setting options which could be used in \"from\" parameter of POST messages method.
 
+
+
 ### Example
 ```php
 <?php
@@ -3486,6 +3598,8 @@ Name | Type | Description  | Notes
 
 Returns the list of available balance options which can be used as a bound to determine when to send email to user with low balance notification. See https://my.textmagic.com/online/account/notifications/balance
 
+
+
 ### Example
 ```php
 <?php
@@ -3536,6 +3650,8 @@ This endpoint does not need any parameter.
 
 Get balance notification settings
 
+
+
 ### Example
 ```php
 <?php
@@ -3585,6 +3701,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\GetBlockedContactsPaginatedResponse getBlockedContacts($page, $limit, $query, $orderBy, $direction)
 
 Get blocked contacts.
+
+
 
 ### Example
 ```php
@@ -3648,6 +3766,8 @@ Name | Type | Description  | Notes
 
 Get bulk message session status.
 
+
+
 ### Example
 ```php
 <?php
@@ -3702,6 +3822,8 @@ Name | Type | Description  | Notes
 
 Fetch callback URL settings
 
+
+
 ### Example
 ```php
 <?php
@@ -3752,6 +3874,8 @@ This endpoint does not need any parameter.
 
 Check pricing for a inbound/outbound call.
 
+
+
 ### Example
 ```php
 <?php
@@ -3801,6 +3925,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\Chat getChat($id)
 
 Get a single chat.
+
+
 
 ### Example
 ```php
@@ -3855,6 +3981,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\Chat getChatByPhone($phone, $upsert, $reopen)
 
 Find chats by phone.
+
+
 
 ### Example
 ```php
@@ -3913,6 +4041,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetChatMessagesPaginatedResponse getChatMessages($id, $page, $limit, $query, $start, $end, $direction, $voice)
 
 Fetch messages from chat with specified chat id.
+
+
 
 ### Example
 ```php
@@ -3982,6 +4112,8 @@ Name | Type | Description  | Notes
 
 Get a single contact.
 
+
+
 ### Example
 ```php
 <?php
@@ -4035,6 +4167,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\Contact getContactByPhone($phone)
 
 Get a single contact by phone number.
+
+
 
 ### Example
 ```php
@@ -4090,6 +4224,8 @@ Name | Type | Description  | Notes
 
 Check is that phone number blocked
 
+
+
 ### Example
 ```php
 <?php
@@ -4143,6 +4279,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetContactImportSessionProgressResponse getContactImportSessionProgress($id)
 
 Get contact import session progress.
+
+
 
 ### Example
 ```php
@@ -4198,6 +4336,8 @@ Name | Type | Description  | Notes
 
 Get a single contact note.
 
+
+
 ### Example
 ```php
 <?php
@@ -4251,6 +4391,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetContactNotesPaginatedResponse getContactNotes($id, $page, $limit)
 
 Fetch notes assigned to the given contact.
+
+
 
 ### Example
 ```php
@@ -4309,6 +4451,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetContactsPaginatedResponse getContacts($page, $limit, $shared, $orderBy, $direction)
 
 Get all user contacts.
+
+
 
 ### Example
 ```php
@@ -4372,6 +4516,8 @@ Name | Type | Description  | Notes
 
 Get contacts autocomplete suggestions by given search term.
 
+
+
 ### Example
 ```php
 <?php
@@ -4430,7 +4576,7 @@ Name | Type | Description  | Notes
 
 Fetch user contacts by given group id.
 
-A useful synonym for \"contacts/search\" command with provided \"listId\" parameter.
+
 
 ### Example
 ```php
@@ -4494,6 +4640,8 @@ Name | Type | Description  | Notes
 
 Return list of countries.
 
+
+
 ### Example
 ```php
 <?php
@@ -4544,6 +4692,8 @@ This endpoint does not need any parameter.
 
 Get current user info.
 
+
+
 ### Example
 ```php
 <?php
@@ -4593,6 +4743,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\UserCustomField getCustomField($id)
 
 Get a single custom field.
+
+
 
 ### Example
 ```php
@@ -4647,6 +4799,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetCustomFieldsPaginatedResponse getCustomFields($page, $limit)
 
 Get all contact custom fields.
+
+
 
 ### Example
 ```php
@@ -4704,6 +4858,8 @@ Name | Type | Description  | Notes
 
 Get a single dedicated number.
 
+
+
 ### Example
 ```php
 <?php
@@ -4758,6 +4914,8 @@ Name | Type | Description  | Notes
 
 Get an array of all rules that are disallowed to the current account.
 
+
+
 ### Example
 ```php
 <?php
@@ -4807,6 +4965,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\GetFavouritesPaginatedResponse getFavourites($page, $limit, $query)
 
 Get favorite contacts and lists.
+
+
 
 ### Example
 ```php
@@ -4866,6 +5026,8 @@ Name | Type | Description  | Notes
 
 Get all forwarded calls.
 
+
+
 ### Example
 ```php
 <?php
@@ -4922,6 +5084,8 @@ Name | Type | Description  | Notes
 
 Get a single inbox message.
 
+
+
 ### Example
 ```php
 <?php
@@ -4976,6 +5140,8 @@ Name | Type | Description  | Notes
 
 Get inbound messages notification settings
 
+
+
 ### Example
 ```php
 <?php
@@ -5025,6 +5191,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\GetInvoicesPaginatedResponse getInvoices($page, $limit)
 
 Return account invoices.
+
+
 
 ### Example
 ```php
@@ -5082,6 +5250,8 @@ Name | Type | Description  | Notes
 
 Get a single list.
 
+
+
 ### Example
 ```php
 <?php
@@ -5136,6 +5306,8 @@ Name | Type | Description  | Notes
 
 Fetch all contacts IDs belonging to the list with ID.
 
+
+
 ### Example
 ```php
 <?php
@@ -5189,6 +5361,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetListsOfContactPaginatedResponse getListsOfContact($id, $page, $limit)
 
 Return lists which contact belongs to.
+
+
 
 ### Example
 ```php
@@ -5248,7 +5422,7 @@ Name | Type | Description  | Notes
 
 Preview message
 
-Get messages preview (with tags merged) up to 100 messages per session.
+
 
 ### Example
 ```php
@@ -5336,7 +5510,7 @@ Name | Type | Description  | Notes
 
 Check price
 
-Check pricing for a new outbound message.
+
 
 ### Example
 ```php
@@ -5426,7 +5600,7 @@ Name | Type | Description  | Notes
 
 Get pricing
 
-Get message prices for all countries.
+
 
 ### Example
 ```php
@@ -5477,6 +5651,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\MessageSession getMessageSession($id)
 
 Get a message session.
+
+
 
 ### Example
 ```php
@@ -5531,6 +5707,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetMessageSessionStatResponse getMessageSessionStat($id, $includeDeleted)
 
 Get sending session statistics.
+
+
 
 ### Example
 ```php
@@ -5588,7 +5766,7 @@ Name | Type | Description  | Notes
 
 Fetch messages by given session id.
 
-A useful synonym for \"messages/search\" command with provided \"sessionId\" parameter.
+
 
 ### Example
 ```php
@@ -5652,6 +5830,8 @@ Name | Type | Description  | Notes
 
 Return counters for messaging data views.
 
+
+
 ### Example
 ```php
 <?php
@@ -5701,6 +5881,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\GetMessagingStatResponse getMessagingStat($by, $start, $end)
 
 Return messaging statistics.
+
+
 
 ### Example
 ```php
@@ -5760,7 +5942,7 @@ Name | Type | Description  | Notes
 
 Get a single message
 
-Get a single outgoing message.
+
 
 ### Example
 ```php
@@ -5816,7 +5998,7 @@ Name | Type | Description  | Notes
 
 Get history
 
-Get outbound messages history.
+
 
 ### Example
 ```php
@@ -5880,6 +6062,8 @@ Name | Type | Description  | Notes
 
 Get all device tokens assigned to the current account
 
+
+
 ### Example
 ```php
 <?php
@@ -5929,6 +6113,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\MessagesIcs getScheduledMessage($id)
 
 Get message schedule.
+
+
 
 ### Example
 ```php
@@ -5984,6 +6170,8 @@ Name | Type | Description  | Notes
 
 Get a single Sender ID.
 
+
+
 ### Example
 ```php
 <?php
@@ -6037,6 +6225,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetSenderIdsPaginatedResponse getSenderIds($page, $limit)
 
 Get all sender IDs of current user.
+
+
 
 ### Example
 ```php
@@ -6094,6 +6284,8 @@ Name | Type | Description  | Notes
 
 Get current user sender settings.
 
+
+
 ### Example
 ```php
 <?php
@@ -6147,6 +6339,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetSpendingStatPaginatedResponse getSpendingStat($page, $limit, $start, $end)
 
 Return account spending statistics.
+
+
 
 ### Example
 ```php
@@ -6208,6 +6402,8 @@ Name | Type | Description  | Notes
 
 Get current entities state
 
+
+
 ### Example
 ```php
 <?php
@@ -6257,6 +6453,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\User getSubaccount($id)
 
 Get a single subaccount.
+
+
 
 ### Example
 ```php
@@ -6311,6 +6509,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\User getSubaccounts($page, $limit)
 
 Get all subaccounts of current user.
+
+
 
 ### Example
 ```php
@@ -6368,7 +6568,7 @@ Name | Type | Description  | Notes
 
 Get all subaccounts with their REST API tokens associated with specified app name.
 
-When more than one token related to app name, last key will be returned.
+
 
 ### Example
 ```php
@@ -6428,6 +6628,8 @@ Name | Type | Description  | Notes
 
 Get a survey by id.
 
+
+
 ### Example
 ```php
 <?php
@@ -6481,6 +6683,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\SurveyNode getSurveyNode($id)
 
 Get a node by id.
+
+
 
 ### Example
 ```php
@@ -6536,6 +6740,8 @@ Name | Type | Description  | Notes
 
 Fetch nodes by given survey id.
 
+
+
 ### Example
 ```php
 <?php
@@ -6589,6 +6795,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetSurveysPaginatedResponse getSurveys($page, $limit)
 
 Get all user surveys.
+
+
 
 ### Example
 ```php
@@ -6646,6 +6854,8 @@ Name | Type | Description  | Notes
 
 Get a single template.
 
+
+
 ### Example
 ```php
 <?php
@@ -6699,6 +6909,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetTimezonesResponse getTimezones($full)
 
 Return all available timezone IDs.
+
+
 
 ### Example
 ```php
@@ -6754,6 +6966,8 @@ Name | Type | Description  | Notes
 
 Get total amount of unread messages in the current user chats.
 
+
+
 ### Example
 ```php
 <?php
@@ -6803,6 +7017,8 @@ This endpoint does not need any parameter.
 > \TextMagic\Models\UnsubscribedContact getUnsubscribedContact($id)
 
 Get a single unsubscribed contact.
+
+
 
 ### Example
 ```php
@@ -6857,6 +7073,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetUnsubscribersPaginatedResponse getUnsubscribers($page, $limit)
 
 Get all contact have unsubscribed from your communication.
+
+
 
 ### Example
 ```php
@@ -6913,6 +7131,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse getUserDedicatedNumbers($page, $limit, $surveyId)
 
 Get user's dedicated numbers.
+
+
 
 ### Example
 ```php
@@ -6971,6 +7191,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\GetUserListsPaginatedResponse getUserLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
 
 Get all user lists.
+
+
 
 ### Example
 ```php
@@ -7036,6 +7258,8 @@ Name | Type | Description  | Notes
 
 Get minimal valid apps versions
 
+
+
 ### Example
 ```php
 <?php
@@ -7085,6 +7309,8 @@ This endpoint does not need any parameter.
 > inviteSubaccount($inviteSubaccountInputObject)
 
 Invite new subaccount.
+
+
 
 ### Example
 ```php
@@ -7139,6 +7365,8 @@ void (empty response body)
 
 Mark several chats as read by chat ids or mark all chats as read
 
+
+
 ### Example
 ```php
 <?php
@@ -7191,6 +7419,8 @@ void (empty response body)
 > markChatsUnreadBulk($markChatsUnreadBulkInputObject)
 
 Mark several chats as UNread by chat ids or mark all chats as UNread
+
+
 
 ### Example
 ```php
@@ -7245,6 +7475,8 @@ void (empty response body)
 
 Merge two question nodes.
 
+
+
 ### Example
 ```php
 <?php
@@ -7297,6 +7529,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse muteChat($muteChatInputObject)
 
 Set mute mode.
+
+
 
 ### Example
 ```php
@@ -7352,6 +7586,8 @@ Name | Type | Description  | Notes
 
 Mute several chats by chat ids or mute all chats
 
+
+
 ### Example
 ```php
 <?php
@@ -7405,6 +7641,8 @@ void (empty response body)
 
 Just does a pong.
 
+
+
 ### Example
 ```php
 <?php
@@ -7454,6 +7692,8 @@ This endpoint does not need any parameter.
 > reopenChatsBulk($reopenChatsBulkInputObject)
 
 Reopen chats by chat ids or reopen all chats
+
+
 
 ### Example
 ```php
@@ -7508,7 +7748,7 @@ void (empty response body)
 
 Request a new REST API token for subaccount.
 
-Returning user object, key and app name.
+
 
 ### Example
 ```php
@@ -7564,6 +7804,8 @@ Name | Type | Description  | Notes
 
 Request for a new Sender ID.
 
+
+
 ### Example
 ```php
 <?php
@@ -7618,6 +7860,8 @@ Name | Type | Description  | Notes
 
 Reset a survey flow.
 
+
+
 ### Example
 ```php
 <?php
@@ -7671,6 +7915,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\SearchChatsPaginatedResponse searchChats($page, $limit, $query)
 
 Find chats by inbound or outbound messages text.
+
+
 
 ### Example
 ```php
@@ -7730,6 +7976,8 @@ Name | Type | Description  | Notes
 
 Find chats by IDs.
 
+
+
 ### Example
 ```php
 <?php
@@ -7787,6 +8035,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\SearchChatsByReceipentPaginatedResponse searchChatsByReceipent($page, $limit, $query, $orderBy)
 
 Find chats by recipient (contact, list name or phone number).
+
+
 
 ### Example
 ```php
@@ -7847,6 +8097,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\SearchContactsPaginatedResponse searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
 
 Find user contacts by given parameters.
+
+
 
 ### Example
 ```php
@@ -7922,6 +8174,8 @@ Name | Type | Description  | Notes
 
 Find inbound messages by given parameters.
 
+
+
 ### Example
 ```php
 <?php
@@ -7987,6 +8241,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\SearchListsPaginatedResponse searchLists($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction)
 
 Find contact lists by given parameters.
+
+
 
 ### Example
 ```php
@@ -8056,7 +8312,7 @@ Name | Type | Description  | Notes
 
 Find messages
 
-Find outbound messages by given parameters.
+
 
 ### Example
 ```php
@@ -8126,6 +8382,8 @@ Name | Type | Description  | Notes
 
 Find scheduled messages by given parameters.
 
+
+
 ### Example
 ```php
 <?php
@@ -8192,6 +8450,8 @@ Name | Type | Description  | Notes
 
 Find user templates by given parameters.
 
+
+
 ### Example
 ```php
 <?php
@@ -8254,6 +8514,8 @@ Name | Type | Description  | Notes
 
 Send user email verification
 
+
+
 ### Example
 ```php
 <?php
@@ -8303,7 +8565,7 @@ void (empty response body)
 
 Send message
 
-The main entrypoint to send messages. See examples above for the reference.
+
 
 ### Example
 ```php
@@ -8359,6 +8621,8 @@ Name | Type | Description  | Notes
 
 Send user phone verification
 
+
+
 ### Example
 ```php
 <?php
@@ -8407,6 +8671,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse setChatStatus($setChatStatusInputObject)
 
 Set status of the chat given by ID.
+
+
 
 ### Example
 ```php
@@ -8462,6 +8728,8 @@ Name | Type | Description  | Notes
 
 Start a survey.
 
+
+
 ### Example
 ```php
 <?php
@@ -8516,6 +8784,8 @@ Name | Type | Description  | Notes
 
 Unblock contact by phone number.
 
+
+
 ### Example
 ```php
 <?php
@@ -8568,6 +8838,8 @@ void (empty response body)
 > unblockContactsBulk($unblockContactsBulkInputObject)
 
 Unblock several contacts by blocked contact ids or unblock all contacts
+
+
 
 ### Example
 ```php
@@ -8622,6 +8894,8 @@ void (empty response body)
 
 Unmute several chats by chat ids or unmute all chats
 
+
+
 ### Example
 ```php
 <?php
@@ -8674,6 +8948,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse unsubscribeContact($unsubscribeContactInputObject)
 
 Unsubscribe contact from your communication by phone number.
+
+
 
 ### Example
 ```php
@@ -8729,6 +9005,8 @@ Name | Type | Description  | Notes
 
 Update balance notification settings
 
+
+
 ### Example
 ```php
 <?php
@@ -8781,6 +9059,8 @@ void (empty response body)
 > updateCallbackSettings($updateCallbackSettingsInputObject)
 
 Update callback URL settings
+
+
 
 ### Example
 ```php
@@ -8835,6 +9115,8 @@ void (empty response body)
 
 Update chat desktop notification settings
 
+
+
 ### Example
 ```php
 <?php
@@ -8887,6 +9169,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse updateContact($updateContactInputObject, $id)
 
 Update existing contact.
+
+
 
 ### Example
 ```php
@@ -8944,6 +9228,8 @@ Name | Type | Description  | Notes
 
 Update existing contact note.
 
+
+
 ### Example
 ```php
 <?php
@@ -9000,6 +9286,8 @@ Name | Type | Description  | Notes
 
 Update current user info.
 
+
+
 ### Example
 ```php
 <?php
@@ -9053,6 +9341,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\ResourceLinkResponse updateCustomField($updateCustomFieldInputObject, $id)
 
 Update existing custom field.
+
+
 
 ### Example
 ```php
@@ -9110,6 +9400,8 @@ Name | Type | Description  | Notes
 
 Update contact's custom field value.
 
+
+
 ### Example
 ```php
 <?php
@@ -9166,6 +9458,8 @@ Name | Type | Description  | Notes
 
 Update inbound messages notification settings
 
+
+
 ### Example
 ```php
 <?php
@@ -9218,6 +9512,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse updateList($id, $updateListObject)
 
 Update existing list.
+
+
 
 ### Example
 ```php
@@ -9275,6 +9571,8 @@ Name | Type | Description  | Notes
 
 Change user password.
 
+
+
 ### Example
 ```php
 <?php
@@ -9328,6 +9626,8 @@ void (empty response body)
 
 Change sender settings for specified country.
 
+
+
 ### Example
 ```php
 <?php
@@ -9380,6 +9680,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse updateSurvey($updateSurveyInputObject, $id)
 
 Update existing survey.
+
+
 
 ### Example
 ```php
@@ -9437,6 +9739,8 @@ Name | Type | Description  | Notes
 
 Update existing node.
 
+
+
 ### Example
 ```php
 <?php
@@ -9492,6 +9796,8 @@ Name | Type | Description  | Notes
 > \TextMagic\Models\ResourceLinkResponse updateTemplate($updateTemplateInputObject, $id)
 
 Update existing template.
+
+
 
 ### Example
 ```php
@@ -9549,6 +9855,8 @@ Name | Type | Description  | Notes
 
 Add an avatar for the current user.
 
+
+
 ### Example
 ```php
 <?php
@@ -9601,6 +9909,8 @@ void (empty response body)
 > \TextMagic\Models\ResourceLinkResponse uploadContactAvatar($image, $id)
 
 Add an avatar for the contact.
+
+
 
 ### Example
 ```php
@@ -9658,6 +9968,8 @@ Name | Type | Description  | Notes
 
 Add an avatar for the list.
 
+
+
 ### Example
 ```php
 <?php
@@ -9714,7 +10026,7 @@ Name | Type | Description  | Notes
 
 Upload message attachment
 
-Upload a new file to insert it as a link.
+
 
 ### Example
 ```php
