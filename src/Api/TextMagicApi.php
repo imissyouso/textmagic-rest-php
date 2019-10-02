@@ -679,7 +679,7 @@ class TextMagicApi
     /**
      * Operation buyDedicatedNumber
      *
-     * Buy a dedicated number and assign it to the specified account.
+     * Buy a dedicated number
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject buyDedicatedNumberInputObject (required)
      *
@@ -695,7 +695,7 @@ class TextMagicApi
     /**
      * Operation buyDedicatedNumberWithHttpInfo
      *
-     * Buy a dedicated number and assign it to the specified account.
+     * Buy a dedicated number
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
      *
@@ -772,7 +772,7 @@ class TextMagicApi
     /**
      * Operation buyDedicatedNumberAsync
      *
-     * Buy a dedicated number and assign it to the specified account.
+     * Buy a dedicated number
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
      *
@@ -792,7 +792,7 @@ class TextMagicApi
     /**
      * Operation buyDedicatedNumberAsyncWithHttpInfo
      *
-     * Buy a dedicated number and assign it to the specified account.
+     * Buy a dedicated number
      *
      * @param  \TextMagic\Models\BuyDedicatedNumberInputObject $buyDedicatedNumberInputObject (required)
      *
@@ -8057,7 +8057,7 @@ class TextMagicApi
     /**
      * Operation deleteDedicatedNumber
      *
-     * Cancel dedicated number subscription.
+     * Cancel dedicated number subscription
      *
      * @param  int $id id (required)
      *
@@ -8073,7 +8073,7 @@ class TextMagicApi
     /**
      * Operation deleteDedicatedNumberWithHttpInfo
      *
-     * Cancel dedicated number subscription.
+     * Cancel dedicated number subscription
      *
      * @param  int $id (required)
      *
@@ -8142,7 +8142,7 @@ class TextMagicApi
     /**
      * Operation deleteDedicatedNumberAsync
      *
-     * Cancel dedicated number subscription.
+     * Cancel dedicated number subscription
      *
      * @param  int $id (required)
      *
@@ -8162,7 +8162,7 @@ class TextMagicApi
     /**
      * Operation deleteDedicatedNumberAsyncWithHttpInfo
      *
-     * Cancel dedicated number subscription.
+     * Cancel dedicated number subscription
      *
      * @param  int $id (required)
      *
@@ -11511,7 +11511,7 @@ class TextMagicApi
     /**
      * Operation deleteSenderId
      *
-     * Delete a Sender ID.
+     * Delete a Sender ID
      *
      * @param  int $id id (required)
      *
@@ -11527,7 +11527,7 @@ class TextMagicApi
     /**
      * Operation deleteSenderIdWithHttpInfo
      *
-     * Delete a Sender ID.
+     * Delete a Sender ID
      *
      * @param  int $id (required)
      *
@@ -11596,7 +11596,7 @@ class TextMagicApi
     /**
      * Operation deleteSenderIdAsync
      *
-     * Delete a Sender ID.
+     * Delete a Sender ID
      *
      * @param  int $id (required)
      *
@@ -11616,7 +11616,7 @@ class TextMagicApi
     /**
      * Operation deleteSenderIdAsyncWithHttpInfo
      *
-     * Delete a Sender ID.
+     * Delete a Sender ID
      *
      * @param  int $id (required)
      *
@@ -15860,11 +15860,11 @@ class TextMagicApi
     /**
      * Operation getAvailableDedicatedNumbers
      *
-     * Find available dedicated numbers to buy.
+     * Find dedicated numbers available for purchase
      *
-     * @param  string $country Dedicated number country. Two letters in upper case (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree &#x3D; 1 parameter and there are available tollfree numbers, this parameter will be ignore. (optional, default to 1)
-     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). Default is false. (optional, default to 0)
+     * @param  string $country Two-letter dedicated number country ISO code. (required)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15879,11 +15879,11 @@ class TextMagicApi
     /**
      * Operation getAvailableDedicatedNumbersWithHttpInfo
      *
-     * Find available dedicated numbers to buy.
+     * Find dedicated numbers available for purchase
      *
-     * @param  string $country Dedicated number country. Two letters in upper case (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree &#x3D; 1 parameter and there are available tollfree numbers, this parameter will be ignore. (optional, default to 1)
-     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). Default is false. (optional, default to 0)
+     * @param  string $country Two-letter dedicated number country ISO code. (required)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15980,11 +15980,11 @@ class TextMagicApi
     /**
      * Operation getAvailableDedicatedNumbersAsync
      *
-     * Find available dedicated numbers to buy.
+     * Find dedicated numbers available for purchase
      *
-     * @param  string $country Dedicated number country. Two letters in upper case (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree &#x3D; 1 parameter and there are available tollfree numbers, this parameter will be ignore. (optional, default to 1)
-     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). Default is false. (optional, default to 0)
+     * @param  string $country Two-letter dedicated number country ISO code. (required)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16002,11 +16002,11 @@ class TextMagicApi
     /**
      * Operation getAvailableDedicatedNumbersAsyncWithHttpInfo
      *
-     * Find available dedicated numbers to buy.
+     * Find dedicated numbers available for purchase
      *
-     * @param  string $country Dedicated number country. Two letters in upper case (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree &#x3D; 1 parameter and there are available tollfree numbers, this parameter will be ignore. (optional, default to 1)
-     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). Default is false. (optional, default to 0)
+     * @param  string $country Two-letter dedicated number country ISO code. (required)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16056,9 +16056,9 @@ class TextMagicApi
     /**
      * Create request for operation 'getAvailableDedicatedNumbers'
      *
-     * @param  string $country Dedicated number country. Two letters in upper case (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree &#x3D; 1 parameter and there are available tollfree numbers, this parameter will be ignore. (optional, default to 1)
-     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). Default is false. (optional, default to 0)
+     * @param  string $country Two-letter dedicated number country ISO code. (required)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -16164,9 +16164,9 @@ class TextMagicApi
     /**
      * Operation getAvailableSenderSettingOptions
      *
-     * Get all available sender setting options which could be used in \"from\" parameter of POST messages method.
+     * Get available sender settings
      *
-     * @param  string $country Return sender setting options available in specific country only. Two upper case characters (optional)
+     * @param  string $country Two-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16181,9 +16181,9 @@ class TextMagicApi
     /**
      * Operation getAvailableSenderSettingOptionsWithHttpInfo
      *
-     * Get all available sender setting options which could be used in \"from\" parameter of POST messages method.
+     * Get available sender settings
      *
-     * @param  string $country Return sender setting options available in specific country only. Two upper case characters (optional)
+     * @param  string $country Two-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16264,9 +16264,9 @@ class TextMagicApi
     /**
      * Operation getAvailableSenderSettingOptionsAsync
      *
-     * Get all available sender setting options which could be used in \"from\" parameter of POST messages method.
+     * Get available sender settings
      *
-     * @param  string $country Return sender setting options available in specific country only. Two upper case characters (optional)
+     * @param  string $country Two-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16284,9 +16284,9 @@ class TextMagicApi
     /**
      * Operation getAvailableSenderSettingOptionsAsyncWithHttpInfo
      *
-     * Get all available sender setting options which could be used in \"from\" parameter of POST messages method.
+     * Get available sender settings
      *
-     * @param  string $country Return sender setting options available in specific country only. Two upper case characters (optional)
+     * @param  string $country Two-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16336,7 +16336,7 @@ class TextMagicApi
     /**
      * Create request for operation 'getAvailableSenderSettingOptions'
      *
-     * @param  string $country Return sender setting options available in specific country only. Two upper case characters (optional)
+     * @param  string $country Two-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -22626,7 +22626,7 @@ class TextMagicApi
     /**
      * Operation getDedicatedNumber
      *
-     * Get a single dedicated number.
+     * Get the details of a specific dedicated number
      *
      * @param  int $id id (required)
      *
@@ -22643,7 +22643,7 @@ class TextMagicApi
     /**
      * Operation getDedicatedNumberWithHttpInfo
      *
-     * Get a single dedicated number.
+     * Get the details of a specific dedicated number
      *
      * @param  int $id (required)
      *
@@ -22734,7 +22734,7 @@ class TextMagicApi
     /**
      * Operation getDedicatedNumberAsync
      *
-     * Get a single dedicated number.
+     * Get the details of a specific dedicated number
      *
      * @param  int $id (required)
      *
@@ -22754,7 +22754,7 @@ class TextMagicApi
     /**
      * Operation getDedicatedNumberAsyncWithHttpInfo
      *
-     * Get a single dedicated number.
+     * Get the details of a specific dedicated number
      *
      * @param  int $id (required)
      *
@@ -28778,7 +28778,7 @@ class TextMagicApi
     /**
      * Operation getSenderId
      *
-     * Get a single Sender ID.
+     * Get the details of a specific Sender ID
      *
      * @param  int $id id (required)
      *
@@ -28795,7 +28795,7 @@ class TextMagicApi
     /**
      * Operation getSenderIdWithHttpInfo
      *
-     * Get a single Sender ID.
+     * Get the details of a specific Sender ID
      *
      * @param  int $id (required)
      *
@@ -28886,7 +28886,7 @@ class TextMagicApi
     /**
      * Operation getSenderIdAsync
      *
-     * Get a single Sender ID.
+     * Get the details of a specific Sender ID
      *
      * @param  int $id (required)
      *
@@ -28906,7 +28906,7 @@ class TextMagicApi
     /**
      * Operation getSenderIdAsyncWithHttpInfo
      *
-     * Get a single Sender ID.
+     * Get the details of a specific Sender ID
      *
      * @param  int $id (required)
      *
@@ -29060,7 +29060,7 @@ class TextMagicApi
     /**
      * Operation getSenderIds
      *
-     * Get all sender IDs of current user.
+     * Get all your approved Sender IDs
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -29078,7 +29078,7 @@ class TextMagicApi
     /**
      * Operation getSenderIdsWithHttpInfo
      *
-     * Get all sender IDs of current user.
+     * Get all your approved Sender IDs
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -29162,7 +29162,7 @@ class TextMagicApi
     /**
      * Operation getSenderIdsAsync
      *
-     * Get all sender IDs of current user.
+     * Get all your approved Sender IDs
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -29183,7 +29183,7 @@ class TextMagicApi
     /**
      * Operation getSenderIdsAsyncWithHttpInfo
      *
-     * Get all sender IDs of current user.
+     * Get all your approved Sender IDs
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -29333,7 +29333,7 @@ class TextMagicApi
     /**
      * Operation getSenderSettings
      *
-     * Get current user sender settings.
+     * Get current sender settings
      *
      * @param  string $country Return sender settings enabled for sending to specified country. Two upper case characters (optional)
      *
@@ -29350,7 +29350,7 @@ class TextMagicApi
     /**
      * Operation getSenderSettingsWithHttpInfo
      *
-     * Get current user sender settings.
+     * Get current sender settings
      *
      * @param  string $country Return sender settings enabled for sending to specified country. Two upper case characters (optional)
      *
@@ -29433,7 +29433,7 @@ class TextMagicApi
     /**
      * Operation getSenderSettingsAsync
      *
-     * Get current user sender settings.
+     * Get current sender settings
      *
      * @param  string $country Return sender settings enabled for sending to specified country. Two upper case characters (optional)
      *
@@ -29453,7 +29453,7 @@ class TextMagicApi
     /**
      * Operation getSenderSettingsAsyncWithHttpInfo
      *
-     * Get current user sender settings.
+     * Get current sender settings
      *
      * @param  string $country Return sender settings enabled for sending to specified country. Two upper case characters (optional)
      *
@@ -33484,7 +33484,7 @@ class TextMagicApi
     /**
      * Operation getUserDedicatedNumbers
      *
-     * Get user's dedicated numbers.
+     * Get all your dedicated numbers
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -33503,7 +33503,7 @@ class TextMagicApi
     /**
      * Operation getUserDedicatedNumbersWithHttpInfo
      *
-     * Get user's dedicated numbers.
+     * Get all your dedicated numbers
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -33596,7 +33596,7 @@ class TextMagicApi
     /**
      * Operation getUserDedicatedNumbersAsync
      *
-     * Get user's dedicated numbers.
+     * Get all your dedicated numbers
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -33618,7 +33618,7 @@ class TextMagicApi
     /**
      * Operation getUserDedicatedNumbersAsyncWithHttpInfo
      *
-     * Get user's dedicated numbers.
+     * Get all your dedicated numbers
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -36619,7 +36619,7 @@ class TextMagicApi
     /**
      * Operation requestSenderId
      *
-     * Request for a new Sender ID.
+     * Apply for a new Sender ID
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject requestSenderIdInputObject (required)
      *
@@ -36636,7 +36636,7 @@ class TextMagicApi
     /**
      * Operation requestSenderIdWithHttpInfo
      *
-     * Request for a new Sender ID.
+     * Apply for a new Sender ID
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
      *
@@ -36727,7 +36727,7 @@ class TextMagicApi
     /**
      * Operation requestSenderIdAsync
      *
-     * Request for a new Sender ID.
+     * Apply for a new Sender ID
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
      *
@@ -36747,7 +36747,7 @@ class TextMagicApi
     /**
      * Operation requestSenderIdAsyncWithHttpInfo
      *
-     * Request for a new Sender ID.
+     * Apply for a new Sender ID
      *
      * @param  \TextMagic\Models\RequestSenderIdInputObject $requestSenderIdInputObject (required)
      *
@@ -45590,7 +45590,7 @@ class TextMagicApi
     /**
      * Operation updateSenderSetting
      *
-     * Change sender settings for specified country.
+     * Change sender settings
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject updateSenderSettingInputObject (required)
      *
@@ -45606,7 +45606,7 @@ class TextMagicApi
     /**
      * Operation updateSenderSettingWithHttpInfo
      *
-     * Change sender settings for specified country.
+     * Change sender settings
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
      *
@@ -45683,7 +45683,7 @@ class TextMagicApi
     /**
      * Operation updateSenderSettingAsync
      *
-     * Change sender settings for specified country.
+     * Change sender settings
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
      *
@@ -45703,7 +45703,7 @@ class TextMagicApi
     /**
      * Operation updateSenderSettingAsyncWithHttpInfo
      *
-     * Change sender settings for specified country.
+     * Change sender settings
      *
      * @param  \TextMagic\Models\UpdateSenderSettingInputObject $updateSenderSettingInputObject (required)
      *

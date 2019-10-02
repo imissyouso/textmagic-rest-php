@@ -58,12 +58,12 @@ class UsersInbound implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'phone' => 'string',
         'user' => '\TextMagic\Models\User',
         'purchasedAt' => '\DateTime',
         'expireAt' => '\DateTime',
         'status' => 'string',
-        'country' => '\TextMagic\Models\Country',
-        'phone' => 'string'
+        'country' => '\TextMagic\Models\Country'
     ];
 
     /**
@@ -73,12 +73,12 @@ class UsersInbound implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
+        'phone' => null,
         'user' => null,
         'purchasedAt' => 'date-time',
         'expireAt' => 'date-time',
         'status' => null,
-        'country' => null,
-        'phone' => null
+        'country' => null
     ];
 
     /**
@@ -109,12 +109,12 @@ class UsersInbound implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'phone' => 'phone',
         'user' => 'user',
         'purchasedAt' => 'purchasedAt',
         'expireAt' => 'expireAt',
         'status' => 'status',
-        'country' => 'country',
-        'phone' => 'phone'
+        'country' => 'country'
     ];
 
     /**
@@ -124,12 +124,12 @@ class UsersInbound implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'phone' => 'setPhone',
         'user' => 'setUser',
         'purchasedAt' => 'setPurchasedAt',
         'expireAt' => 'setExpireAt',
         'status' => 'setStatus',
-        'country' => 'setCountry',
-        'phone' => 'setPhone'
+        'country' => 'setCountry'
     ];
 
     /**
@@ -139,12 +139,12 @@ class UsersInbound implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'phone' => 'getPhone',
         'user' => 'getUser',
         'purchasedAt' => 'getPurchasedAt',
         'expireAt' => 'getExpireAt',
         'status' => 'getStatus',
-        'country' => 'getCountry',
-        'phone' => 'getPhone'
+        'country' => 'getCountry'
     ];
 
     /**
@@ -223,12 +223,12 @@ class UsersInbound implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['purchasedAt'] = isset($data['purchasedAt']) ? $data['purchasedAt'] : null;
         $this->container['expireAt'] = isset($data['expireAt']) ? $data['expireAt'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     }
 
     /**
@@ -294,13 +294,37 @@ class UsersInbound implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Dedicated number ID.
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string $phone Dedicated phone number.
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->container['phone'] = $phone;
 
         return $this;
     }
@@ -342,7 +366,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
     /**
      * Sets purchasedAt
      *
-     * @param \DateTime $purchasedAt purchasedAt
+     * @param \DateTime $purchasedAt Time when the dedicated number was purchased.
      *
      * @return $this
      */
@@ -366,7 +390,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
     /**
      * Sets expireAt
      *
-     * @param \DateTime $expireAt expireAt
+     * @param \DateTime $expireAt Dedicated number subscription expiration time.
      *
      * @return $this
      */
@@ -390,7 +414,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status A - active, in use (at least one message was sent/received from/to this number), U - never used before
+     * @param string $status Number status: *   **U** for Unused. No messages have been sent from (or received to) this number. *   **A** for Active.
      *
      * @return $this
      */
@@ -430,30 +454,6 @@ class UsersInbound implements ModelInterface, ArrayAccess
     public function setCountry($country)
     {
         $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->container['phone'];
-    }
-
-    /**
-     * Sets phone
-     *
-     * @param string $phone phone
-     *
-     * @return $this
-     */
-    public function setPhone($phone)
-    {
-        $this->container['phone'] = $phone;
 
         return $this;
     }

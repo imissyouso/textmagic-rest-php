@@ -247,7 +247,7 @@ class GetAvailableSenderSettingOptionsResponse implements ModelInterface, ArrayA
     /**
      * Sets dedicated
      *
-     * @param string[] $dedicated dedicated
+     * @param string[] $dedicated Array of dedicated numbers strings.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class GetAvailableSenderSettingOptionsResponse implements ModelInterface, ArrayA
     /**
      * Sets user
      *
-     * @param string[] $user user
+     * @param string[] $user Array of verified account phone numbers (currently only one).
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class GetAvailableSenderSettingOptionsResponse implements ModelInterface, ArrayA
     /**
      * Sets shared
      *
-     * @param string[] $shared shared
+     * @param string[] $shared Array of shared numbers strings.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class GetAvailableSenderSettingOptionsResponse implements ModelInterface, ArrayA
     /**
      * Sets senderIds
      *
-     * @param string[] $senderIds senderIds
+     * @param string[] $senderIds Array of alphanumeric sender IDs.
      *
      * @return $this
      */

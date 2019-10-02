@@ -229,7 +229,7 @@ class RequestSenderIdInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets senderId
      *
-     * @param string $senderId Alphanumeric Sender ID (maximum 11 characters)
+     * @param string $senderId Sender ID that you are applying for. *   11 characters maximum *   Only Latin based characters and digits are allowed *   Should contain at least one letter
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class RequestSenderIdInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets explanation
      *
-     * @param string $explanation Explain why do you need this Sender ID
+     * @param string $explanation Explanation why do you need this Sender ID.
      *
      * @return $this
      */

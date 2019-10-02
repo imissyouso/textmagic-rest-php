@@ -238,7 +238,7 @@ class BuyDedicatedNumberInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone Desired dedicated phone number in international E.164 format
+     * @param string $phone Dedicated phone number.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class BuyDedicatedNumberInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param string $country Dedicated number country. Two charactes in upper case.
+     * @param string $country Country code phone number.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class BuyDedicatedNumberInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets userId
      *
-     * @param int $userId User ID this number will be assigned to
+     * @param int $userId Assigned dedicated number. This number will be available for this account only. You cannot transfer numbers between sub-accounts.
      *
      * @return $this
      */

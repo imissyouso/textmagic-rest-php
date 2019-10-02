@@ -229,7 +229,7 @@ class GetAvailableDedicatedNumbersResponse implements ModelInterface, ArrayAcces
     /**
      * Sets numbers
      *
-     * @param string[] $numbers numbers
+     * @param string[] $numbers Array of phone number strings.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class GetAvailableDedicatedNumbersResponse implements ModelInterface, ArrayAcces
     /**
      * Sets price
      *
-     * @param float $price price
+     * @param float $price Dedicated number monthly fee for this country. Returned in current [account](/docs/api/account/) currency.@TODO
      *
      * @return $this
      */

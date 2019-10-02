@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**assignContactsToList**](TextMagicApi.md#assignContactsToList) | **PUT** /api/v2/lists/{id}/contacts | Assign contacts to the specified list.
 [**blockContact**](TextMagicApi.md#blockContact) | **POST** /api/v2/contacts/block | Block contact from inbound and outbound communication by phone number.
-[**buyDedicatedNumber**](TextMagicApi.md#buyDedicatedNumber) | **POST** /api/v2/numbers | Buy a dedicated number and assign it to the specified account.
+[**buyDedicatedNumber**](TextMagicApi.md#buyDedicatedNumber) | **POST** /api/v2/numbers | Buy a dedicated number
 [**cancelSurvey**](TextMagicApi.md#cancelSurvey) | **PUT** /api/v2/surveys/{id}/cancel | Cancel a survey.
 [**cancelVerification**](TextMagicApi.md#cancelVerification) | **DELETE** /api/v2/verify/{verifyId} | Cancel verification process
 [**checkPhoneVerificationCode**](TextMagicApi.md#checkPhoneVerificationCode) | **PUT** /api/v2/user/phone/verification | Check user phone verification code
@@ -35,7 +35,7 @@ Method | HTTP request | Description
 [**deleteContactsByIds**](TextMagicApi.md#deleteContactsByIds) | **POST** /api/v2/contacts/delete | Delete contact by given ID(s) or delete all contacts.
 [**deleteContactsFromList**](TextMagicApi.md#deleteContactsFromList) | **DELETE** /api/v2/lists/{id}/contacts | Unassign contacts from the specified list.
 [**deleteCustomField**](TextMagicApi.md#deleteCustomField) | **DELETE** /api/v2/customfields/{id} | Delete a single custom field.
-[**deleteDedicatedNumber**](TextMagicApi.md#deleteDedicatedNumber) | **DELETE** /api/v2/numbers/{id} | Cancel dedicated number subscription.
+[**deleteDedicatedNumber**](TextMagicApi.md#deleteDedicatedNumber) | **DELETE** /api/v2/numbers/{id} | Cancel dedicated number subscription
 [**deleteInboundMessage**](TextMagicApi.md#deleteInboundMessage) | **DELETE** /api/v2/replies/{id} | Delete a single inbound message
 [**deleteInboundMessagesBulk**](TextMagicApi.md#deleteInboundMessagesBulk) | **POST** /api/v2/replies/delete | Delete inbound messages (bulk)
 [**deleteList**](TextMagicApi.md#deleteList) | **DELETE** /api/v2/lists/{id} | Delete a single list.
@@ -49,7 +49,7 @@ Method | HTTP request | Description
 [**deletePushToken**](TextMagicApi.md#deletePushToken) | **DELETE** /api/v2/push/tokens/{type}/{deviceId} | Delete a push notification device token.
 [**deleteScheduledMessage**](TextMagicApi.md#deleteScheduledMessage) | **DELETE** /api/v2/schedules/{id} | Delete a single scheduled message
 [**deleteScheduledMessagesBulk**](TextMagicApi.md#deleteScheduledMessagesBulk) | **POST** /api/v2/schedules/delete | Delete scheduled messages (bulk)
-[**deleteSenderId**](TextMagicApi.md#deleteSenderId) | **DELETE** /api/v2/senderids/{id} | Delete a Sender ID.
+[**deleteSenderId**](TextMagicApi.md#deleteSenderId) | **DELETE** /api/v2/senderids/{id} | Delete a Sender ID
 [**deleteSurvey**](TextMagicApi.md#deleteSurvey) | **DELETE** /api/v2/surveys/{id} | Delete a survey.
 [**deleteSurveyNode**](TextMagicApi.md#deleteSurveyNode) | **DELETE** /api/v2/surveys/nodes/{id} | Delete a node.
 [**deleteTemplate**](TextMagicApi.md#deleteTemplate) | **DELETE** /api/v2/templates/{id} | Delete a template
@@ -65,8 +65,8 @@ Method | HTTP request | Description
 [**getAllOutboundMessages**](TextMagicApi.md#getAllOutboundMessages) | **GET** /api/v2/messages | Get all messages
 [**getAllScheduledMessages**](TextMagicApi.md#getAllScheduledMessages) | **GET** /api/v2/schedules | Get all scheduled messages
 [**getAllTemplates**](TextMagicApi.md#getAllTemplates) | **GET** /api/v2/templates | Get all templates
-[**getAvailableDedicatedNumbers**](TextMagicApi.md#getAvailableDedicatedNumbers) | **GET** /api/v2/numbers/available | Find available dedicated numbers to buy.
-[**getAvailableSenderSettingOptions**](TextMagicApi.md#getAvailableSenderSettingOptions) | **GET** /api/v2/sources | Get all available sender setting options which could be used in \&quot;from\&quot; parameter of POST messages method.
+[**getAvailableDedicatedNumbers**](TextMagicApi.md#getAvailableDedicatedNumbers) | **GET** /api/v2/numbers/available | Find dedicated numbers available for purchase
+[**getAvailableSenderSettingOptions**](TextMagicApi.md#getAvailableSenderSettingOptions) | **GET** /api/v2/sources | Get available sender settings
 [**getBalanceNotificationOptions**](TextMagicApi.md#getBalanceNotificationOptions) | **GET** /api/v2/user/notification/balance/bundles | Returns the list of available balance options which can be used as a bound to determine when to send email to user with low balance notification. See https://my.textmagic.com/online/account/notifications/balance
 [**getBalanceNotificationSettings**](TextMagicApi.md#getBalanceNotificationSettings) | **GET** /api/v2/user/notification/balance | Get balance notification settings
 [**getBlockedContacts**](TextMagicApi.md#getBlockedContacts) | **GET** /api/v2/contacts/block/list | Get blocked contacts.
@@ -89,7 +89,7 @@ Method | HTTP request | Description
 [**getCurrentUser**](TextMagicApi.md#getCurrentUser) | **GET** /api/v2/user | Get current user info.
 [**getCustomField**](TextMagicApi.md#getCustomField) | **GET** /api/v2/customfields/{id} | Get a single custom field.
 [**getCustomFields**](TextMagicApi.md#getCustomFields) | **GET** /api/v2/customfields | Get all contact custom fields.
-[**getDedicatedNumber**](TextMagicApi.md#getDedicatedNumber) | **GET** /api/v2/numbers/{id} | Get a single dedicated number.
+[**getDedicatedNumber**](TextMagicApi.md#getDedicatedNumber) | **GET** /api/v2/numbers/{id} | Get the details of a specific dedicated number
 [**getDisallowedRules**](TextMagicApi.md#getDisallowedRules) | **GET** /api/v2/user/disallowed-rules | Get an array of all rules that are disallowed to the current account.
 [**getFavourites**](TextMagicApi.md#getFavourites) | **GET** /api/v2/contacts/favorite | Get favorite contacts and lists.
 [**getInboundMessage**](TextMagicApi.md#getInboundMessage) | **GET** /api/v2/replies/{id} | Get a single inbound message
@@ -110,9 +110,9 @@ Method | HTTP request | Description
 [**getOutboundMessagesHistory**](TextMagicApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get history
 [**getPushTokens**](TextMagicApi.md#getPushTokens) | **GET** /api/v2/push/tokens | Get all device tokens assigned to the current account
 [**getScheduledMessage**](TextMagicApi.md#getScheduledMessage) | **GET** /api/v2/schedules/{id} | Get a single scheduled message
-[**getSenderId**](TextMagicApi.md#getSenderId) | **GET** /api/v2/senderids/{id} | Get a single Sender ID.
-[**getSenderIds**](TextMagicApi.md#getSenderIds) | **GET** /api/v2/senderids | Get all sender IDs of current user.
-[**getSenderSettings**](TextMagicApi.md#getSenderSettings) | **GET** /api/v2/sender/settings | Get current user sender settings.
+[**getSenderId**](TextMagicApi.md#getSenderId) | **GET** /api/v2/senderids/{id} | Get the details of a specific Sender ID
+[**getSenderIds**](TextMagicApi.md#getSenderIds) | **GET** /api/v2/senderids | Get all your approved Sender IDs
+[**getSenderSettings**](TextMagicApi.md#getSenderSettings) | **GET** /api/v2/sender/settings | Get current sender settings
 [**getSpendingStat**](TextMagicApi.md#getSpendingStat) | **GET** /api/v2/stats/spending | Return account spending statistics.
 [**getState**](TextMagicApi.md#getState) | **GET** /api/v2/state | Get current entities state
 [**getSubaccount**](TextMagicApi.md#getSubaccount) | **GET** /api/v2/subaccounts/{id} | Get a single subaccount.
@@ -127,7 +127,7 @@ Method | HTTP request | Description
 [**getUnreadMessagesTotal**](TextMagicApi.md#getUnreadMessagesTotal) | **GET** /api/v2/chats/unread/count | Get unread messages number
 [**getUnsubscribedContact**](TextMagicApi.md#getUnsubscribedContact) | **GET** /api/v2/unsubscribers/{id} | Get a single unsubscribed contact.
 [**getUnsubscribers**](TextMagicApi.md#getUnsubscribers) | **GET** /api/v2/unsubscribers | Get all contact have unsubscribed from your communication.
-[**getUserDedicatedNumbers**](TextMagicApi.md#getUserDedicatedNumbers) | **GET** /api/v2/numbers | Get user&#39;s dedicated numbers.
+[**getUserDedicatedNumbers**](TextMagicApi.md#getUserDedicatedNumbers) | **GET** /api/v2/numbers | Get all your dedicated numbers
 [**getUserLists**](TextMagicApi.md#getUserLists) | **GET** /api/v2/lists | Get all user lists.
 [**getVersions**](TextMagicApi.md#getVersions) | **GET** /api/v2/versions | Get minimal valid apps versions
 [**inviteSubaccount**](TextMagicApi.md#inviteSubaccount) | **POST** /api/v2/subaccounts | Invite new subaccount.
@@ -139,7 +139,7 @@ Method | HTTP request | Description
 [**ping**](TextMagicApi.md#ping) | **GET** /api/v2/ping | Just does a pong.
 [**reopenChatsBulk**](TextMagicApi.md#reopenChatsBulk) | **POST** /api/v2/chats/reopen/bulk | Reopen chats (bulk)
 [**requestNewSubaccountToken**](TextMagicApi.md#requestNewSubaccountToken) | **POST** /api/v2/subaccounts/tokens | Request a new REST API token for subaccount.
-[**requestSenderId**](TextMagicApi.md#requestSenderId) | **POST** /api/v2/senderids | Request for a new Sender ID.
+[**requestSenderId**](TextMagicApi.md#requestSenderId) | **POST** /api/v2/senderids | Apply for a new Sender ID
 [**resetSurvey**](TextMagicApi.md#resetSurvey) | **PUT** /api/v2/surveys/{id}/reset | Reset a survey flow.
 [**searchChats**](TextMagicApi.md#searchChats) | **GET** /api/v2/chats/search | Find chats by message text
 [**searchChatsByIds**](TextMagicApi.md#searchChatsByIds) | **GET** /api/v2/chats/search/ids | Find chats (bulk)
@@ -171,7 +171,7 @@ Method | HTTP request | Description
 [**updateInboundMessagesNotificationSettings**](TextMagicApi.md#updateInboundMessagesNotificationSettings) | **PUT** /api/v2/user/notification/inbound | Update inbound messages notification settings
 [**updateList**](TextMagicApi.md#updateList) | **PUT** /api/v2/lists/{id} | Update existing list.
 [**updatePassword**](TextMagicApi.md#updatePassword) | **PUT** /api/v2/user/password/change | Change user password.
-[**updateSenderSetting**](TextMagicApi.md#updateSenderSetting) | **PUT** /api/v2/sender/settings | Change sender settings for specified country.
+[**updateSenderSetting**](TextMagicApi.md#updateSenderSetting) | **PUT** /api/v2/sender/settings | Change sender settings
 [**updateSurvey**](TextMagicApi.md#updateSurvey) | **PUT** /api/v2/surveys/{id} | Update existing survey.
 [**updateSurveyNode**](TextMagicApi.md#updateSurveyNode) | **PUT** /api/v2/surveys/nodes/{id} | Update existing node.
 [**updateTemplate**](TextMagicApi.md#updateTemplate) | **PUT** /api/v2/templates/{id} | Update a template
@@ -298,9 +298,9 @@ Name | Type | Description  | Notes
 # **buyDedicatedNumber**
 > buyDedicatedNumber($buyDedicatedNumberInputObject)
 
-Buy a dedicated number and assign it to the specified account.
+Buy a dedicated number
 
-
+To buy a dedicated number, you first need to find an available number matching your criteria using the `/api/v2/numbers/available` command described above.
 
 ### Example
 ```php
@@ -1190,7 +1190,7 @@ Name | Type | Description  | Notes
 
 Create a template
 
-
+There are times when creating a new template makes sense (such as when targeting specific clients or improving your business strategies).  You can create new SMS templates for marketing purposes or SMS templates for business campaigns.
 
 ### Example
 ```php
@@ -1898,7 +1898,7 @@ void (empty response body)
 # **deleteDedicatedNumber**
 > deleteDedicatedNumber($id)
 
-Cancel dedicated number subscription.
+Cancel dedicated number subscription
 
 
 
@@ -2672,7 +2672,7 @@ void (empty response body)
 # **deleteSenderId**
 > deleteSenderId($id)
 
-Delete a Sender ID.
+Delete a Sender ID
 
 
 
@@ -3592,7 +3592,7 @@ Name | Type | Description  | Notes
 # **getAvailableDedicatedNumbers**
 > \TextMagic\Models\GetAvailableDedicatedNumbersResponse getAvailableDedicatedNumbers($country, $prefix, $tollfree)
 
-Find available dedicated numbers to buy.
+Find dedicated numbers available for purchase
 
 
 
@@ -3613,9 +3613,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$country = "\"GB\""; // string | Dedicated number country. Two letters in upper case
-$prefix = 1; // int | Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree = 1 parameter and there are available tollfree numbers, this parameter will be ignore.
-$tollfree = 0; // int | Should we show only tollfree numbers (tollfree available only for US). Default is false.
+$country = "\"GB\""; // string | Two-letter dedicated number country ISO code.
+$prefix = 1; // int | Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country.
+$tollfree = 0; // int | Should we show only tollfree numbers (tollfree available only for US).
 
 try {
     $result = $apiInstance->getAvailableDedicatedNumbers($country, $prefix, $tollfree);
@@ -3630,9 +3630,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **country** | **string**| Dedicated number country. Two letters in upper case |
- **prefix** | **int**| Desired number prefix. Should include country code (i.e. 447 for GB). In case provide tollfree &#x3D; 1 parameter and there are available tollfree numbers, this parameter will be ignore. | [optional] [default to 1]
- **tollfree** | **int**| Should we show only tollfree numbers (tollfree available only for US). Default is false. | [optional] [default to 0]
+ **country** | **string**| Two-letter dedicated number country ISO code. |
+ **prefix** | **int**| Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. | [optional] [default to 1]
+ **tollfree** | **int**| Should we show only tollfree numbers (tollfree available only for US). | [optional] [default to 0]
 
 ### Return type
 
@@ -3652,9 +3652,9 @@ Name | Type | Description  | Notes
 # **getAvailableSenderSettingOptions**
 > \TextMagic\Models\GetAvailableSenderSettingOptionsResponse getAvailableSenderSettingOptions($country)
 
+Get available sender settings
+
 Get all available sender setting options which could be used in \"from\" parameter of POST messages method.
-
-
 
 ### Example
 ```php
@@ -3673,7 +3673,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$country = "country_example"; // string | Return sender setting options available in specific country only. Two upper case characters
+$country = "\"US\""; // string | Two-letter ISO country ID. If not specified, it returns all the available sender settings.
 
 try {
     $result = $apiInstance->getAvailableSenderSettingOptions($country);
@@ -3688,7 +3688,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **country** | **string**| Return sender setting options available in specific country only. Two upper case characters | [optional]
+ **country** | **string**| Two-letter ISO country ID. If not specified, it returns all the available sender settings. | [optional]
 
 ### Return type
 
@@ -4968,7 +4968,7 @@ Name | Type | Description  | Notes
 # **getDedicatedNumber**
 > \TextMagic\Models\UsersInbound getDedicatedNumber($id)
 
-Get a single dedicated number.
+Get the details of a specific dedicated number
 
 
 
@@ -6222,7 +6222,7 @@ Name | Type | Description  | Notes
 # **getSenderId**
 > \TextMagic\Models\SenderId getSenderId($id)
 
-Get a single Sender ID.
+Get the details of a specific Sender ID
 
 
 
@@ -6278,7 +6278,7 @@ Name | Type | Description  | Notes
 # **getSenderIds**
 > \TextMagic\Models\GetSenderIdsPaginatedResponse getSenderIds($page, $limit)
 
-Get all sender IDs of current user.
+Get all your approved Sender IDs
 
 
 
@@ -6336,9 +6336,9 @@ Name | Type | Description  | Notes
 # **getSenderSettings**
 > \TextMagic\Models\GetSenderSettingsResponse getSenderSettings($country)
 
-Get current user sender settings.
+Get current sender settings
 
-
+@TODO
 
 ### Example
 ```php
@@ -6357,7 +6357,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$country = "country_example"; // string | Return sender settings enabled for sending to specified country. Two upper case characters
+$country = "\"US\""; // string | Return sender settings enabled for sending to specified country. Two upper case characters
 
 try {
     $result = $apiInstance->getSenderSettings($country);
@@ -7184,7 +7184,7 @@ Name | Type | Description  | Notes
 # **getUserDedicatedNumbers**
 > \TextMagic\Models\GetUserDedicatedNumbersPaginatedResponse getUserDedicatedNumbers($page, $limit, $surveyId)
 
-Get user's dedicated numbers.
+Get all your dedicated numbers
 
 
 
@@ -7856,9 +7856,9 @@ Name | Type | Description  | Notes
 # **requestSenderId**
 > \TextMagic\Models\ResourceLinkResponse requestSenderId($requestSenderIdInputObject)
 
-Request for a new Sender ID.
+Apply for a new Sender ID
 
-
+> Sender IDs are shared between all of your sub-accounts.
 
 ### Example
 ```php
@@ -9734,9 +9734,9 @@ void (empty response body)
 # **updateSenderSetting**
 > updateSenderSetting($updateSenderSettingInputObject)
 
-Change sender settings for specified country.
+Change sender settings
 
-
+@TODO
 
 ### Example
 ```php

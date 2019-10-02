@@ -247,7 +247,7 @@ class MessageTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Template ID.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class MessageTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Template name.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class MessageTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string $content content
+     * @param string $content Template text. May contain the tags listed below @TODO.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class MessageTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets lastModified
      *
-     * @param \DateTime $lastModified lastModified
+     * @param \DateTime $lastModified Time when template was last modified.
      *
      * @return $this
      */

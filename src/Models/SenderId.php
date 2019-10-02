@@ -272,7 +272,7 @@ class SenderId implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Numeric sender ID.
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class SenderId implements ModelInterface, ArrayAccess
     /**
      * Sets senderId
      *
-     * @param string $senderId senderId
+     * @param string $senderId Alphanumeric ID.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class SenderId implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status A - accepted, R - rejected, P - pending
+     * @param string $status *   **P** for Pending. This Sender ID is being reviewed by our support team. *   **R** for Rejected. Our support team rejected your application for this Sender ID. *   **A** for Active.
      *
      * @return $this
      */
