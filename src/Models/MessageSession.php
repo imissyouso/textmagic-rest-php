@@ -283,7 +283,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Session ID.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets startTime
      *
-     * @param string $startTime startTime
+     * @param string $startTime Session creation time.
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Session text. If a template was used for the session text (see [Messages: Send](#tag/Outbound-Messages) for details), it may contain template tags.
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param string $source source
+     * @param string $source *   **O** for TextMagic Online *   **A** for API *   **M** for TextMagic Messenger *   **E** for [Email to SMS](/docs/api/send-email-to-sms/) *   **X** for [Distribution lists](/docs/api/distribution-lists/)
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets referenceId
      *
-     * @param string $referenceId referenceId
+     * @param string $referenceId Custom reference ID (see [Messages: Send](/docs/api/send-sms/) for details).
      *
      * @return $this
      */
@@ -403,7 +403,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param float $price price
+     * @param float $price Session cost (in account currency).
      *
      * @return $this
      */
@@ -427,7 +427,7 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets numbersCount
      *
-     * @param int $numbersCount numbersCount
+     * @param int $numbersCount Session recipient count.
      *
      * @return $this
      */

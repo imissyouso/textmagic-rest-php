@@ -8,10 +8,12 @@ Method | HTTP request | Description
 [**blockContact**](TextMagicApi.md#blockContact) | **POST** /api/v2/contacts/block | Block contact from inbound and outbound communication by phone number.
 [**buyDedicatedNumber**](TextMagicApi.md#buyDedicatedNumber) | **POST** /api/v2/numbers | Buy a dedicated number and assign it to the specified account.
 [**cancelSurvey**](TextMagicApi.md#cancelSurvey) | **PUT** /api/v2/surveys/{id}/cancel | Cancel a survey.
+[**cancelVerification**](TextMagicApi.md#cancelVerification) | **DELETE** /api/v2/verify/{verifyId} | Cancel verification process
 [**checkPhoneVerificationCode**](TextMagicApi.md#checkPhoneVerificationCode) | **PUT** /api/v2/user/phone/verification | Check user phone verification code
+[**checkPhoneVerificationCode_0**](TextMagicApi.md#checkPhoneVerificationCode_0) | **PUT** /api/v2/verify | Step 2: Check the verification code
 [**clearAndAssignContactsToList**](TextMagicApi.md#clearAndAssignContactsToList) | **POST** /api/v2/lists/{id}/contacts | Reset list members to the specified contacts.
-[**closeChatsBulk**](TextMagicApi.md#closeChatsBulk) | **POST** /api/v2/chats/close/bulk | Close chats by chat ids or close all chats
-[**closeReadChats**](TextMagicApi.md#closeReadChats) | **POST** /api/v2/chats/close/read | Close all chats that have no unread messages.
+[**closeChatsBulk**](TextMagicApi.md#closeChatsBulk) | **POST** /api/v2/chats/close/bulk | Close chats (bulk)
+[**closeReadChats**](TextMagicApi.md#closeReadChats) | **POST** /api/v2/chats/close/read | Close read chats
 [**closeSubaccount**](TextMagicApi.md#closeSubaccount) | **DELETE** /api/v2/subaccounts/{id} | Close subaccount.
 [**createContact**](TextMagicApi.md#createContact) | **POST** /api/v2/contacts | Create a new contact from the submitted data.
 [**createContactNote**](TextMagicApi.md#createContactNote) | **POST** /api/v2/contacts/{id}/notes | Create a new contact note.
@@ -20,12 +22,12 @@ Method | HTTP request | Description
 [**createPushToken**](TextMagicApi.md#createPushToken) | **POST** /api/v2/push/tokens | Add or update a device token.
 [**createSurvey**](TextMagicApi.md#createSurvey) | **POST** /api/v2/surveys | Create a new survey from the submitted data.
 [**createSurveyNode**](TextMagicApi.md#createSurveyNode) | **POST** /api/v2/surveys/{id}/nodes | Create a new node from the submitted data.
-[**createTemplate**](TextMagicApi.md#createTemplate) | **POST** /api/v2/templates | Create a new template from the submitted data.
+[**createTemplate**](TextMagicApi.md#createTemplate) | **POST** /api/v2/templates | Create a template
 [**deleteAllContacts**](TextMagicApi.md#deleteAllContacts) | **DELETE** /api/v2/contact/all | Delete all contacts.
 [**deleteAllOutboundMessages**](TextMagicApi.md#deleteAllOutboundMessages) | **DELETE** /api/v2/message/all | Delete all messages
 [**deleteAvatar**](TextMagicApi.md#deleteAvatar) | **DELETE** /api/v2/user/avatar | Delete an avatar for the current user.\\
-[**deleteChatMessages**](TextMagicApi.md#deleteChatMessages) | **POST** /api/v2/chats/{id}/messages/delete | Delete messages from chat by given messages ID(s).
-[**deleteChatsBulk**](TextMagicApi.md#deleteChatsBulk) | **POST** /api/v2/chats/delete | Delete chats by given ID(s) or delete all chats.
+[**deleteChatMessages**](TextMagicApi.md#deleteChatMessages) | **POST** /api/v2/chats/{id}/messages/delete | Delete chat messages by ID(s)
+[**deleteChatsBulk**](TextMagicApi.md#deleteChatsBulk) | **POST** /api/v2/chats/delete | Delete chats (bulk)
 [**deleteContact**](TextMagicApi.md#deleteContact) | **DELETE** /api/v2/contacts/{id} | Delete a single contact.
 [**deleteContactAvatar**](TextMagicApi.md#deleteContactAvatar) | **DELETE** /api/v2/contacts/{id}/avatar | Delete an avatar for the contact.
 [**deleteContactNote**](TextMagicApi.md#deleteContactNote) | **DELETE** /api/v2/notes/{id} | Delete a single contact note.
@@ -34,35 +36,35 @@ Method | HTTP request | Description
 [**deleteContactsFromList**](TextMagicApi.md#deleteContactsFromList) | **DELETE** /api/v2/lists/{id}/contacts | Unassign contacts from the specified list.
 [**deleteCustomField**](TextMagicApi.md#deleteCustomField) | **DELETE** /api/v2/customfields/{id} | Delete a single custom field.
 [**deleteDedicatedNumber**](TextMagicApi.md#deleteDedicatedNumber) | **DELETE** /api/v2/numbers/{id} | Cancel dedicated number subscription.
-[**deleteInboundMessage**](TextMagicApi.md#deleteInboundMessage) | **DELETE** /api/v2/replies/{id} | Delete the incoming message.
-[**deleteInboundMessagesBulk**](TextMagicApi.md#deleteInboundMessagesBulk) | **POST** /api/v2/replies/delete | Delete inbound messages by given ID(s) or delete all inbound messages.
+[**deleteInboundMessage**](TextMagicApi.md#deleteInboundMessage) | **DELETE** /api/v2/replies/{id} | Delete a single inbound message
+[**deleteInboundMessagesBulk**](TextMagicApi.md#deleteInboundMessagesBulk) | **POST** /api/v2/replies/delete | Delete inbound messages (bulk)
 [**deleteList**](TextMagicApi.md#deleteList) | **DELETE** /api/v2/lists/{id} | Delete a single list.
 [**deleteListAvatar**](TextMagicApi.md#deleteListAvatar) | **DELETE** /api/v2/lists/{id}/avatar | Delete an avatar for the list.
 [**deleteListContactsBulk**](TextMagicApi.md#deleteListContactsBulk) | **POST** /api/v2/lists/{id}/contacts/delete | Delete contact from list by given ID(s) or all contacts from list.
 [**deleteListsBulk**](TextMagicApi.md#deleteListsBulk) | **POST** /api/v2/lists/delete | Delete list by given ID(s) or delete all lists.
-[**deleteMessageSession**](TextMagicApi.md#deleteMessageSession) | **DELETE** /api/v2/sessions/{id} | Delete a message session, together with all nested messages.
-[**deleteMessageSessionsBulk**](TextMagicApi.md#deleteMessageSessionsBulk) | **POST** /api/v2/sessions/delete | Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+[**deleteMessageSession**](TextMagicApi.md#deleteMessageSession) | **DELETE** /api/v2/sessions/{id} | Delete a session
+[**deleteMessageSessionsBulk**](TextMagicApi.md#deleteMessageSessionsBulk) | **POST** /api/v2/sessions/delete | Delete sessions (bulk)
 [**deleteOutboundMessage**](TextMagicApi.md#deleteOutboundMessage) | **DELETE** /api/v2/messages/{id} | Delete message
-[**deleteOutboundMessagesBulk**](TextMagicApi.md#deleteOutboundMessagesBulk) | **POST** /api/v2/messages/delete | Delete messages by IDs
+[**deleteOutboundMessagesBulk**](TextMagicApi.md#deleteOutboundMessagesBulk) | **POST** /api/v2/messages/delete | Delete messages (bulk)
 [**deletePushToken**](TextMagicApi.md#deletePushToken) | **DELETE** /api/v2/push/tokens/{type}/{deviceId} | Delete a push notification device token.
-[**deleteScheduledMessage**](TextMagicApi.md#deleteScheduledMessage) | **DELETE** /api/v2/schedules/{id} | Delete a message session, together with all nested messages.
-[**deleteScheduledMessagesBulk**](TextMagicApi.md#deleteScheduledMessagesBulk) | **POST** /api/v2/schedules/delete | Delete scheduled messages by given ID(s) or delete all scheduled messages.
+[**deleteScheduledMessage**](TextMagicApi.md#deleteScheduledMessage) | **DELETE** /api/v2/schedules/{id} | Delete a single scheduled message
+[**deleteScheduledMessagesBulk**](TextMagicApi.md#deleteScheduledMessagesBulk) | **POST** /api/v2/schedules/delete | Delete scheduled messages (bulk)
 [**deleteSenderId**](TextMagicApi.md#deleteSenderId) | **DELETE** /api/v2/senderids/{id} | Delete a Sender ID.
 [**deleteSurvey**](TextMagicApi.md#deleteSurvey) | **DELETE** /api/v2/surveys/{id} | Delete a survey.
 [**deleteSurveyNode**](TextMagicApi.md#deleteSurveyNode) | **DELETE** /api/v2/surveys/nodes/{id} | Delete a node.
-[**deleteTemplate**](TextMagicApi.md#deleteTemplate) | **DELETE** /api/v2/templates/{id} | Delete a single template.
-[**deleteTemplatesBulk**](TextMagicApi.md#deleteTemplatesBulk) | **POST** /api/v2/templates/delete | Delete template by given ID(s) or delete all templates.
+[**deleteTemplate**](TextMagicApi.md#deleteTemplate) | **DELETE** /api/v2/templates/{id} | Delete a template
+[**deleteTemplatesBulk**](TextMagicApi.md#deleteTemplatesBulk) | **POST** /api/v2/templates/delete | Delete templates (bulk)
 [**doAuth**](TextMagicApi.md#doAuth) | **POST** /api/v2/auth | Authenticate user by given username and password.
 [**doCarrierLookup**](TextMagicApi.md#doCarrierLookup) | **GET** /api/v2/lookups/{phone} | Carrier Lookup
 [**doEmailLookup**](TextMagicApi.md#doEmailLookup) | **GET** /api/v2/email-lookups/{email} | Validate Email address using Email Lookup tool
 [**duplicateSurvey**](TextMagicApi.md#duplicateSurvey) | **PUT** /api/v2/surveys/{id}/duplicate | Duplicate a survey.
 [**getAllBulkSessions**](TextMagicApi.md#getAllBulkSessions) | **GET** /api/v2/bulks | Get all bulk sending sessions.
-[**getAllChats**](TextMagicApi.md#getAllChats) | **GET** /api/v2/chats | Get all user chats.
-[**getAllInboundMessages**](TextMagicApi.md#getAllInboundMessages) | **GET** /api/v2/replies | Get all inbox messages.
-[**getAllMessageSessions**](TextMagicApi.md#getAllMessageSessions) | **GET** /api/v2/sessions | Get all message sending sessions.
+[**getAllChats**](TextMagicApi.md#getAllChats) | **GET** /api/v2/chats | Get all chats
+[**getAllInboundMessages**](TextMagicApi.md#getAllInboundMessages) | **GET** /api/v2/replies | Get all inbound messages
+[**getAllMessageSessions**](TextMagicApi.md#getAllMessageSessions) | **GET** /api/v2/sessions | Get all sessions
 [**getAllOutboundMessages**](TextMagicApi.md#getAllOutboundMessages) | **GET** /api/v2/messages | Get all messages
-[**getAllScheduledMessages**](TextMagicApi.md#getAllScheduledMessages) | **GET** /api/v2/schedules | Get all scheduled messages.
-[**getAllTemplates**](TextMagicApi.md#getAllTemplates) | **GET** /api/v2/templates | Get all user templates.
+[**getAllScheduledMessages**](TextMagicApi.md#getAllScheduledMessages) | **GET** /api/v2/schedules | Get all scheduled messages
+[**getAllTemplates**](TextMagicApi.md#getAllTemplates) | **GET** /api/v2/templates | Get all templates
 [**getAvailableDedicatedNumbers**](TextMagicApi.md#getAvailableDedicatedNumbers) | **GET** /api/v2/numbers/available | Find available dedicated numbers to buy.
 [**getAvailableSenderSettingOptions**](TextMagicApi.md#getAvailableSenderSettingOptions) | **GET** /api/v2/sources | Get all available sender setting options which could be used in \&quot;from\&quot; parameter of POST messages method.
 [**getBalanceNotificationOptions**](TextMagicApi.md#getBalanceNotificationOptions) | **GET** /api/v2/user/notification/balance/bundles | Returns the list of available balance options which can be used as a bound to determine when to send email to user with low balance notification. See https://my.textmagic.com/online/account/notifications/balance
@@ -71,9 +73,9 @@ Method | HTTP request | Description
 [**getBulkSession**](TextMagicApi.md#getBulkSession) | **GET** /api/v2/bulks/{id} | Get bulk message session status.
 [**getCallbackSettings**](TextMagicApi.md#getCallbackSettings) | **GET** /api/v2/callback/settings | Fetch callback URL settings
 [**getCallsPrices**](TextMagicApi.md#getCallsPrices) | **GET** /api/v2/calls/price | Check pricing for a inbound/outbound call.
-[**getChat**](TextMagicApi.md#getChat) | **GET** /api/v2/chats/{id} | Get a single chat.
-[**getChatByPhone**](TextMagicApi.md#getChatByPhone) | **GET** /api/v2/chats/{phone}/by/phone | Find chats by phone.
-[**getChatMessages**](TextMagicApi.md#getChatMessages) | **GET** /api/v2/chats/{id}/message | Fetch messages from chat with specified chat id.
+[**getChat**](TextMagicApi.md#getChat) | **GET** /api/v2/chats/{id} | Get a single chat
+[**getChatByPhone**](TextMagicApi.md#getChatByPhone) | **GET** /api/v2/chats/{phone}/by/phone | Find chats by phone
+[**getChatMessages**](TextMagicApi.md#getChatMessages) | **GET** /api/v2/chats/{id}/message | Get chat messages
 [**getContact**](TextMagicApi.md#getContact) | **GET** /api/v2/contacts/{id} | Get a single contact.
 [**getContactByPhone**](TextMagicApi.md#getContactByPhone) | **GET** /api/v2/contacts/phone/{phone} | Get a single contact by phone number.
 [**getContactIfBlocked**](TextMagicApi.md#getContactIfBlocked) | **GET** /api/v2/contacts/block/phone | Check is that phone number blocked
@@ -90,8 +92,7 @@ Method | HTTP request | Description
 [**getDedicatedNumber**](TextMagicApi.md#getDedicatedNumber) | **GET** /api/v2/numbers/{id} | Get a single dedicated number.
 [**getDisallowedRules**](TextMagicApi.md#getDisallowedRules) | **GET** /api/v2/user/disallowed-rules | Get an array of all rules that are disallowed to the current account.
 [**getFavourites**](TextMagicApi.md#getFavourites) | **GET** /api/v2/contacts/favorite | Get favorite contacts and lists.
-[**getForwardedCalls**](TextMagicApi.md#getForwardedCalls) | **GET** /api/v2/calls | Get all forwarded calls.
-[**getInboundMessage**](TextMagicApi.md#getInboundMessage) | **GET** /api/v2/replies/{id} | Get a single inbox message.
+[**getInboundMessage**](TextMagicApi.md#getInboundMessage) | **GET** /api/v2/replies/{id} | Get a single inbound message
 [**getInboundMessagesNotificationSettings**](TextMagicApi.md#getInboundMessagesNotificationSettings) | **GET** /api/v2/user/notification/inbound | Get inbound messages notification settings
 [**getInvoices**](TextMagicApi.md#getInvoices) | **GET** /api/v2/invoices | Return account invoices.
 [**getList**](TextMagicApi.md#getList) | **GET** /api/v2/lists/{id} | Get a single list.
@@ -100,15 +101,15 @@ Method | HTTP request | Description
 [**getMessagePreview**](TextMagicApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Preview message
 [**getMessagePrice**](TextMagicApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check price
 [**getMessagePrices**](TextMagicApi.md#getMessagePrices) | **GET** /api/v2/messages/prices | Get pricing
-[**getMessageSession**](TextMagicApi.md#getMessageSession) | **GET** /api/v2/sessions/{id} | Get a message session.
-[**getMessageSessionStat**](TextMagicApi.md#getMessageSessionStat) | **GET** /api/v2/sessions/{id}/stat | Get sending session statistics.
-[**getMessagesBySessionId**](TextMagicApi.md#getMessagesBySessionId) | **GET** /api/v2/sessions/{id}/messages | Fetch messages by given session id.
+[**getMessageSession**](TextMagicApi.md#getMessageSession) | **GET** /api/v2/sessions/{id} | Get a session details
+[**getMessageSessionStat**](TextMagicApi.md#getMessageSessionStat) | **GET** /api/v2/sessions/{id}/stat | Get a session statistics
+[**getMessagesBySessionId**](TextMagicApi.md#getMessagesBySessionId) | **GET** /api/v2/sessions/{id}/messages | Get a session messages
 [**getMessagingCounters**](TextMagicApi.md#getMessagingCounters) | **GET** /api/v2/stats/messaging/data | Return counters for messaging data views.
 [**getMessagingStat**](TextMagicApi.md#getMessagingStat) | **GET** /api/v2/stats/messaging | Return messaging statistics.
 [**getOutboundMessage**](TextMagicApi.md#getOutboundMessage) | **GET** /api/v2/messages/{id} | Get a single message
 [**getOutboundMessagesHistory**](TextMagicApi.md#getOutboundMessagesHistory) | **GET** /api/v2/history | Get history
 [**getPushTokens**](TextMagicApi.md#getPushTokens) | **GET** /api/v2/push/tokens | Get all device tokens assigned to the current account
-[**getScheduledMessage**](TextMagicApi.md#getScheduledMessage) | **GET** /api/v2/schedules/{id} | Get message schedule.
+[**getScheduledMessage**](TextMagicApi.md#getScheduledMessage) | **GET** /api/v2/schedules/{id} | Get a single scheduled message
 [**getSenderId**](TextMagicApi.md#getSenderId) | **GET** /api/v2/senderids/{id} | Get a single Sender ID.
 [**getSenderIds**](TextMagicApi.md#getSenderIds) | **GET** /api/v2/senderids | Get all sender IDs of current user.
 [**getSenderSettings**](TextMagicApi.md#getSenderSettings) | **GET** /api/v2/sender/settings | Get current user sender settings.
@@ -121,42 +122,43 @@ Method | HTTP request | Description
 [**getSurveyNode**](TextMagicApi.md#getSurveyNode) | **GET** /api/v2/surveys/nodes/{id} | Get a node by id.
 [**getSurveyNodes**](TextMagicApi.md#getSurveyNodes) | **GET** /api/v2/surveys/{id}/nodes | Fetch nodes by given survey id.
 [**getSurveys**](TextMagicApi.md#getSurveys) | **GET** /api/v2/surveys | Get all user surveys.
-[**getTemplate**](TextMagicApi.md#getTemplate) | **GET** /api/v2/templates/{id} | Get a single template.
+[**getTemplate**](TextMagicApi.md#getTemplate) | **GET** /api/v2/templates/{id} | Get a template details
 [**getTimezones**](TextMagicApi.md#getTimezones) | **GET** /api/v2/timezones | Return all available timezone IDs.
-[**getUnreadMessagesTotal**](TextMagicApi.md#getUnreadMessagesTotal) | **GET** /api/v2/chats/unread/count | Get total amount of unread messages in the current user chats.
+[**getUnreadMessagesTotal**](TextMagicApi.md#getUnreadMessagesTotal) | **GET** /api/v2/chats/unread/count | Get unread messages number
 [**getUnsubscribedContact**](TextMagicApi.md#getUnsubscribedContact) | **GET** /api/v2/unsubscribers/{id} | Get a single unsubscribed contact.
 [**getUnsubscribers**](TextMagicApi.md#getUnsubscribers) | **GET** /api/v2/unsubscribers | Get all contact have unsubscribed from your communication.
 [**getUserDedicatedNumbers**](TextMagicApi.md#getUserDedicatedNumbers) | **GET** /api/v2/numbers | Get user&#39;s dedicated numbers.
 [**getUserLists**](TextMagicApi.md#getUserLists) | **GET** /api/v2/lists | Get all user lists.
 [**getVersions**](TextMagicApi.md#getVersions) | **GET** /api/v2/versions | Get minimal valid apps versions
 [**inviteSubaccount**](TextMagicApi.md#inviteSubaccount) | **POST** /api/v2/subaccounts | Invite new subaccount.
-[**markChatsReadBulk**](TextMagicApi.md#markChatsReadBulk) | **POST** /api/v2/chats/read/bulk | Mark several chats as read by chat ids or mark all chats as read
-[**markChatsUnreadBulk**](TextMagicApi.md#markChatsUnreadBulk) | **POST** /api/v2/chats/unread/bulk | Mark several chats as UNread by chat ids or mark all chats as UNread
+[**markChatsReadBulk**](TextMagicApi.md#markChatsReadBulk) | **POST** /api/v2/chats/read/bulk | Mark chats as read (bulk)
+[**markChatsUnreadBulk**](TextMagicApi.md#markChatsUnreadBulk) | **POST** /api/v2/chats/unread/bulk | Mark chats as unread (bulk)
 [**mergeSurveyNodes**](TextMagicApi.md#mergeSurveyNodes) | **POST** /api/v2/surveys/nodes/merge | Merge two question nodes.
-[**muteChat**](TextMagicApi.md#muteChat) | **POST** /api/v2/chats/mute | Set mute mode.
-[**muteChatsBulk**](TextMagicApi.md#muteChatsBulk) | **POST** /api/v2/chats/mute/bulk | Mute several chats by chat ids or mute all chats
+[**muteChat**](TextMagicApi.md#muteChat) | **POST** /api/v2/chats/mute | Mute chat sounds
+[**muteChatsBulk**](TextMagicApi.md#muteChatsBulk) | **POST** /api/v2/chats/mute/bulk | Mute chats (bulk)
 [**ping**](TextMagicApi.md#ping) | **GET** /api/v2/ping | Just does a pong.
-[**reopenChatsBulk**](TextMagicApi.md#reopenChatsBulk) | **POST** /api/v2/chats/reopen/bulk | Reopen chats by chat ids or reopen all chats
+[**reopenChatsBulk**](TextMagicApi.md#reopenChatsBulk) | **POST** /api/v2/chats/reopen/bulk | Reopen chats (bulk)
 [**requestNewSubaccountToken**](TextMagicApi.md#requestNewSubaccountToken) | **POST** /api/v2/subaccounts/tokens | Request a new REST API token for subaccount.
 [**requestSenderId**](TextMagicApi.md#requestSenderId) | **POST** /api/v2/senderids | Request for a new Sender ID.
 [**resetSurvey**](TextMagicApi.md#resetSurvey) | **PUT** /api/v2/surveys/{id}/reset | Reset a survey flow.
-[**searchChats**](TextMagicApi.md#searchChats) | **GET** /api/v2/chats/search | Find chats by inbound or outbound messages text.
-[**searchChatsByIds**](TextMagicApi.md#searchChatsByIds) | **GET** /api/v2/chats/search/ids | Find chats by IDs.
-[**searchChatsByReceipent**](TextMagicApi.md#searchChatsByReceipent) | **GET** /api/v2/chats/search/recipients | Find chats by recipient (contact, list name or phone number).
+[**searchChats**](TextMagicApi.md#searchChats) | **GET** /api/v2/chats/search | Find chats by message text
+[**searchChatsByIds**](TextMagicApi.md#searchChatsByIds) | **GET** /api/v2/chats/search/ids | Find chats (bulk)
+[**searchChatsByReceipent**](TextMagicApi.md#searchChatsByReceipent) | **GET** /api/v2/chats/search/recipients | Find chats by recipient
 [**searchContacts**](TextMagicApi.md#searchContacts) | **GET** /api/v2/contacts/search | Find user contacts by given parameters.
-[**searchInboundMessages**](TextMagicApi.md#searchInboundMessages) | **GET** /api/v2/replies/search | Find inbound messages by given parameters.
+[**searchInboundMessages**](TextMagicApi.md#searchInboundMessages) | **GET** /api/v2/replies/search | Find inbound messages
 [**searchLists**](TextMagicApi.md#searchLists) | **GET** /api/v2/lists/search | Find contact lists by given parameters.
 [**searchOutboundMessages**](TextMagicApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find messages
-[**searchScheduledMessages**](TextMagicApi.md#searchScheduledMessages) | **GET** /api/v2/schedules/search | Find scheduled messages by given parameters.
-[**searchTemplates**](TextMagicApi.md#searchTemplates) | **GET** /api/v2/templates/search | Find user templates by given parameters.
+[**searchScheduledMessages**](TextMagicApi.md#searchScheduledMessages) | **GET** /api/v2/schedules/search | Find scheduled messages
+[**searchTemplates**](TextMagicApi.md#searchTemplates) | **GET** /api/v2/templates/search | Find templates by criteria
 [**sendEmailVerificationCode**](TextMagicApi.md#sendEmailVerificationCode) | **GET** /api/v2/user/email/verification | Send user email verification
 [**sendMessage**](TextMagicApi.md#sendMessage) | **POST** /api/v2/messages | Send message
 [**sendPhoneVerificationCode**](TextMagicApi.md#sendPhoneVerificationCode) | **GET** /api/v2/user/phone/verification | Send user phone verification
-[**setChatStatus**](TextMagicApi.md#setChatStatus) | **POST** /api/v2/chats/status | Set status of the chat given by ID.
+[**sendPhoneVerificationCode_0**](TextMagicApi.md#sendPhoneVerificationCode_0) | **POST** /api/v2/verify | Step 1: Send a verification code
+[**setChatStatus**](TextMagicApi.md#setChatStatus) | **POST** /api/v2/chats/status | Change chat status
 [**startSurvey**](TextMagicApi.md#startSurvey) | **PUT** /api/v2/surveys/{id}/start | Start a survey.
 [**unblockContact**](TextMagicApi.md#unblockContact) | **POST** /api/v2/contacts/unblock | Unblock contact by phone number.
 [**unblockContactsBulk**](TextMagicApi.md#unblockContactsBulk) | **POST** /api/v2/contacts/unblock/bulk | Unblock several contacts by blocked contact ids or unblock all contacts
-[**unmuteChatsBulk**](TextMagicApi.md#unmuteChatsBulk) | **POST** /api/v2/chats/unmute/bulk | Unmute several chats by chat ids or unmute all chats
+[**unmuteChatsBulk**](TextMagicApi.md#unmuteChatsBulk) | **POST** /api/v2/chats/unmute/bulk | Unmute chats (bulk)
 [**unsubscribeContact**](TextMagicApi.md#unsubscribeContact) | **POST** /api/v2/unsubscribers | Unsubscribe contact from your communication by phone number.
 [**updateBalanceNotificationSettings**](TextMagicApi.md#updateBalanceNotificationSettings) | **PUT** /api/v2/user/notification/balance | Update balance notification settings
 [**updateCallbackSettings**](TextMagicApi.md#updateCallbackSettings) | **PUT** /api/v2/callback/settings | Update callback URL settings
@@ -172,7 +174,7 @@ Method | HTTP request | Description
 [**updateSenderSetting**](TextMagicApi.md#updateSenderSetting) | **PUT** /api/v2/sender/settings | Change sender settings for specified country.
 [**updateSurvey**](TextMagicApi.md#updateSurvey) | **PUT** /api/v2/surveys/{id} | Update existing survey.
 [**updateSurveyNode**](TextMagicApi.md#updateSurveyNode) | **PUT** /api/v2/surveys/nodes/{id} | Update existing node.
-[**updateTemplate**](TextMagicApi.md#updateTemplate) | **PUT** /api/v2/templates/{id} | Update existing template.
+[**updateTemplate**](TextMagicApi.md#updateTemplate) | **PUT** /api/v2/templates/{id} | Update a template
 [**uploadAvatar**](TextMagicApi.md#uploadAvatar) | **POST** /api/v2/user/avatar | Add an avatar for the current user.
 [**uploadContactAvatar**](TextMagicApi.md#uploadContactAvatar) | **POST** /api/v2/contacts/{id}/avatar | Add an avatar for the contact.
 [**uploadListAvatar**](TextMagicApi.md#uploadListAvatar) | **POST** /api/v2/lists/{id}/avatar | Add an avatar for the list.
@@ -404,6 +406,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **cancelVerification**
+> cancelVerification($verifyId)
+
+Cancel verification process
+
+You can cancel the verification not earlier than 30 seconds after the initial request.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: BasicAuth
+$config = TextMagic\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new TextMagic\Api\TextMagicApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$verifyId = "\"123e4567-e89b-12d3-a456-426655440000\""; // string | the verifyId that you received in Step 1.
+
+try {
+    $apiInstance->cancelVerification($verifyId);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->cancelVerification: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **verifyId** | **string**| the verifyId that you received in Step 1. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **checkPhoneVerificationCode**
 > checkPhoneVerificationCode($checkPhoneVerificationCodeInputObject)
 
@@ -443,6 +500,61 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **checkPhoneVerificationCodeInputObject** | [**\TextMagic\Models\CheckPhoneVerificationCodeInputObject**](../Model/CheckPhoneVerificationCodeInputObject.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **checkPhoneVerificationCode_0**
+> checkPhoneVerificationCode_0($checkPhoneVerificationCodeInputObject)
+
+Step 2: Check the verification code
+
+Check received code from user with the code which was actually sent.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: BasicAuth
+$config = TextMagic\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new TextMagic\Api\TextMagicApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$checkPhoneVerificationCodeInputObject = new \TextMagic\Models\CheckPhoneVerificationCodeInputObject1(); // \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 | 
+
+try {
+    $apiInstance->checkPhoneVerificationCode_0($checkPhoneVerificationCodeInputObject);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->checkPhoneVerificationCode_0: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **checkPhoneVerificationCodeInputObject** | [**\TextMagic\Models\CheckPhoneVerificationCodeInputObject1**](../Model/CheckPhoneVerificationCodeInputObject1.md)|  |
 
 ### Return type
 
@@ -520,9 +632,9 @@ Name | Type | Description  | Notes
 # **closeChatsBulk**
 > closeChatsBulk($closeChatsBulkInputObject)
 
+Close chats (bulk)
+
 Close chats by chat ids or close all chats
-
-
 
 ### Example
 ```php
@@ -575,9 +687,9 @@ void (empty response body)
 # **closeReadChats**
 > closeReadChats()
 
+Close read chats
+
 Close all chats that have no unread messages.
-
-
 
 ### Example
 ```php
@@ -1076,7 +1188,7 @@ Name | Type | Description  | Notes
 # **createTemplate**
 > \TextMagic\Models\ResourceLinkResponse createTemplate($createTemplateInputObject)
 
-Create a new template from the submitted data.
+Create a template
 
 
 
@@ -1185,7 +1297,7 @@ void (empty response body)
 
 Delete all messages
 
-
+Delete all messages.
 
 ### Example
 ```php
@@ -1285,9 +1397,9 @@ void (empty response body)
 # **deleteChatMessages**
 > deleteChatMessages($deleteChatMessagesBulkInputObject, $id)
 
+Delete chat messages by ID(s)
+
 Delete messages from chat by given messages ID(s).
-
-
 
 ### Example
 ```php
@@ -1342,9 +1454,9 @@ void (empty response body)
 # **deleteChatsBulk**
 > deleteChatsBulk($deleteChatsBulkInputObject)
 
+Delete chats (bulk)
+
 Delete chats by given ID(s) or delete all chats.
-
-
 
 ### Example
 ```php
@@ -1841,9 +1953,9 @@ void (empty response body)
 # **deleteInboundMessage**
 > deleteInboundMessage($id)
 
-Delete the incoming message.
+Delete a single inbound message
 
-
+> Note, deleted inbound message will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful!
 
 ### Example
 ```php
@@ -1862,7 +1974,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | 
+$id = 1; // int | The unique numeric ID for the inbound message.
 
 try {
     $apiInstance->deleteInboundMessage($id);
@@ -1876,7 +1988,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **id** | **int**| The unique numeric ID for the inbound message. |
 
 ### Return type
 
@@ -1896,9 +2008,9 @@ void (empty response body)
 # **deleteInboundMessagesBulk**
 > deleteInboundMessagesBulk($deleteInboundMessagesBulkInputObject)
 
-Delete inbound messages by given ID(s) or delete all inbound messages.
+Delete inbound messages (bulk)
 
-
+> Note, deleted inbound message will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful!
 
 ### Example
 ```php
@@ -2173,7 +2285,7 @@ void (empty response body)
 # **deleteMessageSession**
 > deleteMessageSession($id)
 
-Delete a message session, together with all nested messages.
+Delete a session
 
 
 
@@ -2228,7 +2340,7 @@ void (empty response body)
 # **deleteMessageSessionsBulk**
 > deleteMessageSessionsBulk($deleteMessageSessionsBulkInputObject)
 
-Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+Delete sessions (bulk)
 
 
 
@@ -2285,7 +2397,7 @@ void (empty response body)
 
 Delete message
 
-
+Delete a single message.
 
 ### Example
 ```php
@@ -2338,9 +2450,9 @@ void (empty response body)
 # **deleteOutboundMessagesBulk**
 > deleteOutboundMessagesBulk($deleteOutboundMessagesBulkInputObject)
 
-Delete messages by IDs
+Delete messages (bulk)
 
-
+Delete outbound messages by given ID(s) or delete all outbound messages.
 
 ### Example
 ```php
@@ -2450,7 +2562,7 @@ void (empty response body)
 # **deleteScheduledMessage**
 > deleteScheduledMessage($id)
 
-Delete a message session, together with all nested messages.
+Delete a single scheduled message
 
 
 
@@ -2505,7 +2617,7 @@ void (empty response body)
 # **deleteScheduledMessagesBulk**
 > deleteScheduledMessagesBulk($deleteScheduledMessagesBulkInputObject)
 
-Delete scheduled messages by given ID(s) or delete all scheduled messages.
+Delete scheduled messages (bulk)
 
 
 
@@ -2725,7 +2837,7 @@ void (empty response body)
 # **deleteTemplate**
 > deleteTemplate($id)
 
-Delete a single template.
+Delete a template
 
 
 
@@ -2780,7 +2892,7 @@ void (empty response body)
 # **deleteTemplatesBulk**
 > deleteTemplatesBulk($deleteTemplatesBulkInputObject)
 
-Delete template by given ID(s) or delete all templates.
+Delete templates (bulk)
 
 
 
@@ -2837,7 +2949,7 @@ void (empty response body)
 
 Authenticate user by given username and password.
 
-
+Returning a username and token that you should pass to the all requests (in X-TM-Username and X-TM-Key, respectively)
 
 ### Example
 ```php
@@ -3075,8 +3187,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getAllBulkSessions($page, $limit);
@@ -3091,8 +3203,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -3112,7 +3224,7 @@ Name | Type | Description  | Notes
 # **getAllChats**
 > \TextMagic\Models\GetAllChatsPaginatedResponse getAllChats($status, $page, $limit, $orderBy, $voice, $flat)
 
-Get all user chats.
+Get all chats
 
 
 
@@ -3134,8 +3246,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $status = "status_example"; // string | Fetch only (a)ctive, (c)losed or (d)eleted chats
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $orderBy = "id"; // string | Order results by some field. Default is id
 $voice = 0; // int | Fetch results with voice calls
 $flat = 0; // int | Should additional contact info be included
@@ -3154,8 +3266,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Fetch only (a)ctive, (c)losed or (d)eleted chats | [optional]
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **voice** | **int**| Fetch results with voice calls | [optional] [default to 0]
  **flat** | **int**| Should additional contact info be included | [optional] [default to 0]
@@ -3178,7 +3290,7 @@ Name | Type | Description  | Notes
 # **getAllInboundMessages**
 > \TextMagic\Models\GetAllInboundMessagesPaginatedResponse getAllInboundMessages($page, $limit, $orderBy, $direction)
 
-Get all inbox messages.
+Get all inbound messages
 
 
 
@@ -3199,8 +3311,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $orderBy = "id"; // string | Order results by some field. Default is id
 $direction = "desc"; // string | Order direction. Default is desc
 
@@ -3217,8 +3329,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
 
@@ -3240,7 +3352,7 @@ Name | Type | Description  | Notes
 # **getAllMessageSessions**
 > \TextMagic\Models\GetAllMessageSessionsPaginatedResponse getAllMessageSessions($page, $limit)
 
-Get all message sending sessions.
+Get all sessions
 
 
 
@@ -3261,8 +3373,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getAllMessageSessions($page, $limit);
@@ -3277,8 +3389,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -3300,7 +3412,7 @@ Name | Type | Description  | Notes
 
 Get all messages
 
-
+Get all user oubound messages.
 
 ### Example
 ```php
@@ -3319,8 +3431,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $lastId = 56; // int | Filter results by ID, selecting all values lesser than the specified ID. Note that \\'page\\' parameter is ignored when \\'lastId\\' is specified
 
 try {
@@ -3336,8 +3448,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **lastId** | **int**| Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified | [optional]
 
 ### Return type
@@ -3358,7 +3470,7 @@ Name | Type | Description  | Notes
 # **getAllScheduledMessages**
 > \TextMagic\Models\GetAllScheduledMessagesPaginatedResponse getAllScheduledMessages($page, $limit, $status, $orderBy, $direction)
 
-Get all scheduled messages.
+Get all scheduled messages
 
 
 
@@ -3379,8 +3491,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $status = "x"; // string | Fetch schedules with the specific status: a - actual, c - completed, x - all
 $orderBy = "id"; // string | Order results by some field. Default is id
 $direction = "desc"; // string | Order direction. Default is desc
@@ -3398,8 +3510,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **status** | **string**| Fetch schedules with the specific status: a - actual, c - completed, x - all | [optional] [default to x]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
@@ -3422,7 +3534,7 @@ Name | Type | Description  | Notes
 # **getAllTemplates**
 > \TextMagic\Models\GetAllTemplatesPaginatedResponse getAllTemplates($page, $limit)
 
-Get all user templates.
+Get all templates
 
 
 
@@ -3443,8 +3555,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getAllTemplates($page, $limit);
@@ -3459,8 +3571,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional]
- **limit** | **int**| How many results to return | [optional]
+ **page** | **int**| Fetch specified results page. | [optional]
+ **limit** | **int**| The number of results per page. | [optional]
 
 ### Return type
 
@@ -3721,8 +3833,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $query = "query_example"; // string | Find blocked contacts by specified search query
 $orderBy = "id"; // string | Order results by some field. Default is id
 $direction = "desc"; // string | Order direction. Default is desc
@@ -3740,8 +3852,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **query** | **string**| Find blocked contacts by specified search query | [optional]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
@@ -3924,7 +4036,7 @@ This endpoint does not need any parameter.
 # **getChat**
 > \TextMagic\Models\Chat getChat($id)
 
-Get a single chat.
+Get a single chat
 
 
 
@@ -3980,7 +4092,7 @@ Name | Type | Description  | Notes
 # **getChatByPhone**
 > \TextMagic\Models\Chat getChatByPhone($phone, $upsert, $reopen)
 
-Find chats by phone.
+Find chats by phone
 
 
 
@@ -4040,7 +4152,7 @@ Name | Type | Description  | Notes
 # **getChatMessages**
 > \TextMagic\Models\GetChatMessagesPaginatedResponse getChatMessages($id, $page, $limit, $query, $start, $end, $direction, $voice)
 
-Fetch messages from chat with specified chat id.
+Get chat messages
 
 
 
@@ -4062,8 +4174,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $id = 1; // int | 
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $query = "query_example"; // string | Find messages by specified search query
 $start = 56; // int | Return messages since specified timestamp only
 $end = 56; // int | Return messages up to specified timestamp only
@@ -4084,8 +4196,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  |
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **query** | **string**| Find messages by specified search query | [optional]
  **start** | **int**| Return messages since specified timestamp only | [optional]
  **end** | **int**| Return messages up to specified timestamp only | [optional]
@@ -4412,8 +4524,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $id = 1; // int | 
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getContactNotes($id, $page, $limit);
@@ -4429,8 +4541,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  |
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -4471,8 +4583,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $shared = 0; // int | Should shared contacts to be included
 $orderBy = "id"; // string | Order results by some field. Default is id
 $direction = "desc"; // string | Order direction. Default is desc
@@ -4490,8 +4602,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **shared** | **int**| Should shared contacts to be included | [optional] [default to 0]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
@@ -4536,7 +4648,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $query = "\"A\""; // string | Find recipients by specified search query
-$limit = 10; // int | How many results to return
+$limit = 10; // int | The number of results per page.
 $lists = 0; // int | Should lists be returned or not
 
 try {
@@ -4553,7 +4665,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| Find recipients by specified search query |
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **lists** | **int**| Should lists be returned or not | [optional] [default to 0]
 
 ### Return type
@@ -4576,7 +4688,7 @@ Name | Type | Description  | Notes
 
 Fetch user contacts by given group id.
 
-
+A useful synonym for \"contacts/search\" command with provided \"listId\" parameter.
 
 ### Example
 ```php
@@ -4596,8 +4708,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $id = 1; // int | Given group Id.
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $orderBy = "id"; // string | Order results by some field. Default is id
 $direction = "desc"; // string | Order direction. Default is desc
 
@@ -4615,8 +4727,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Given group Id. |
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
 
@@ -4819,8 +4931,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getCustomFields($page, $limit);
@@ -4835,8 +4947,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -4985,8 +5097,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $query = "A"; // string | Find contacts or lists by specified search query
 
 try {
@@ -5002,8 +5114,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **query** | **string**| Find contacts or lists by specified search query | [optional] [default to A]
 
 ### Return type
@@ -5021,68 +5133,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getForwardedCalls**
-> \TextMagic\Models\GetForwardedCallsPaginatedResponse getForwardedCalls($page, $limit)
-
-Get all forwarded calls.
-
-
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\TextMagicApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
-
-try {
-    $result = $apiInstance->getForwardedCalls($page, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TextMagicApi->getForwardedCalls: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
-
-### Return type
-
-[**\TextMagic\Models\GetForwardedCallsPaginatedResponse**](../Model/GetForwardedCallsPaginatedResponse.md)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getInboundMessage**
 > \TextMagic\Models\MessageIn getInboundMessage($id)
 
-Get a single inbox message.
+Get a single inbound message
 
 
 
@@ -5103,7 +5157,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | 
+$id = 1782832; // int | The unique numeric ID for the inbound message.
 
 try {
     $result = $apiInstance->getInboundMessage($id);
@@ -5118,7 +5172,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **id** | **int**| The unique numeric ID for the inbound message. |
 
 ### Return type
 
@@ -5211,8 +5265,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getInvoices($page, $limit);
@@ -5227,8 +5281,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -5382,8 +5436,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $id = 1; // int | 
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getListsOfContact($id, $page, $limit);
@@ -5399,8 +5453,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  |
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -5422,7 +5476,7 @@ Name | Type | Description  | Notes
 
 Preview message
 
-
+Get messages preview (with tags merged) up to 100 messages per session.
 
 ### Example
 ```php
@@ -5510,7 +5564,7 @@ Name | Type | Description  | Notes
 
 Check price
 
-
+Check pricing for a new outbound message.
 
 ### Example
 ```php
@@ -5600,7 +5654,7 @@ Name | Type | Description  | Notes
 
 Get pricing
 
-
+Get message prices for all countries.
 
 ### Example
 ```php
@@ -5650,7 +5704,7 @@ This endpoint does not need any parameter.
 # **getMessageSession**
 > \TextMagic\Models\MessageSession getMessageSession($id)
 
-Get a message session.
+Get a session details
 
 
 
@@ -5671,7 +5725,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | 
+$id = 1; // int | a session ID
 
 try {
     $result = $apiInstance->getMessageSession($id);
@@ -5686,7 +5740,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **id** | **int**| a session ID |
 
 ### Return type
 
@@ -5706,7 +5760,7 @@ Name | Type | Description  | Notes
 # **getMessageSessionStat**
 > \TextMagic\Models\GetMessageSessionStatResponse getMessageSessionStat($id, $includeDeleted)
 
-Get sending session statistics.
+Get a session statistics
 
 
 
@@ -5764,9 +5818,9 @@ Name | Type | Description  | Notes
 # **getMessagesBySessionId**
 > \TextMagic\Models\GetMessagesBySessionIdPaginatedResponse getMessagesBySessionId($id, $page, $limit, $statuses, $includeDeleted)
 
-Fetch messages by given session id.
+Get a session messages
 
-
+A useful synonym for \"messages/search\" command with provided \"sessionId\" parameter.
 
 ### Example
 ```php
@@ -5786,8 +5840,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $id = 1; // int | 
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $statuses = "statuses_example"; // string | Find messages by status
 $includeDeleted = 0; // int | Search also in deleted messages
 
@@ -5805,8 +5859,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  |
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **statuses** | **string**| Find messages by status | [optional]
  **includeDeleted** | **int**| Search also in deleted messages | [optional] [default to 0]
 
@@ -5942,7 +5996,7 @@ Name | Type | Description  | Notes
 
 Get a single message
 
-
+Get a single outgoing message.
 
 ### Example
 ```php
@@ -5998,7 +6052,7 @@ Name | Type | Description  | Notes
 
 Get history
 
-
+Get outbound messages history.
 
 ### Example
 ```php
@@ -6017,7 +6071,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$limit = 10; // int | How many results to return
+$limit = 10; // int | The number of results per page.
 $lastId = 56; // int | Filter results by ID, selecting all values lesser than the specified ID.
 $query = "query_example"; // string | Find message by specified search query
 $orderBy = "id"; // string | Order results by some field. Default is id
@@ -6036,7 +6090,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **lastId** | **int**| Filter results by ID, selecting all values lesser than the specified ID. | [optional]
  **query** | **string**| Find message by specified search query | [optional]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
@@ -6112,7 +6166,7 @@ This endpoint does not need any parameter.
 # **getScheduledMessage**
 > \TextMagic\Models\MessagesIcs getScheduledMessage($id)
 
-Get message schedule.
+Get a single scheduled message
 
 
 
@@ -6245,8 +6299,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getSenderIds($page, $limit);
@@ -6261,8 +6315,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -6359,8 +6413,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $start = 56; // int | Optional. Start date in unix timestamp format. Default is 7 days ago
 $end = 56; // int | Optional. End date in unix timestamp format. Default is now
 
@@ -6377,8 +6431,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **start** | **int**| Optional. Start date in unix timestamp format. Default is 7 days ago | [optional]
  **end** | **int**| Optional. End date in unix timestamp format. Default is now | [optional]
 
@@ -6529,8 +6583,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getSubaccounts($page, $limit);
@@ -6545,8 +6599,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -6568,7 +6622,7 @@ Name | Type | Description  | Notes
 
 Get all subaccounts with their REST API tokens associated with specified app name.
 
-
+When more than one token related to app name, last key will be returned.
 
 ### Example
 ```php
@@ -6588,8 +6642,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $getSubaccountsWithTokensInputObject = new \TextMagic\Models\GetSubaccountsWithTokensInputObject(); // \TextMagic\Models\GetSubaccountsWithTokensInputObject | 
-$page = 1; // float | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // float | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getSubaccountsWithTokens($getSubaccountsWithTokensInputObject, $page, $limit);
@@ -6605,8 +6659,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **getSubaccountsWithTokensInputObject** | [**\TextMagic\Models\GetSubaccountsWithTokensInputObject**](../Model/GetSubaccountsWithTokensInputObject.md)|  |
- **page** | **float**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **float**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -6815,8 +6869,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getSurveys($page, $limit);
@@ -6831,8 +6885,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -6852,7 +6906,7 @@ Name | Type | Description  | Notes
 # **getTemplate**
 > \TextMagic\Models\MessageTemplate getTemplate($id)
 
-Get a single template.
+Get a template details
 
 
 
@@ -6964,9 +7018,9 @@ Name | Type | Description  | Notes
 # **getUnreadMessagesTotal**
 > \TextMagic\Models\GetUnreadMessagesTotalResponse getUnreadMessagesTotal()
 
+Get unread messages number
+
 Get total amount of unread messages in the current user chats.
-
-
 
 ### Example
 ```php
@@ -7093,8 +7147,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 
 try {
     $result = $apiInstance->getUnsubscribers($page, $limit);
@@ -7109,8 +7163,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
 
 ### Return type
 
@@ -7151,8 +7205,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $surveyId = 56; // int | Fetch only that numbers which are ready for the survey
 
 try {
@@ -7168,8 +7222,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **surveyId** | **int**| Fetch only that numbers which are ready for the survey | [optional]
 
 ### Return type
@@ -7211,8 +7265,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $orderBy = "id"; // string | Order results by some field. Default is id
 $direction = "desc"; // string | Order direction. Default is desc
 $favoriteOnly = 0; // int | Return only favorite lists
@@ -7231,8 +7285,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
  **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
  **favoriteOnly** | **int**| Return only favorite lists | [optional] [default to 0]
@@ -7363,9 +7417,9 @@ void (empty response body)
 # **markChatsReadBulk**
 > markChatsReadBulk($markChatsReadBulkInputObject)
 
+Mark chats as read (bulk)
+
 Mark several chats as read by chat ids or mark all chats as read
-
-
 
 ### Example
 ```php
@@ -7418,9 +7472,9 @@ void (empty response body)
 # **markChatsUnreadBulk**
 > markChatsUnreadBulk($markChatsUnreadBulkInputObject)
 
+Mark chats as unread (bulk)
+
 Mark several chats as UNread by chat ids or mark all chats as UNread
-
-
 
 ### Example
 ```php
@@ -7528,7 +7582,7 @@ void (empty response body)
 # **muteChat**
 > \TextMagic\Models\ResourceLinkResponse muteChat($muteChatInputObject)
 
-Set mute mode.
+Mute chat sounds
 
 
 
@@ -7584,9 +7638,9 @@ Name | Type | Description  | Notes
 # **muteChatsBulk**
 > muteChatsBulk($muteChatsBulkInputObject)
 
+Mute chats (bulk)
+
 Mute several chats by chat ids or mute all chats
-
-
 
 ### Example
 ```php
@@ -7691,9 +7745,9 @@ This endpoint does not need any parameter.
 # **reopenChatsBulk**
 > reopenChatsBulk($reopenChatsBulkInputObject)
 
+Reopen chats (bulk)
+
 Reopen chats by chat ids or reopen all chats
-
-
 
 ### Example
 ```php
@@ -7748,7 +7802,7 @@ void (empty response body)
 
 Request a new REST API token for subaccount.
 
-
+Returning user object, key and app name.
 
 ### Example
 ```php
@@ -7914,7 +7968,7 @@ Name | Type | Description  | Notes
 # **searchChats**
 > \TextMagic\Models\SearchChatsPaginatedResponse searchChats($page, $limit, $query)
 
-Find chats by inbound or outbound messages text.
+Find chats by message text
 
 
 
@@ -7935,8 +7989,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $query = "query_example"; // string | Find chats by specified search query
 
 try {
@@ -7952,8 +8006,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **query** | **string**| Find chats by specified search query | [optional]
 
 ### Return type
@@ -7974,7 +8028,7 @@ Name | Type | Description  | Notes
 # **searchChatsByIds**
 > \TextMagic\Models\SearchChatsByIdsPaginatedResponse searchChatsByIds($page, $limit, $ids)
 
-Find chats by IDs.
+Find chats (bulk)
 
 
 
@@ -7995,8 +8049,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $ids = "ids_example"; // string | Find chats by ID(s)
 
 try {
@@ -8012,8 +8066,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **ids** | **string**| Find chats by ID(s) | [optional]
 
 ### Return type
@@ -8034,9 +8088,9 @@ Name | Type | Description  | Notes
 # **searchChatsByReceipent**
 > \TextMagic\Models\SearchChatsByReceipentPaginatedResponse searchChatsByReceipent($page, $limit, $query, $orderBy)
 
+Find chats by recipient
+
 Find chats by recipient (contact, list name or phone number).
-
-
 
 ### Example
 ```php
@@ -8055,8 +8109,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $query = "query_example"; // string | Find chats by specified search query
 $orderBy = "id"; // string | Order results by some field. Default is id
 
@@ -8073,8 +8127,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **query** | **string**| Find chats by specified search query | [optional]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
 
@@ -8117,8 +8171,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $shared = 0; // int | Should shared contacts to be included
 $ids = "ids_example"; // string | Find contact by ID(s)
 $listId = 56; // int | Find contact by List ID
@@ -8142,8 +8196,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **shared** | **int**| Should shared contacts to be included | [optional] [default to 0]
  **ids** | **string**| Find contact by ID(s) | [optional]
  **listId** | **int**| Find contact by List ID | [optional]
@@ -8172,9 +8226,9 @@ Name | Type | Description  | Notes
 # **searchInboundMessages**
 > \TextMagic\Models\SearchInboundMessagesPaginatedResponse searchInboundMessages($page, $limit, $ids, $query, $orderBy, $direction, $expand)
 
+Find inbound messages
+
 Find inbound messages by given parameters.
-
-
 
 ### Example
 ```php
@@ -8193,8 +8247,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $ids = "ids_example"; // string | Find message by ID(s)
 $query = "query_example"; // string | Find recipients by specified search query
 $orderBy = "id"; // string | Order results by some field. Default is id
@@ -8214,8 +8268,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **ids** | **string**| Find message by ID(s) | [optional]
  **query** | **string**| Find recipients by specified search query | [optional]
  **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
@@ -8261,8 +8315,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $ids = "\"1,2,3,4\""; // string | Find lists by ID(s)
 $query = "\"A\""; // string | Find lists by specified search query
 $onlyMine = 0; // int | Return only current user lists
@@ -8283,8 +8337,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **ids** | **string**| Find lists by ID(s) | [optional]
  **query** | **string**| Find lists by specified search query | [optional]
  **onlyMine** | **int**| Return only current user lists | [optional] [default to 0]
@@ -8312,7 +8366,7 @@ Name | Type | Description  | Notes
 
 Find messages
 
-
+Find outbound messages by given parameters.
 
 ### Example
 ```php
@@ -8331,8 +8385,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $lastId = 56; // int | Filter results by ID, selecting all values lesser than the specified ID. Note that \\'page\\' parameter is ignored when \\'lastId\\' is specified
 $ids = "ids_example"; // string | Find message by ID(s)
 $sessionId = 56; // int | Find messages by session ID
@@ -8353,8 +8407,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **lastId** | **int**| Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified | [optional]
  **ids** | **string**| Find message by ID(s) | [optional]
  **sessionId** | **int**| Find messages by session ID | [optional]
@@ -8380,7 +8434,7 @@ Name | Type | Description  | Notes
 # **searchScheduledMessages**
 > \TextMagic\Models\SearchScheduledMessagesPaginatedResponse searchScheduledMessages($page, $limit, $query, $ids, $status, $orderBy, $direction)
 
-Find scheduled messages by given parameters.
+Find scheduled messages
 
 
 
@@ -8401,8 +8455,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $query = "query_example"; // string | Find messages by specified search query
 $ids = "ids_example"; // string | Find schedules by ID(s)
 $status = "x"; // string | Fetch schedules with the specific status: a - actual, c - completed, x - all
@@ -8422,8 +8476,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **query** | **string**| Find messages by specified search query | [optional]
  **ids** | **string**| Find schedules by ID(s) | [optional]
  **status** | **string**| Fetch schedules with the specific status: a - actual, c - completed, x - all | [optional] [default to x]
@@ -8448,7 +8502,7 @@ Name | Type | Description  | Notes
 # **searchTemplates**
 > \TextMagic\Models\SearchTemplatesPaginatedResponse searchTemplates($page, $limit, $ids, $name, $content)
 
-Find user templates by given parameters.
+Find templates by criteria
 
 
 
@@ -8469,8 +8523,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$page = 1; // int | Fetch specified results page
-$limit = 10; // int | How many results to return
+$page = 1; // int | Fetch specified results page.
+$limit = 10; // int | The number of results per page.
 $ids = "ids_example"; // string | Find template by ID(s)
 $name = "name_example"; // string | Find template by name
 $content = "content_example"; // string | Find template by content
@@ -8488,8 +8542,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page | [optional] [default to 1]
- **limit** | **int**| How many results to return | [optional] [default to 10]
+ **page** | **int**| Fetch specified results page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
  **ids** | **string**| Find template by ID(s) | [optional]
  **name** | **string**| Find template by name | [optional]
  **content** | **string**| Find template by content | [optional]
@@ -8565,7 +8619,7 @@ void (empty response body)
 
 Send message
 
-
+The main entrypoint to send messages. See examples above for the reference.
 
 ### Example
 ```php
@@ -8621,7 +8675,7 @@ Name | Type | Description  | Notes
 
 Send user phone verification
 
-Send Two-Factor Authentication Messages =======================================  You can easily verify your customers using their phone numbers with the help of 2FA (better known as two-factor authentication) and protect against fraud, build trust, and increase conversions. There is a simple way to do this with an API call to a TextMagic endpoint. With the help of TextMagic API you can:  *   Send two-factor authentication messages (2FA) *   Send one-time passwords (OTP) *   Integrate passwordless login into your app *   Protect your app from fraud  How does it work? -----------------  *   **Step 1:** Your server makes an API call to the TextMagic endpoint, and we send a text message (and later, as a fallback, a generate a text-to-speech voice call) with a verification code to the phone number supplied in the initial request.      *   **Step 2:** Once the code is received, the user enters it into the relevant input field in your app. This code needs to be passed to TextMagic in the second API call; if it is correct, the server will respond with the correct response code. This way, you can ensure that the recipient really owns the phone number entered into your app or form.
+
 
 ### Example
 ```php
@@ -8667,12 +8721,68 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **sendPhoneVerificationCode_0**
+> \TextMagic\Models\SendPhoneVerificationCodeResponse sendPhoneVerificationCode_0($sendPhoneVerificationCodeInputObject)
+
+Step 1: Send a verification code
+
+Sends verification code to specified phone number.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: BasicAuth
+$config = TextMagic\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new TextMagic\Api\TextMagicApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sendPhoneVerificationCodeInputObject = new \TextMagic\Models\SendPhoneVerificationCodeInputObject(); // \TextMagic\Models\SendPhoneVerificationCodeInputObject | 
+
+try {
+    $result = $apiInstance->sendPhoneVerificationCode_0($sendPhoneVerificationCodeInputObject);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->sendPhoneVerificationCode_0: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sendPhoneVerificationCodeInputObject** | [**\TextMagic\Models\SendPhoneVerificationCodeInputObject**](../Model/SendPhoneVerificationCodeInputObject.md)|  |
+
+### Return type
+
+[**\TextMagic\Models\SendPhoneVerificationCodeResponse**](../Model/SendPhoneVerificationCodeResponse.md)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **setChatStatus**
 > \TextMagic\Models\ResourceLinkResponse setChatStatus($setChatStatusInputObject)
 
+Change chat status
+
 Set status of the chat given by ID.
-
-
 
 ### Example
 ```php
@@ -8892,9 +9002,9 @@ void (empty response body)
 # **unmuteChatsBulk**
 > unmuteChatsBulk($unmuteChatsBulkInputObject)
 
+Unmute chats (bulk)
+
 Unmute several chats by chat ids or unmute all chats
-
-
 
 ### Example
 ```php
@@ -9795,7 +9905,7 @@ Name | Type | Description  | Notes
 # **updateTemplate**
 > \TextMagic\Models\ResourceLinkResponse updateTemplate($updateTemplateInputObject, $id)
 
-Update existing template.
+Update a template
 
 
 
@@ -10026,7 +10136,7 @@ Name | Type | Description  | Notes
 
 Upload message attachment
 
-
+Upload a new file to insert it as a link.
 
 ### Example
 ```php

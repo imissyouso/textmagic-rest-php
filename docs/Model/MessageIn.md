@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**sender** | **string** |  | 
-**receiver** | **string** |  | 
-**messageTime** | [**\DateTime**](\DateTime.md) |  | 
-**text** | **string** |  | 
+**id** | **int** | The ID of the inbound message. | 
+**sender** | **string** | The sender’s phone number. | 
+**receiver** | **string** | The receiver’s phone number (i.e. your dedicated or shared reply number). | 
+**messageTime** | [**\DateTime**](\DateTime.md) | The time when the message reached the TextMagic API endpoint. | 
+**text** | **string** | The text from the received message. | 
 **contactId** | **int** |  | [optional] 
 **firstName** | **string** |  | [optional] 
 **lastName** | **string** |  | [optional] 

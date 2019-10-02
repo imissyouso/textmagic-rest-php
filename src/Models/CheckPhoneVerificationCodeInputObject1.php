@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContactsPaginatedResponse
+ * CheckPhoneVerificationCodeInputObject1
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetContactsPaginatedResponse Class Doc Comment
+ * CheckPhoneVerificationCodeInputObject1 Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
+class CheckPhoneVerificationCodeInputObject1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactsPaginatedResponse';
+    protected static $swaggerModelName = 'CheckPhoneVerificationCodeInputObject_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page' => 'int',
-        'pageCount' => 'int',
-        'limit' => 'int',
-        'resources' => '\TextMagic\Models\Contact[]'
+        'code' => 'int',
+        'verifyId' => 'string'
     ];
 
     /**
@@ -69,10 +67,8 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page' => null,
-        'pageCount' => null,
-        'limit' => null,
-        'resources' => null
+        'code' => null,
+        'verifyId' => null
     ];
 
     /**
@@ -102,10 +98,8 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'page' => 'page',
-        'pageCount' => 'pageCount',
-        'limit' => 'limit',
-        'resources' => 'resources'
+        'code' => 'code',
+        'verifyId' => 'verifyId'
     ];
 
     /**
@@ -114,10 +108,8 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'page' => 'setPage',
-        'pageCount' => 'setPageCount',
-        'limit' => 'setLimit',
-        'resources' => 'setResources'
+        'code' => 'setCode',
+        'verifyId' => 'setVerifyId'
     ];
 
     /**
@@ -126,10 +118,8 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'page' => 'getPage',
-        'pageCount' => 'getPageCount',
-        'limit' => 'getLimit',
-        'resources' => 'getResources'
+        'code' => 'getCode',
+        'verifyId' => 'getVerifyId'
     ];
 
     /**
@@ -192,10 +182,8 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['verifyId'] = isset($data['verifyId']) ? $data['verifyId'] : null;
     }
 
     /**
@@ -207,17 +195,11 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['page'] === null) {
-            $invalidProperties[] = "'page' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
         }
-        if ($this->container['pageCount'] === null) {
-            $invalidProperties[] = "'pageCount' can't be null";
-        }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['resources'] === null) {
-            $invalidProperties[] = "'resources' can't be null";
+        if ($this->container['verifyId'] === null) {
+            $invalidProperties[] = "'verifyId' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,97 +217,49 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets page
+     * Gets code
      *
      * @return int
      */
-    public function getPage()
+    public function getCode()
     {
-        return $this->container['page'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets page
+     * Sets code
      *
-     * @param int $page page
+     * @param int $code Verification code that was received by the user and entered into the form field.
      *
      * @return $this
      */
-    public function setPage($page)
+    public function setCode($code)
     {
-        $this->container['page'] = $page;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets pageCount
+     * Gets verifyId
      *
-     * @return int
+     * @return string
      */
-    public function getPageCount()
+    public function getVerifyId()
     {
-        return $this->container['pageCount'];
+        return $this->container['verifyId'];
     }
 
     /**
-     * Sets pageCount
+     * Sets verifyId
      *
-     * @param int $pageCount The total number of pages.
+     * @param string $verifyId VerifyId from Step 1 to match both requests together.
      *
      * @return $this
      */
-    public function setPageCount($pageCount)
+    public function setVerifyId($verifyId)
     {
-        $this->container['pageCount'] = $pageCount;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit The number of results per page.
-     *
-     * @return $this
-     */
-    public function setLimit($limit)
-    {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets resources
-     *
-     * @return \TextMagic\Models\Contact[]
-     */
-    public function getResources()
-    {
-        return $this->container['resources'];
-    }
-
-    /**
-     * Sets resources
-     *
-     * @param \TextMagic\Models\Contact[] $resources resources
-     *
-     * @return $this
-     */
-    public function setResources($resources)
-    {
-        $this->container['resources'] = $resources;
+        $this->container['verifyId'] = $verifyId;
 
         return $this;
     }

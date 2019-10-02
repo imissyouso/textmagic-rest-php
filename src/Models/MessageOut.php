@@ -58,20 +58,20 @@ class MessageOut implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'sender' => 'string',
+        'receiver' => 'string',
+        'text' => 'string',
+        'status' => 'string',
         'contactId' => 'int',
         'sessionId' => 'int',
-        'receiver' => 'string',
         'messageTime' => '\DateTime',
-        'status' => 'string',
         'avatar' => 'string',
-        'text' => 'string',
         'deleted' => 'bool',
         'charset' => 'string',
         'charsetLabel' => 'string',
         'firstName' => 'string',
         'lastName' => 'string',
         'country' => 'string',
-        'sender' => 'string',
         'phone' => 'string',
         'price' => 'float',
         'partsCount' => 'int',
@@ -94,20 +94,20 @@ class MessageOut implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
+        'sender' => null,
+        'receiver' => null,
+        'text' => null,
+        'status' => null,
         'contactId' => null,
         'sessionId' => null,
-        'receiver' => null,
         'messageTime' => 'date-time',
-        'status' => null,
         'avatar' => null,
-        'text' => null,
         'deleted' => null,
         'charset' => null,
         'charsetLabel' => null,
         'firstName' => null,
         'lastName' => null,
         'country' => null,
-        'sender' => null,
         'phone' => null,
         'price' => 'float',
         'partsCount' => null,
@@ -151,20 +151,20 @@ class MessageOut implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'sender' => 'sender',
+        'receiver' => 'receiver',
+        'text' => 'text',
+        'status' => 'status',
         'contactId' => 'contactId',
         'sessionId' => 'sessionId',
-        'receiver' => 'receiver',
         'messageTime' => 'messageTime',
-        'status' => 'status',
         'avatar' => 'avatar',
-        'text' => 'text',
         'deleted' => 'deleted',
         'charset' => 'charset',
         'charsetLabel' => 'charsetLabel',
         'firstName' => 'firstName',
         'lastName' => 'lastName',
         'country' => 'country',
-        'sender' => 'sender',
         'phone' => 'phone',
         'price' => 'price',
         'partsCount' => 'partsCount',
@@ -187,20 +187,20 @@ class MessageOut implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'sender' => 'setSender',
+        'receiver' => 'setReceiver',
+        'text' => 'setText',
+        'status' => 'setStatus',
         'contactId' => 'setContactId',
         'sessionId' => 'setSessionId',
-        'receiver' => 'setReceiver',
         'messageTime' => 'setMessageTime',
-        'status' => 'setStatus',
         'avatar' => 'setAvatar',
-        'text' => 'setText',
         'deleted' => 'setDeleted',
         'charset' => 'setCharset',
         'charsetLabel' => 'setCharsetLabel',
         'firstName' => 'setFirstName',
         'lastName' => 'setLastName',
         'country' => 'setCountry',
-        'sender' => 'setSender',
         'phone' => 'setPhone',
         'price' => 'setPrice',
         'partsCount' => 'setPartsCount',
@@ -223,20 +223,20 @@ class MessageOut implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'sender' => 'getSender',
+        'receiver' => 'getReceiver',
+        'text' => 'getText',
+        'status' => 'getStatus',
         'contactId' => 'getContactId',
         'sessionId' => 'getSessionId',
-        'receiver' => 'getReceiver',
         'messageTime' => 'getMessageTime',
-        'status' => 'getStatus',
         'avatar' => 'getAvatar',
-        'text' => 'getText',
         'deleted' => 'getDeleted',
         'charset' => 'getCharset',
         'charsetLabel' => 'getCharsetLabel',
         'firstName' => 'getFirstName',
         'lastName' => 'getLastName',
         'country' => 'getCountry',
-        'sender' => 'getSender',
         'phone' => 'getPhone',
         'price' => 'getPrice',
         'partsCount' => 'getPartsCount',
@@ -350,20 +350,20 @@ class MessageOut implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
+        $this->container['receiver'] = isset($data['receiver']) ? $data['receiver'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['contactId'] = isset($data['contactId']) ? $data['contactId'] : null;
         $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
-        $this->container['receiver'] = isset($data['receiver']) ? $data['receiver'] : null;
         $this->container['messageTime'] = isset($data['messageTime']) ? $data['messageTime'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['avatar'] = isset($data['avatar']) ? $data['avatar'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['charset'] = isset($data['charset']) ? $data['charset'] : null;
         $this->container['charsetLabel'] = isset($data['charsetLabel']) ? $data['charsetLabel'] : null;
         $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
         $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['partsCount'] = isset($data['partsCount']) ? $data['partsCount'] : null;
@@ -391,14 +391,8 @@ class MessageOut implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['contactId'] === null) {
-            $invalidProperties[] = "'contactId' can't be null";
-        }
-        if ($this->container['sessionId'] === null) {
-            $invalidProperties[] = "'sessionId' can't be null";
-        }
-        if ($this->container['messageTime'] === null) {
-            $invalidProperties[] = "'messageTime' can't be null";
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -411,11 +405,17 @@ class MessageOut implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['contactId'] === null) {
+            $invalidProperties[] = "'contactId' can't be null";
+        }
+        if ($this->container['sessionId'] === null) {
+            $invalidProperties[] = "'sessionId' can't be null";
+        }
+        if ($this->container['messageTime'] === null) {
+            $invalidProperties[] = "'messageTime' can't be null";
+        }
         if ($this->container['avatar'] === null) {
             $invalidProperties[] = "'avatar' can't be null";
-        }
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
         }
         if ($this->container['charset'] === null) {
             $invalidProperties[] = "'charset' can't be null";
@@ -463,13 +463,118 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Message ID.
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender
+     *
+     * @return string
+     */
+    public function getSender()
+    {
+        return $this->container['sender'];
+    }
+
+    /**
+     * Sets sender
+     *
+     * @param string $sender Message sender (phone number or alphanumeric Sender ID).
+     *
+     * @return $this
+     */
+    public function setSender($sender)
+    {
+        $this->container['sender'] = $sender;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver
+     *
+     * @return string
+     */
+    public function getReceiver()
+    {
+        return $this->container['receiver'];
+    }
+
+    /**
+     * Sets receiver
+     *
+     * @param string $receiver Recipient phone number.
+     *
+     * @return $this
+     */
+    public function setReceiver($receiver)
+    {
+        $this->container['receiver'] = $receiver;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Delivery status of the message. @TODO: Please see the table below to see different delivery statuses.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
@@ -523,30 +628,6 @@ class MessageOut implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets receiver
-     *
-     * @return string
-     */
-    public function getReceiver()
-    {
-        return $this->container['receiver'];
-    }
-
-    /**
-     * Sets receiver
-     *
-     * @param string $receiver receiver
-     *
-     * @return $this
-     */
-    public function setReceiver($receiver)
-    {
-        $this->container['receiver'] = $receiver;
-
-        return $this;
-    }
-
-    /**
      * Gets messageTime
      *
      * @return \DateTime
@@ -559,46 +640,13 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets messageTime
      *
-     * @param \DateTime $messageTime messageTime
+     * @param \DateTime $messageTime Sending time.
      *
      * @return $this
      */
     public function setMessageTime($messageTime)
     {
         $this->container['messageTime'] = $messageTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status q - queued s - scheduled queue e - sending error r - enroute a - acked d - delivered b - buffered f - failed u - unknown j - rejected i - bulk insert p - scheduled suspend h - queue suspend
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
 
         return $this;
     }
@@ -623,30 +671,6 @@ class MessageOut implements ModelInterface, ArrayAccess
     public function setAvatar($avatar)
     {
         $this->container['avatar'] = $avatar;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
-     *
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string $text text
-     *
-     * @return $this
-     */
-    public function setText($text)
-    {
-        $this->container['text'] = $text;
 
         return $this;
     }
@@ -688,7 +712,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets charset
      *
-     * @param string $charset charset
+     * @param string $charset Message charset. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS
      *
      * @return $this
      */
@@ -736,7 +760,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName @TODO: Contact first name. Could be substituted from your [Contacts](/docs/api/contacts/) (even if you submitted phone number instead of contact ID).
      *
      * @return $this
      */
@@ -760,7 +784,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Contact last name.
      *
      * @return $this
      */
@@ -784,37 +808,13 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string $country Two-letter ISO country code of the recipient phone number.
      *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return string
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string $sender sender
-     *
-     * @return $this
-     */
-    public function setSender($sender)
-    {
-        $this->container['sender'] = $sender;
 
         return $this;
     }
@@ -880,7 +880,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets partsCount
      *
-     * @param int $partsCount partsCount
+     * @param int $partsCount Message parts (multiples of 160 characters) count.
      *
      * @return $this
      */

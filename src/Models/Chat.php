@@ -346,7 +346,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Chat ID.
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string $phone Chat partner phone number.
      *
      * @return $this
      */
@@ -466,7 +466,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets unread
      *
-     * @param int $unread unread
+     * @param int $unread Unread incoming messages count.
      *
      * @return $this
      */
@@ -490,7 +490,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets updatedAt
      *
-     * @param \DateTime $updatedAt updatedAt
+     * @param \DateTime $updatedAt Time when last incoming message arrived at this chat.
      *
      * @return $this
      */

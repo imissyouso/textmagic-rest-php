@@ -1,6 +1,6 @@
 <?php
 /**
- * GetForwardedCallsPaginatedResponse
+ * SendPhoneVerificationCodeResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetForwardedCallsPaginatedResponse Class Doc Comment
+ * SendPhoneVerificationCodeResponse Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
+class SendPhoneVerificationCodeResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetForwardedCallsPaginatedResponse';
+    protected static $swaggerModelName = 'SendPhoneVerificationCodeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page' => 'int',
-        'pageCount' => 'int',
-        'limit' => 'int',
-        'resources' => '\TextMagic\Models\ForwardedCall[]'
+        'verifyId' => 'string',
+        'price' => 'float'
     ];
 
     /**
@@ -69,10 +67,8 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page' => null,
-        'pageCount' => null,
-        'limit' => null,
-        'resources' => null
+        'verifyId' => null,
+        'price' => null
     ];
 
     /**
@@ -102,10 +98,8 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'page' => 'page',
-        'pageCount' => 'pageCount',
-        'limit' => 'limit',
-        'resources' => 'resources'
+        'verifyId' => 'verifyId',
+        'price' => 'price'
     ];
 
     /**
@@ -114,10 +108,8 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'page' => 'setPage',
-        'pageCount' => 'setPageCount',
-        'limit' => 'setLimit',
-        'resources' => 'setResources'
+        'verifyId' => 'setVerifyId',
+        'price' => 'setPrice'
     ];
 
     /**
@@ -126,10 +118,8 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'page' => 'getPage',
-        'pageCount' => 'getPageCount',
-        'limit' => 'getLimit',
-        'resources' => 'getResources'
+        'verifyId' => 'getVerifyId',
+        'price' => 'getPrice'
     ];
 
     /**
@@ -192,10 +182,8 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
+        $this->container['verifyId'] = isset($data['verifyId']) ? $data['verifyId'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -207,17 +195,11 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['page'] === null) {
-            $invalidProperties[] = "'page' can't be null";
+        if ($this->container['verifyId'] === null) {
+            $invalidProperties[] = "'verifyId' can't be null";
         }
-        if ($this->container['pageCount'] === null) {
-            $invalidProperties[] = "'pageCount' can't be null";
-        }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['resources'] === null) {
-            $invalidProperties[] = "'resources' can't be null";
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,97 +217,49 @@ class GetForwardedCallsPaginatedResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets page
+     * Gets verifyId
      *
-     * @return int
+     * @return string
      */
-    public function getPage()
+    public function getVerifyId()
     {
-        return $this->container['page'];
+        return $this->container['verifyId'];
     }
 
     /**
-     * Sets page
+     * Sets verifyId
      *
-     * @param int $page page
+     * @param string $verifyId The ID of a verification request. This is required to finish the verification request in the next step.
      *
      * @return $this
      */
-    public function setPage($page)
+    public function setVerifyId($verifyId)
     {
-        $this->container['page'] = $page;
+        $this->container['verifyId'] = $verifyId;
 
         return $this;
     }
 
     /**
-     * Gets pageCount
+     * Gets price
      *
-     * @return int
+     * @return float
      */
-    public function getPageCount()
+    public function getPrice()
     {
-        return $this->container['pageCount'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets pageCount
+     * Sets price
      *
-     * @param int $pageCount pageCount
+     * @param float $price Amount of credit which will be deducted from your account balance when this verification is successfully completed.
      *
      * @return $this
      */
-    public function setPageCount($pageCount)
+    public function setPrice($price)
     {
-        $this->container['pageCount'] = $pageCount;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit limit
-     *
-     * @return $this
-     */
-    public function setLimit($limit)
-    {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets resources
-     *
-     * @return \TextMagic\Models\ForwardedCall[]
-     */
-    public function getResources()
-    {
-        return $this->container['resources'];
-    }
-
-    /**
-     * Sets resources
-     *
-     * @param \TextMagic\Models\ForwardedCall[] $resources resources
-     *
-     * @return $this
-     */
-    public function setResources($resources)
-    {
-        $this->container['resources'] = $resources;
+        $this->container['price'] = $price;
 
         return $this;
     }

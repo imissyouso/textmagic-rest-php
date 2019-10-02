@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContactsPaginatedResponse
+ * SendPhoneVerificationCodeInputObject
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetContactsPaginatedResponse Class Doc Comment
+ * SendPhoneVerificationCodeInputObject Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
+class SendPhoneVerificationCodeInputObject implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactsPaginatedResponse';
+    protected static $swaggerModelName = 'SendPhoneVerificationCodeInputObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,12 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page' => 'int',
-        'pageCount' => 'int',
-        'limit' => 'int',
-        'resources' => '\TextMagic\Models\Contact[]'
+        'phone' => 'string',
+        'brand' => 'string',
+        'codeLength' => 'int',
+        'language' => 'string',
+        'senderId' => 'string',
+        'country' => 'string'
     ];
 
     /**
@@ -69,10 +71,12 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'page' => null,
-        'pageCount' => null,
-        'limit' => null,
-        'resources' => null
+        'phone' => null,
+        'brand' => null,
+        'codeLength' => null,
+        'language' => null,
+        'senderId' => null,
+        'country' => null
     ];
 
     /**
@@ -102,10 +106,12 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'page' => 'page',
-        'pageCount' => 'pageCount',
-        'limit' => 'limit',
-        'resources' => 'resources'
+        'phone' => 'phone',
+        'brand' => 'brand',
+        'codeLength' => 'codeLength',
+        'language' => 'language',
+        'senderId' => 'senderId',
+        'country' => 'country'
     ];
 
     /**
@@ -114,10 +120,12 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'page' => 'setPage',
-        'pageCount' => 'setPageCount',
-        'limit' => 'setLimit',
-        'resources' => 'setResources'
+        'phone' => 'setPhone',
+        'brand' => 'setBrand',
+        'codeLength' => 'setCodeLength',
+        'language' => 'setLanguage',
+        'senderId' => 'setSenderId',
+        'country' => 'setCountry'
     ];
 
     /**
@@ -126,10 +134,12 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'page' => 'getPage',
-        'pageCount' => 'getPageCount',
-        'limit' => 'getLimit',
-        'resources' => 'getResources'
+        'phone' => 'getPhone',
+        'brand' => 'getBrand',
+        'codeLength' => 'getCodeLength',
+        'language' => 'getLanguage',
+        'senderId' => 'getSenderId',
+        'country' => 'getCountry'
     ];
 
     /**
@@ -192,10 +202,12 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['codeLength'] = isset($data['codeLength']) ? $data['codeLength'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['senderId'] = isset($data['senderId']) ? $data['senderId'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
     }
 
     /**
@@ -207,17 +219,14 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['page'] === null) {
-            $invalidProperties[] = "'page' can't be null";
+        if ($this->container['phone'] === null) {
+            $invalidProperties[] = "'phone' can't be null";
         }
-        if ($this->container['pageCount'] === null) {
-            $invalidProperties[] = "'pageCount' can't be null";
+        if ($this->container['brand'] === null) {
+            $invalidProperties[] = "'brand' can't be null";
         }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['resources'] === null) {
-            $invalidProperties[] = "'resources' can't be null";
+        if ($this->container['codeLength'] === null) {
+            $invalidProperties[] = "'codeLength' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,97 +244,145 @@ class GetContactsPaginatedResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets page
+     * Gets phone
      *
-     * @return int
+     * @return string
      */
-    public function getPage()
+    public function getPhone()
     {
-        return $this->container['page'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets page
+     * Sets phone
      *
-     * @param int $page page
+     * @param string $phone Use the phone number in international E.164 format. If you need to pass phone numbers in the local format, please use them with the **country** parameter to specify the origin country of the phone number.
      *
      * @return $this
      */
-    public function setPage($page)
+    public function setPhone($phone)
     {
-        $this->container['page'] = $page;
+        $this->container['phone'] = $phone;
 
         return $this;
     }
 
     /**
-     * Gets pageCount
+     * Gets brand
      *
-     * @return int
+     * @return string
      */
-    public function getPageCount()
+    public function getBrand()
     {
-        return $this->container['pageCount'];
+        return $this->container['brand'];
     }
 
     /**
-     * Sets pageCount
+     * Sets brand
      *
-     * @param int $pageCount The total number of pages.
+     * @param string $brand Alphanumeric string with up to 18 characters you can use to personalize the verification text message body, to help users identify your company or application name. For example: “Your TextMagic PIN is …”
      *
      * @return $this
      */
-    public function setPageCount($pageCount)
+    public function setBrand($brand)
     {
-        $this->container['pageCount'] = $pageCount;
+        $this->container['brand'] = $brand;
 
         return $this;
     }
 
     /**
-     * Gets limit
+     * Gets codeLength
      *
      * @return int
      */
-    public function getLimit()
+    public function getCodeLength()
     {
-        return $this->container['limit'];
+        return $this->container['codeLength'];
     }
 
     /**
-     * Sets limit
+     * Sets codeLength
      *
-     * @param int $limit The number of results per page.
+     * @param int $codeLength The length of the verification code. The value can be 4 or 6 characters.
      *
      * @return $this
      */
-    public function setLimit($limit)
+    public function setCodeLength($codeLength)
     {
-        $this->container['limit'] = $limit;
+        $this->container['codeLength'] = $codeLength;
 
         return $this;
     }
 
     /**
-     * Gets resources
+     * Gets language
      *
-     * @return \TextMagic\Models\Contact[]
+     * @return string
      */
-    public function getResources()
+    public function getLanguage()
     {
-        return $this->container['resources'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets resources
+     * Sets language
      *
-     * @param \TextMagic\Models\Contact[] $resources resources
+     * @param string $language By default, the SMS or text-to-speech (TTS) voice message is generated in the locale that matches the number. For example, the text message or TTS message for a 33\\* number is sent in French. Use this parameter to explicitly control the language, accent, and gender used for the verification request.Can be one of the following: `de-de`, `en-au`, `en-gb`, `en-us`, `en-in`, `es-es`, `es-mx`, `es-us`, `fr-ca`, `fr-fr`, `is-is`, `it-it`, `ja-jp`, `ko-kr`, `nl-nl`, `pl-pl`, `pt-pt`, `pt-br`, `ro-ro`, `ru-ru`, `sv-se`, `tr-tr`, `zh-cn` or `zh-tw`.
      *
      * @return $this
      */
-    public function setResources($resources)
+    public function setLanguage($language)
     {
-        $this->container['resources'] = $resources;
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets senderId
+     *
+     * @return string
+     */
+    public function getSenderId()
+    {
+        return $this->container['senderId'];
+    }
+
+    /**
+     * Sets senderId
+     *
+     * @param string $senderId One of the available [sender settings](https://my.textmagic.com/online/reply-options/) on your TextMagic account. If specified sender setting type is not allowed for some destinations, a fallback default sender will be used to ensure the message delivery. More info about known restrictions can be found [here](https://support.textmagic.com/article/how-to-understand-sender-setting-restrictions/).
+     *
+     * @return $this
+     */
+    public function setSenderId($senderId)
+    {
+        $this->container['senderId'] = $senderId;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string $country 2-letter ISO country code for local phone number.
+     *
+     * @return $this
+     */
+    public function setCountry($country)
+    {
+        $this->container['country'] = $country;
 
         return $this;
     }

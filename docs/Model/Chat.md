@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
+**id** | **int** | Chat ID. | 
 **originalId** | **int** |  | 
-**phone** | **string** |  | 
+**phone** | **string** | Chat partner phone number. | 
 **contact** | [**\TextMagic\Models\Contact**](Contact.md) |  | 
 **unsubscribedContactId** | **int** |  | 
-**unread** | **int** |  | 
-**updatedAt** | [**\DateTime**](\DateTime.md) |  | 
+**unread** | **int** | Unread incoming messages count. | 
+**updatedAt** | [**\DateTime**](\DateTime.md) | Time when last incoming message arrived at this chat. | 
 **status** | **string** |  | 
 **mute** | **int** |  | 
 **lastMessage** | **string** |  | 

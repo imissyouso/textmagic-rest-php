@@ -364,7 +364,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Schedule ID.
      *
      * @return $this
      */
@@ -388,7 +388,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets nextSend
      *
-     * @param \DateTime $nextSend nextSend
+     * @param \DateTime $nextSend Next send date in [ISO 8601](https://en.wikipedia.org/?title=ISO_8601) format.
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets rrule
      *
-     * @param string $rrule rrule
+     * @param string $rrule [iCal RRULE](http://www.kanzaki.com/docs/ical/rrule.html) string.
      *
      * @return $this
      */

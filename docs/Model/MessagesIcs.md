@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**nextSend** | [**\DateTime**](\DateTime.md) |  | 
-**rrule** | **string** |  | 
+**id** | **int** | Schedule ID. | 
+**nextSend** | [**\DateTime**](\DateTime.md) | Next send date in [ISO 8601](https://en.wikipedia.org/?title&#x3D;ISO_8601) format. | 
+**rrule** | **string** | [iCal RRULE](http://www.kanzaki.com/docs/ical/rrule.html) string. | 
 **session** | [**\TextMagic\Models\MessageSession**](MessageSession.md) |  | 
 **lastSent** | [**\DateTime**](\DateTime.md) |  | 
 **contactName** | **string** |  | 

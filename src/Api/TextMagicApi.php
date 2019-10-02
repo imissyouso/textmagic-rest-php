@@ -1207,6 +1207,243 @@ class TextMagicApi
     }
 
     /**
+     * Operation cancelVerification
+     *
+     * Cancel verification process
+     *
+     * @param  string $verifyId the verifyId that you received in Step 1. (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function cancelVerification($verifyId)
+    {
+        $this->cancelVerificationWithHttpInfo($verifyId);
+    }
+
+    /**
+     * Operation cancelVerificationWithHttpInfo
+     *
+     * Cancel verification process
+     *
+     * @param  string $verifyId the verifyId that you received in Step 1. (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cancelVerificationWithHttpInfo($verifyId)
+    {
+        $returnType = '';
+        $request = $this->cancelVerificationRequest($verifyId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cancelVerificationAsync
+     *
+     * Cancel verification process
+     *
+     * @param  string $verifyId the verifyId that you received in Step 1. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cancelVerificationAsync($verifyId)
+    {
+        return $this->cancelVerificationAsyncWithHttpInfo($verifyId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cancelVerificationAsyncWithHttpInfo
+     *
+     * Cancel verification process
+     *
+     * @param  string $verifyId the verifyId that you received in Step 1. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cancelVerificationAsyncWithHttpInfo($verifyId)
+    {
+        $returnType = '';
+        $request = $this->cancelVerificationRequest($verifyId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cancelVerification'
+     *
+     * @param  string $verifyId the verifyId that you received in Step 1. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function cancelVerificationRequest($verifyId)
+    {
+        // verify the required parameter 'verifyId' is set
+        if ($verifyId === null || (is_array($verifyId) && count($verifyId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $verifyId when calling cancelVerification'
+            );
+        }
+
+        $resourcePath = '/api/v2/verify/{verifyId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($verifyId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'verifyId' . '}',
+                ObjectSerializer::toPathValue($verifyId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation checkPhoneVerificationCode
      *
      * Check user phone verification code
@@ -1367,6 +1604,246 @@ class TextMagicApi
         }
 
         $resourcePath = '/api/v2/user/phone/verification';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($checkPhoneVerificationCodeInputObject)) {
+            $_tempBody = $checkPhoneVerificationCodeInputObject;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation checkPhoneVerificationCode_0
+     *
+     * Step 2: Check the verification code
+     *
+     * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 $checkPhoneVerificationCodeInputObject checkPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function checkPhoneVerificationCode_0($checkPhoneVerificationCodeInputObject)
+    {
+        $this->checkPhoneVerificationCode_0WithHttpInfo($checkPhoneVerificationCodeInputObject);
+    }
+
+    /**
+     * Operation checkPhoneVerificationCode_0WithHttpInfo
+     *
+     * Step 2: Check the verification code
+     *
+     * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 $checkPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function checkPhoneVerificationCode_0WithHttpInfo($checkPhoneVerificationCodeInputObject)
+    {
+        $returnType = '';
+        $request = $this->checkPhoneVerificationCode_0Request($checkPhoneVerificationCodeInputObject);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\BadRequestResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation checkPhoneVerificationCode_0Async
+     *
+     * Step 2: Check the verification code
+     *
+     * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 $checkPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function checkPhoneVerificationCode_0Async($checkPhoneVerificationCodeInputObject)
+    {
+        return $this->checkPhoneVerificationCode_0AsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation checkPhoneVerificationCode_0AsyncWithHttpInfo
+     *
+     * Step 2: Check the verification code
+     *
+     * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 $checkPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function checkPhoneVerificationCode_0AsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
+    {
+        $returnType = '';
+        $request = $this->checkPhoneVerificationCode_0Request($checkPhoneVerificationCodeInputObject);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'checkPhoneVerificationCode_0'
+     *
+     * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 $checkPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function checkPhoneVerificationCode_0Request($checkPhoneVerificationCodeInputObject)
+    {
+        // verify the required parameter 'checkPhoneVerificationCodeInputObject' is set
+        if ($checkPhoneVerificationCodeInputObject === null || (is_array($checkPhoneVerificationCodeInputObject) && count($checkPhoneVerificationCodeInputObject) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $checkPhoneVerificationCodeInputObject when calling checkPhoneVerificationCode_0'
+            );
+        }
+
+        $resourcePath = '/api/v2/verify';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1753,7 +2230,7 @@ class TextMagicApi
     /**
      * Operation closeChatsBulk
      *
-     * Close chats by chat ids or close all chats
+     * Close chats (bulk)
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject closeChatsBulkInputObject (required)
      *
@@ -1769,7 +2246,7 @@ class TextMagicApi
     /**
      * Operation closeChatsBulkWithHttpInfo
      *
-     * Close chats by chat ids or close all chats
+     * Close chats (bulk)
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
      *
@@ -1838,7 +2315,7 @@ class TextMagicApi
     /**
      * Operation closeChatsBulkAsync
      *
-     * Close chats by chat ids or close all chats
+     * Close chats (bulk)
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
      *
@@ -1858,7 +2335,7 @@ class TextMagicApi
     /**
      * Operation closeChatsBulkAsyncWithHttpInfo
      *
-     * Close chats by chat ids or close all chats
+     * Close chats (bulk)
      *
      * @param  \TextMagic\Models\CloseChatsBulkInputObject $closeChatsBulkInputObject (required)
      *
@@ -1993,7 +2470,7 @@ class TextMagicApi
     /**
      * Operation closeReadChats
      *
-     * Close all chats that have no unread messages.
+     * Close read chats
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -2008,7 +2485,7 @@ class TextMagicApi
     /**
      * Operation closeReadChatsWithHttpInfo
      *
-     * Close all chats that have no unread messages.
+     * Close read chats
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -2068,7 +2545,7 @@ class TextMagicApi
     /**
      * Operation closeReadChatsAsync
      *
-     * Close all chats that have no unread messages.
+     * Close read chats
      *
      *
      * @throws \InvalidArgumentException
@@ -2087,7 +2564,7 @@ class TextMagicApi
     /**
      * Operation closeReadChatsAsyncWithHttpInfo
      *
-     * Close all chats that have no unread messages.
+     * Close read chats
      *
      *
      * @throws \InvalidArgumentException
@@ -4412,7 +4889,7 @@ class TextMagicApi
     /**
      * Operation createTemplate
      *
-     * Create a new template from the submitted data.
+     * Create a template
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject createTemplateInputObject (required)
      *
@@ -4429,7 +4906,7 @@ class TextMagicApi
     /**
      * Operation createTemplateWithHttpInfo
      *
-     * Create a new template from the submitted data.
+     * Create a template
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
      *
@@ -4512,7 +4989,7 @@ class TextMagicApi
     /**
      * Operation createTemplateAsync
      *
-     * Create a new template from the submitted data.
+     * Create a template
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
      *
@@ -4532,7 +5009,7 @@ class TextMagicApi
     /**
      * Operation createTemplateAsyncWithHttpInfo
      *
-     * Create a new template from the submitted data.
+     * Create a template
      *
      * @param  \TextMagic\Models\CreateTemplateInputObject $createTemplateInputObject (required)
      *
@@ -5327,7 +5804,7 @@ class TextMagicApi
     /**
      * Operation deleteChatMessages
      *
-     * Delete messages from chat by given messages ID(s).
+     * Delete chat messages by ID(s)
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject deleteChatMessagesBulkInputObject (required)
      * @param  int $id id (required)
@@ -5344,7 +5821,7 @@ class TextMagicApi
     /**
      * Operation deleteChatMessagesWithHttpInfo
      *
-     * Delete messages from chat by given messages ID(s).
+     * Delete chat messages by ID(s)
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
@@ -5414,7 +5891,7 @@ class TextMagicApi
     /**
      * Operation deleteChatMessagesAsync
      *
-     * Delete messages from chat by given messages ID(s).
+     * Delete chat messages by ID(s)
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
@@ -5435,7 +5912,7 @@ class TextMagicApi
     /**
      * Operation deleteChatMessagesAsyncWithHttpInfo
      *
-     * Delete messages from chat by given messages ID(s).
+     * Delete chat messages by ID(s)
      *
      * @param  \TextMagic\Models\DeleteChatMessagesBulkInputObject $deleteChatMessagesBulkInputObject (required)
      * @param  int $id (required)
@@ -5586,7 +6063,7 @@ class TextMagicApi
     /**
      * Operation deleteChatsBulk
      *
-     * Delete chats by given ID(s) or delete all chats.
+     * Delete chats (bulk)
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject deleteChatsBulkInputObject (required)
      *
@@ -5602,7 +6079,7 @@ class TextMagicApi
     /**
      * Operation deleteChatsBulkWithHttpInfo
      *
-     * Delete chats by given ID(s) or delete all chats.
+     * Delete chats (bulk)
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
      *
@@ -5671,7 +6148,7 @@ class TextMagicApi
     /**
      * Operation deleteChatsBulkAsync
      *
-     * Delete chats by given ID(s) or delete all chats.
+     * Delete chats (bulk)
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
      *
@@ -5691,7 +6168,7 @@ class TextMagicApi
     /**
      * Operation deleteChatsBulkAsyncWithHttpInfo
      *
-     * Delete chats by given ID(s) or delete all chats.
+     * Delete chats (bulk)
      *
      * @param  \TextMagic\Models\DeleteChatsBulkInputObject $deleteChatsBulkInputObject (required)
      *
@@ -7825,9 +8302,9 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessage
      *
-     * Delete the incoming message.
+     * Delete a single inbound message
      *
-     * @param  int $id id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7841,9 +8318,9 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessageWithHttpInfo
      *
-     * Delete the incoming message.
+     * Delete a single inbound message
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7910,9 +8387,9 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessageAsync
      *
-     * Delete the incoming message.
+     * Delete a single inbound message
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7930,9 +8407,9 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessageAsyncWithHttpInfo
      *
-     * Delete the incoming message.
+     * Delete a single inbound message
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7968,7 +8445,7 @@ class TextMagicApi
     /**
      * Create request for operation 'deleteInboundMessage'
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8070,7 +8547,7 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessagesBulk
      *
-     * Delete inbound messages by given ID(s) or delete all inbound messages.
+     * Delete inbound messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject deleteInboundMessagesBulkInputObject (required)
      *
@@ -8086,7 +8563,7 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessagesBulkWithHttpInfo
      *
-     * Delete inbound messages by given ID(s) or delete all inbound messages.
+     * Delete inbound messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
      *
@@ -8155,7 +8632,7 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessagesBulkAsync
      *
-     * Delete inbound messages by given ID(s) or delete all inbound messages.
+     * Delete inbound messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
      *
@@ -8175,7 +8652,7 @@ class TextMagicApi
     /**
      * Operation deleteInboundMessagesBulkAsyncWithHttpInfo
      *
-     * Delete inbound messages by given ID(s) or delete all inbound messages.
+     * Delete inbound messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteInboundMessagesBulkInputObject $deleteInboundMessagesBulkInputObject (required)
      *
@@ -9315,7 +9792,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSession
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a session
      *
      * @param  int $id id (required)
      *
@@ -9331,7 +9808,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionWithHttpInfo
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a session
      *
      * @param  int $id (required)
      *
@@ -9400,7 +9877,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionAsync
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a session
      *
      * @param  int $id (required)
      *
@@ -9420,7 +9897,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionAsyncWithHttpInfo
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a session
      *
      * @param  int $id (required)
      *
@@ -9560,7 +10037,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionsBulk
      *
-     * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+     * Delete sessions (bulk)
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject deleteMessageSessionsBulkInputObject (required)
      *
@@ -9576,7 +10053,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionsBulkWithHttpInfo
      *
-     * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+     * Delete sessions (bulk)
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
      *
@@ -9637,7 +10114,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionsBulkAsync
      *
-     * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+     * Delete sessions (bulk)
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
      *
@@ -9657,7 +10134,7 @@ class TextMagicApi
     /**
      * Operation deleteMessageSessionsBulkAsyncWithHttpInfo
      *
-     * Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+     * Delete sessions (bulk)
      *
      * @param  \TextMagic\Models\DeleteMessageSessionsBulkInputObject $deleteMessageSessionsBulkInputObject (required)
      *
@@ -10037,7 +10514,7 @@ class TextMagicApi
     /**
      * Operation deleteOutboundMessagesBulk
      *
-     * Delete messages by IDs
+     * Delete messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject deleteOutboundMessagesBulkInputObject (required)
      *
@@ -10053,7 +10530,7 @@ class TextMagicApi
     /**
      * Operation deleteOutboundMessagesBulkWithHttpInfo
      *
-     * Delete messages by IDs
+     * Delete messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
      *
@@ -10122,7 +10599,7 @@ class TextMagicApi
     /**
      * Operation deleteOutboundMessagesBulkAsync
      *
-     * Delete messages by IDs
+     * Delete messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
      *
@@ -10142,7 +10619,7 @@ class TextMagicApi
     /**
      * Operation deleteOutboundMessagesBulkAsyncWithHttpInfo
      *
-     * Delete messages by IDs
+     * Delete messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteOutboundMessagesBulkInputObject $deleteOutboundMessagesBulkInputObject (required)
      *
@@ -10549,7 +11026,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessage
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a single scheduled message
      *
      * @param  int $id id (required)
      *
@@ -10565,7 +11042,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessageWithHttpInfo
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a single scheduled message
      *
      * @param  int $id (required)
      *
@@ -10634,7 +11111,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessageAsync
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a single scheduled message
      *
      * @param  int $id (required)
      *
@@ -10654,7 +11131,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessageAsyncWithHttpInfo
      *
-     * Delete a message session, together with all nested messages.
+     * Delete a single scheduled message
      *
      * @param  int $id (required)
      *
@@ -10794,7 +11271,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessagesBulk
      *
-     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     * Delete scheduled messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject deleteScheduledMessagesBulkInputObject (required)
      *
@@ -10810,7 +11287,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessagesBulkWithHttpInfo
      *
-     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     * Delete scheduled messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
      *
@@ -10879,7 +11356,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessagesBulkAsync
      *
-     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     * Delete scheduled messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
      *
@@ -10899,7 +11376,7 @@ class TextMagicApi
     /**
      * Operation deleteScheduledMessagesBulkAsyncWithHttpInfo
      *
-     * Delete scheduled messages by given ID(s) or delete all scheduled messages.
+     * Delete scheduled messages (bulk)
      *
      * @param  \TextMagic\Models\DeleteScheduledMessagesBulkInputObject $deleteScheduledMessagesBulkInputObject (required)
      *
@@ -11753,7 +12230,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplate
      *
-     * Delete a single template.
+     * Delete a template
      *
      * @param  int $id id (required)
      *
@@ -11769,7 +12246,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplateWithHttpInfo
      *
-     * Delete a single template.
+     * Delete a template
      *
      * @param  int $id (required)
      *
@@ -11838,7 +12315,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplateAsync
      *
-     * Delete a single template.
+     * Delete a template
      *
      * @param  int $id (required)
      *
@@ -11858,7 +12335,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplateAsyncWithHttpInfo
      *
-     * Delete a single template.
+     * Delete a template
      *
      * @param  int $id (required)
      *
@@ -11998,7 +12475,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplatesBulk
      *
-     * Delete template by given ID(s) or delete all templates.
+     * Delete templates (bulk)
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject deleteTemplatesBulkInputObject (required)
      *
@@ -12014,7 +12491,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplatesBulkWithHttpInfo
      *
-     * Delete template by given ID(s) or delete all templates.
+     * Delete templates (bulk)
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
      *
@@ -12091,7 +12568,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplatesBulkAsync
      *
-     * Delete template by given ID(s) or delete all templates.
+     * Delete templates (bulk)
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
      *
@@ -12111,7 +12588,7 @@ class TextMagicApi
     /**
      * Operation deleteTemplatesBulkAsyncWithHttpInfo
      *
-     * Delete template by given ID(s) or delete all templates.
+     * Delete templates (bulk)
      *
      * @param  \TextMagic\Models\DeleteTemplatesBulkInputObject $deleteTemplatesBulkInputObject (required)
      *
@@ -13376,8 +13853,8 @@ class TextMagicApi
      *
      * Get all bulk sending sessions.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13394,8 +13871,8 @@ class TextMagicApi
      *
      * Get all bulk sending sessions.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13478,8 +13955,8 @@ class TextMagicApi
      *
      * Get all bulk sending sessions.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13499,8 +13976,8 @@ class TextMagicApi
      *
      * Get all bulk sending sessions.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13550,8 +14027,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getAllBulkSessions'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -13647,11 +14124,11 @@ class TextMagicApi
     /**
      * Operation getAllChats
      *
-     * Get all user chats.
+     * Get all chats
      *
      * @param  string $status Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  int $voice Fetch results with voice calls (optional, default to 0)
      * @param  int $flat Should additional contact info be included (optional, default to 0)
@@ -13669,11 +14146,11 @@ class TextMagicApi
     /**
      * Operation getAllChatsWithHttpInfo
      *
-     * Get all user chats.
+     * Get all chats
      *
      * @param  string $status Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  int $voice Fetch results with voice calls (optional, default to 0)
      * @param  int $flat Should additional contact info be included (optional, default to 0)
@@ -13757,11 +14234,11 @@ class TextMagicApi
     /**
      * Operation getAllChatsAsync
      *
-     * Get all user chats.
+     * Get all chats
      *
      * @param  string $status Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  int $voice Fetch results with voice calls (optional, default to 0)
      * @param  int $flat Should additional contact info be included (optional, default to 0)
@@ -13782,11 +14259,11 @@ class TextMagicApi
     /**
      * Operation getAllChatsAsyncWithHttpInfo
      *
-     * Get all user chats.
+     * Get all chats
      *
      * @param  string $status Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  int $voice Fetch results with voice calls (optional, default to 0)
      * @param  int $flat Should additional contact info be included (optional, default to 0)
@@ -13840,8 +14317,8 @@ class TextMagicApi
      * Create request for operation 'getAllChats'
      *
      * @param  string $status Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  int $voice Fetch results with voice calls (optional, default to 0)
      * @param  int $flat Should additional contact info be included (optional, default to 0)
@@ -13956,10 +14433,10 @@ class TextMagicApi
     /**
      * Operation getAllInboundMessages
      *
-     * Get all inbox messages.
+     * Get all inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -13976,10 +14453,10 @@ class TextMagicApi
     /**
      * Operation getAllInboundMessagesWithHttpInfo
      *
-     * Get all inbox messages.
+     * Get all inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -14062,10 +14539,10 @@ class TextMagicApi
     /**
      * Operation getAllInboundMessagesAsync
      *
-     * Get all inbox messages.
+     * Get all inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -14085,10 +14562,10 @@ class TextMagicApi
     /**
      * Operation getAllInboundMessagesAsyncWithHttpInfo
      *
-     * Get all inbox messages.
+     * Get all inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -14140,8 +14617,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getAllInboundMessages'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -14247,10 +14724,10 @@ class TextMagicApi
     /**
      * Operation getAllMessageSessions
      *
-     * Get all message sending sessions.
+     * Get all sessions
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14265,10 +14742,10 @@ class TextMagicApi
     /**
      * Operation getAllMessageSessionsWithHttpInfo
      *
-     * Get all message sending sessions.
+     * Get all sessions
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14349,10 +14826,10 @@ class TextMagicApi
     /**
      * Operation getAllMessageSessionsAsync
      *
-     * Get all message sending sessions.
+     * Get all sessions
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14370,10 +14847,10 @@ class TextMagicApi
     /**
      * Operation getAllMessageSessionsAsyncWithHttpInfo
      *
-     * Get all message sending sessions.
+     * Get all sessions
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14423,8 +14900,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getAllMessageSessions'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14522,8 +14999,8 @@ class TextMagicApi
      *
      * Get all messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -14541,8 +15018,8 @@ class TextMagicApi
      *
      * Get all messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -14634,8 +15111,8 @@ class TextMagicApi
      *
      * Get all messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      *
      * @throws \InvalidArgumentException
@@ -14656,8 +15133,8 @@ class TextMagicApi
      *
      * Get all messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      *
      * @throws \InvalidArgumentException
@@ -14708,8 +15185,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getAllOutboundMessages'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      *
      * @throws \InvalidArgumentException
@@ -14810,10 +15287,10 @@ class TextMagicApi
     /**
      * Operation getAllScheduledMessages
      *
-     * Get all scheduled messages.
+     * Get all scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -14831,10 +15308,10 @@ class TextMagicApi
     /**
      * Operation getAllScheduledMessagesWithHttpInfo
      *
-     * Get all scheduled messages.
+     * Get all scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -14918,10 +15395,10 @@ class TextMagicApi
     /**
      * Operation getAllScheduledMessagesAsync
      *
-     * Get all scheduled messages.
+     * Get all scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -14942,10 +15419,10 @@ class TextMagicApi
     /**
      * Operation getAllScheduledMessagesAsyncWithHttpInfo
      *
-     * Get all scheduled messages.
+     * Get all scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -14998,8 +15475,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getAllScheduledMessages'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -15110,10 +15587,10 @@ class TextMagicApi
     /**
      * Operation getAllTemplates
      *
-     * Get all user templates.
+     * Get all templates
      *
-     * @param  int $page Fetch specified results page (optional)
-     * @param  int $limit How many results to return (optional)
+     * @param  int $page Fetch specified results page. (optional)
+     * @param  int $limit The number of results per page. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15128,10 +15605,10 @@ class TextMagicApi
     /**
      * Operation getAllTemplatesWithHttpInfo
      *
-     * Get all user templates.
+     * Get all templates
      *
-     * @param  int $page Fetch specified results page (optional)
-     * @param  int $limit How many results to return (optional)
+     * @param  int $page Fetch specified results page. (optional)
+     * @param  int $limit The number of results per page. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15212,10 +15689,10 @@ class TextMagicApi
     /**
      * Operation getAllTemplatesAsync
      *
-     * Get all user templates.
+     * Get all templates
      *
-     * @param  int $page Fetch specified results page (optional)
-     * @param  int $limit How many results to return (optional)
+     * @param  int $page Fetch specified results page. (optional)
+     * @param  int $limit The number of results per page. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -15233,10 +15710,10 @@ class TextMagicApi
     /**
      * Operation getAllTemplatesAsyncWithHttpInfo
      *
-     * Get all user templates.
+     * Get all templates
      *
-     * @param  int $page Fetch specified results page (optional)
-     * @param  int $limit How many results to return (optional)
+     * @param  int $page Fetch specified results page. (optional)
+     * @param  int $limit The number of results per page. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -15286,8 +15763,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getAllTemplates'
      *
-     * @param  int $page Fetch specified results page (optional)
-     * @param  int $limit How many results to return (optional)
+     * @param  int $page Fetch specified results page. (optional)
+     * @param  int $limit The number of results per page. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -16463,8 +16940,8 @@ class TextMagicApi
      *
      * Get blocked contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find blocked contacts by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -16484,8 +16961,8 @@ class TextMagicApi
      *
      * Get blocked contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find blocked contacts by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -16579,8 +17056,8 @@ class TextMagicApi
      *
      * Get blocked contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find blocked contacts by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -16603,8 +17080,8 @@ class TextMagicApi
      *
      * Get blocked contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find blocked contacts by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -16657,8 +17134,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getBlockedContacts'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find blocked contacts by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -17561,7 +18038,7 @@ class TextMagicApi
     /**
      * Operation getChat
      *
-     * Get a single chat.
+     * Get a single chat
      *
      * @param  int $id id (required)
      *
@@ -17578,7 +18055,7 @@ class TextMagicApi
     /**
      * Operation getChatWithHttpInfo
      *
-     * Get a single chat.
+     * Get a single chat
      *
      * @param  int $id (required)
      *
@@ -17669,7 +18146,7 @@ class TextMagicApi
     /**
      * Operation getChatAsync
      *
-     * Get a single chat.
+     * Get a single chat
      *
      * @param  int $id (required)
      *
@@ -17689,7 +18166,7 @@ class TextMagicApi
     /**
      * Operation getChatAsyncWithHttpInfo
      *
-     * Get a single chat.
+     * Get a single chat
      *
      * @param  int $id (required)
      *
@@ -17843,7 +18320,7 @@ class TextMagicApi
     /**
      * Operation getChatByPhone
      *
-     * Find chats by phone.
+     * Find chats by phone
      *
      * @param  string $phone phone (required)
      * @param  int $upsert Create a new chat if not found (optional, default to 0)
@@ -17862,7 +18339,7 @@ class TextMagicApi
     /**
      * Operation getChatByPhoneWithHttpInfo
      *
-     * Find chats by phone.
+     * Find chats by phone
      *
      * @param  string $phone (required)
      * @param  int $upsert Create a new chat if not found (optional, default to 0)
@@ -17955,7 +18432,7 @@ class TextMagicApi
     /**
      * Operation getChatByPhoneAsync
      *
-     * Find chats by phone.
+     * Find chats by phone
      *
      * @param  string $phone (required)
      * @param  int $upsert Create a new chat if not found (optional, default to 0)
@@ -17977,7 +18454,7 @@ class TextMagicApi
     /**
      * Operation getChatByPhoneAsyncWithHttpInfo
      *
-     * Find chats by phone.
+     * Find chats by phone
      *
      * @param  string $phone (required)
      * @param  int $upsert Create a new chat if not found (optional, default to 0)
@@ -18143,11 +18620,11 @@ class TextMagicApi
     /**
      * Operation getChatMessages
      *
-     * Fetch messages from chat with specified chat id.
+     * Get chat messages
      *
      * @param  int $id id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  int $start Return messages since specified timestamp only (optional)
      * @param  int $end Return messages up to specified timestamp only (optional)
@@ -18167,11 +18644,11 @@ class TextMagicApi
     /**
      * Operation getChatMessagesWithHttpInfo
      *
-     * Fetch messages from chat with specified chat id.
+     * Get chat messages
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  int $start Return messages since specified timestamp only (optional)
      * @param  int $end Return messages up to specified timestamp only (optional)
@@ -18249,11 +18726,11 @@ class TextMagicApi
     /**
      * Operation getChatMessagesAsync
      *
-     * Fetch messages from chat with specified chat id.
+     * Get chat messages
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  int $start Return messages since specified timestamp only (optional)
      * @param  int $end Return messages up to specified timestamp only (optional)
@@ -18276,11 +18753,11 @@ class TextMagicApi
     /**
      * Operation getChatMessagesAsyncWithHttpInfo
      *
-     * Fetch messages from chat with specified chat id.
+     * Get chat messages
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  int $start Return messages since specified timestamp only (optional)
      * @param  int $end Return messages up to specified timestamp only (optional)
@@ -18336,8 +18813,8 @@ class TextMagicApi
      * Create request for operation 'getChatMessages'
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  int $start Return messages since specified timestamp only (optional)
      * @param  int $end Return messages up to specified timestamp only (optional)
@@ -19881,8 +20358,8 @@ class TextMagicApi
      * Fetch notes assigned to the given contact.
      *
      * @param  int $id id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -19900,8 +20377,8 @@ class TextMagicApi
      * Fetch notes assigned to the given contact.
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -19993,8 +20470,8 @@ class TextMagicApi
      * Fetch notes assigned to the given contact.
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -20015,8 +20492,8 @@ class TextMagicApi
      * Fetch notes assigned to the given contact.
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -20067,8 +20544,8 @@ class TextMagicApi
      * Create request for operation 'getContactNotes'
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -20180,8 +20657,8 @@ class TextMagicApi
      *
      * Get all user contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -20201,8 +20678,8 @@ class TextMagicApi
      *
      * Get all user contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -20288,8 +20765,8 @@ class TextMagicApi
      *
      * Get all user contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -20312,8 +20789,8 @@ class TextMagicApi
      *
      * Get all user contacts.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -20366,8 +20843,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getContacts'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
@@ -20481,7 +20958,7 @@ class TextMagicApi
      * Get contacts autocomplete suggestions by given search term.
      *
      * @param  string $query Find recipients by specified search query (required)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lists Should lists be returned or not (optional, default to 0)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -20500,7 +20977,7 @@ class TextMagicApi
      * Get contacts autocomplete suggestions by given search term.
      *
      * @param  string $query Find recipients by specified search query (required)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lists Should lists be returned or not (optional, default to 0)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -20585,7 +21062,7 @@ class TextMagicApi
      * Get contacts autocomplete suggestions by given search term.
      *
      * @param  string $query Find recipients by specified search query (required)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lists Should lists be returned or not (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -20607,7 +21084,7 @@ class TextMagicApi
      * Get contacts autocomplete suggestions by given search term.
      *
      * @param  string $query Find recipients by specified search query (required)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lists Should lists be returned or not (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -20659,7 +21136,7 @@ class TextMagicApi
      * Create request for operation 'getContactsAutocomplete'
      *
      * @param  string $query Find recipients by specified search query (required)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lists Should lists be returned or not (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -20769,8 +21246,8 @@ class TextMagicApi
      * Fetch user contacts by given group id.
      *
      * @param  int $id Given group Id. (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -20790,8 +21267,8 @@ class TextMagicApi
      * Fetch user contacts by given group id.
      *
      * @param  int $id Given group Id. (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -20885,8 +21362,8 @@ class TextMagicApi
      * Fetch user contacts by given group id.
      *
      * @param  int $id Given group Id. (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -20909,8 +21386,8 @@ class TextMagicApi
      * Fetch user contacts by given group id.
      *
      * @param  int $id Given group Id. (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -20963,8 +21440,8 @@ class TextMagicApi
      * Create request for operation 'getContactsByListId'
      *
      * @param  int $id Given group Id. (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      *
@@ -21878,8 +22355,8 @@ class TextMagicApi
      *
      * Get all contact custom fields.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -21896,8 +22373,8 @@ class TextMagicApi
      *
      * Get all contact custom fields.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -21980,8 +22457,8 @@ class TextMagicApi
      *
      * Get all contact custom fields.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -22001,8 +22478,8 @@ class TextMagicApi
      *
      * Get all contact custom fields.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -22052,8 +22529,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getCustomFields'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -22688,8 +23165,8 @@ class TextMagicApi
      *
      * Get favorite contacts and lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find contacts or lists by specified search query (optional, default to A)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -22707,8 +23184,8 @@ class TextMagicApi
      *
      * Get favorite contacts and lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find contacts or lists by specified search query (optional, default to A)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -22792,8 +23269,8 @@ class TextMagicApi
      *
      * Get favorite contacts and lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find contacts or lists by specified search query (optional, default to A)
      *
      * @throws \InvalidArgumentException
@@ -22814,8 +23291,8 @@ class TextMagicApi
      *
      * Get favorite contacts and lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find contacts or lists by specified search query (optional, default to A)
      *
      * @throws \InvalidArgumentException
@@ -22866,8 +23343,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getFavourites'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find contacts or lists by specified search query (optional, default to A)
      *
      * @throws \InvalidArgumentException
@@ -22966,284 +23443,11 @@ class TextMagicApi
     }
 
     /**
-     * Operation getForwardedCalls
-     *
-     * Get all forwarded calls.
-     *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
-     *
-     * @throws \TextMagic\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetForwardedCallsPaginatedResponse
-     */
-    public function getForwardedCalls($page = '1', $limit = '10')
-    {
-        list($response) = $this->getForwardedCallsWithHttpInfo($page, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation getForwardedCallsWithHttpInfo
-     *
-     * Get all forwarded calls.
-     *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
-     *
-     * @throws \TextMagic\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetForwardedCallsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getForwardedCallsWithHttpInfo($page = '1', $limit = '10')
-    {
-        $returnType = '\TextMagic\Models\GetForwardedCallsPaginatedResponse';
-        $request = $this->getForwardedCallsRequest($page, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TextMagic\Models\GetForwardedCallsPaginatedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TextMagic\Models\UnauthorizedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getForwardedCallsAsync
-     *
-     * Get all forwarded calls.
-     *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getForwardedCallsAsync($page = '1', $limit = '10')
-    {
-        return $this->getForwardedCallsAsyncWithHttpInfo($page, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getForwardedCallsAsyncWithHttpInfo
-     *
-     * Get all forwarded calls.
-     *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getForwardedCallsAsyncWithHttpInfo($page = '1', $limit = '10')
-    {
-        $returnType = '\TextMagic\Models\GetForwardedCallsPaginatedResponse';
-        $request = $this->getForwardedCallsRequest($page, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getForwardedCalls'
-     *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getForwardedCallsRequest($page = '1', $limit = '10')
-    {
-
-        $resourcePath = '/api/v2/calls';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
-        }
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getInboundMessage
      *
-     * Get a single inbox message.
+     * Get a single inbound message
      *
-     * @param  int $id id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -23258,9 +23462,9 @@ class TextMagicApi
     /**
      * Operation getInboundMessageWithHttpInfo
      *
-     * Get a single inbox message.
+     * Get a single inbound message
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -23349,9 +23553,9 @@ class TextMagicApi
     /**
      * Operation getInboundMessageAsync
      *
-     * Get a single inbox message.
+     * Get a single inbound message
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -23369,9 +23573,9 @@ class TextMagicApi
     /**
      * Operation getInboundMessageAsyncWithHttpInfo
      *
-     * Get a single inbox message.
+     * Get a single inbound message
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -23421,7 +23625,7 @@ class TextMagicApi
     /**
      * Create request for operation 'getInboundMessage'
      *
-     * @param  int $id (required)
+     * @param  int $id The unique numeric ID for the inbound message. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -23780,8 +23984,8 @@ class TextMagicApi
      *
      * Return account invoices.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -23798,8 +24002,8 @@ class TextMagicApi
      *
      * Return account invoices.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -23890,8 +24094,8 @@ class TextMagicApi
      *
      * Return account invoices.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -23911,8 +24115,8 @@ class TextMagicApi
      *
      * Return account invoices.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -23962,8 +24166,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getInvoices'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -24626,8 +24830,8 @@ class TextMagicApi
      * Return lists which contact belongs to.
      *
      * @param  int $id id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -24645,8 +24849,8 @@ class TextMagicApi
      * Return lists which contact belongs to.
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -24738,8 +24942,8 @@ class TextMagicApi
      * Return lists which contact belongs to.
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -24760,8 +24964,8 @@ class TextMagicApi
      * Return lists which contact belongs to.
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -24812,8 +25016,8 @@ class TextMagicApi
      * Create request for operation 'getListsOfContact'
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -26019,9 +26223,9 @@ class TextMagicApi
     /**
      * Operation getMessageSession
      *
-     * Get a message session.
+     * Get a session details
      *
-     * @param  int $id id (required)
+     * @param  int $id a session ID (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -26036,9 +26240,9 @@ class TextMagicApi
     /**
      * Operation getMessageSessionWithHttpInfo
      *
-     * Get a message session.
+     * Get a session details
      *
-     * @param  int $id (required)
+     * @param  int $id a session ID (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -26127,9 +26331,9 @@ class TextMagicApi
     /**
      * Operation getMessageSessionAsync
      *
-     * Get a message session.
+     * Get a session details
      *
-     * @param  int $id (required)
+     * @param  int $id a session ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -26147,9 +26351,9 @@ class TextMagicApi
     /**
      * Operation getMessageSessionAsyncWithHttpInfo
      *
-     * Get a message session.
+     * Get a session details
      *
-     * @param  int $id (required)
+     * @param  int $id a session ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -26199,7 +26403,7 @@ class TextMagicApi
     /**
      * Create request for operation 'getMessageSession'
      *
-     * @param  int $id (required)
+     * @param  int $id a session ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -26301,7 +26505,7 @@ class TextMagicApi
     /**
      * Operation getMessageSessionStat
      *
-     * Get sending session statistics.
+     * Get a session statistics
      *
      * @param  int $id id (required)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
@@ -26319,7 +26523,7 @@ class TextMagicApi
     /**
      * Operation getMessageSessionStatWithHttpInfo
      *
-     * Get sending session statistics.
+     * Get a session statistics
      *
      * @param  int $id (required)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
@@ -26411,7 +26615,7 @@ class TextMagicApi
     /**
      * Operation getMessageSessionStatAsync
      *
-     * Get sending session statistics.
+     * Get a session statistics
      *
      * @param  int $id (required)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
@@ -26432,7 +26636,7 @@ class TextMagicApi
     /**
      * Operation getMessageSessionStatAsyncWithHttpInfo
      *
-     * Get sending session statistics.
+     * Get a session statistics
      *
      * @param  int $id (required)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
@@ -26592,11 +26796,11 @@ class TextMagicApi
     /**
      * Operation getMessagesBySessionId
      *
-     * Fetch messages by given session id.
+     * Get a session messages
      *
      * @param  int $id id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $statuses Find messages by status (optional)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
      *
@@ -26613,11 +26817,11 @@ class TextMagicApi
     /**
      * Operation getMessagesBySessionIdWithHttpInfo
      *
-     * Fetch messages by given session id.
+     * Get a session messages
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $statuses Find messages by status (optional)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
      *
@@ -26700,11 +26904,11 @@ class TextMagicApi
     /**
      * Operation getMessagesBySessionIdAsync
      *
-     * Fetch messages by given session id.
+     * Get a session messages
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $statuses Find messages by status (optional)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
      *
@@ -26724,11 +26928,11 @@ class TextMagicApi
     /**
      * Operation getMessagesBySessionIdAsyncWithHttpInfo
      *
-     * Fetch messages by given session id.
+     * Get a session messages
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $statuses Find messages by status (optional)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
      *
@@ -26781,8 +26985,8 @@ class TextMagicApi
      * Create request for operation 'getMessagesBySessionId'
      *
      * @param  int $id (required)
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $statuses Find messages by status (optional)
      * @param  int $includeDeleted Search also in deleted messages (optional, default to 0)
      *
@@ -27731,7 +27935,7 @@ class TextMagicApi
      *
      * Get history
      *
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
      * @param  string $query Find message by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -27752,7 +27956,7 @@ class TextMagicApi
      *
      * Get history
      *
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
      * @param  string $query Find message by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -27847,7 +28051,7 @@ class TextMagicApi
      *
      * Get history
      *
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
      * @param  string $query Find message by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -27871,7 +28075,7 @@ class TextMagicApi
      *
      * Get history
      *
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
      * @param  string $query Find message by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -27925,7 +28129,7 @@ class TextMagicApi
     /**
      * Create request for operation 'getOutboundMessagesHistory'
      *
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. (optional)
      * @param  string $query Find message by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -28292,7 +28496,7 @@ class TextMagicApi
     /**
      * Operation getScheduledMessage
      *
-     * Get message schedule.
+     * Get a single scheduled message
      *
      * @param  int $id id (required)
      *
@@ -28309,7 +28513,7 @@ class TextMagicApi
     /**
      * Operation getScheduledMessageWithHttpInfo
      *
-     * Get message schedule.
+     * Get a single scheduled message
      *
      * @param  int $id (required)
      *
@@ -28400,7 +28604,7 @@ class TextMagicApi
     /**
      * Operation getScheduledMessageAsync
      *
-     * Get message schedule.
+     * Get a single scheduled message
      *
      * @param  int $id (required)
      *
@@ -28420,7 +28624,7 @@ class TextMagicApi
     /**
      * Operation getScheduledMessageAsyncWithHttpInfo
      *
-     * Get message schedule.
+     * Get a single scheduled message
      *
      * @param  int $id (required)
      *
@@ -28858,8 +29062,8 @@ class TextMagicApi
      *
      * Get all sender IDs of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -28876,8 +29080,8 @@ class TextMagicApi
      *
      * Get all sender IDs of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -28960,8 +29164,8 @@ class TextMagicApi
      *
      * Get all sender IDs of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -28981,8 +29185,8 @@ class TextMagicApi
      *
      * Get all sender IDs of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -29032,8 +29236,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getSenderIds'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -29395,8 +29599,8 @@ class TextMagicApi
      *
      * Return account spending statistics.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
      * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
@@ -29415,8 +29619,8 @@ class TextMagicApi
      *
      * Return account spending statistics.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
      * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
@@ -29509,8 +29713,8 @@ class TextMagicApi
      *
      * Return account spending statistics.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
      * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
@@ -29532,8 +29736,8 @@ class TextMagicApi
      *
      * Return account spending statistics.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
      * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
@@ -29585,8 +29789,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getSpendingStat'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
      * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
      *
@@ -30231,8 +30435,8 @@ class TextMagicApi
      *
      * Get all subaccounts of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -30249,8 +30453,8 @@ class TextMagicApi
      *
      * Get all subaccounts of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -30333,8 +30537,8 @@ class TextMagicApi
      *
      * Get all subaccounts of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -30354,8 +30558,8 @@ class TextMagicApi
      *
      * Get all subaccounts of current user.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -30405,8 +30609,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getSubaccounts'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -30505,8 +30709,8 @@ class TextMagicApi
      * Get all subaccounts with their REST API tokens associated with specified app name.
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject getSubaccountsWithTokensInputObject (required)
-     * @param  float $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  float $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -30524,8 +30728,8 @@ class TextMagicApi
      * Get all subaccounts with their REST API tokens associated with specified app name.
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
-     * @param  float $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  float $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -30617,8 +30821,8 @@ class TextMagicApi
      * Get all subaccounts with their REST API tokens associated with specified app name.
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
-     * @param  float $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  float $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -30639,8 +30843,8 @@ class TextMagicApi
      * Get all subaccounts with their REST API tokens associated with specified app name.
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
-     * @param  float $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  float $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -30691,8 +30895,8 @@ class TextMagicApi
      * Create request for operation 'getSubaccountsWithTokens'
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
-     * @param  float $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  float $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -31645,8 +31849,8 @@ class TextMagicApi
      *
      * Get all user surveys.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -31663,8 +31867,8 @@ class TextMagicApi
      *
      * Get all user surveys.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -31747,8 +31951,8 @@ class TextMagicApi
      *
      * Get all user surveys.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -31768,8 +31972,8 @@ class TextMagicApi
      *
      * Get all user surveys.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -31819,8 +32023,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getSurveys'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -31916,7 +32120,7 @@ class TextMagicApi
     /**
      * Operation getTemplate
      *
-     * Get a single template.
+     * Get a template details
      *
      * @param  int $id id (required)
      *
@@ -31933,7 +32137,7 @@ class TextMagicApi
     /**
      * Operation getTemplateWithHttpInfo
      *
-     * Get a single template.
+     * Get a template details
      *
      * @param  int $id (required)
      *
@@ -32024,7 +32228,7 @@ class TextMagicApi
     /**
      * Operation getTemplateAsync
      *
-     * Get a single template.
+     * Get a template details
      *
      * @param  int $id (required)
      *
@@ -32044,7 +32248,7 @@ class TextMagicApi
     /**
      * Operation getTemplateAsyncWithHttpInfo
      *
-     * Get a single template.
+     * Get a template details
      *
      * @param  int $id (required)
      *
@@ -32470,7 +32674,7 @@ class TextMagicApi
     /**
      * Operation getUnreadMessagesTotal
      *
-     * Get total amount of unread messages in the current user chats.
+     * Get unread messages number
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -32486,7 +32690,7 @@ class TextMagicApi
     /**
      * Operation getUnreadMessagesTotalWithHttpInfo
      *
-     * Get total amount of unread messages in the current user chats.
+     * Get unread messages number
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -32568,7 +32772,7 @@ class TextMagicApi
     /**
      * Operation getUnreadMessagesTotalAsync
      *
-     * Get total amount of unread messages in the current user chats.
+     * Get unread messages number
      *
      *
      * @throws \InvalidArgumentException
@@ -32587,7 +32791,7 @@ class TextMagicApi
     /**
      * Operation getUnreadMessagesTotalAsyncWithHttpInfo
      *
-     * Get total amount of unread messages in the current user chats.
+     * Get unread messages number
      *
      *
      * @throws \InvalidArgumentException
@@ -33009,8 +33213,8 @@ class TextMagicApi
      *
      * Get all contact have unsubscribed from your communication.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -33027,8 +33231,8 @@ class TextMagicApi
      *
      * Get all contact have unsubscribed from your communication.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -33111,8 +33315,8 @@ class TextMagicApi
      *
      * Get all contact have unsubscribed from your communication.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33132,8 +33336,8 @@ class TextMagicApi
      *
      * Get all contact have unsubscribed from your communication.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33183,8 +33387,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getUnsubscribers'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -33282,8 +33486,8 @@ class TextMagicApi
      *
      * Get user's dedicated numbers.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $surveyId Fetch only that numbers which are ready for the survey (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -33301,8 +33505,8 @@ class TextMagicApi
      *
      * Get user's dedicated numbers.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $surveyId Fetch only that numbers which are ready for the survey (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -33394,8 +33598,8 @@ class TextMagicApi
      *
      * Get user's dedicated numbers.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $surveyId Fetch only that numbers which are ready for the survey (optional)
      *
      * @throws \InvalidArgumentException
@@ -33416,8 +33620,8 @@ class TextMagicApi
      *
      * Get user's dedicated numbers.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $surveyId Fetch only that numbers which are ready for the survey (optional)
      *
      * @throws \InvalidArgumentException
@@ -33468,8 +33672,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getUserDedicatedNumbers'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $surveyId Fetch only that numbers which are ready for the survey (optional)
      *
      * @throws \InvalidArgumentException
@@ -33572,8 +33776,8 @@ class TextMagicApi
      *
      * Get all user lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
@@ -33594,8 +33798,8 @@ class TextMagicApi
      *
      * Get all user lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
@@ -33690,8 +33894,8 @@ class TextMagicApi
      *
      * Get all user lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
@@ -33715,8 +33919,8 @@ class TextMagicApi
      *
      * Get all user lists.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
@@ -33770,8 +33974,8 @@ class TextMagicApi
     /**
      * Create request for operation 'getUserLists'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      * @param  string $direction Order direction. Default is desc (optional, default to desc)
      * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
@@ -34390,7 +34594,7 @@ class TextMagicApi
     /**
      * Operation markChatsReadBulk
      *
-     * Mark several chats as read by chat ids or mark all chats as read
+     * Mark chats as read (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject markChatsReadBulkInputObject (required)
      *
@@ -34406,7 +34610,7 @@ class TextMagicApi
     /**
      * Operation markChatsReadBulkWithHttpInfo
      *
-     * Mark several chats as read by chat ids or mark all chats as read
+     * Mark chats as read (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
      *
@@ -34475,7 +34679,7 @@ class TextMagicApi
     /**
      * Operation markChatsReadBulkAsync
      *
-     * Mark several chats as read by chat ids or mark all chats as read
+     * Mark chats as read (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
      *
@@ -34495,7 +34699,7 @@ class TextMagicApi
     /**
      * Operation markChatsReadBulkAsyncWithHttpInfo
      *
-     * Mark several chats as read by chat ids or mark all chats as read
+     * Mark chats as read (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsReadBulkInputObject $markChatsReadBulkInputObject (required)
      *
@@ -34630,7 +34834,7 @@ class TextMagicApi
     /**
      * Operation markChatsUnreadBulk
      *
-     * Mark several chats as UNread by chat ids or mark all chats as UNread
+     * Mark chats as unread (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject markChatsUnreadBulkInputObject (required)
      *
@@ -34646,7 +34850,7 @@ class TextMagicApi
     /**
      * Operation markChatsUnreadBulkWithHttpInfo
      *
-     * Mark several chats as UNread by chat ids or mark all chats as UNread
+     * Mark chats as unread (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
      *
@@ -34715,7 +34919,7 @@ class TextMagicApi
     /**
      * Operation markChatsUnreadBulkAsync
      *
-     * Mark several chats as UNread by chat ids or mark all chats as UNread
+     * Mark chats as unread (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
      *
@@ -34735,7 +34939,7 @@ class TextMagicApi
     /**
      * Operation markChatsUnreadBulkAsyncWithHttpInfo
      *
-     * Mark several chats as UNread by chat ids or mark all chats as UNread
+     * Mark chats as unread (bulk)
      *
      * @param  \TextMagic\Models\MarkChatsUnreadBulkInputObject $markChatsUnreadBulkInputObject (required)
      *
@@ -35118,7 +35322,7 @@ class TextMagicApi
     /**
      * Operation muteChat
      *
-     * Set mute mode.
+     * Mute chat sounds
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject muteChatInputObject (required)
      *
@@ -35135,7 +35339,7 @@ class TextMagicApi
     /**
      * Operation muteChatWithHttpInfo
      *
-     * Set mute mode.
+     * Mute chat sounds
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
      *
@@ -35234,7 +35438,7 @@ class TextMagicApi
     /**
      * Operation muteChatAsync
      *
-     * Set mute mode.
+     * Mute chat sounds
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
      *
@@ -35254,7 +35458,7 @@ class TextMagicApi
     /**
      * Operation muteChatAsyncWithHttpInfo
      *
-     * Set mute mode.
+     * Mute chat sounds
      *
      * @param  \TextMagic\Models\MuteChatInputObject $muteChatInputObject (required)
      *
@@ -35403,7 +35607,7 @@ class TextMagicApi
     /**
      * Operation muteChatsBulk
      *
-     * Mute several chats by chat ids or mute all chats
+     * Mute chats (bulk)
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject muteChatsBulkInputObject (required)
      *
@@ -35419,7 +35623,7 @@ class TextMagicApi
     /**
      * Operation muteChatsBulkWithHttpInfo
      *
-     * Mute several chats by chat ids or mute all chats
+     * Mute chats (bulk)
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
      *
@@ -35488,7 +35692,7 @@ class TextMagicApi
     /**
      * Operation muteChatsBulkAsync
      *
-     * Mute several chats by chat ids or mute all chats
+     * Mute chats (bulk)
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
      *
@@ -35508,7 +35712,7 @@ class TextMagicApi
     /**
      * Operation muteChatsBulkAsyncWithHttpInfo
      *
-     * Mute several chats by chat ids or mute all chats
+     * Mute chats (bulk)
      *
      * @param  \TextMagic\Models\MuteChatsBulkInputObject $muteChatsBulkInputObject (required)
      *
@@ -35898,7 +36102,7 @@ class TextMagicApi
     /**
      * Operation reopenChatsBulk
      *
-     * Reopen chats by chat ids or reopen all chats
+     * Reopen chats (bulk)
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject reopenChatsBulkInputObject (required)
      *
@@ -35914,7 +36118,7 @@ class TextMagicApi
     /**
      * Operation reopenChatsBulkWithHttpInfo
      *
-     * Reopen chats by chat ids or reopen all chats
+     * Reopen chats (bulk)
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
      *
@@ -35983,7 +36187,7 @@ class TextMagicApi
     /**
      * Operation reopenChatsBulkAsync
      *
-     * Reopen chats by chat ids or reopen all chats
+     * Reopen chats (bulk)
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
      *
@@ -36003,7 +36207,7 @@ class TextMagicApi
     /**
      * Operation reopenChatsBulkAsyncWithHttpInfo
      *
-     * Reopen chats by chat ids or reopen all chats
+     * Reopen chats (bulk)
      *
      * @param  \TextMagic\Models\ReopenChatsBulkInputObject $reopenChatsBulkInputObject (required)
      *
@@ -36974,10 +37178,10 @@ class TextMagicApi
     /**
      * Operation searchChats
      *
-     * Find chats by inbound or outbound messages text.
+     * Find chats by message text
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -36993,10 +37197,10 @@ class TextMagicApi
     /**
      * Operation searchChatsWithHttpInfo
      *
-     * Find chats by inbound or outbound messages text.
+     * Find chats by message text
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -37078,10 +37282,10 @@ class TextMagicApi
     /**
      * Operation searchChatsAsync
      *
-     * Find chats by inbound or outbound messages text.
+     * Find chats by message text
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      *
      * @throws \InvalidArgumentException
@@ -37100,10 +37304,10 @@ class TextMagicApi
     /**
      * Operation searchChatsAsyncWithHttpInfo
      *
-     * Find chats by inbound or outbound messages text.
+     * Find chats by message text
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      *
      * @throws \InvalidArgumentException
@@ -37154,8 +37358,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchChats'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      *
      * @throws \InvalidArgumentException
@@ -37256,10 +37460,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByIds
      *
-     * Find chats by IDs.
+     * Find chats (bulk)
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find chats by ID(s) (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -37275,10 +37479,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByIdsWithHttpInfo
      *
-     * Find chats by IDs.
+     * Find chats (bulk)
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find chats by ID(s) (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -37360,10 +37564,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByIdsAsync
      *
-     * Find chats by IDs.
+     * Find chats (bulk)
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find chats by ID(s) (optional)
      *
      * @throws \InvalidArgumentException
@@ -37382,10 +37586,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByIdsAsyncWithHttpInfo
      *
-     * Find chats by IDs.
+     * Find chats (bulk)
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find chats by ID(s) (optional)
      *
      * @throws \InvalidArgumentException
@@ -37436,8 +37640,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchChatsByIds'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find chats by ID(s) (optional)
      *
      * @throws \InvalidArgumentException
@@ -37542,10 +37746,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByReceipent
      *
-     * Find chats by recipient (contact, list name or phone number).
+     * Find chats by recipient
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      *
@@ -37562,10 +37766,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByReceipentWithHttpInfo
      *
-     * Find chats by recipient (contact, list name or phone number).
+     * Find chats by recipient
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      *
@@ -37648,10 +37852,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByReceipentAsync
      *
-     * Find chats by recipient (contact, list name or phone number).
+     * Find chats by recipient
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      *
@@ -37671,10 +37875,10 @@ class TextMagicApi
     /**
      * Operation searchChatsByReceipentAsyncWithHttpInfo
      *
-     * Find chats by recipient (contact, list name or phone number).
+     * Find chats by recipient
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      *
@@ -37726,8 +37930,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchChatsByReceipent'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find chats by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
      *
@@ -37835,8 +38039,8 @@ class TextMagicApi
      *
      * Find user contacts by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $ids Find contact by ID(s) (optional)
      * @param  int $listId Find contact by List ID (optional)
@@ -37862,8 +38066,8 @@ class TextMagicApi
      *
      * Find user contacts by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $ids Find contact by ID(s) (optional)
      * @param  int $listId Find contact by List ID (optional)
@@ -37955,8 +38159,8 @@ class TextMagicApi
      *
      * Find user contacts by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $ids Find contact by ID(s) (optional)
      * @param  int $listId Find contact by List ID (optional)
@@ -37985,8 +38189,8 @@ class TextMagicApi
      *
      * Find user contacts by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $ids Find contact by ID(s) (optional)
      * @param  int $listId Find contact by List ID (optional)
@@ -38045,8 +38249,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchContacts'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $shared Should shared contacts to be included (optional, default to 0)
      * @param  string $ids Find contact by ID(s) (optional)
      * @param  int $listId Find contact by List ID (optional)
@@ -38191,10 +38395,10 @@ class TextMagicApi
     /**
      * Operation searchInboundMessages
      *
-     * Find inbound messages by given parameters.
+     * Find inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  string $query Find recipients by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -38214,10 +38418,10 @@ class TextMagicApi
     /**
      * Operation searchInboundMessagesWithHttpInfo
      *
-     * Find inbound messages by given parameters.
+     * Find inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  string $query Find recipients by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -38311,10 +38515,10 @@ class TextMagicApi
     /**
      * Operation searchInboundMessagesAsync
      *
-     * Find inbound messages by given parameters.
+     * Find inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  string $query Find recipients by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -38337,10 +38541,10 @@ class TextMagicApi
     /**
      * Operation searchInboundMessagesAsyncWithHttpInfo
      *
-     * Find inbound messages by given parameters.
+     * Find inbound messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  string $query Find recipients by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -38395,8 +38599,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchInboundMessages'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  string $query Find recipients by specified search query (optional)
      * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
@@ -38523,8 +38727,8 @@ class TextMagicApi
      *
      * Find contact lists by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find lists by ID(s) (optional)
      * @param  string $query Find lists by specified search query (optional)
      * @param  int $onlyMine Return only current user lists (optional, default to 0)
@@ -38547,8 +38751,8 @@ class TextMagicApi
      *
      * Find contact lists by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find lists by ID(s) (optional)
      * @param  string $query Find lists by specified search query (optional)
      * @param  int $onlyMine Return only current user lists (optional, default to 0)
@@ -38645,8 +38849,8 @@ class TextMagicApi
      *
      * Find contact lists by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find lists by ID(s) (optional)
      * @param  string $query Find lists by specified search query (optional)
      * @param  int $onlyMine Return only current user lists (optional, default to 0)
@@ -38672,8 +38876,8 @@ class TextMagicApi
      *
      * Find contact lists by given parameters.
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find lists by ID(s) (optional)
      * @param  string $query Find lists by specified search query (optional)
      * @param  int $onlyMine Return only current user lists (optional, default to 0)
@@ -38729,8 +38933,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchLists'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find lists by ID(s) (optional)
      * @param  string $query Find lists by specified search query (optional)
      * @param  int $onlyMine Return only current user lists (optional, default to 0)
@@ -38858,8 +39062,8 @@ class TextMagicApi
      *
      * Find messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  int $sessionId Find messages by session ID (optional)
@@ -38882,8 +39086,8 @@ class TextMagicApi
      *
      * Find messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  int $sessionId Find messages by session ID (optional)
@@ -38980,8 +39184,8 @@ class TextMagicApi
      *
      * Find messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  int $sessionId Find messages by session ID (optional)
@@ -39007,8 +39211,8 @@ class TextMagicApi
      *
      * Find messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  int $sessionId Find messages by session ID (optional)
@@ -39064,8 +39268,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchOutboundMessages'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  int $lastId Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)
      * @param  string $ids Find message by ID(s) (optional)
      * @param  int $sessionId Find messages by session ID (optional)
@@ -39195,10 +39399,10 @@ class TextMagicApi
     /**
      * Operation searchScheduledMessages
      *
-     * Find scheduled messages by given parameters.
+     * Find scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  string $ids Find schedules by ID(s) (optional)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
@@ -39218,10 +39422,10 @@ class TextMagicApi
     /**
      * Operation searchScheduledMessagesWithHttpInfo
      *
-     * Find scheduled messages by given parameters.
+     * Find scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  string $ids Find schedules by ID(s) (optional)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
@@ -39315,10 +39519,10 @@ class TextMagicApi
     /**
      * Operation searchScheduledMessagesAsync
      *
-     * Find scheduled messages by given parameters.
+     * Find scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  string $ids Find schedules by ID(s) (optional)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
@@ -39341,10 +39545,10 @@ class TextMagicApi
     /**
      * Operation searchScheduledMessagesAsyncWithHttpInfo
      *
-     * Find scheduled messages by given parameters.
+     * Find scheduled messages
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  string $ids Find schedules by ID(s) (optional)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
@@ -39399,8 +39603,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchScheduledMessages'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $query Find messages by specified search query (optional)
      * @param  string $ids Find schedules by ID(s) (optional)
      * @param  string $status Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)
@@ -39525,10 +39729,10 @@ class TextMagicApi
     /**
      * Operation searchTemplates
      *
-     * Find user templates by given parameters.
+     * Find templates by criteria
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find template by ID(s) (optional)
      * @param  string $name Find template by name (optional)
      * @param  string $content Find template by content (optional)
@@ -39546,10 +39750,10 @@ class TextMagicApi
     /**
      * Operation searchTemplatesWithHttpInfo
      *
-     * Find user templates by given parameters.
+     * Find templates by criteria
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find template by ID(s) (optional)
      * @param  string $name Find template by name (optional)
      * @param  string $content Find template by content (optional)
@@ -39633,10 +39837,10 @@ class TextMagicApi
     /**
      * Operation searchTemplatesAsync
      *
-     * Find user templates by given parameters.
+     * Find templates by criteria
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find template by ID(s) (optional)
      * @param  string $name Find template by name (optional)
      * @param  string $content Find template by content (optional)
@@ -39657,10 +39861,10 @@ class TextMagicApi
     /**
      * Operation searchTemplatesAsyncWithHttpInfo
      *
-     * Find user templates by given parameters.
+     * Find templates by criteria
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find template by ID(s) (optional)
      * @param  string $name Find template by name (optional)
      * @param  string $content Find template by content (optional)
@@ -39713,8 +39917,8 @@ class TextMagicApi
     /**
      * Create request for operation 'searchTemplates'
      *
-     * @param  int $page Fetch specified results page (optional, default to 1)
-     * @param  int $limit How many results to return (optional, default to 10)
+     * @param  int $page Fetch specified results page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
      * @param  string $ids Find template by ID(s) (optional)
      * @param  string $name Find template by name (optional)
      * @param  string $content Find template by content (optional)
@@ -40552,9 +40756,286 @@ class TextMagicApi
     }
 
     /**
+     * Operation sendPhoneVerificationCode_0
+     *
+     * Step 1: Send a verification code
+     *
+     * @param  \TextMagic\Models\SendPhoneVerificationCodeInputObject $sendPhoneVerificationCodeInputObject sendPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TextMagic\Models\SendPhoneVerificationCodeResponse
+     */
+    public function sendPhoneVerificationCode_0($sendPhoneVerificationCodeInputObject)
+    {
+        list($response) = $this->sendPhoneVerificationCode_0WithHttpInfo($sendPhoneVerificationCodeInputObject);
+        return $response;
+    }
+
+    /**
+     * Operation sendPhoneVerificationCode_0WithHttpInfo
+     *
+     * Step 1: Send a verification code
+     *
+     * @param  \TextMagic\Models\SendPhoneVerificationCodeInputObject $sendPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TextMagic\Models\SendPhoneVerificationCodeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendPhoneVerificationCode_0WithHttpInfo($sendPhoneVerificationCodeInputObject)
+    {
+        $returnType = '\TextMagic\Models\SendPhoneVerificationCodeResponse';
+        $request = $this->sendPhoneVerificationCode_0Request($sendPhoneVerificationCodeInputObject);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\SendPhoneVerificationCodeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\BadRequestResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendPhoneVerificationCode_0Async
+     *
+     * Step 1: Send a verification code
+     *
+     * @param  \TextMagic\Models\SendPhoneVerificationCodeInputObject $sendPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendPhoneVerificationCode_0Async($sendPhoneVerificationCodeInputObject)
+    {
+        return $this->sendPhoneVerificationCode_0AsyncWithHttpInfo($sendPhoneVerificationCodeInputObject)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendPhoneVerificationCode_0AsyncWithHttpInfo
+     *
+     * Step 1: Send a verification code
+     *
+     * @param  \TextMagic\Models\SendPhoneVerificationCodeInputObject $sendPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendPhoneVerificationCode_0AsyncWithHttpInfo($sendPhoneVerificationCodeInputObject)
+    {
+        $returnType = '\TextMagic\Models\SendPhoneVerificationCodeResponse';
+        $request = $this->sendPhoneVerificationCode_0Request($sendPhoneVerificationCodeInputObject);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendPhoneVerificationCode_0'
+     *
+     * @param  \TextMagic\Models\SendPhoneVerificationCodeInputObject $sendPhoneVerificationCodeInputObject (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function sendPhoneVerificationCode_0Request($sendPhoneVerificationCodeInputObject)
+    {
+        // verify the required parameter 'sendPhoneVerificationCodeInputObject' is set
+        if ($sendPhoneVerificationCodeInputObject === null || (is_array($sendPhoneVerificationCodeInputObject) && count($sendPhoneVerificationCodeInputObject) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sendPhoneVerificationCodeInputObject when calling sendPhoneVerificationCode_0'
+            );
+        }
+
+        $resourcePath = '/api/v2/verify';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($sendPhoneVerificationCodeInputObject)) {
+            $_tempBody = $sendPhoneVerificationCodeInputObject;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation setChatStatus
      *
-     * Set status of the chat given by ID.
+     * Change chat status
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject setChatStatusInputObject (required)
      *
@@ -40571,7 +41052,7 @@ class TextMagicApi
     /**
      * Operation setChatStatusWithHttpInfo
      *
-     * Set status of the chat given by ID.
+     * Change chat status
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
      *
@@ -40662,7 +41143,7 @@ class TextMagicApi
     /**
      * Operation setChatStatusAsync
      *
-     * Set status of the chat given by ID.
+     * Change chat status
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
      *
@@ -40682,7 +41163,7 @@ class TextMagicApi
     /**
      * Operation setChatStatusAsyncWithHttpInfo
      *
-     * Set status of the chat given by ID.
+     * Change chat status
      *
      * @param  \TextMagic\Models\SetChatStatusInputObject $setChatStatusInputObject (required)
      *
@@ -41617,7 +42098,7 @@ class TextMagicApi
     /**
      * Operation unmuteChatsBulk
      *
-     * Unmute several chats by chat ids or unmute all chats
+     * Unmute chats (bulk)
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject unmuteChatsBulkInputObject (required)
      *
@@ -41633,7 +42114,7 @@ class TextMagicApi
     /**
      * Operation unmuteChatsBulkWithHttpInfo
      *
-     * Unmute several chats by chat ids or unmute all chats
+     * Unmute chats (bulk)
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
      *
@@ -41702,7 +42183,7 @@ class TextMagicApi
     /**
      * Operation unmuteChatsBulkAsync
      *
-     * Unmute several chats by chat ids or unmute all chats
+     * Unmute chats (bulk)
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
      *
@@ -41722,7 +42203,7 @@ class TextMagicApi
     /**
      * Operation unmuteChatsBulkAsyncWithHttpInfo
      *
-     * Unmute several chats by chat ids or unmute all chats
+     * Unmute chats (bulk)
      *
      * @param  \TextMagic\Models\UnmuteChatsBulkInputObject $unmuteChatsBulkInputObject (required)
      *
@@ -45965,7 +46446,7 @@ class TextMagicApi
     /**
      * Operation updateTemplate
      *
-     * Update existing template.
+     * Update a template
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject updateTemplateInputObject (required)
      * @param  int $id id (required)
@@ -45983,7 +46464,7 @@ class TextMagicApi
     /**
      * Operation updateTemplateWithHttpInfo
      *
-     * Update existing template.
+     * Update a template
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
@@ -46075,7 +46556,7 @@ class TextMagicApi
     /**
      * Operation updateTemplateAsync
      *
-     * Update existing template.
+     * Update a template
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)
@@ -46096,7 +46577,7 @@ class TextMagicApi
     /**
      * Operation updateTemplateAsyncWithHttpInfo
      *
-     * Update existing template.
+     * Update a template
      *
      * @param  \TextMagic\Models\UpdateTemplateInputObject $updateTemplateInputObject (required)
      * @param  int $id (required)

@@ -271,7 +271,7 @@ class GetBlockedContactsPaginatedResponse implements ModelInterface, ArrayAccess
     /**
      * Sets pageCount
      *
-     * @param int $pageCount pageCount
+     * @param int $pageCount The total number of pages.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class GetBlockedContactsPaginatedResponse implements ModelInterface, ArrayAccess
     /**
      * Sets limit
      *
-     * @param int $limit limit
+     * @param int $limit The number of results per page.
      *
      * @return $this
      */

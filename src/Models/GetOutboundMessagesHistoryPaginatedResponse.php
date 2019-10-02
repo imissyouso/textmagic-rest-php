@@ -295,7 +295,7 @@ class GetOutboundMessagesHistoryPaginatedResponse implements ModelInterface, Arr
     /**
      * Sets limit
      *
-     * @param int $limit limit
+     * @param int $limit The number of results per page.
      *
      * @return $this
      */

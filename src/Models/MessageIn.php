@@ -283,7 +283,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id The ID of the inbound message.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets sender
      *
-     * @param string $sender sender
+     * @param string $sender The sender’s phone number.
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets receiver
      *
-     * @param string $receiver receiver
+     * @param string $receiver The receiver’s phone number (i.e. your dedicated or shared reply number).
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets messageTime
      *
-     * @param \DateTime $messageTime messageTime
+     * @param \DateTime $messageTime The time when the message reached the TextMagic API endpoint.
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text The text from the received message.
      *
      * @return $this
      */

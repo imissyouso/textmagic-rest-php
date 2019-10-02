@@ -203,8 +203,23 @@ class Conversation implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const DIRECTION_IN = 'in';
+    const DIRECTION_OUT = 'out';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDirectionAllowableValues()
+    {
+        return [
+            self::DIRECTION_IN,
+            self::DIRECTION_OUT,
+        ];
+    }
     
 
     /**
@@ -249,6 +264,14 @@ class Conversation implements ModelInterface, ArrayAccess
         if ($this->container['direction'] === null) {
             $invalidProperties[] = "'direction' can't be null";
         }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!is_null($this->container['direction']) && !in_array($this->container['direction'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'direction', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['sender'] === null) {
             $invalidProperties[] = "'sender' can't be null";
         }
@@ -325,12 +348,21 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets direction
      *
-     * @param string $direction direction
+     * @param string $direction Message type: inbound or outbound.
      *
      * @return $this
      */
     public function setDirection($direction)
     {
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($direction, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'direction', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['direction'] = $direction;
 
         return $this;
@@ -349,7 +381,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets sender
      *
-     * @param string $sender sender
+     * @param string $sender Sender phone number.
      *
      * @return $this
      */
@@ -373,7 +405,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets messageTime
      *
-     * @param \DateTime $messageTime messageTime
+     * @param \DateTime $messageTime Time when message arrived at TextMagic.
      *
      * @return $this
      */
@@ -397,7 +429,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Message text.
      *
      * @return $this
      */
@@ -421,7 +453,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets receiver
      *
-     * @param string $receiver receiver
+     * @param string $receiver Receiver phone number.
      *
      * @return $this
      */
@@ -445,7 +477,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Message status (for chats outbound only). See [message delivery statuses](/docs/api/sms-sessions/#message-delivery-statuses) for details.
      *
      * @return $this
      */
@@ -469,7 +501,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName Contact first name.
      *
      * @return $this
      */
@@ -493,7 +525,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Contact last name.
      *
      * @return $this
      */
