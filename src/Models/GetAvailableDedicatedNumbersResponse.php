@@ -253,7 +253,7 @@ class GetAvailableDedicatedNumbersResponse implements ModelInterface, ArrayAcces
     /**
      * Sets price
      *
-     * @param float $price Dedicated number monthly fee for this country. Returned in current [account](/docs/api/account/) currency.@TODO
+     * @param float $price Dedicated number monthly fee for this country. Returned in current [account](/docs/api/account/) currency.TODO
      *
      * @return $this
      */

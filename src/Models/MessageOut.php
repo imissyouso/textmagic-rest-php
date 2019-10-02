@@ -559,7 +559,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status Delivery status of the message. @TODO: Please see the table below to see different delivery statuses.
+     * @param string $status Delivery status of the message. TODO: Please see the table below to see different delivery statuses.
      *
      * @return $this
      */
@@ -760,7 +760,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName @TODO: Contact first name. Could be substituted from your [Contacts](/docs/api/contacts/) (even if you submitted phone number instead of contact ID).
+     * @param string $firstName TODO: Contact first name. Could be substituted from your [Contacts](/docs/api/contacts/) (even if you submitted phone number instead of contact ID).
      *
      * @return $this
      */
