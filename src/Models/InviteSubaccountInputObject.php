@@ -68,7 +68,7 @@ class InviteSubaccountInputObject implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'email' => 'email',
-        'role' => 'email'
+        'role' => null
     ];
 
     /**
@@ -252,7 +252,7 @@ class InviteSubaccountInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Subaccount email
+     * @param string $email Invitation email will be sent to this email address.
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class InviteSubaccountInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string $role Subaccount role: A for administrator or U for regular user
+     * @param string $role Type of account: *   **A** for Administrator sub-account *   **U** for Regular User
      *
      * @return $this
      */

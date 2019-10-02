@@ -277,7 +277,7 @@ class UpdateCurrentUserInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName Account first name.
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class UpdateCurrentUserInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Account last name.
      *
      * @return $this
      */
@@ -373,7 +373,7 @@ class UpdateCurrentUserInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets company
      *
-     * @param string $company company
+     * @param string $company Account company name.
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class UpdateCurrentUserInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets timezone
      *
-     * @param int $timezone timezone id
+     * @param int $timezone The timezome internal id
      *
      * @return $this
      */

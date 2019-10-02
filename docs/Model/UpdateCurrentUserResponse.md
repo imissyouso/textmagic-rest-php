@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **string** |  | [optional] 
-**firstName** | **string** |  | [optional] 
-**lastName** | **string** |  | [optional] 
-**email** | **string** |  | [optional] 
+**username** | **string** | Username. | [optional] 
+**firstName** | **string** | Account first name. | [optional] 
+**lastName** | **string** | Account last name. | [optional] 
+**email** | **string** | User email address. | [optional] 
 **phone** | **string** |  | [optional] 
-**company** | **string** |  | [optional] 
-**timezone** | **int** | timezone id | [optional] 
+**company** | **string** | Account company name. | [optional] 
+**timezone** | **int** | Internal timezone ID | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

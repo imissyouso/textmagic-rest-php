@@ -238,7 +238,7 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id Three-letter ISO currency ID.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Sets unicodeSymbol
      *
-     * @param string $unicodeSymbol unicodeSymbol
+     * @param string $unicodeSymbol Unicode-compatible currency symbol.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Sets htmlSymbol
      *
-     * @param string $htmlSymbol htmlSymbol
+     * @param string $htmlSymbol HTML-compatible currency symbol.
      *
      * @return $this
      */

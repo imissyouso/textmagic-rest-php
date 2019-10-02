@@ -256,7 +256,7 @@ class Timezone implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Internal timezone ID.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class Timezone implements ModelInterface, ArrayAccess
     /**
      * Sets area
      *
-     * @param string $area area
+     * @param string $area Timezone area.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class Timezone implements ModelInterface, ArrayAccess
     /**
      * Sets dst
      *
-     * @param int $dst dst
+     * @param int $dst Is Daylight saving time used in this timezone?
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class Timezone implements ModelInterface, ArrayAccess
     /**
      * Sets timezone
      *
-     * @param string $timezone timezone
+     * @param string $timezone User-friendly timezone name (with spaces replaced by underscores).
      *
      * @return $this
      */

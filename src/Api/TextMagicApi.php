@@ -2688,7 +2688,7 @@ class TextMagicApi
     /**
      * Operation closeSubaccount
      *
-     * Close subaccount.
+     * Close sub-account
      *
      * @param  int $id id (required)
      *
@@ -2704,7 +2704,7 @@ class TextMagicApi
     /**
      * Operation closeSubaccountWithHttpInfo
      *
-     * Close subaccount.
+     * Close sub-account
      *
      * @param  int $id (required)
      *
@@ -2773,7 +2773,7 @@ class TextMagicApi
     /**
      * Operation closeSubaccountAsync
      *
-     * Close subaccount.
+     * Close sub-account
      *
      * @param  int $id (required)
      *
@@ -2793,7 +2793,7 @@ class TextMagicApi
     /**
      * Operation closeSubaccountAsyncWithHttpInfo
      *
-     * Close subaccount.
+     * Close sub-account
      *
      * @param  int $id (required)
      *
@@ -5586,7 +5586,7 @@ class TextMagicApi
     /**
      * Operation deleteAvatar
      *
-     * Delete an avatar for the current user.\\
+     * Delete an avatar
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -5601,7 +5601,7 @@ class TextMagicApi
     /**
      * Operation deleteAvatarWithHttpInfo
      *
-     * Delete an avatar for the current user.\\
+     * Delete an avatar
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -5661,7 +5661,7 @@ class TextMagicApi
     /**
      * Operation deleteAvatarAsync
      *
-     * Delete an avatar for the current user.\\
+     * Delete an avatar
      *
      *
      * @throws \InvalidArgumentException
@@ -5680,7 +5680,7 @@ class TextMagicApi
     /**
      * Operation deleteAvatarAsyncWithHttpInfo
      *
-     * Delete an avatar for the current user.\\
+     * Delete an avatar
      *
      *
      * @throws \InvalidArgumentException
@@ -21816,7 +21816,7 @@ class TextMagicApi
     /**
      * Operation getCurrentUser
      *
-     * Get current user info.
+     * Get current account information
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -21832,7 +21832,7 @@ class TextMagicApi
     /**
      * Operation getCurrentUserWithHttpInfo
      *
-     * Get current user info.
+     * Get current account information
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -21922,7 +21922,7 @@ class TextMagicApi
     /**
      * Operation getCurrentUserAsync
      *
-     * Get current user info.
+     * Get current account information
      *
      *
      * @throws \InvalidArgumentException
@@ -21941,7 +21941,7 @@ class TextMagicApi
     /**
      * Operation getCurrentUserAsyncWithHttpInfo
      *
-     * Get current user info.
+     * Get current account information
      *
      *
      * @throws \InvalidArgumentException
@@ -22908,7 +22908,7 @@ class TextMagicApi
     /**
      * Operation getDisallowedRules
      *
-     * Get an array of all rules that are disallowed to the current account.
+     * Get disallowed permissions
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -22924,7 +22924,7 @@ class TextMagicApi
     /**
      * Operation getDisallowedRulesWithHttpInfo
      *
-     * Get an array of all rules that are disallowed to the current account.
+     * Get disallowed permissions
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -23006,7 +23006,7 @@ class TextMagicApi
     /**
      * Operation getDisallowedRulesAsync
      *
-     * Get an array of all rules that are disallowed to the current account.
+     * Get disallowed permissions
      *
      *
      * @throws \InvalidArgumentException
@@ -23025,7 +23025,7 @@ class TextMagicApi
     /**
      * Operation getDisallowedRulesAsyncWithHttpInfo
      *
-     * Get an array of all rules that are disallowed to the current account.
+     * Get disallowed permissions
      *
      *
      * @throws \InvalidArgumentException
@@ -23982,7 +23982,7 @@ class TextMagicApi
     /**
      * Operation getInvoices
      *
-     * Return account invoices.
+     * Get all invoices
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -24000,7 +24000,7 @@ class TextMagicApi
     /**
      * Operation getInvoicesWithHttpInfo
      *
-     * Return account invoices.
+     * Get all invoices
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -24092,7 +24092,7 @@ class TextMagicApi
     /**
      * Operation getInvoicesAsync
      *
-     * Return account invoices.
+     * Get all invoices
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -24113,7 +24113,7 @@ class TextMagicApi
     /**
      * Operation getInvoicesAsyncWithHttpInfo
      *
-     * Return account invoices.
+     * Get all invoices
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -27106,7 +27106,7 @@ class TextMagicApi
     /**
      * Operation getMessagingCounters
      *
-     * Return counters for messaging data views.
+     * Get sent/received messages counters values
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -27122,7 +27122,7 @@ class TextMagicApi
     /**
      * Operation getMessagingCountersWithHttpInfo
      *
-     * Return counters for messaging data views.
+     * Get sent/received messages counters values
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -27204,7 +27204,7 @@ class TextMagicApi
     /**
      * Operation getMessagingCountersAsync
      *
-     * Return counters for messaging data views.
+     * Get sent/received messages counters values
      *
      *
      * @throws \InvalidArgumentException
@@ -27223,7 +27223,7 @@ class TextMagicApi
     /**
      * Operation getMessagingCountersAsyncWithHttpInfo
      *
-     * Return counters for messaging data views.
+     * Get sent/received messages counters values
      *
      *
      * @throws \InvalidArgumentException
@@ -27361,11 +27361,11 @@ class TextMagicApi
     /**
      * Operation getMessagingStat
      *
-     * Return messaging statistics.
+     * Get messaging statistics
      *
-     * @param  string $by Group results by specified period: off, day, month or year. Default is off (optional, default to off)
-     * @param  int $start Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  string $end End date in unix timestamp format. Default is now (optional)
+     * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -27380,11 +27380,11 @@ class TextMagicApi
     /**
      * Operation getMessagingStatWithHttpInfo
      *
-     * Return messaging statistics.
+     * Get messaging statistics
      *
-     * @param  string $by Group results by specified period: off, day, month or year. Default is off (optional, default to off)
-     * @param  int $start Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  string $end End date in unix timestamp format. Default is now (optional)
+     * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -27473,11 +27473,11 @@ class TextMagicApi
     /**
      * Operation getMessagingStatAsync
      *
-     * Return messaging statistics.
+     * Get messaging statistics
      *
-     * @param  string $by Group results by specified period: off, day, month or year. Default is off (optional, default to off)
-     * @param  int $start Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  string $end End date in unix timestamp format. Default is now (optional)
+     * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -27495,11 +27495,11 @@ class TextMagicApi
     /**
      * Operation getMessagingStatAsyncWithHttpInfo
      *
-     * Return messaging statistics.
+     * Get messaging statistics
      *
-     * @param  string $by Group results by specified period: off, day, month or year. Default is off (optional, default to off)
-     * @param  int $start Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  string $end End date in unix timestamp format. Default is now (optional)
+     * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -27549,9 +27549,9 @@ class TextMagicApi
     /**
      * Create request for operation 'getMessagingStat'
      *
-     * @param  string $by Group results by specified period: off, day, month or year. Default is off (optional, default to off)
-     * @param  int $start Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  string $end End date in unix timestamp format. Default is now (optional)
+     * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -29597,12 +29597,12 @@ class TextMagicApi
     /**
      * Operation getSpendingStat
      *
-     * Return account spending statistics.
+     * Get spending statistics
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -29617,12 +29617,12 @@ class TextMagicApi
     /**
      * Operation getSpendingStatWithHttpInfo
      *
-     * Return account spending statistics.
+     * Get spending statistics
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -29711,12 +29711,12 @@ class TextMagicApi
     /**
      * Operation getSpendingStatAsync
      *
-     * Return account spending statistics.
+     * Get spending statistics
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -29734,12 +29734,12 @@ class TextMagicApi
     /**
      * Operation getSpendingStatAsyncWithHttpInfo
      *
-     * Return account spending statistics.
+     * Get spending statistics
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -29791,8 +29791,8 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Optional. Start date in unix timestamp format. Default is 7 days ago (optional)
-     * @param  int $end Optional. End date in unix timestamp format. Default is now (optional)
+     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -30151,7 +30151,7 @@ class TextMagicApi
     /**
      * Operation getSubaccount
      *
-     * Get a single subaccount.
+     * Get sub-account information
      *
      * @param  int $id id (required)
      *
@@ -30168,7 +30168,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountWithHttpInfo
      *
-     * Get a single subaccount.
+     * Get sub-account information
      *
      * @param  int $id (required)
      *
@@ -30259,7 +30259,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountAsync
      *
-     * Get a single subaccount.
+     * Get sub-account information
      *
      * @param  int $id (required)
      *
@@ -30279,7 +30279,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountAsyncWithHttpInfo
      *
-     * Get a single subaccount.
+     * Get sub-account information
      *
      * @param  int $id (required)
      *
@@ -30433,7 +30433,7 @@ class TextMagicApi
     /**
      * Operation getSubaccounts
      *
-     * Get all subaccounts of current user.
+     * Get sub-accounts list
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -30451,7 +30451,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsWithHttpInfo
      *
-     * Get all subaccounts of current user.
+     * Get sub-accounts list
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -30535,7 +30535,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsAsync
      *
-     * Get all subaccounts of current user.
+     * Get sub-accounts list
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -30556,7 +30556,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsAsyncWithHttpInfo
      *
-     * Get all subaccounts of current user.
+     * Get sub-accounts list
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -30706,7 +30706,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsWithTokens
      *
-     * Get all subaccounts with their REST API tokens associated with specified app name.
+     * Get all sub-accounts with their REST API tokens associated with app name
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page. (optional, default to 1)
@@ -30725,7 +30725,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsWithTokensWithHttpInfo
      *
-     * Get all subaccounts with their REST API tokens associated with specified app name.
+     * Get all sub-accounts with their REST API tokens associated with app name
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page. (optional, default to 1)
@@ -30818,7 +30818,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsWithTokensAsync
      *
-     * Get all subaccounts with their REST API tokens associated with specified app name.
+     * Get all sub-accounts with their REST API tokens associated with app name
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page. (optional, default to 1)
@@ -30840,7 +30840,7 @@ class TextMagicApi
     /**
      * Operation getSubaccountsWithTokensAsyncWithHttpInfo
      *
-     * Get all subaccounts with their REST API tokens associated with specified app name.
+     * Get all sub-accounts with their REST API tokens associated with app name
      *
      * @param  \TextMagic\Models\GetSubaccountsWithTokensInputObject $getSubaccountsWithTokensInputObject (required)
      * @param  float $page Fetch specified results page. (optional, default to 1)
@@ -34346,7 +34346,7 @@ class TextMagicApi
     /**
      * Operation inviteSubaccount
      *
-     * Invite new subaccount.
+     * Invite a new sub-account
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject inviteSubaccountInputObject (required)
      *
@@ -34362,7 +34362,7 @@ class TextMagicApi
     /**
      * Operation inviteSubaccountWithHttpInfo
      *
-     * Invite new subaccount.
+     * Invite a new sub-account
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
      *
@@ -34439,7 +34439,7 @@ class TextMagicApi
     /**
      * Operation inviteSubaccountAsync
      *
-     * Invite new subaccount.
+     * Invite a new sub-account
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
      *
@@ -34459,7 +34459,7 @@ class TextMagicApi
     /**
      * Operation inviteSubaccountAsyncWithHttpInfo
      *
-     * Invite new subaccount.
+     * Invite a new sub-account
      *
      * @param  \TextMagic\Models\InviteSubaccountInputObject $inviteSubaccountInputObject (required)
      *
@@ -36342,7 +36342,7 @@ class TextMagicApi
     /**
      * Operation requestNewSubaccountToken
      *
-     * Request a new REST API token for subaccount.
+     * Request a new REST API token for sub-account
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject requestNewSubaccountTokenInputObject (required)
      *
@@ -36359,7 +36359,7 @@ class TextMagicApi
     /**
      * Operation requestNewSubaccountTokenWithHttpInfo
      *
-     * Request a new REST API token for subaccount.
+     * Request a new REST API token for sub-account
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
      *
@@ -36450,7 +36450,7 @@ class TextMagicApi
     /**
      * Operation requestNewSubaccountTokenAsync
      *
-     * Request a new REST API token for subaccount.
+     * Request a new REST API token for sub-account
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
      *
@@ -36470,7 +36470,7 @@ class TextMagicApi
     /**
      * Operation requestNewSubaccountTokenAsyncWithHttpInfo
      *
-     * Request a new REST API token for subaccount.
+     * Request a new REST API token for sub-account
      *
      * @param  \TextMagic\Models\RequestNewSubaccountTokenInputObject $requestNewSubaccountTokenInputObject (required)
      *
@@ -43951,7 +43951,7 @@ class TextMagicApi
     /**
      * Operation updateCurrentUser
      *
-     * Update current user info.
+     * Edit current account info
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject updateCurrentUserInputObject (required)
      *
@@ -43968,7 +43968,7 @@ class TextMagicApi
     /**
      * Operation updateCurrentUserWithHttpInfo
      *
-     * Update current user info.
+     * Edit current account info
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
      *
@@ -44059,7 +44059,7 @@ class TextMagicApi
     /**
      * Operation updateCurrentUserAsync
      *
-     * Update current user info.
+     * Edit current account info
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
      *
@@ -44079,7 +44079,7 @@ class TextMagicApi
     /**
      * Operation updateCurrentUserAsyncWithHttpInfo
      *
-     * Update current user info.
+     * Edit current account info
      *
      * @param  \TextMagic\Models\UpdateCurrentUserInputObject $updateCurrentUserInputObject (required)
      *
@@ -46742,7 +46742,7 @@ class TextMagicApi
     /**
      * Operation uploadAvatar
      *
-     * Add an avatar for the current user.
+     * Upload an avatar
      *
      * @param  \SplFileObject $image User avatar. Should be PNG or JPG file not more than 10 MB (required)
      *
@@ -46758,7 +46758,7 @@ class TextMagicApi
     /**
      * Operation uploadAvatarWithHttpInfo
      *
-     * Add an avatar for the current user.
+     * Upload an avatar
      *
      * @param  \SplFileObject $image User avatar. Should be PNG or JPG file not more than 10 MB (required)
      *
@@ -46827,7 +46827,7 @@ class TextMagicApi
     /**
      * Operation uploadAvatarAsync
      *
-     * Add an avatar for the current user.
+     * Upload an avatar
      *
      * @param  \SplFileObject $image User avatar. Should be PNG or JPG file not more than 10 MB (required)
      *
@@ -46847,7 +46847,7 @@ class TextMagicApi
     /**
      * Operation uploadAvatarAsyncWithHttpInfo
      *
-     * Add an avatar for the current user.
+     * Upload an avatar
      *
      * @param  \SplFileObject $image User avatar. Should be PNG or JPG file not more than 10 MB (required)
      *

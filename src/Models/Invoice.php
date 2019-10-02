@@ -256,7 +256,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id The invoice ID.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets bundle
      *
-     * @param int $bundle bundle
+     * @param int $bundle Top up amount.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency currency
+     * @param string $currency Top up currency.
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets vat
      *
-     * @param float $vat vat
+     * @param float $vat VAT charged (if any).
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets paymentMethod
      *
-     * @param string $paymentMethod paymentMethod
+     * @param string $paymentMethod Payment method description.
      *
      * @return $this
      */

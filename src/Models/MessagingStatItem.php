@@ -310,7 +310,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets replyRate
      *
-     * @param float $replyRate replyRate
+     * @param float $replyRate the number of incoming messages divided by the number of total messages.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets date
      *
-     * @param \DateTime $date date
+     * @param \DateTime $date Time interval start, empty if the **by** parameter was set to **off**.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets deliveryRate
      *
-     * @param float $deliveryRate deliveryRate
+     * @param float $deliveryRate Message delivery rate:the number of delivered messages divided by the number of total messages.
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets costs
      *
-     * @param float $costs costs
+     * @param float $costs Cost for sent messages during this period. The costs are in the [Account](/docs/api/account/) currency. TODO
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesReceived
      *
-     * @param int $messagesReceived messagesReceived
+     * @param int $messagesReceived Total received messages count.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesSentDelivered
      *
-     * @param int $messagesSentDelivered messagesSentDelivered
+     * @param int $messagesSentDelivered Delivered messages count. As messages are retried for up to 48 hours, this value could change.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesSentAccepted
      *
-     * @param int $messagesSentAccepted messagesSentAccepted
+     * @param int $messagesSentAccepted Messages accepted for delivery (in queue), but not yet delivered.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesSentBuffered
      *
-     * @param int $messagesSentBuffered messagesSentBuffered
+     * @param int $messagesSentBuffered Messages buffered by endpoint cell phone operators.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesSentFailed
      *
-     * @param int $messagesSentFailed messagesSentFailed
+     * @param int $messagesSentFailed Messages that have failed for whatever reason, e.g. the destination phone was switched off for 48 hours or the recipient phone account is out of service.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesSentRejected
      *
-     * @param int $messagesSentRejected messagesSentRejected
+     * @param int $messagesSentRejected Messages that were rejected: invalid Sender ID used (e.g. you cannot use the Sender ID or your own mobile number when sending to the United States and Canada.)
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets messagesSentParts
      *
-     * @param int $messagesSentParts messagesSentParts
+     * @param int $messagesSentParts Total sent messages **parts** count. Note that this is not equal to the sent messages count, because one message could consist of 1 to 6 parts and users are charged per part, not per message.
      *
      * @return $this
      */

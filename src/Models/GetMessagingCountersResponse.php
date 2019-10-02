@@ -238,7 +238,7 @@ class GetMessagingCountersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param int $contacts contacts
+     * @param int $contacts Total contacts amount.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class GetMessagingCountersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets sent
      *
-     * @param int $sent sent
+     * @param int $sent Total sent messages amount.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class GetMessagingCountersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets received
      *
-     * @param int $received received
+     * @param int $received Total received messages amount.
      *
      * @return $this
      */
