@@ -1,6 +1,6 @@
 <?php
 /**
- * Group
+ * ModelList
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * Group Class Doc Comment
+ * ModelList Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Group implements ModelInterface, ArrayAccess
+class ModelList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Group implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Group';
+    protected static $swaggerModelName = 'List';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,7 +65,7 @@ class Group implements ModelInterface, ArrayAccess
         'user' => '\TextMagic\Models\User',
         'service' => 'bool',
         'shared' => 'bool',
-        'avatar' => '\TextMagic\Models\GroupImage',
+        'avatar' => '\TextMagic\Models\ListImage',
         'isDefault' => 'bool'
     ];
 
@@ -483,7 +483,7 @@ class Group implements ModelInterface, ArrayAccess
     /**
      * Gets avatar
      *
-     * @return \TextMagic\Models\GroupImage
+     * @return \TextMagic\Models\ListImage
      */
     public function getAvatar()
     {
@@ -493,7 +493,7 @@ class Group implements ModelInterface, ArrayAccess
     /**
      * Sets avatar
      *
-     * @param \TextMagic\Models\GroupImage $avatar avatar
+     * @param \TextMagic\Models\ListImage $avatar avatar
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 # TextMagic\TextMagicApi
 
-All URIs are relative to *http://my.textmagic.com*
+All URIs are relative to *http://rest.textmagic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**cancelSurvey**](TextMagicApi.md#cancelSurvey) | **PUT** /api/v2/surveys/{id}/cancel | Cancel a survey.
 [**cancelVerification**](TextMagicApi.md#cancelVerification) | **DELETE** /api/v2/verify/{verifyId} | Cancel verification process
 [**checkPhoneVerificationCode**](TextMagicApi.md#checkPhoneVerificationCode) | **PUT** /api/v2/user/phone/verification | Check user phone verification code
-[**checkPhoneVerificationCode_0**](TextMagicApi.md#checkPhoneVerificationCode_0) | **PUT** /api/v2/verify | Step 2: Check the verification code
+[**checkPhoneVerificationCodeTFA**](TextMagicApi.md#checkPhoneVerificationCodeTFA) | **PUT** /api/v2/verify | Step 2: Check the verification code
 [**clearAndAssignContactsToList**](TextMagicApi.md#clearAndAssignContactsToList) | **POST** /api/v2/lists/{id}/contacts | Reset list members to the specified contacts.
 [**closeChatsBulk**](TextMagicApi.md#closeChatsBulk) | **POST** /api/v2/chats/close/bulk | Close chats (bulk)
 [**closeReadChats**](TextMagicApi.md#closeReadChats) | **POST** /api/v2/chats/close/read | Close read chats
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**createContact**](TextMagicApi.md#createContact) | **POST** /api/v2/contacts | Create a new contact from the submitted data.
 [**createContactNote**](TextMagicApi.md#createContactNote) | **POST** /api/v2/contacts/{id}/notes | Create a new contact note.
 [**createCustomField**](TextMagicApi.md#createCustomField) | **POST** /api/v2/customfields | Create a new custom field from the submitted data.
-[**createList**](TextMagicApi.md#createList) | **POST** /api/v2/lists | Create a new list from the submitted data.
+[**createList**](TextMagicApi.md#createList) | **POST** /api/v2/lists | Create a new list
 [**createPushToken**](TextMagicApi.md#createPushToken) | **POST** /api/v2/push/tokens | Add or update a device token.
 [**createSurvey**](TextMagicApi.md#createSurvey) | **POST** /api/v2/surveys | Create a new survey from the submitted data.
 [**createSurveyNode**](TextMagicApi.md#createSurveyNode) | **POST** /api/v2/surveys/{id}/nodes | Create a new node from the submitted data.
@@ -95,8 +95,9 @@ Method | HTTP request | Description
 [**getInboundMessage**](TextMagicApi.md#getInboundMessage) | **GET** /api/v2/replies/{id} | Get a single inbound message
 [**getInboundMessagesNotificationSettings**](TextMagicApi.md#getInboundMessagesNotificationSettings) | **GET** /api/v2/user/notification/inbound | Get inbound messages notification settings
 [**getInvoices**](TextMagicApi.md#getInvoices) | **GET** /api/v2/invoices | Get all invoices
-[**getList**](TextMagicApi.md#getList) | **GET** /api/v2/lists/{id} | Get a single list.
+[**getList**](TextMagicApi.md#getList) | **GET** /api/v2/lists/{id} | Get the details of a specific list
 [**getListContactsIds**](TextMagicApi.md#getListContactsIds) | **GET** /api/v2/lists/{id}/contacts/ids | Fetch all contacts IDs belonging to the list with ID.
+[**getLists**](TextMagicApi.md#getLists) | **GET** /api/v2/lists | Get all lists
 [**getListsOfContact**](TextMagicApi.md#getListsOfContact) | **GET** /api/v2/contacts/{id}/lists | Return lists which contact belongs to.
 [**getMessagePreview**](TextMagicApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Preview message
 [**getMessagePrice**](TextMagicApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check price
@@ -128,7 +129,6 @@ Method | HTTP request | Description
 [**getUnsubscribedContact**](TextMagicApi.md#getUnsubscribedContact) | **GET** /api/v2/unsubscribers/{id} | Get a single unsubscribed contact.
 [**getUnsubscribers**](TextMagicApi.md#getUnsubscribers) | **GET** /api/v2/unsubscribers | Get all contact have unsubscribed from your communication.
 [**getUserDedicatedNumbers**](TextMagicApi.md#getUserDedicatedNumbers) | **GET** /api/v2/numbers | Get all your dedicated numbers
-[**getUserLists**](TextMagicApi.md#getUserLists) | **GET** /api/v2/lists | Get all user lists.
 [**getVersions**](TextMagicApi.md#getVersions) | **GET** /api/v2/versions | Get minimal valid apps versions
 [**inviteSubaccount**](TextMagicApi.md#inviteSubaccount) | **POST** /api/v2/subaccounts | Invite a new sub-account
 [**markChatsReadBulk**](TextMagicApi.md#markChatsReadBulk) | **POST** /api/v2/chats/read/bulk | Mark chats as read (bulk)
@@ -153,7 +153,7 @@ Method | HTTP request | Description
 [**sendEmailVerificationCode**](TextMagicApi.md#sendEmailVerificationCode) | **GET** /api/v2/user/email/verification | Send user email verification
 [**sendMessage**](TextMagicApi.md#sendMessage) | **POST** /api/v2/messages | Send message
 [**sendPhoneVerificationCode**](TextMagicApi.md#sendPhoneVerificationCode) | **GET** /api/v2/user/phone/verification | Send user phone verification
-[**sendPhoneVerificationCode_0**](TextMagicApi.md#sendPhoneVerificationCode_0) | **POST** /api/v2/verify | Step 1: Send a verification code
+[**sendPhoneVerificationCodeTFA**](TextMagicApi.md#sendPhoneVerificationCodeTFA) | **POST** /api/v2/verify | Step 1: Send a verification code
 [**setChatStatus**](TextMagicApi.md#setChatStatus) | **POST** /api/v2/chats/status | Change chat status
 [**startSurvey**](TextMagicApi.md#startSurvey) | **PUT** /api/v2/surveys/{id}/start | Start a survey.
 [**unblockContact**](TextMagicApi.md#unblockContact) | **POST** /api/v2/contacts/unblock | Unblock contact by phone number.
@@ -516,8 +516,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkPhoneVerificationCode_0**
-> checkPhoneVerificationCode_0($checkPhoneVerificationCodeInputObject)
+# **checkPhoneVerificationCodeTFA**
+> checkPhoneVerificationCodeTFA($checkPhoneVerificationCodeInputObject)
 
 Step 2: Check the verification code
 
@@ -543,9 +543,9 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 $checkPhoneVerificationCodeInputObject = new \TextMagic\Models\CheckPhoneVerificationCodeInputObject1(); // \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 | 
 
 try {
-    $apiInstance->checkPhoneVerificationCode_0($checkPhoneVerificationCodeInputObject);
+    $apiInstance->checkPhoneVerificationCodeTFA($checkPhoneVerificationCodeInputObject);
 } catch (Exception $e) {
-    echo 'Exception when calling TextMagicApi->checkPhoneVerificationCode_0: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TextMagicApi->checkPhoneVerificationCodeTFA: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -963,7 +963,7 @@ Name | Type | Description  | Notes
 # **createList**
 > \TextMagic\Models\ResourceLinkResponse createList($createListInputObject)
 
-Create a new list from the submitted data.
+Create a new list
 
 
 
@@ -5300,9 +5300,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getList**
-> \TextMagic\Models\Group getList($id)
+> \TextMagic\Models\ModelList getList($id)
 
-Get a single list.
+Get the details of a specific list
 
 
 
@@ -5342,7 +5342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\TextMagic\Models\Group**](../Model/Group.md)
+[**\TextMagic\Models\ModelList**](../Model/ModelList.md)
 
 ### Authorization
 
@@ -5399,6 +5399,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\TextMagic\Models\GetListContactsIdsResponse**](../Model/GetListContactsIdsResponse.md)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getLists**
+> \TextMagic\Models\GetListsPaginatedResponse getLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
+
+Get all lists
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: BasicAuth
+$config = TextMagic\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new TextMagic\Api\TextMagicApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$page = 1; // int | The current fetched page.
+$limit = 10; // int | The number of results per page.
+$orderBy = "id"; // string | Order results by some field. Default is id
+$direction = "desc"; // string | Order direction. Default is desc
+$favoriteOnly = 0; // int | Return only favorite lists
+$onlyMine = 0; // int | Return only current user lists
+
+try {
+    $result = $apiInstance->getLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TextMagicApi->getLists: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| The current fetched page. | [optional] [default to 1]
+ **limit** | **int**| The number of results per page. | [optional] [default to 10]
+ **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
+ **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
+ **favoriteOnly** | **int**| Return only favorite lists | [optional] [default to 0]
+ **onlyMine** | **int**| Return only current user lists | [optional] [default to 0]
+
+### Return type
+
+[**\TextMagic\Models\GetListsPaginatedResponse**](../Model/GetListsPaginatedResponse.md)
 
 ### Authorization
 
@@ -7241,72 +7307,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getUserLists**
-> \TextMagic\Models\GetUserListsPaginatedResponse getUserLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
-
-Get all user lists.
-
-
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\TextMagicApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$page = 1; // int | Fetch specified results page.
-$limit = 10; // int | The number of results per page.
-$orderBy = "id"; // string | Order results by some field. Default is id
-$direction = "desc"; // string | Order direction. Default is desc
-$favoriteOnly = 0; // int | Return only favorite lists
-$onlyMine = 0; // int | Return only current user lists
-
-try {
-    $result = $apiInstance->getUserLists($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TextMagicApi->getUserLists: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int**| Fetch specified results page. | [optional] [default to 1]
- **limit** | **int**| The number of results per page. | [optional] [default to 10]
- **orderBy** | **string**| Order results by some field. Default is id | [optional] [default to id]
- **direction** | **string**| Order direction. Default is desc | [optional] [default to desc]
- **favoriteOnly** | **int**| Return only favorite lists | [optional] [default to 0]
- **onlyMine** | **int**| Return only current user lists | [optional] [default to 0]
-
-### Return type
-
-[**\TextMagic\Models\GetUserListsPaginatedResponse**](../Model/GetUserListsPaginatedResponse.md)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getVersions**
 > \TextMagic\Models\GetVersionsResponse getVersions()
 
@@ -8721,8 +8721,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **sendPhoneVerificationCode_0**
-> \TextMagic\Models\SendPhoneVerificationCodeResponse sendPhoneVerificationCode_0($sendPhoneVerificationCodeInputObject)
+# **sendPhoneVerificationCodeTFA**
+> \TextMagic\Models\SendPhoneVerificationCodeResponse sendPhoneVerificationCodeTFA($sendPhoneVerificationCodeInputObject)
 
 Step 1: Send a verification code
 
@@ -8748,10 +8748,10 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 $sendPhoneVerificationCodeInputObject = new \TextMagic\Models\SendPhoneVerificationCodeInputObject(); // \TextMagic\Models\SendPhoneVerificationCodeInputObject | 
 
 try {
-    $result = $apiInstance->sendPhoneVerificationCode_0($sendPhoneVerificationCodeInputObject);
+    $result = $apiInstance->sendPhoneVerificationCodeTFA($sendPhoneVerificationCodeInputObject);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TextMagicApi->sendPhoneVerificationCode_0: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TextMagicApi->sendPhoneVerificationCodeTFA: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

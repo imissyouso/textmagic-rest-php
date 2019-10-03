@@ -60,7 +60,7 @@ class SearchListsPaginatedResponse implements ModelInterface, ArrayAccess
         'page' => 'int',
         'pageCount' => 'int',
         'limit' => 'int',
-        'resources' => '\TextMagic\Models\Group[]'
+        'resources' => '\TextMagic\Models\ModelList[]'
     ];
 
     /**
@@ -309,7 +309,7 @@ class SearchListsPaginatedResponse implements ModelInterface, ArrayAccess
     /**
      * Gets resources
      *
-     * @return \TextMagic\Models\Group[]
+     * @return \TextMagic\Models\ModelList[]
      */
     public function getResources()
     {
@@ -319,7 +319,7 @@ class SearchListsPaginatedResponse implements ModelInterface, ArrayAccess
     /**
      * Sets resources
      *
-     * @param \TextMagic\Models\Group[] $resources resources
+     * @param \TextMagic\Models\ModelList[] $resources resources
      *
      * @return $this
      */

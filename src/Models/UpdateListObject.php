@@ -210,9 +210,6 @@ class UpdateListObject implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['shared'] === null) {
-            $invalidProperties[] = "'shared' can't be null";
-        }
         return $invalidProperties;
     }
 

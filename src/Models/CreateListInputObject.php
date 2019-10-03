@@ -193,7 +193,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['shared'] = isset($data['shared']) ? $data['shared'] : null;
+        $this->container['shared'] = isset($data['shared']) ? $data['shared'] : false;
         $this->container['favorited'] = isset($data['favorited']) ? $data['favorited'] : false;
         $this->container['isDefault'] = isset($data['isDefault']) ? $data['isDefault'] : false;
     }
@@ -209,9 +209,6 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['shared'] === null) {
-            $invalidProperties[] = "'shared' can't be null";
         }
         return $invalidProperties;
     }
@@ -241,7 +238,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name List name
+     * @param string $name List name.
      *
      * @return $this
      */
@@ -265,7 +262,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets shared
      *
-     * @param bool $shared Should this list be shared with sub-accounts
+     * @param bool $shared Should new list be shared among all the sub-accounts? The default is 0 (false).
      *
      * @return $this
      */
@@ -289,7 +286,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets favorited
      *
-     * @param bool $favorited Is list favorited. Default is false
+     * @param bool $favorited Is list favorited. Default is false.
      *
      * @return $this
      */
@@ -313,7 +310,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets isDefault
      *
-     * @param bool $isDefault Is list default for new contacts (web only).
+     * @param bool $isDefault Is list default for new contacts (web only). Default is false.
      *
      * @return $this
      */

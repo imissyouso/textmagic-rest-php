@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **country** | [**\TextMagic\Models\Country**](Country.md) |  | 
 **customFields** | [**\TextMagic\Models\ContactCustomField[]**](ContactCustomField.md) |  | 
 **user** | [**\TextMagic\Models\User**](User.md) |  | 
-**lists** | [**\TextMagic\Models\Group[]**](Group.md) |  | 
+**lists** | [**\TextMagic\Models\ModelList[]**](ModelList.md) |  | 
 **phoneType** | **string** |  | 
 **avatar** | [**\TextMagic\Models\ContactImage**](ContactImage.md) |  | 
 **notes** | [**\TextMagic\Models\ContactNote[]**](ContactNote.md) |  | 

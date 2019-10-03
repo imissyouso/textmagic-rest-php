@@ -1,6 +1,6 @@
 <?php
 /**
- * GroupImage
+ * GetListsPaginatedResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GroupImage Class Doc Comment
+ * GetListsPaginatedResponse Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GroupImage implements ModelInterface, ArrayAccess
+class GetListsPaginatedResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GroupImage implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GroupImage';
+    protected static $swaggerModelName = 'GetListsPaginatedResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,10 @@ class GroupImage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'href' => 'string'
+        'page' => 'int',
+        'pageCount' => 'int',
+        'limit' => 'int',
+        'resources' => '\TextMagic\Models\ModelList[]'
     ];
 
     /**
@@ -66,7 +69,10 @@ class GroupImage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'href' => null
+        'page' => null,
+        'pageCount' => null,
+        'limit' => null,
+        'resources' => null
     ];
 
     /**
@@ -96,7 +102,10 @@ class GroupImage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'href' => 'href'
+        'page' => 'page',
+        'pageCount' => 'pageCount',
+        'limit' => 'limit',
+        'resources' => 'resources'
     ];
 
     /**
@@ -105,7 +114,10 @@ class GroupImage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'href' => 'setHref'
+        'page' => 'setPage',
+        'pageCount' => 'setPageCount',
+        'limit' => 'setLimit',
+        'resources' => 'setResources'
     ];
 
     /**
@@ -114,7 +126,10 @@ class GroupImage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'href' => 'getHref'
+        'page' => 'getPage',
+        'pageCount' => 'getPageCount',
+        'limit' => 'getLimit',
+        'resources' => 'getResources'
     ];
 
     /**
@@ -177,7 +192,10 @@ class GroupImage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['href'] = isset($data['href']) ? $data['href'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
     }
 
     /**
@@ -189,8 +207,17 @@ class GroupImage implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['href'] === null) {
-            $invalidProperties[] = "'href' can't be null";
+        if ($this->container['page'] === null) {
+            $invalidProperties[] = "'page' can't be null";
+        }
+        if ($this->container['pageCount'] === null) {
+            $invalidProperties[] = "'pageCount' can't be null";
+        }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['resources'] === null) {
+            $invalidProperties[] = "'resources' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +235,97 @@ class GroupImage implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets href
+     * Gets page
      *
-     * @return string
+     * @return int
      */
-    public function getHref()
+    public function getPage()
     {
-        return $this->container['href'];
+        return $this->container['page'];
     }
 
     /**
-     * Sets href
+     * Sets page
      *
-     * @param string $href href
+     * @param int $page page
      *
      * @return $this
      */
-    public function setHref($href)
+    public function setPage($page)
     {
-        $this->container['href'] = $href;
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets pageCount
+     *
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return $this->container['pageCount'];
+    }
+
+    /**
+     * Sets pageCount
+     *
+     * @param int $pageCount The total number of pages.
+     *
+     * @return $this
+     */
+    public function setPageCount($pageCount)
+    {
+        $this->container['pageCount'] = $pageCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit The number of results per page.
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets resources
+     *
+     * @return \TextMagic\Models\ModelList[]
+     */
+    public function getResources()
+    {
+        return $this->container['resources'];
+    }
+
+    /**
+     * Sets resources
+     *
+     * @param \TextMagic\Models\ModelList[] $resources resources
+     *
+     * @return $this
+     */
+    public function setResources($resources)
+    {
+        $this->container['resources'] = $resources;
 
         return $this;
     }

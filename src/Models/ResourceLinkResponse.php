@@ -229,7 +229,7 @@ class ResourceLinkResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Resource ID.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class ResourceLinkResponse implements ModelInterface, ArrayAccess
     /**
      * Sets href
      *
-     * @param string $href href
+     * @param string $href A link to this resource. If you want to fetch it, just **GET** this address.
      *
      * @return $this
      */

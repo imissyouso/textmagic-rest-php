@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://my.textmagic.com';
+    protected $host = 'http://rest.textmagic.com';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
@@ -397,7 +397,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.0.450' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.0.454' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

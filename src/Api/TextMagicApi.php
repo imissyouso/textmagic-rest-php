@@ -1684,7 +1684,7 @@ class TextMagicApi
     }
 
     /**
-     * Operation checkPhoneVerificationCode_0
+     * Operation checkPhoneVerificationCodeTFA
      *
      * Step 2: Check the verification code
      *
@@ -1694,13 +1694,13 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function checkPhoneVerificationCode_0($checkPhoneVerificationCodeInputObject)
+    public function checkPhoneVerificationCodeTFA($checkPhoneVerificationCodeInputObject)
     {
-        $this->checkPhoneVerificationCode_0WithHttpInfo($checkPhoneVerificationCodeInputObject);
+        $this->checkPhoneVerificationCodeTFAWithHttpInfo($checkPhoneVerificationCodeInputObject);
     }
 
     /**
-     * Operation checkPhoneVerificationCode_0WithHttpInfo
+     * Operation checkPhoneVerificationCodeTFAWithHttpInfo
      *
      * Step 2: Check the verification code
      *
@@ -1710,10 +1710,10 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkPhoneVerificationCode_0WithHttpInfo($checkPhoneVerificationCodeInputObject)
+    public function checkPhoneVerificationCodeTFAWithHttpInfo($checkPhoneVerificationCodeInputObject)
     {
         $returnType = '';
-        $request = $this->checkPhoneVerificationCode_0Request($checkPhoneVerificationCodeInputObject);
+        $request = $this->checkPhoneVerificationCodeTFARequest($checkPhoneVerificationCodeInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1769,7 +1769,7 @@ class TextMagicApi
     }
 
     /**
-     * Operation checkPhoneVerificationCode_0Async
+     * Operation checkPhoneVerificationCodeTFAAsync
      *
      * Step 2: Check the verification code
      *
@@ -1778,9 +1778,9 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkPhoneVerificationCode_0Async($checkPhoneVerificationCodeInputObject)
+    public function checkPhoneVerificationCodeTFAAsync($checkPhoneVerificationCodeInputObject)
     {
-        return $this->checkPhoneVerificationCode_0AsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
+        return $this->checkPhoneVerificationCodeTFAAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1789,7 +1789,7 @@ class TextMagicApi
     }
 
     /**
-     * Operation checkPhoneVerificationCode_0AsyncWithHttpInfo
+     * Operation checkPhoneVerificationCodeTFAAsyncWithHttpInfo
      *
      * Step 2: Check the verification code
      *
@@ -1798,10 +1798,10 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkPhoneVerificationCode_0AsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
+    public function checkPhoneVerificationCodeTFAAsyncWithHttpInfo($checkPhoneVerificationCodeInputObject)
     {
         $returnType = '';
-        $request = $this->checkPhoneVerificationCode_0Request($checkPhoneVerificationCodeInputObject);
+        $request = $this->checkPhoneVerificationCodeTFARequest($checkPhoneVerificationCodeInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1827,19 +1827,19 @@ class TextMagicApi
     }
 
     /**
-     * Create request for operation 'checkPhoneVerificationCode_0'
+     * Create request for operation 'checkPhoneVerificationCodeTFA'
      *
      * @param  \TextMagic\Models\CheckPhoneVerificationCodeInputObject1 $checkPhoneVerificationCodeInputObject (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function checkPhoneVerificationCode_0Request($checkPhoneVerificationCodeInputObject)
+    protected function checkPhoneVerificationCodeTFARequest($checkPhoneVerificationCodeInputObject)
     {
         // verify the required parameter 'checkPhoneVerificationCodeInputObject' is set
         if ($checkPhoneVerificationCodeInputObject === null || (is_array($checkPhoneVerificationCodeInputObject) && count($checkPhoneVerificationCodeInputObject) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $checkPhoneVerificationCodeInputObject when calling checkPhoneVerificationCode_0'
+                'Missing the required parameter $checkPhoneVerificationCodeInputObject when calling checkPhoneVerificationCodeTFA'
             );
         }
 
@@ -3799,7 +3799,7 @@ class TextMagicApi
     /**
      * Operation createList
      *
-     * Create a new list from the submitted data.
+     * Create a new list
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject createListInputObject (required)
      *
@@ -3816,7 +3816,7 @@ class TextMagicApi
     /**
      * Operation createListWithHttpInfo
      *
-     * Create a new list from the submitted data.
+     * Create a new list
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
      *
@@ -3907,7 +3907,7 @@ class TextMagicApi
     /**
      * Operation createListAsync
      *
-     * Create a new list from the submitted data.
+     * Create a new list
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
      *
@@ -3927,7 +3927,7 @@ class TextMagicApi
     /**
      * Operation createListAsyncWithHttpInfo
      *
-     * Create a new list from the submitted data.
+     * Create a new list
      *
      * @param  \TextMagic\Models\CreateListInputObject $createListInputObject (required)
      *
@@ -24263,13 +24263,13 @@ class TextMagicApi
     /**
      * Operation getList
      *
-     * Get a single list.
+     * Get the details of a specific list
      *
      * @param  int $id id (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\Group
+     * @return \TextMagic\Models\ModelList
      */
     public function getList($id)
     {
@@ -24280,17 +24280,17 @@ class TextMagicApi
     /**
      * Operation getListWithHttpInfo
      *
-     * Get a single list.
+     * Get the details of a specific list
      *
      * @param  int $id (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\Group, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\ModelList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getListWithHttpInfo($id)
     {
-        $returnType = '\TextMagic\Models\Group';
+        $returnType = '\TextMagic\Models\ModelList';
         $request = $this->getListRequest($id);
 
         try {
@@ -24342,7 +24342,7 @@ class TextMagicApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TextMagic\Models\Group',
+                        '\TextMagic\Models\ModelList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24371,7 +24371,7 @@ class TextMagicApi
     /**
      * Operation getListAsync
      *
-     * Get a single list.
+     * Get the details of a specific list
      *
      * @param  int $id (required)
      *
@@ -24391,7 +24391,7 @@ class TextMagicApi
     /**
      * Operation getListAsyncWithHttpInfo
      *
-     * Get a single list.
+     * Get the details of a specific list
      *
      * @param  int $id (required)
      *
@@ -24400,7 +24400,7 @@ class TextMagicApi
      */
     public function getListAsyncWithHttpInfo($id)
     {
-        $returnType = '\TextMagic\Models\Group';
+        $returnType = '\TextMagic\Models\ModelList';
         $request = $this->getListRequest($id);
 
         return $this->client
@@ -24755,6 +24755,323 @@ class TextMagicApi
                 $resourcePath
             );
         }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getLists
+     *
+     * Get all lists
+     *
+     * @param  int $page The current fetched page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
+     * @param  int $onlyMine Return only current user lists (optional, default to 0)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TextMagic\Models\GetListsPaginatedResponse
+     */
+    public function getLists($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
+    {
+        list($response) = $this->getListsWithHttpInfo($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
+        return $response;
+    }
+
+    /**
+     * Operation getListsWithHttpInfo
+     *
+     * Get all lists
+     *
+     * @param  int $page The current fetched page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
+     * @param  int $onlyMine Return only current user lists (optional, default to 0)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TextMagic\Models\GetListsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getListsWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
+    {
+        $returnType = '\TextMagic\Models\GetListsPaginatedResponse';
+        $request = $this->getListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\GetListsPaginatedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\NotFoundResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getListsAsync
+     *
+     * Get all lists
+     *
+     * @param  int $page The current fetched page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
+     * @param  int $onlyMine Return only current user lists (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getListsAsync($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
+    {
+        return $this->getListsAsyncWithHttpInfo($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getListsAsyncWithHttpInfo
+     *
+     * Get all lists
+     *
+     * @param  int $page The current fetched page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
+     * @param  int $onlyMine Return only current user lists (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getListsAsyncWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
+    {
+        $returnType = '\TextMagic\Models\GetListsPaginatedResponse';
+        $request = $this->getListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getLists'
+     *
+     * @param  int $page The current fetched page. (optional, default to 1)
+     * @param  int $limit The number of results per page. (optional, default to 10)
+     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
+     * @param  string $direction Order direction. Default is desc (optional, default to desc)
+     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
+     * @param  int $onlyMine Return only current user lists (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getListsRequest($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
+    {
+
+        $resourcePath = '/api/v2/lists';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($orderBy !== null) {
+            $queryParams['orderBy'] = ObjectSerializer::toQueryValue($orderBy);
+        }
+        // query params
+        if ($direction !== null) {
+            $queryParams['direction'] = ObjectSerializer::toQueryValue($direction);
+        }
+        // query params
+        if ($favoriteOnly !== null) {
+            $queryParams['favoriteOnly'] = ObjectSerializer::toQueryValue($favoriteOnly);
+        }
+        // query params
+        if ($onlyMine !== null) {
+            $queryParams['onlyMine'] = ObjectSerializer::toQueryValue($onlyMine);
+        }
+
 
         // body params
         $_tempBody = null;
@@ -33772,323 +34089,6 @@ class TextMagicApi
     }
 
     /**
-     * Operation getUserLists
-     *
-     * Get all user lists.
-     *
-     * @param  int $page Fetch specified results page. (optional, default to 1)
-     * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
-     * @param  string $direction Order direction. Default is desc (optional, default to desc)
-     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
-     * @param  int $onlyMine Return only current user lists (optional, default to 0)
-     *
-     * @throws \TextMagic\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \TextMagic\Models\GetUserListsPaginatedResponse
-     */
-    public function getUserLists($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
-    {
-        list($response) = $this->getUserListsWithHttpInfo($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
-        return $response;
-    }
-
-    /**
-     * Operation getUserListsWithHttpInfo
-     *
-     * Get all user lists.
-     *
-     * @param  int $page Fetch specified results page. (optional, default to 1)
-     * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
-     * @param  string $direction Order direction. Default is desc (optional, default to desc)
-     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
-     * @param  int $onlyMine Return only current user lists (optional, default to 0)
-     *
-     * @throws \TextMagic\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \TextMagic\Models\GetUserListsPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getUserListsWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
-    {
-        $returnType = '\TextMagic\Models\GetUserListsPaginatedResponse';
-        $request = $this->getUserListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TextMagic\Models\GetUserListsPaginatedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TextMagic\Models\UnauthorizedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\TextMagic\Models\NotFoundResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getUserListsAsync
-     *
-     * Get all user lists.
-     *
-     * @param  int $page Fetch specified results page. (optional, default to 1)
-     * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
-     * @param  string $direction Order direction. Default is desc (optional, default to desc)
-     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
-     * @param  int $onlyMine Return only current user lists (optional, default to 0)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getUserListsAsync($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
-    {
-        return $this->getUserListsAsyncWithHttpInfo($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getUserListsAsyncWithHttpInfo
-     *
-     * Get all user lists.
-     *
-     * @param  int $page Fetch specified results page. (optional, default to 1)
-     * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
-     * @param  string $direction Order direction. Default is desc (optional, default to desc)
-     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
-     * @param  int $onlyMine Return only current user lists (optional, default to 0)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getUserListsAsyncWithHttpInfo($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
-    {
-        $returnType = '\TextMagic\Models\GetUserListsPaginatedResponse';
-        $request = $this->getUserListsRequest($page, $limit, $orderBy, $direction, $favoriteOnly, $onlyMine);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getUserLists'
-     *
-     * @param  int $page Fetch specified results page. (optional, default to 1)
-     * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $orderBy Order results by some field. Default is id (optional, default to id)
-     * @param  string $direction Order direction. Default is desc (optional, default to desc)
-     * @param  int $favoriteOnly Return only favorite lists (optional, default to 0)
-     * @param  int $onlyMine Return only current user lists (optional, default to 0)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getUserListsRequest($page = '1', $limit = '10', $orderBy = 'id', $direction = 'desc', $favoriteOnly = '0', $onlyMine = '0')
-    {
-
-        $resourcePath = '/api/v2/lists';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
-        }
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
-        // query params
-        if ($orderBy !== null) {
-            $queryParams['orderBy'] = ObjectSerializer::toQueryValue($orderBy);
-        }
-        // query params
-        if ($direction !== null) {
-            $queryParams['direction'] = ObjectSerializer::toQueryValue($direction);
-        }
-        // query params
-        if ($favoriteOnly !== null) {
-            $queryParams['favoriteOnly'] = ObjectSerializer::toQueryValue($favoriteOnly);
-        }
-        // query params
-        if ($onlyMine !== null) {
-            $queryParams['onlyMine'] = ObjectSerializer::toQueryValue($onlyMine);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getVersions
      *
      * Get minimal valid apps versions
@@ -40756,7 +40756,7 @@ class TextMagicApi
     }
 
     /**
-     * Operation sendPhoneVerificationCode_0
+     * Operation sendPhoneVerificationCodeTFA
      *
      * Step 1: Send a verification code
      *
@@ -40766,14 +40766,14 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\SendPhoneVerificationCodeResponse
      */
-    public function sendPhoneVerificationCode_0($sendPhoneVerificationCodeInputObject)
+    public function sendPhoneVerificationCodeTFA($sendPhoneVerificationCodeInputObject)
     {
-        list($response) = $this->sendPhoneVerificationCode_0WithHttpInfo($sendPhoneVerificationCodeInputObject);
+        list($response) = $this->sendPhoneVerificationCodeTFAWithHttpInfo($sendPhoneVerificationCodeInputObject);
         return $response;
     }
 
     /**
-     * Operation sendPhoneVerificationCode_0WithHttpInfo
+     * Operation sendPhoneVerificationCodeTFAWithHttpInfo
      *
      * Step 1: Send a verification code
      *
@@ -40783,10 +40783,10 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\SendPhoneVerificationCodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendPhoneVerificationCode_0WithHttpInfo($sendPhoneVerificationCodeInputObject)
+    public function sendPhoneVerificationCodeTFAWithHttpInfo($sendPhoneVerificationCodeInputObject)
     {
         $returnType = '\TextMagic\Models\SendPhoneVerificationCodeResponse';
-        $request = $this->sendPhoneVerificationCode_0Request($sendPhoneVerificationCodeInputObject);
+        $request = $this->sendPhoneVerificationCodeTFARequest($sendPhoneVerificationCodeInputObject);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40864,7 +40864,7 @@ class TextMagicApi
     }
 
     /**
-     * Operation sendPhoneVerificationCode_0Async
+     * Operation sendPhoneVerificationCodeTFAAsync
      *
      * Step 1: Send a verification code
      *
@@ -40873,9 +40873,9 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendPhoneVerificationCode_0Async($sendPhoneVerificationCodeInputObject)
+    public function sendPhoneVerificationCodeTFAAsync($sendPhoneVerificationCodeInputObject)
     {
-        return $this->sendPhoneVerificationCode_0AsyncWithHttpInfo($sendPhoneVerificationCodeInputObject)
+        return $this->sendPhoneVerificationCodeTFAAsyncWithHttpInfo($sendPhoneVerificationCodeInputObject)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -40884,7 +40884,7 @@ class TextMagicApi
     }
 
     /**
-     * Operation sendPhoneVerificationCode_0AsyncWithHttpInfo
+     * Operation sendPhoneVerificationCodeTFAAsyncWithHttpInfo
      *
      * Step 1: Send a verification code
      *
@@ -40893,10 +40893,10 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendPhoneVerificationCode_0AsyncWithHttpInfo($sendPhoneVerificationCodeInputObject)
+    public function sendPhoneVerificationCodeTFAAsyncWithHttpInfo($sendPhoneVerificationCodeInputObject)
     {
         $returnType = '\TextMagic\Models\SendPhoneVerificationCodeResponse';
-        $request = $this->sendPhoneVerificationCode_0Request($sendPhoneVerificationCodeInputObject);
+        $request = $this->sendPhoneVerificationCodeTFARequest($sendPhoneVerificationCodeInputObject);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -40936,19 +40936,19 @@ class TextMagicApi
     }
 
     /**
-     * Create request for operation 'sendPhoneVerificationCode_0'
+     * Create request for operation 'sendPhoneVerificationCodeTFA'
      *
      * @param  \TextMagic\Models\SendPhoneVerificationCodeInputObject $sendPhoneVerificationCodeInputObject (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendPhoneVerificationCode_0Request($sendPhoneVerificationCodeInputObject)
+    protected function sendPhoneVerificationCodeTFARequest($sendPhoneVerificationCodeInputObject)
     {
         // verify the required parameter 'sendPhoneVerificationCodeInputObject' is set
         if ($sendPhoneVerificationCodeInputObject === null || (is_array($sendPhoneVerificationCodeInputObject) && count($sendPhoneVerificationCodeInputObject) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sendPhoneVerificationCodeInputObject when calling sendPhoneVerificationCode_0'
+                'Missing the required parameter $sendPhoneVerificationCodeInputObject when calling sendPhoneVerificationCodeTFA'
             );
         }
 

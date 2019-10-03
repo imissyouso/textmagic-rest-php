@@ -230,7 +230,7 @@ class BadRequestResponse implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param int $code code
+     * @param int $code HTTP error code.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class BadRequestResponse implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string $message Brief error message. You could display this message to your user or save it in a log.
      *
      * @return $this
      */

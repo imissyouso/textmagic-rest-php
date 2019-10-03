@@ -1,4 +1,4 @@
-# GroupImage
+# ListImage
 
 ## Properties
 Name | Type | Description | Notes

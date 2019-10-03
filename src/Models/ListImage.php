@@ -1,6 +1,6 @@
 <?php
 /**
- * SuccessfulResponse
+ * ListImage
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * SuccessfulResponse Class Doc Comment
+ * ListImage Class Doc Comment
  *
  * @category Class
- * @description Request executed with success
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SuccessfulResponse implements ModelInterface, ArrayAccess
+class ListImage implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SuccessfulResponse';
+    protected static $swaggerModelName = 'ListImage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +57,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'href' => 'string'
     ];
 
     /**
@@ -67,7 +66,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'href' => null
     ];
 
     /**
@@ -97,7 +96,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'href' => 'href'
     ];
 
     /**
@@ -106,7 +105,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'href' => 'setHref'
     ];
 
     /**
@@ -115,7 +114,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'href' => 'getHref'
     ];
 
     /**
@@ -178,6 +177,7 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['href'] = isset($data['href']) ? $data['href'] : null;
     }
 
     /**
@@ -189,6 +189,9 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['href'] === null) {
+            $invalidProperties[] = "'href' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,6 +206,30 @@ class SuccessfulResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets href
+     *
+     * @return string
+     */
+    public function getHref()
+    {
+        return $this->container['href'];
+    }
+
+    /**
+     * Sets href
+     *
+     * @param string $href href
+     *
+     * @return $this
+     */
+    public function setHref($href)
+    {
+        $this->container['href'] = $href;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

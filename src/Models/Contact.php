@@ -68,7 +68,7 @@ class Contact implements ModelInterface, ArrayAccess
         'country' => '\TextMagic\Models\Country',
         'customFields' => '\TextMagic\Models\ContactCustomField[]',
         'user' => '\TextMagic\Models\User',
-        'lists' => '\TextMagic\Models\Group[]',
+        'lists' => '\TextMagic\Models\ModelList[]',
         'phoneType' => 'string',
         'avatar' => '\TextMagic\Models\ContactImage',
         'notes' => '\TextMagic\Models\ContactNote[]'
@@ -600,7 +600,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets lists
      *
-     * @return \TextMagic\Models\Group[]
+     * @return \TextMagic\Models\ModelList[]
      */
     public function getLists()
     {
@@ -610,7 +610,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets lists
      *
-     * @param \TextMagic\Models\Group[] $lists lists
+     * @param \TextMagic\Models\ModelList[] $lists lists
      *
      * @return $this
      */

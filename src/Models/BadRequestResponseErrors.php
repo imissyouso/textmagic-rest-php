@@ -36,6 +36,7 @@ use \TextMagic\ObjectSerializer;
  * BadRequestResponseErrors Class Doc Comment
  *
  * @category Class
+ * @description If it was a **POST** or **PUT** request (and the **message** returned is &#x60;Validation Failed&#x60;), this field may contain **errors **that describe the errors grouped by the input parameter name.
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -223,7 +224,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
     /**
      * Sets common
      *
-     * @param string[] $common common
+     * @param string[] $common Array of messages with errors related to the entire request. For example, you did not specify either the **text** or **templateId** when [sending the message](/docs/api/send-sms/).
      *
      * @return $this
      */
@@ -247,7 +248,7 @@ class BadRequestResponseErrors implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param object $fields fields
+     * @param object $fields Associative array. The keys are the POST/PUT parameters names and the values are arrays with error messages for these parameters.
      *
      * @return $this
      */
