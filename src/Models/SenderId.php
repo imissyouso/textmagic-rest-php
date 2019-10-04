@@ -58,6 +58,7 @@ class SenderId implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'displayTimeFormat' => 'string',
         'senderId' => 'string',
         'user' => '\TextMagic\Models\User',
         'status' => 'string'
@@ -70,6 +71,7 @@ class SenderId implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
+        'displayTimeFormat' => null,
         'senderId' => null,
         'user' => null,
         'status' => null
@@ -103,6 +105,7 @@ class SenderId implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'displayTimeFormat' => 'displayTimeFormat',
         'senderId' => 'senderId',
         'user' => 'user',
         'status' => 'status'
@@ -115,6 +118,7 @@ class SenderId implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'displayTimeFormat' => 'setDisplayTimeFormat',
         'senderId' => 'setSenderId',
         'user' => 'setUser',
         'status' => 'setStatus'
@@ -127,6 +131,7 @@ class SenderId implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'displayTimeFormat' => 'getDisplayTimeFormat',
         'senderId' => 'getSenderId',
         'user' => 'getUser',
         'status' => 'getStatus'
@@ -210,6 +215,7 @@ class SenderId implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['displayTimeFormat'] = isset($data['displayTimeFormat']) ? $data['displayTimeFormat'] : null;
         $this->container['senderId'] = isset($data['senderId']) ? $data['senderId'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -279,6 +285,30 @@ class SenderId implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets displayTimeFormat
+     *
+     * @return string
+     */
+    public function getDisplayTimeFormat()
+    {
+        return $this->container['displayTimeFormat'];
+    }
+
+    /**
+     * Sets displayTimeFormat
+     *
+     * @param string $displayTimeFormat Format for representation of time
+     *
+     * @return $this
+     */
+    public function setDisplayTimeFormat($displayTimeFormat)
+    {
+        $this->container['displayTimeFormat'] = $displayTimeFormat;
 
         return $this;
     }

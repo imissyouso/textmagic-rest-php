@@ -205,6 +205,8 @@ class Conversation implements ModelInterface, ArrayAccess
 
     const DIRECTION_IN = 'in';
     const DIRECTION_OUT = 'out';
+    const DIRECTION_O = 'o';
+    const DIRECTION_I = 'i';
     
 
     
@@ -218,6 +220,8 @@ class Conversation implements ModelInterface, ArrayAccess
         return [
             self::DIRECTION_IN,
             self::DIRECTION_OUT,
+            self::DIRECTION_O,
+            self::DIRECTION_I,
         ];
     }
     

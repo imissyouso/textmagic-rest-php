@@ -58,6 +58,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'displayTimeFormat' => 'string',
         'phone' => 'string',
         'user' => '\TextMagic\Models\User',
         'purchasedAt' => '\DateTime',
@@ -73,6 +74,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
+        'displayTimeFormat' => null,
         'phone' => null,
         'user' => null,
         'purchasedAt' => 'date-time',
@@ -109,6 +111,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'displayTimeFormat' => 'displayTimeFormat',
         'phone' => 'phone',
         'user' => 'user',
         'purchasedAt' => 'purchasedAt',
@@ -124,6 +127,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'displayTimeFormat' => 'setDisplayTimeFormat',
         'phone' => 'setPhone',
         'user' => 'setUser',
         'purchasedAt' => 'setPurchasedAt',
@@ -139,6 +143,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'displayTimeFormat' => 'getDisplayTimeFormat',
         'phone' => 'getPhone',
         'user' => 'getUser',
         'purchasedAt' => 'getPurchasedAt',
@@ -223,6 +228,7 @@ class UsersInbound implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['displayTimeFormat'] = isset($data['displayTimeFormat']) ? $data['displayTimeFormat'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['purchasedAt'] = isset($data['purchasedAt']) ? $data['purchasedAt'] : null;
@@ -301,6 +307,30 @@ class UsersInbound implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets displayTimeFormat
+     *
+     * @return string
+     */
+    public function getDisplayTimeFormat()
+    {
+        return $this->container['displayTimeFormat'];
+    }
+
+    /**
+     * Sets displayTimeFormat
+     *
+     * @param string $displayTimeFormat Format for representation of time
+     *
+     * @return $this
+     */
+    public function setDisplayTimeFormat($displayTimeFormat)
+    {
+        $this->container['displayTimeFormat'] = $displayTimeFormat;
 
         return $this;
     }

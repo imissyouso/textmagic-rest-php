@@ -67,7 +67,7 @@ class SendPhoneVerificationCodeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'verifyId' => null,
+        'verifyId' => 'uuid',
         'price' => null
     ];
 

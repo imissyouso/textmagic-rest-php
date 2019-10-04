@@ -58,6 +58,7 @@ class User implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'displayTimeFormat' => 'string',
         'username' => 'string',
         'firstName' => 'string',
         'lastName' => 'string',
@@ -82,6 +83,7 @@ class User implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
+        'displayTimeFormat' => null,
         'username' => null,
         'firstName' => null,
         'lastName' => null,
@@ -127,6 +129,7 @@ class User implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'displayTimeFormat' => 'displayTimeFormat',
         'username' => 'username',
         'firstName' => 'firstName',
         'lastName' => 'lastName',
@@ -151,6 +154,7 @@ class User implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'displayTimeFormat' => 'setDisplayTimeFormat',
         'username' => 'setUsername',
         'firstName' => 'setFirstName',
         'lastName' => 'setLastName',
@@ -175,6 +179,7 @@ class User implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'displayTimeFormat' => 'getDisplayTimeFormat',
         'username' => 'getUsername',
         'firstName' => 'getFirstName',
         'lastName' => 'getLastName',
@@ -285,6 +290,7 @@ class User implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['displayTimeFormat'] = isset($data['displayTimeFormat']) ? $data['displayTimeFormat'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
         $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
@@ -410,6 +416,30 @@ class User implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets displayTimeFormat
+     *
+     * @return string
+     */
+    public function getDisplayTimeFormat()
+    {
+        return $this->container['displayTimeFormat'];
+    }
+
+    /**
+     * Sets displayTimeFormat
+     *
+     * @param string $displayTimeFormat Format for representation of time
+     *
+     * @return $this
+     */
+    public function setDisplayTimeFormat($displayTimeFormat)
+    {
+        $this->container['displayTimeFormat'] = $displayTimeFormat;
 
         return $this;
     }

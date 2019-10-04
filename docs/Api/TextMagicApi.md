@@ -6428,8 +6428,8 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
 );
 $page = 1; // int | Fetch specified results page.
 $limit = 10; // int | The number of results per page.
-$start = 1430438400; // int | Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior.
-$end = "1431648000"; // string | Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today.
+$start = "2018-11-11 11:11"; // int | Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior.
+$end = "\"2019-11-11 11:11\""; // string | Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today.
 
 try {
     $result = $apiInstance->getSpendingStat($page, $limit, $start, $end);
