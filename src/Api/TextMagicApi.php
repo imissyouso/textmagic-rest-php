@@ -90,7 +90,7 @@ class TextMagicApi
     /**
      * Operation assignContactsToList
      *
-     * Assign contacts to the specified list.
+     * Assign contacts to a list
      *
      * @param  \TextMagic\Models\AssignContactsToListInputObject $assignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id id (required)
@@ -108,7 +108,7 @@ class TextMagicApi
     /**
      * Operation assignContactsToListWithHttpInfo
      *
-     * Assign contacts to the specified list.
+     * Assign contacts to a list
      *
      * @param  \TextMagic\Models\AssignContactsToListInputObject $assignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id (required)
@@ -208,7 +208,7 @@ class TextMagicApi
     /**
      * Operation assignContactsToListAsync
      *
-     * Assign contacts to the specified list.
+     * Assign contacts to a list
      *
      * @param  \TextMagic\Models\AssignContactsToListInputObject $assignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id (required)
@@ -229,7 +229,7 @@ class TextMagicApi
     /**
      * Operation assignContactsToListAsyncWithHttpInfo
      *
-     * Assign contacts to the specified list.
+     * Assign contacts to a list
      *
      * @param  \TextMagic\Models\AssignContactsToListInputObject $assignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id (required)
@@ -1926,7 +1926,7 @@ class TextMagicApi
     /**
      * Operation clearAndAssignContactsToList
      *
-     * Reset list members to the specified contacts.
+     * Reset list members to the specified contacts
      *
      * @param  \TextMagic\Models\ClearAndAssignContactsToListInputObject $clearAndAssignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id id (required)
@@ -1944,7 +1944,7 @@ class TextMagicApi
     /**
      * Operation clearAndAssignContactsToListWithHttpInfo
      *
-     * Reset list members to the specified contacts.
+     * Reset list members to the specified contacts
      *
      * @param  \TextMagic\Models\ClearAndAssignContactsToListInputObject $clearAndAssignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id (required)
@@ -2044,7 +2044,7 @@ class TextMagicApi
     /**
      * Operation clearAndAssignContactsToListAsync
      *
-     * Reset list members to the specified contacts.
+     * Reset list members to the specified contacts
      *
      * @param  \TextMagic\Models\ClearAndAssignContactsToListInputObject $clearAndAssignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id (required)
@@ -2065,7 +2065,7 @@ class TextMagicApi
     /**
      * Operation clearAndAssignContactsToListAsyncWithHttpInfo
      *
-     * Reset list members to the specified contacts.
+     * Reset list members to the specified contacts
      *
      * @param  \TextMagic\Models\ClearAndAssignContactsToListInputObject $clearAndAssignContactsToListInputObject Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user (required)
      * @param  int $id (required)
@@ -7553,7 +7553,7 @@ class TextMagicApi
     /**
      * Operation deleteContactsFromList
      *
-     * Unassign contacts from the specified list.
+     * Unassign contacts from a list
      *
      * @param  \TextMagic\Models\DeleteContacsFromListObject $deleteContacsFromListObject Contact ID(s), separated by comma (required)
      * @param  int $id id (required)
@@ -7570,7 +7570,7 @@ class TextMagicApi
     /**
      * Operation deleteContactsFromListWithHttpInfo
      *
-     * Unassign contacts from the specified list.
+     * Unassign contacts from a list
      *
      * @param  \TextMagic\Models\DeleteContacsFromListObject $deleteContacsFromListObject Contact ID(s), separated by comma (required)
      * @param  int $id (required)
@@ -7640,7 +7640,7 @@ class TextMagicApi
     /**
      * Operation deleteContactsFromListAsync
      *
-     * Unassign contacts from the specified list.
+     * Unassign contacts from a list
      *
      * @param  \TextMagic\Models\DeleteContacsFromListObject $deleteContacsFromListObject Contact ID(s), separated by comma (required)
      * @param  int $id (required)
@@ -7661,7 +7661,7 @@ class TextMagicApi
     /**
      * Operation deleteContactsFromListAsyncWithHttpInfo
      *
-     * Unassign contacts from the specified list.
+     * Unassign contacts from a list
      *
      * @param  \TextMagic\Models\DeleteContacsFromListObject $deleteContacsFromListObject Contact ID(s), separated by comma (required)
      * @param  int $id (required)
@@ -8787,7 +8787,7 @@ class TextMagicApi
     /**
      * Operation deleteList
      *
-     * Delete a single list.
+     * Delete a single list
      *
      * @param  int $id id (required)
      *
@@ -8803,7 +8803,7 @@ class TextMagicApi
     /**
      * Operation deleteListWithHttpInfo
      *
-     * Delete a single list.
+     * Delete a single list
      *
      * @param  int $id (required)
      *
@@ -8872,7 +8872,7 @@ class TextMagicApi
     /**
      * Operation deleteListAsync
      *
-     * Delete a single list.
+     * Delete a single list
      *
      * @param  int $id (required)
      *
@@ -8892,7 +8892,7 @@ class TextMagicApi
     /**
      * Operation deleteListAsyncWithHttpInfo
      *
-     * Delete a single list.
+     * Delete a single list
      *
      * @param  int $id (required)
      *
@@ -9032,7 +9032,7 @@ class TextMagicApi
     /**
      * Operation deleteListAvatar
      *
-     * Delete an avatar for the list.
+     * Delete an avatar for the list
      *
      * @param  int $id id (required)
      *
@@ -9048,7 +9048,7 @@ class TextMagicApi
     /**
      * Operation deleteListAvatarWithHttpInfo
      *
-     * Delete an avatar for the list.
+     * Delete an avatar for the list
      *
      * @param  int $id (required)
      *
@@ -9117,7 +9117,7 @@ class TextMagicApi
     /**
      * Operation deleteListAvatarAsync
      *
-     * Delete an avatar for the list.
+     * Delete an avatar for the list
      *
      * @param  int $id (required)
      *
@@ -9137,7 +9137,7 @@ class TextMagicApi
     /**
      * Operation deleteListAvatarAsyncWithHttpInfo
      *
-     * Delete an avatar for the list.
+     * Delete an avatar for the list
      *
      * @param  int $id (required)
      *
@@ -9277,7 +9277,7 @@ class TextMagicApi
     /**
      * Operation deleteListContactsBulk
      *
-     * Delete contact from list by given ID(s) or all contacts from list.
+     * Delete contact from list by given ID(s) or all contacts from list
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject deleteListContactsBulkInputObject (required)
      * @param  int $id id (required)
@@ -9294,7 +9294,7 @@ class TextMagicApi
     /**
      * Operation deleteListContactsBulkWithHttpInfo
      *
-     * Delete contact from list by given ID(s) or all contacts from list.
+     * Delete contact from list by given ID(s) or all contacts from list
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
@@ -9372,7 +9372,7 @@ class TextMagicApi
     /**
      * Operation deleteListContactsBulkAsync
      *
-     * Delete contact from list by given ID(s) or all contacts from list.
+     * Delete contact from list by given ID(s) or all contacts from list
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
@@ -9393,7 +9393,7 @@ class TextMagicApi
     /**
      * Operation deleteListContactsBulkAsyncWithHttpInfo
      *
-     * Delete contact from list by given ID(s) or all contacts from list.
+     * Delete contact from list by given ID(s) or all contacts from list
      *
      * @param  \TextMagic\Models\DeleteListContactsBulkInputObject $deleteListContactsBulkInputObject (required)
      * @param  int $id (required)
@@ -9544,7 +9544,7 @@ class TextMagicApi
     /**
      * Operation deleteListsBulk
      *
-     * Delete list by given ID(s) or delete all lists.
+     * Delete list by given ID(s) or delete all lists
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject deleteListsBulkInputObject (required)
      *
@@ -9560,7 +9560,7 @@ class TextMagicApi
     /**
      * Operation deleteListsBulkWithHttpInfo
      *
-     * Delete list by given ID(s) or delete all lists.
+     * Delete list by given ID(s) or delete all lists
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
      *
@@ -9637,7 +9637,7 @@ class TextMagicApi
     /**
      * Operation deleteListsBulkAsync
      *
-     * Delete list by given ID(s) or delete all lists.
+     * Delete list by given ID(s) or delete all lists
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
      *
@@ -9657,7 +9657,7 @@ class TextMagicApi
     /**
      * Operation deleteListsBulkAsyncWithHttpInfo
      *
-     * Delete list by given ID(s) or delete all lists.
+     * Delete list by given ID(s) or delete all lists
      *
      * @param  \TextMagic\Models\DeleteListsBulkInputObject $deleteListsBulkInputObject (required)
      *
@@ -21243,7 +21243,7 @@ class TextMagicApi
     /**
      * Operation getContactsByListId
      *
-     * Fetch user contacts by given group id.
+     * Get all contacts in a list
      *
      * @param  int $id Given group Id. (required)
      * @param  int $page Fetch specified results page. (optional, default to 1)
@@ -21264,7 +21264,7 @@ class TextMagicApi
     /**
      * Operation getContactsByListIdWithHttpInfo
      *
-     * Fetch user contacts by given group id.
+     * Get all contacts in a list
      *
      * @param  int $id Given group Id. (required)
      * @param  int $page Fetch specified results page. (optional, default to 1)
@@ -21359,7 +21359,7 @@ class TextMagicApi
     /**
      * Operation getContactsByListIdAsync
      *
-     * Fetch user contacts by given group id.
+     * Get all contacts in a list
      *
      * @param  int $id Given group Id. (required)
      * @param  int $page Fetch specified results page. (optional, default to 1)
@@ -21383,7 +21383,7 @@ class TextMagicApi
     /**
      * Operation getContactsByListIdAsyncWithHttpInfo
      *
-     * Fetch user contacts by given group id.
+     * Get all contacts in a list
      *
      * @param  int $id Given group Id. (required)
      * @param  int $page Fetch specified results page. (optional, default to 1)
@@ -24545,7 +24545,7 @@ class TextMagicApi
     /**
      * Operation getListContactsIds
      *
-     * Fetch all contacts IDs belonging to the list with ID.
+     * Fetch all contacts IDs belonging to the list with ID
      *
      * @param  int $id id (required)
      *
@@ -24562,7 +24562,7 @@ class TextMagicApi
     /**
      * Operation getListContactsIdsWithHttpInfo
      *
-     * Fetch all contacts IDs belonging to the list with ID.
+     * Fetch all contacts IDs belonging to the list with ID
      *
      * @param  int $id (required)
      *
@@ -24653,7 +24653,7 @@ class TextMagicApi
     /**
      * Operation getListContactsIdsAsync
      *
-     * Fetch all contacts IDs belonging to the list with ID.
+     * Fetch all contacts IDs belonging to the list with ID
      *
      * @param  int $id (required)
      *
@@ -24673,7 +24673,7 @@ class TextMagicApi
     /**
      * Operation getListContactsIdsAsyncWithHttpInfo
      *
-     * Fetch all contacts IDs belonging to the list with ID.
+     * Fetch all contacts IDs belonging to the list with ID
      *
      * @param  int $id (required)
      *
@@ -38470,7 +38470,7 @@ class TextMagicApi
     /**
      * Operation searchLists
      *
-     * Find contact lists by given parameters.
+     * Find contact lists by given parameters
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -38494,7 +38494,7 @@ class TextMagicApi
     /**
      * Operation searchListsWithHttpInfo
      *
-     * Find contact lists by given parameters.
+     * Find contact lists by given parameters
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -38592,7 +38592,7 @@ class TextMagicApi
     /**
      * Operation searchListsAsync
      *
-     * Find contact lists by given parameters.
+     * Find contact lists by given parameters
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -38619,7 +38619,7 @@ class TextMagicApi
     /**
      * Operation searchListsAsyncWithHttpInfo
      *
-     * Find contact lists by given parameters.
+     * Find contact lists by given parameters
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
@@ -44821,7 +44821,7 @@ class TextMagicApi
     /**
      * Operation updateList
      *
-     * Update existing list.
+     * Update existing list
      *
      * @param  int $id id (required)
      * @param  \TextMagic\Models\UpdateListObject $updateListObject updateListObject (optional)
@@ -44839,7 +44839,7 @@ class TextMagicApi
     /**
      * Operation updateListWithHttpInfo
      *
-     * Update existing list.
+     * Update existing list
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\UpdateListObject $updateListObject (optional)
@@ -44915,7 +44915,7 @@ class TextMagicApi
     /**
      * Operation updateListAsync
      *
-     * Update existing list.
+     * Update existing list
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\UpdateListObject $updateListObject (optional)
@@ -44936,7 +44936,7 @@ class TextMagicApi
     /**
      * Operation updateListAsyncWithHttpInfo
      *
-     * Update existing list.
+     * Update existing list
      *
      * @param  int $id (required)
      * @param  \TextMagic\Models\UpdateListObject $updateListObject (optional)
@@ -47035,7 +47035,7 @@ class TextMagicApi
     /**
      * Operation uploadListAvatar
      *
-     * Add an avatar for the list.
+     * Add an avatar for the list
      *
      * @param  \SplFileObject $image List avatar. Should be PNG or JPG file not more than 10 MB (required)
      * @param  int $id id (required)
@@ -47053,7 +47053,7 @@ class TextMagicApi
     /**
      * Operation uploadListAvatarWithHttpInfo
      *
-     * Add an avatar for the list.
+     * Add an avatar for the list
      *
      * @param  \SplFileObject $image List avatar. Should be PNG or JPG file not more than 10 MB (required)
      * @param  int $id (required)
@@ -47153,7 +47153,7 @@ class TextMagicApi
     /**
      * Operation uploadListAvatarAsync
      *
-     * Add an avatar for the list.
+     * Add an avatar for the list
      *
      * @param  \SplFileObject $image List avatar. Should be PNG or JPG file not more than 10 MB (required)
      * @param  int $id (required)
@@ -47174,7 +47174,7 @@ class TextMagicApi
     /**
      * Operation uploadListAvatarAsyncWithHttpInfo
      *
-     * Add an avatar for the list.
+     * Add an avatar for the list
      *
      * @param  \SplFileObject $image List avatar. Should be PNG or JPG file not more than 10 MB (required)
      * @param  int $id (required)
