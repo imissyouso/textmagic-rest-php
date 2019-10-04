@@ -25860,7 +25860,7 @@ class TextMagicApi
     /**
      * Operation getMessagePrice
      *
-     * Check price
+     * Check message price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -25894,7 +25894,7 @@ class TextMagicApi
     /**
      * Operation getMessagePriceWithHttpInfo
      *
-     * Check price
+     * Check message price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -26002,7 +26002,7 @@ class TextMagicApi
     /**
      * Operation getMessagePriceAsync
      *
-     * Check price
+     * Check message price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
@@ -26039,7 +26039,7 @@ class TextMagicApi
     /**
      * Operation getMessagePriceAsyncWithHttpInfo
      *
-     * Check price
+     * Check message price
      *
      * @param  int $includeBlocked Should we show pricing for the blocked contacts. (optional, default to 0)
      * @param  string $text Message text. Required if template_id is not set (optional)
