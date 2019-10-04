@@ -1,12 +1,12 @@
 [comment]: <> (HEAD)
 # TextMagic PHP SDK
 This library provides you with an easy way of sending SMS and receiving replies by integrating TextMagic SMS Gateway into your PHP application.
-
+[comment]: <> (/HEAD)
 ## What Is TextMagic?
 TextMagic’s application programming interface (API) provides the communication link between your application and TextMagic’s SMS Gateway, allowing you to send and receive text messages and to check the delivery status of text messages you’ve already sent.
 
 For detailed documentation and more examples, please visit [http://docs.textmagictesting.com/](http://docs.textmagictesting.com/).
-[comment]: <> (/HEAD)
+
 ## Requirements
 
 PHP 5.5 and later
@@ -25,7 +25,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
         }
     ],
     "require": {
-        "imissyouso/textmagic-rest-php": "dev-master#v2.0.473"
+        "imissyouso/textmagic-rest-php": "dev-master#v2.0.475"
     }
 }
 ```
@@ -103,4 +103,3 @@ try {
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 [comment]: <> (/FOOTER)
-
