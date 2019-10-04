@@ -238,7 +238,7 @@ class UserCustomField implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Custom field ID.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class UserCustomField implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Custom field name.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class UserCustomField implements ModelInterface, ArrayAccess
     /**
      * Sets createdAt
      *
-     * @param \DateTime $createdAt createdAt
+     * @param \DateTime $createdAt Custom field creation time.
      *
      * @return $this
      */

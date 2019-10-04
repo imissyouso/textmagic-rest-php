@@ -301,7 +301,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id List ID.
      *
      * @return $this
      */
@@ -325,7 +325,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name List name.
      *
      * @return $this
      */
@@ -349,7 +349,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description description
+     * @param string $description List description.
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets membersCount
      *
-     * @param int $membersCount membersCount
+     * @param int $membersCount List members count.
      *
      * @return $this
      */
@@ -469,7 +469,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets shared
      *
-     * @param bool $shared shared
+     * @param bool $shared Is the list **shared** among all sub-accounts?
      *
      * @return $this
      */

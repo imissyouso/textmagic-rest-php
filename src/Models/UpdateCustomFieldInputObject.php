@@ -220,7 +220,7 @@ class UpdateCustomFieldInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Custom field name
+     * @param string $name Custom field name.
      *
      * @return $this
      */

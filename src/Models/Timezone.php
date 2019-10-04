@@ -328,7 +328,7 @@ class Timezone implements ModelInterface, ArrayAccess
     /**
      * Sets offset
      *
-     * @param int $offset offset
+     * @param int $offset Offset from UTC time in seconds. In this example it is 21600/60/60=6 hours.
      *
      * @return $this
      */

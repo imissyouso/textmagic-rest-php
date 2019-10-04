@@ -5,10 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **firstName** | **string** | Contact first name | [optional] 
 **lastName** | **string** | Contact last name | [optional] 
-**phone** | **string** | Contact phone number in E.164 (international) format without leading + or zeroes | 
-**email** | **string** | Contact email | [optional] 
+**phone** | **string** | Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164). | 
+**email** | **string** | Contact email address. | [optional] 
 **companyName** | **string** | Contact company name | [optional] 
-**lists** | **string** | Array of list resources id contact will be assigned to | 
+**lists** | **string** | Comma-separated [list](/docs/api/lists/) ID. Each contact must be assigned to at least one list. | 
 **favorited** | **bool** | Is contact favorited | [optional] 
 **blocked** | **bool** | Is contact blocked for outgoing and incoming messaging | [optional] 
 **type** | **int** | Force type of phone. Possible values: 0 - landline, 1 - mobile. Default is -1 (auto detection) | [optional] 

@@ -337,7 +337,7 @@ class UpdateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone Contact phone number in E.164 (international) format without leading + or zeroes
+     * @param string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164).
      *
      * @return $this
      */
@@ -361,7 +361,7 @@ class UpdateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Contact email
+     * @param string $email Contact email address.
      *
      * @return $this
      */
@@ -409,7 +409,7 @@ class UpdateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets lists
      *
-     * @param string $lists Array of list resources id contact will be assigned to
+     * @param string $lists Comma-separated [list](/docs/api/lists/) ID. Each contact must be assigned to at least one list.
      *
      * @return $this
      */

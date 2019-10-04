@@ -193,7 +193,7 @@ class UpdateListObject implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['shared'] = isset($data['shared']) ? $data['shared'] : null;
+        $this->container['shared'] = isset($data['shared']) ? $data['shared'] : false;
         $this->container['favorited'] = isset($data['favorited']) ? $data['favorited'] : false;
         $this->container['isDefault'] = isset($data['isDefault']) ? $data['isDefault'] : false;
     }
@@ -238,7 +238,7 @@ class UpdateListObject implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name List name
+     * @param string $name List name.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class UpdateListObject implements ModelInterface, ArrayAccess
     /**
      * Sets shared
      *
-     * @param bool $shared Should this list be shared with sub-accounts
+     * @param bool $shared Make this list shared or not?
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class UpdateListObject implements ModelInterface, ArrayAccess
     /**
      * Sets favorited
      *
-     * @param bool $favorited Is list favorited. Default is false
+     * @param bool $favorited Is list favorited.
      *
      * @return $this
      */

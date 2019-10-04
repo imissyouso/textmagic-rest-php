@@ -5,7 +5,7 @@ All URIs are relative to *http://rest.textmagic.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**assignContactsToList**](TextMagicApi.md#assignContactsToList) | **PUT** /api/v2/lists/{id}/contacts | Assign contacts to a list
-[**blockContact**](TextMagicApi.md#blockContact) | **POST** /api/v2/contacts/block | Block contact from inbound and outbound communication by phone number.
+[**blockContact**](TextMagicApi.md#blockContact) | **POST** /api/v2/contacts/block | Block contact by phone number
 [**buyDedicatedNumber**](TextMagicApi.md#buyDedicatedNumber) | **POST** /api/v2/numbers | Buy a dedicated number
 [**cancelSurvey**](TextMagicApi.md#cancelSurvey) | **PUT** /api/v2/surveys/{id}/cancel | Cancel a survey.
 [**cancelVerification**](TextMagicApi.md#cancelVerification) | **DELETE** /api/v2/verify/{verifyId} | Cancel verification process
@@ -15,33 +15,33 @@ Method | HTTP request | Description
 [**closeChatsBulk**](TextMagicApi.md#closeChatsBulk) | **POST** /api/v2/chats/close/bulk | Close chats (bulk)
 [**closeReadChats**](TextMagicApi.md#closeReadChats) | **POST** /api/v2/chats/close/read | Close read chats
 [**closeSubaccount**](TextMagicApi.md#closeSubaccount) | **DELETE** /api/v2/subaccounts/{id} | Close sub-account
-[**createContact**](TextMagicApi.md#createContact) | **POST** /api/v2/contacts | Create a new contact from the submitted data.
+[**createContact**](TextMagicApi.md#createContact) | **POST** /api/v2/contacts | Add a new contact
 [**createContactNote**](TextMagicApi.md#createContactNote) | **POST** /api/v2/contacts/{id}/notes | Create a new contact note.
-[**createCustomField**](TextMagicApi.md#createCustomField) | **POST** /api/v2/customfields | Create a new custom field from the submitted data.
+[**createCustomField**](TextMagicApi.md#createCustomField) | **POST** /api/v2/customfields | Add a new custom field
 [**createList**](TextMagicApi.md#createList) | **POST** /api/v2/lists | Create a new list
 [**createPushToken**](TextMagicApi.md#createPushToken) | **POST** /api/v2/push/tokens | Add or update a device token.
 [**createSurvey**](TextMagicApi.md#createSurvey) | **POST** /api/v2/surveys | Create a new survey from the submitted data.
 [**createSurveyNode**](TextMagicApi.md#createSurveyNode) | **POST** /api/v2/surveys/{id}/nodes | Create a new node from the submitted data.
 [**createTemplate**](TextMagicApi.md#createTemplate) | **POST** /api/v2/templates | Create a template
-[**deleteAllContacts**](TextMagicApi.md#deleteAllContacts) | **DELETE** /api/v2/contact/all | Delete all contacts.
+[**deleteAllContacts**](TextMagicApi.md#deleteAllContacts) | **DELETE** /api/v2/contact/all | Delete contacts (bulk)
 [**deleteAllOutboundMessages**](TextMagicApi.md#deleteAllOutboundMessages) | **DELETE** /api/v2/message/all | Delete all messages
 [**deleteAvatar**](TextMagicApi.md#deleteAvatar) | **DELETE** /api/v2/user/avatar | Delete an avatar
 [**deleteChatMessages**](TextMagicApi.md#deleteChatMessages) | **POST** /api/v2/chats/{id}/messages/delete | Delete chat messages by ID(s)
 [**deleteChatsBulk**](TextMagicApi.md#deleteChatsBulk) | **POST** /api/v2/chats/delete | Delete chats (bulk)
-[**deleteContact**](TextMagicApi.md#deleteContact) | **DELETE** /api/v2/contacts/{id} | Delete a single contact.
-[**deleteContactAvatar**](TextMagicApi.md#deleteContactAvatar) | **DELETE** /api/v2/contacts/{id}/avatar | Delete an avatar for the contact.
+[**deleteContact**](TextMagicApi.md#deleteContact) | **DELETE** /api/v2/contacts/{id} | Delete a contact
+[**deleteContactAvatar**](TextMagicApi.md#deleteContactAvatar) | **DELETE** /api/v2/contacts/{id}/avatar | Delete an avatar
 [**deleteContactNote**](TextMagicApi.md#deleteContactNote) | **DELETE** /api/v2/notes/{id} | Delete a single contact note.
 [**deleteContactNotesBulk**](TextMagicApi.md#deleteContactNotesBulk) | **POST** /api/v2/contacts/{id}/notes/delete | Delete contact note by given ID(s) or delete all contact notes.
-[**deleteContactsByIds**](TextMagicApi.md#deleteContactsByIds) | **POST** /api/v2/contacts/delete | Delete contact by given ID(s) or delete all contacts.
+[**deleteContactsByIds**](TextMagicApi.md#deleteContactsByIds) | **POST** /api/v2/contacts/delete | Delete contacts by IDs (bulk)
 [**deleteContactsFromList**](TextMagicApi.md#deleteContactsFromList) | **DELETE** /api/v2/lists/{id}/contacts | Unassign contacts from a list
-[**deleteCustomField**](TextMagicApi.md#deleteCustomField) | **DELETE** /api/v2/customfields/{id} | Delete a single custom field.
+[**deleteCustomField**](TextMagicApi.md#deleteCustomField) | **DELETE** /api/v2/customfields/{id} | Delete a custom field
 [**deleteDedicatedNumber**](TextMagicApi.md#deleteDedicatedNumber) | **DELETE** /api/v2/numbers/{id} | Cancel dedicated number subscription
 [**deleteInboundMessage**](TextMagicApi.md#deleteInboundMessage) | **DELETE** /api/v2/replies/{id} | Delete a single inbound message
 [**deleteInboundMessagesBulk**](TextMagicApi.md#deleteInboundMessagesBulk) | **POST** /api/v2/replies/delete | Delete inbound messages (bulk)
-[**deleteList**](TextMagicApi.md#deleteList) | **DELETE** /api/v2/lists/{id} | Delete a single list
+[**deleteList**](TextMagicApi.md#deleteList) | **DELETE** /api/v2/lists/{id} | Delete a list
 [**deleteListAvatar**](TextMagicApi.md#deleteListAvatar) | **DELETE** /api/v2/lists/{id}/avatar | Delete an avatar for the list
-[**deleteListContactsBulk**](TextMagicApi.md#deleteListContactsBulk) | **POST** /api/v2/lists/{id}/contacts/delete | Delete contact from list by given ID(s) or all contacts from list
-[**deleteListsBulk**](TextMagicApi.md#deleteListsBulk) | **POST** /api/v2/lists/delete | Delete list by given ID(s) or delete all lists
+[**deleteListContactsBulk**](TextMagicApi.md#deleteListContactsBulk) | **POST** /api/v2/lists/{id}/contacts/delete | Delete contacts from list (bulk)
+[**deleteListsBulk**](TextMagicApi.md#deleteListsBulk) | **POST** /api/v2/lists/delete | Delete lists (bulk)
 [**deleteMessageSession**](TextMagicApi.md#deleteMessageSession) | **DELETE** /api/v2/sessions/{id} | Delete a session
 [**deleteMessageSessionsBulk**](TextMagicApi.md#deleteMessageSessionsBulk) | **POST** /api/v2/sessions/delete | Delete sessions (bulk)
 [**deleteOutboundMessage**](TextMagicApi.md#deleteOutboundMessage) | **DELETE** /api/v2/messages/{id} | Delete message
@@ -69,36 +69,36 @@ Method | HTTP request | Description
 [**getAvailableSenderSettingOptions**](TextMagicApi.md#getAvailableSenderSettingOptions) | **GET** /api/v2/sources | Get available sender settings
 [**getBalanceNotificationOptions**](TextMagicApi.md#getBalanceNotificationOptions) | **GET** /api/v2/user/notification/balance/bundles | Returns the list of available balance options which can be used as a bound to determine when to send email to user with low balance notification. See https://my.textmagic.com/online/account/notifications/balance
 [**getBalanceNotificationSettings**](TextMagicApi.md#getBalanceNotificationSettings) | **GET** /api/v2/user/notification/balance | Get balance notification settings
-[**getBlockedContacts**](TextMagicApi.md#getBlockedContacts) | **GET** /api/v2/contacts/block/list | Get blocked contacts.
+[**getBlockedContacts**](TextMagicApi.md#getBlockedContacts) | **GET** /api/v2/contacts/block/list | Get blocked contacts
 [**getBulkSession**](TextMagicApi.md#getBulkSession) | **GET** /api/v2/bulks/{id} | Get bulk message session status.
 [**getCallbackSettings**](TextMagicApi.md#getCallbackSettings) | **GET** /api/v2/callback/settings | Fetch callback URL settings
 [**getCallsPrices**](TextMagicApi.md#getCallsPrices) | **GET** /api/v2/calls/price | Check pricing for a inbound/outbound call.
 [**getChat**](TextMagicApi.md#getChat) | **GET** /api/v2/chats/{id} | Get a single chat
 [**getChatByPhone**](TextMagicApi.md#getChatByPhone) | **GET** /api/v2/chats/{phone}/by/phone | Find chats by phone
 [**getChatMessages**](TextMagicApi.md#getChatMessages) | **GET** /api/v2/chats/{id}/message | Get chat messages
-[**getContact**](TextMagicApi.md#getContact) | **GET** /api/v2/contacts/{id} | Get a single contact.
-[**getContactByPhone**](TextMagicApi.md#getContactByPhone) | **GET** /api/v2/contacts/phone/{phone} | Get a single contact by phone number.
+[**getContact**](TextMagicApi.md#getContact) | **GET** /api/v2/contacts/{id} | Get the details of a specific contact
+[**getContactByPhone**](TextMagicApi.md#getContactByPhone) | **GET** /api/v2/contacts/phone/{phone} | Get the details of a specific contact by phone number
 [**getContactIfBlocked**](TextMagicApi.md#getContactIfBlocked) | **GET** /api/v2/contacts/block/phone | Check is that phone number blocked
 [**getContactImportSessionProgress**](TextMagicApi.md#getContactImportSessionProgress) | **GET** /api/v2/contacts/import/progress/{id} | Get contact import session progress.
 [**getContactNote**](TextMagicApi.md#getContactNote) | **GET** /api/v2/notes/{id} | Get a single contact note.
 [**getContactNotes**](TextMagicApi.md#getContactNotes) | **GET** /api/v2/contacts/{id}/notes | Fetch notes assigned to the given contact.
-[**getContacts**](TextMagicApi.md#getContacts) | **GET** /api/v2/contacts | Get all user contacts.
-[**getContactsAutocomplete**](TextMagicApi.md#getContactsAutocomplete) | **GET** /api/v2/contacts/autocomplete | Get contacts autocomplete suggestions by given search term.
+[**getContacts**](TextMagicApi.md#getContacts) | **GET** /api/v2/contacts | Get all contacts
+[**getContactsAutocomplete**](TextMagicApi.md#getContactsAutocomplete) | **GET** /api/v2/contacts/autocomplete | Get contacts autocomplete suggestions
 [**getContactsByListId**](TextMagicApi.md#getContactsByListId) | **GET** /api/v2/lists/{id}/contacts | Get all contacts in a list
 [**getCountries**](TextMagicApi.md#getCountries) | **GET** /api/v2/countries | Return list of countries.
 [**getCurrentUser**](TextMagicApi.md#getCurrentUser) | **GET** /api/v2/user | Get current account information
-[**getCustomField**](TextMagicApi.md#getCustomField) | **GET** /api/v2/customfields/{id} | Get a single custom field.
-[**getCustomFields**](TextMagicApi.md#getCustomFields) | **GET** /api/v2/customfields | Get all contact custom fields.
+[**getCustomField**](TextMagicApi.md#getCustomField) | **GET** /api/v2/customfields/{id} | Get the details of a specific custom field
+[**getCustomFields**](TextMagicApi.md#getCustomFields) | **GET** /api/v2/customfields | Get all custom fields
 [**getDedicatedNumber**](TextMagicApi.md#getDedicatedNumber) | **GET** /api/v2/numbers/{id} | Get the details of a specific dedicated number
 [**getDisallowedRules**](TextMagicApi.md#getDisallowedRules) | **GET** /api/v2/user/disallowed-rules | Get disallowed permissions
-[**getFavourites**](TextMagicApi.md#getFavourites) | **GET** /api/v2/contacts/favorite | Get favorite contacts and lists.
+[**getFavourites**](TextMagicApi.md#getFavourites) | **GET** /api/v2/contacts/favorite | Get favorite contacts and lists
 [**getInboundMessage**](TextMagicApi.md#getInboundMessage) | **GET** /api/v2/replies/{id} | Get a single inbound message
 [**getInboundMessagesNotificationSettings**](TextMagicApi.md#getInboundMessagesNotificationSettings) | **GET** /api/v2/user/notification/inbound | Get inbound messages notification settings
 [**getInvoices**](TextMagicApi.md#getInvoices) | **GET** /api/v2/invoices | Get all invoices
 [**getList**](TextMagicApi.md#getList) | **GET** /api/v2/lists/{id} | Get the details of a specific list
-[**getListContactsIds**](TextMagicApi.md#getListContactsIds) | **GET** /api/v2/lists/{id}/contacts/ids | Fetch all contacts IDs belonging to the list with ID
+[**getListContactsIds**](TextMagicApi.md#getListContactsIds) | **GET** /api/v2/lists/{id}/contacts/ids | Get all contacts IDs in a list
 [**getLists**](TextMagicApi.md#getLists) | **GET** /api/v2/lists | Get all lists
-[**getListsOfContact**](TextMagicApi.md#getListsOfContact) | **GET** /api/v2/contacts/{id}/lists | Return lists which contact belongs to.
+[**getListsOfContact**](TextMagicApi.md#getListsOfContact) | **GET** /api/v2/contacts/{id}/lists | Get contact&#39;s lists
 [**getMessagePreview**](TextMagicApi.md#getMessagePreview) | **GET** /api/v2/messages/preview | Preview message
 [**getMessagePrice**](TextMagicApi.md#getMessagePrice) | **GET** /api/v2/messages/price | Check price
 [**getMessageSession**](TextMagicApi.md#getMessageSession) | **GET** /api/v2/sessions/{id} | Get a session details
@@ -125,8 +125,8 @@ Method | HTTP request | Description
 [**getTemplate**](TextMagicApi.md#getTemplate) | **GET** /api/v2/templates/{id} | Get a template details
 [**getTimezones**](TextMagicApi.md#getTimezones) | **GET** /api/v2/timezones | Return all available timezone IDs.
 [**getUnreadMessagesTotal**](TextMagicApi.md#getUnreadMessagesTotal) | **GET** /api/v2/chats/unread/count | Get unread messages number
-[**getUnsubscribedContact**](TextMagicApi.md#getUnsubscribedContact) | **GET** /api/v2/unsubscribers/{id} | Get a single unsubscribed contact.
-[**getUnsubscribers**](TextMagicApi.md#getUnsubscribers) | **GET** /api/v2/unsubscribers | Get all contact have unsubscribed from your communication.
+[**getUnsubscribedContact**](TextMagicApi.md#getUnsubscribedContact) | **GET** /api/v2/unsubscribers/{id} | Get the details of a specific unsubscribed contact
+[**getUnsubscribers**](TextMagicApi.md#getUnsubscribers) | **GET** /api/v2/unsubscribers | Get all unsubscribed contacts
 [**getUserDedicatedNumbers**](TextMagicApi.md#getUserDedicatedNumbers) | **GET** /api/v2/numbers | Get all your dedicated numbers
 [**getVersions**](TextMagicApi.md#getVersions) | **GET** /api/v2/versions | Get minimal valid apps versions
 [**inviteSubaccount**](TextMagicApi.md#inviteSubaccount) | **POST** /api/v2/subaccounts | Invite a new sub-account
@@ -143,9 +143,9 @@ Method | HTTP request | Description
 [**searchChats**](TextMagicApi.md#searchChats) | **GET** /api/v2/chats/search | Find chats by message text
 [**searchChatsByIds**](TextMagicApi.md#searchChatsByIds) | **GET** /api/v2/chats/search/ids | Find chats (bulk)
 [**searchChatsByReceipent**](TextMagicApi.md#searchChatsByReceipent) | **GET** /api/v2/chats/search/recipients | Find chats by recipient
-[**searchContacts**](TextMagicApi.md#searchContacts) | **GET** /api/v2/contacts/search | Find user contacts by given parameters.
+[**searchContacts**](TextMagicApi.md#searchContacts) | **GET** /api/v2/contacts/search | Find contacts by given criteria
 [**searchInboundMessages**](TextMagicApi.md#searchInboundMessages) | **GET** /api/v2/replies/search | Find inbound messages
-[**searchLists**](TextMagicApi.md#searchLists) | **GET** /api/v2/lists/search | Find contact lists by given parameters
+[**searchLists**](TextMagicApi.md#searchLists) | **GET** /api/v2/lists/search | Find lists by given criteria
 [**searchOutboundMessages**](TextMagicApi.md#searchOutboundMessages) | **GET** /api/v2/messages/search | Find messages
 [**searchScheduledMessages**](TextMagicApi.md#searchScheduledMessages) | **GET** /api/v2/schedules/search | Find scheduled messages
 [**searchTemplates**](TextMagicApi.md#searchTemplates) | **GET** /api/v2/templates/search | Find templates by criteria
@@ -156,26 +156,26 @@ Method | HTTP request | Description
 [**setChatStatus**](TextMagicApi.md#setChatStatus) | **POST** /api/v2/chats/status | Change chat status
 [**startSurvey**](TextMagicApi.md#startSurvey) | **PUT** /api/v2/surveys/{id}/start | Start a survey.
 [**unblockContact**](TextMagicApi.md#unblockContact) | **POST** /api/v2/contacts/unblock | Unblock contact by phone number.
-[**unblockContactsBulk**](TextMagicApi.md#unblockContactsBulk) | **POST** /api/v2/contacts/unblock/bulk | Unblock several contacts by blocked contact ids or unblock all contacts
+[**unblockContactsBulk**](TextMagicApi.md#unblockContactsBulk) | **POST** /api/v2/contacts/unblock/bulk | Unblock contacts (bulk)
 [**unmuteChatsBulk**](TextMagicApi.md#unmuteChatsBulk) | **POST** /api/v2/chats/unmute/bulk | Unmute chats (bulk)
-[**unsubscribeContact**](TextMagicApi.md#unsubscribeContact) | **POST** /api/v2/unsubscribers | Unsubscribe contact from your communication by phone number.
+[**unsubscribeContact**](TextMagicApi.md#unsubscribeContact) | **POST** /api/v2/unsubscribers | Manually unsubscribe a contact
 [**updateBalanceNotificationSettings**](TextMagicApi.md#updateBalanceNotificationSettings) | **PUT** /api/v2/user/notification/balance | Update balance notification settings
 [**updateCallbackSettings**](TextMagicApi.md#updateCallbackSettings) | **PUT** /api/v2/callback/settings | Update callback URL settings
 [**updateChatDesktopNotificationSettings**](TextMagicApi.md#updateChatDesktopNotificationSettings) | **PUT** /api/v2/user/desktop/notification | Update chat desktop notification settings
-[**updateContact**](TextMagicApi.md#updateContact) | **PUT** /api/v2/contacts/{id} | Update existing contact.
+[**updateContact**](TextMagicApi.md#updateContact) | **PUT** /api/v2/contacts/{id} | Edit a contact
 [**updateContactNote**](TextMagicApi.md#updateContactNote) | **PUT** /api/v2/notes/{id} | Update existing contact note.
 [**updateCurrentUser**](TextMagicApi.md#updateCurrentUser) | **PUT** /api/v2/user | Edit current account info
-[**updateCustomField**](TextMagicApi.md#updateCustomField) | **PUT** /api/v2/customfields/{id} | Update existing custom field.
-[**updateCustomFieldValue**](TextMagicApi.md#updateCustomFieldValue) | **PUT** /api/v2/customfields/{id}/update | Update contact&#39;s custom field value.
+[**updateCustomField**](TextMagicApi.md#updateCustomField) | **PUT** /api/v2/customfields/{id} | Edit a custom field
+[**updateCustomFieldValue**](TextMagicApi.md#updateCustomFieldValue) | **PUT** /api/v2/customfields/{id}/update | Edit the custom field value of a specified contact
 [**updateInboundMessagesNotificationSettings**](TextMagicApi.md#updateInboundMessagesNotificationSettings) | **PUT** /api/v2/user/notification/inbound | Update inbound messages notification settings
-[**updateList**](TextMagicApi.md#updateList) | **PUT** /api/v2/lists/{id} | Update existing list
+[**updateList**](TextMagicApi.md#updateList) | **PUT** /api/v2/lists/{id} | Edit a list
 [**updatePassword**](TextMagicApi.md#updatePassword) | **PUT** /api/v2/user/password/change | Change user password.
 [**updateSenderSetting**](TextMagicApi.md#updateSenderSetting) | **PUT** /api/v2/sender/settings | Change sender settings
 [**updateSurvey**](TextMagicApi.md#updateSurvey) | **PUT** /api/v2/surveys/{id} | Update existing survey.
 [**updateSurveyNode**](TextMagicApi.md#updateSurveyNode) | **PUT** /api/v2/surveys/nodes/{id} | Update existing node.
 [**updateTemplate**](TextMagicApi.md#updateTemplate) | **PUT** /api/v2/templates/{id} | Update a template
 [**uploadAvatar**](TextMagicApi.md#uploadAvatar) | **POST** /api/v2/user/avatar | Upload an avatar
-[**uploadContactAvatar**](TextMagicApi.md#uploadContactAvatar) | **POST** /api/v2/contacts/{id}/avatar | Add an avatar for the contact.
+[**uploadContactAvatar**](TextMagicApi.md#uploadContactAvatar) | **POST** /api/v2/contacts/{id}/avatar | Upload an avatar
 [**uploadListAvatar**](TextMagicApi.md#uploadListAvatar) | **POST** /api/v2/lists/{id}/avatar | Add an avatar for the list
 [**uploadMessageAttachment**](TextMagicApi.md#uploadMessageAttachment) | **POST** /api/v2/messages/attachment | Upload message attachment
 
@@ -185,7 +185,7 @@ Method | HTTP request | Description
 
 Assign contacts to a list
 
-
+> Unlike all other PUT requests, this command does not need old contact IDs to be submitted. For example, if you have a list with contacts 150, 151 and 152 and you want to add contact ID 153, you only need to submit 153 as a parameter of PUT /api/v2/lists/{id}/contacts.
 
 ### Example
 ```php
@@ -204,7 +204,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$assignContactsToListInputObject = new \TextMagic\Models\AssignContactsToListInputObject(); // \TextMagic\Models\AssignContactsToListInputObject | Contact ID(s), separated by comma or 'all' to add all contacts belonging to the current user
+$assignContactsToListInputObject = new \TextMagic\Models\AssignContactsToListInputObject(); // \TextMagic\Models\AssignContactsToListInputObject | 
 $id = 1; // int | 
 
 try {
@@ -220,7 +220,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assignContactsToListInputObject** | [**\TextMagic\Models\AssignContactsToListInputObject**](../Model/AssignContactsToListInputObject.md)| Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user |
+ **assignContactsToListInputObject** | [**\TextMagic\Models\AssignContactsToListInputObject**](../Model/AssignContactsToListInputObject.md)|  |
  **id** | **int**|  |
 
 ### Return type
@@ -241,9 +241,9 @@ Name | Type | Description  | Notes
 # **blockContact**
 > \TextMagic\Models\ResourceLinkResponse blockContact($blockContactInputObject)
 
+Block contact by phone number
+
 Block contact from inbound and outbound communication by phone number.
-
-
 
 ### Example
 ```php
@@ -792,7 +792,7 @@ void (empty response body)
 # **createContact**
 > \TextMagic\Models\ResourceLinkResponse createContact($createContactInputObject)
 
-Create a new contact from the submitted data.
+Add a new contact
 
 
 
@@ -906,7 +906,7 @@ Name | Type | Description  | Notes
 # **createCustomField**
 > \TextMagic\Models\ResourceLinkResponse createCustomField($createCustomFieldInputObject)
 
-Create a new custom field from the submitted data.
+Add a new custom field
 
 
 
@@ -1243,7 +1243,7 @@ Name | Type | Description  | Notes
 # **deleteAllContacts**
 > deleteAllContacts()
 
-Delete all contacts.
+Delete contacts (bulk)
 
 
 
@@ -1508,9 +1508,9 @@ void (empty response body)
 # **deleteContact**
 > deleteContact($id)
 
-Delete a single contact.
+Delete a contact
 
-
+> This command removes your contact completely. If it was assigned or saved to a shared list, it will disappear from there too. If you only need to remove a contact from selected lists, instead use the Contact assignment command in the Lists section rather than deleting the contact.
 
 ### Example
 ```php
@@ -1563,7 +1563,7 @@ void (empty response body)
 # **deleteContactAvatar**
 > deleteContactAvatar($id)
 
-Delete an avatar for the contact.
+Delete an avatar
 
 
 
@@ -1730,7 +1730,7 @@ void (empty response body)
 # **deleteContactsByIds**
 > deleteContactsByIds($deleteContactsByIdsInputObject)
 
-Delete contact by given ID(s) or delete all contacts.
+Delete contacts by IDs (bulk)
 
 
 
@@ -1787,7 +1787,7 @@ void (empty response body)
 
 Unassign contacts from a list
 
-
+> When you remove contacts from a specific list, they will be deleted permanently, unless they are first saved in another list.
 
 ### Example
 ```php
@@ -1806,7 +1806,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$deleteContacsFromListObject = new \TextMagic\Models\DeleteContacsFromListObject(); // \TextMagic\Models\DeleteContacsFromListObject | Contact ID(s), separated by comma
+$deleteContacsFromListObject = new \TextMagic\Models\DeleteContacsFromListObject(); // \TextMagic\Models\DeleteContacsFromListObject | 
 $id = 1; // int | 
 
 try {
@@ -1821,7 +1821,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deleteContacsFromListObject** | [**\TextMagic\Models\DeleteContacsFromListObject**](../Model/DeleteContacsFromListObject.md)| Contact ID(s), separated by comma |
+ **deleteContacsFromListObject** | [**\TextMagic\Models\DeleteContacsFromListObject**](../Model/DeleteContacsFromListObject.md)|  |
  **id** | **int**|  |
 
 ### Return type
@@ -1842,9 +1842,9 @@ void (empty response body)
 # **deleteCustomField**
 > deleteCustomField($id)
 
-Delete a single custom field.
+Delete a custom field
 
-
+> When a custom field is deleted, all the information that was added to contacts under this custom field will also be lost.
 
 ### Example
 ```php
@@ -2062,9 +2062,9 @@ void (empty response body)
 # **deleteList**
 > deleteList($id)
 
-Delete a single list
+Delete a list
 
-
+> When you delete a list, the contacts in it are deleted as well unless they were saved in other list.
 
 ### Example
 ```php
@@ -2172,7 +2172,7 @@ void (empty response body)
 # **deleteListContactsBulk**
 > deleteListContactsBulk($deleteListContactsBulkInputObject, $id)
 
-Delete contact from list by given ID(s) or all contacts from list
+Delete contacts from list (bulk)
 
 
 
@@ -2229,7 +2229,7 @@ void (empty response body)
 # **deleteListsBulk**
 > deleteListsBulk($deleteListsBulkInputObject)
 
-Delete list by given ID(s) or delete all lists
+Delete lists (bulk)
 
 
 
@@ -2286,7 +2286,7 @@ void (empty response body)
 
 Delete a session
 
-
+Delete a message session, together with all nested messages. > You will not be refunded for any deleted sent sessions.
 
 ### Example
 ```php
@@ -2341,7 +2341,7 @@ void (empty response body)
 
 Delete sessions (bulk)
 
-
+Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
 
 ### Example
 ```php
@@ -2893,7 +2893,7 @@ void (empty response body)
 
 Delete templates (bulk)
 
-
+Delete template by given ID(s) or delete all templates.
 
 ### Example
 ```php
@@ -3353,7 +3353,7 @@ Name | Type | Description  | Notes
 
 Get all sessions
 
-
+Get all message sending sessions. > This list contains all of your sessions, including those which were sent but not via API
 
 ### Example
 ```php
@@ -3811,7 +3811,7 @@ This endpoint does not need any parameter.
 # **getBlockedContacts**
 > \TextMagic\Models\GetBlockedContactsPaginatedResponse getBlockedContacts($page, $limit, $query, $orderBy, $direction)
 
-Get blocked contacts.
+Get blocked contacts
 
 
 
@@ -4221,7 +4221,7 @@ Name | Type | Description  | Notes
 # **getContact**
 > \TextMagic\Models\Contact getContact($id)
 
-Get a single contact.
+Get the details of a specific contact
 
 
 
@@ -4277,7 +4277,7 @@ Name | Type | Description  | Notes
 # **getContactByPhone**
 > \TextMagic\Models\Contact getContactByPhone($phone)
 
-Get a single contact by phone number.
+Get the details of a specific contact by phone number
 
 
 
@@ -4354,7 +4354,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = "9997339956475"; // string | Phone number to check
+$phone = "447860021130"; // string | Phone number to check
 
 try {
     $result = $apiInstance->getContactIfBlocked($phone);
@@ -4561,7 +4561,7 @@ Name | Type | Description  | Notes
 # **getContacts**
 > \TextMagic\Models\GetContactsPaginatedResponse getContacts($page, $limit, $shared, $orderBy, $direction)
 
-Get all user contacts.
+Get all contacts
 
 
 
@@ -4625,9 +4625,9 @@ Name | Type | Description  | Notes
 # **getContactsAutocomplete**
 > \TextMagic\Models\GetContactsAutocompleteResponse getContactsAutocomplete($query, $limit, $lists)
 
-Get contacts autocomplete suggestions by given search term.
+Get contacts autocomplete suggestions
 
-
+Get contacts autocomplete suggestions by given search term
 
 ### Example
 ```php
@@ -4853,7 +4853,7 @@ This endpoint does not need any parameter.
 # **getCustomField**
 > \TextMagic\Models\UserCustomField getCustomField($id)
 
-Get a single custom field.
+Get the details of a specific custom field
 
 
 
@@ -4909,7 +4909,7 @@ Name | Type | Description  | Notes
 # **getCustomFields**
 > \TextMagic\Models\GetCustomFieldsPaginatedResponse getCustomFields($page, $limit)
 
-Get all contact custom fields.
+Get all custom fields
 
 
 
@@ -5075,7 +5075,7 @@ This endpoint does not need any parameter.
 # **getFavourites**
 > \TextMagic\Models\GetFavouritesPaginatedResponse getFavourites($page, $limit, $query)
 
-Get favorite contacts and lists.
+Get favorite contacts and lists
 
 
 
@@ -5357,7 +5357,7 @@ Name | Type | Description  | Notes
 # **getListContactsIds**
 > \TextMagic\Models\GetListContactsIdsResponse getListContactsIds($id)
 
-Fetch all contacts IDs belonging to the list with ID
+Get all contacts IDs in a list
 
 
 
@@ -5479,9 +5479,9 @@ Name | Type | Description  | Notes
 # **getListsOfContact**
 > \TextMagic\Models\GetListsOfContactPaginatedResponse getListsOfContact($id, $page, $limit)
 
-Return lists which contact belongs to.
+Get contact's lists
 
-
+Get all the lists in which the contact is included
 
 ### Example
 ```php
@@ -5567,7 +5567,7 @@ $sendingDateTime = "\"2020-05-27 13:02:33\""; // string | Sending time in Y-m-d 
 $sendingTimezone = "\"America/Buenos_Aires\""; // string | ID or ISO-name of timezone used for sending when sendingDateTime parameter is set. E.g. if you specify sendingDateTime = \\\"2016-05-27 13:02:33\\\" and sendingTimezone = \\\"America/Buenos_Aires\\\", your message will be sent at May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is account timezone
 $contacts = "\"1,2,3,4\""; // string | Comma separated array of contact resources id message will be sent to
 $lists = "\"1,2,3,4\""; // string | Comma separated array of list resources id message will be sent to
-$phones = "\"+19993322111,+19993322110\""; // string | Comma separated array of E.164 phone numbers message will be sent to
+$phones = "\"447860021130,447860021131\""; // string | Comma separated array of E.164 phone numbers message will be sent to
 $cutExtra = 0; // int | Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead. Default is 0
 $partsCount = 6; // int | Maximum message parts count (TextMagic allows sending 1 to 6 message parts). Default is 6
 $referenceId = 1; // int | Custom message reference id which can be used in your application infrastructure
@@ -5656,7 +5656,7 @@ $sendingDateTime = "\"2020-05-27 13:02:33\""; // string | Sending time in Y-m-d 
 $sendingTimezone = "\"America/Buenos_Aires\""; // string | ID or ISO-name of timezone used for sending when sendingDateTime parameter is set. E.g. if you specify sendingDateTime = \\\"2016-05-27 13:02:33\\\" and sendingTimezone = \\\"America/Buenos_Aires\\\", your message will be sent at May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is account timezone
 $contacts = "\"1,2,3,4\""; // string | Comma separated array of contact resources id message will be sent to
 $lists = "\"1,2,3,4\""; // string | Comma separated array of list resources id message will be sent to
-$phones = "\"+19993322111,+19993322110\""; // string | Comma separated array of E.164 phone numbers message will be sent to
+$phones = "\"447860021130,447860021131\""; // string | Comma separated array of E.164 phone numbers message will be sent to
 $cutExtra = 0; // int | Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead. Default is 0
 $partsCount = 6; // int | Maximum message parts count (TextMagic allows sending 1 to 6 message parts). Default is 6
 $referenceId = 1; // int | Custom message reference id which can be used in your application infrastructure
@@ -5719,7 +5719,7 @@ Name | Type | Description  | Notes
 
 Get a session details
 
-
+Get a specific session’s details
 
 ### Example
 ```php
@@ -6921,7 +6921,7 @@ Name | Type | Description  | Notes
 
 Get a template details
 
-
+Get a single template.
 
 ### Example
 ```php
@@ -7083,7 +7083,7 @@ This endpoint does not need any parameter.
 # **getUnsubscribedContact**
 > \TextMagic\Models\UnsubscribedContact getUnsubscribedContact($id)
 
-Get a single unsubscribed contact.
+Get the details of a specific unsubscribed contact
 
 
 
@@ -7139,9 +7139,9 @@ Name | Type | Description  | Notes
 # **getUnsubscribers**
 > \TextMagic\Models\GetUnsubscribersPaginatedResponse getUnsubscribers($page, $limit)
 
-Get all contact have unsubscribed from your communication.
+Get all unsubscribed contacts
 
-
+When one of your message recipients sends a request with one of the [STOP-words](/sms-stop-command/), they will be immediately opted-out of your send lists and their contact status will change to an unsubscribed contact. To retrieve information on all contacts who have unsubscribed, use:
 
 ### Example
 ```php
@@ -8097,7 +8097,7 @@ Name | Type | Description  | Notes
 # **searchContacts**
 > \TextMagic\Models\SearchContactsPaginatedResponse searchContacts($page, $limit, $shared, $ids, $listId, $includeBlocked, $query, $local, $country, $orderBy, $direction)
 
-Find user contacts by given parameters.
+Find contacts by given criteria
 
 
 
@@ -8241,7 +8241,7 @@ Name | Type | Description  | Notes
 # **searchLists**
 > \TextMagic\Models\SearchListsPaginatedResponse searchLists($page, $limit, $ids, $query, $onlyMine, $onlyDefault, $orderBy, $direction)
 
-Find contact lists by given parameters
+Find lists by given criteria
 
 
 
@@ -8451,7 +8451,7 @@ Name | Type | Description  | Notes
 
 Find templates by criteria
 
-
+Find user templates by given parameters.
 
 ### Example
 ```php
@@ -8894,9 +8894,9 @@ void (empty response body)
 # **unblockContactsBulk**
 > unblockContactsBulk($unblockContactsBulkInputObject)
 
+Unblock contacts (bulk)
+
 Unblock several contacts by blocked contact ids or unblock all contacts
-
-
 
 ### Example
 ```php
@@ -9004,9 +9004,9 @@ void (empty response body)
 # **unsubscribeContact**
 > \TextMagic\Models\ResourceLinkResponse unsubscribeContact($unsubscribeContactInputObject)
 
-Unsubscribe contact from your communication by phone number.
+Manually unsubscribe a contact
 
-
+> Please note, if you unsubscribe a contact, this action cannot be reversed.
 
 ### Example
 ```php
@@ -9225,7 +9225,7 @@ void (empty response body)
 # **updateContact**
 > \TextMagic\Models\ResourceLinkResponse updateContact($updateContactInputObject, $id)
 
-Update existing contact.
+Edit a contact
 
 
 
@@ -9397,7 +9397,7 @@ Name | Type | Description  | Notes
 # **updateCustomField**
 > \TextMagic\Models\ResourceLinkResponse updateCustomField($updateCustomFieldInputObject, $id)
 
-Update existing custom field.
+Edit a custom field
 
 
 
@@ -9455,7 +9455,7 @@ Name | Type | Description  | Notes
 # **updateCustomFieldValue**
 > \TextMagic\Models\ResourceLinkResponse updateCustomFieldValue($updateCustomFieldValueInputObject, $id)
 
-Update contact's custom field value.
+Edit the custom field value of a specified contact
 
 
 
@@ -9568,7 +9568,7 @@ void (empty response body)
 # **updateList**
 > \TextMagic\Models\ResourceLinkResponse updateList($id, $updateListObject)
 
-Update existing list
+Edit a list
 
 
 
@@ -9965,7 +9965,7 @@ void (empty response body)
 # **uploadContactAvatar**
 > \TextMagic\Models\ResourceLinkResponse uploadContactAvatar($image, $id)
 
-Add an avatar for the contact.
+Upload an avatar
 
 
 

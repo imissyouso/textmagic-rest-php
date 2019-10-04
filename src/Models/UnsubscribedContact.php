@@ -256,7 +256,7 @@ class UnsubscribedContact implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Unsubscribed contact ID.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class UnsubscribedContact implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164).
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class UnsubscribedContact implements ModelInterface, ArrayAccess
     /**
      * Sets unsubscribeTime
      *
-     * @param \DateTime $unsubscribeTime unsubscribeTime
+     * @param \DateTime $unsubscribeTime Time when contact has been opted-out.
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class UnsubscribedContact implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName Unsubscribed contact first name.
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class UnsubscribedContact implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Unsubscribed contact last name.
      *
      * @return $this
      */

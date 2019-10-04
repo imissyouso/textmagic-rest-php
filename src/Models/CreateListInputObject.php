@@ -262,7 +262,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets shared
      *
-     * @param bool $shared Should new list be shared among all the sub-accounts? The default is 0 (false).
+     * @param bool $shared Should new list be **shared** among all the sub-accounts?
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class CreateListInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets isDefault
      *
-     * @param bool $isDefault Is list default for new contacts (web only). Default is false.
+     * @param bool $isDefault Is list default for new contacts (web only).
      *
      * @return $this
      */

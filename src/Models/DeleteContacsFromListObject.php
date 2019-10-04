@@ -220,7 +220,7 @@ class DeleteContacsFromListObject implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param string $contacts contacts
+     * @param string $contacts Comma-separated array of [Contacts](/docs/api/contacts/) IDs.
      *
      * @return $this
      */

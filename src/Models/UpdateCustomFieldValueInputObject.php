@@ -223,7 +223,7 @@ class UpdateCustomFieldValueInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets contactId
      *
-     * @param int $contactId contactId
+     * @param int $contactId [Contact](/docs/api/contacts/)
      *
      * @return $this
      */
@@ -247,7 +247,7 @@ class UpdateCustomFieldValueInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value value
+     * @param string $value Custom field value. Note that this value is not parsed in any way. It is stored and used in tags exactly as you send it.
      *
      * @return $this
      */

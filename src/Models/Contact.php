@@ -346,7 +346,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Contact ID.
      *
      * @return $this
      */
@@ -418,7 +418,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName Contact first name.
      *
      * @return $this
      */
@@ -442,7 +442,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Contact last name.
      *
      * @return $this
      */
@@ -466,7 +466,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets companyName
      *
-     * @param string $companyName companyName
+     * @param string $companyName Company name.
      *
      * @return $this
      */
@@ -490,7 +490,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164).
      *
      * @return $this
      */
@@ -514,7 +514,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param string $email Contact email address.
      *
      * @return $this
      */
@@ -538,7 +538,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param \TextMagic\Models\Country $country country
+     * @param \TextMagic\Models\Country $country Contact country.
      *
      * @return $this
      */
@@ -562,7 +562,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets customFields
      *
-     * @param \TextMagic\Models\ContactCustomField[] $customFields customFields
+     * @param \TextMagic\Models\ContactCustomField[] $customFields See [Custom Fields](/docs/api/custom-fields/) section.
      *
      * @return $this
      */
