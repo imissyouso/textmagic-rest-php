@@ -1,6 +1,6 @@
 # TextMagic\TextMagicApi
 
-All URIs are relative to *http://rest.textmagic.com*
+All URIs are relative to *https://rest.textmagic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -3244,7 +3244,7 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     new GuzzleHttp\Client(),
     $config
 );
-$status = "status_example"; // string | Fetch only (a)ctive, (c)losed or (d)eleted chats
+$status = "\"a\""; // string | Fetch only (a)ctive, (c)losed or (d)eleted chats
 $page = 1; // int | Fetch specified results page.
 $limit = 10; // int | The number of results per page.
 $orderBy = "id"; // string | Order results by some field. Default is id
