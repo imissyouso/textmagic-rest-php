@@ -206,7 +206,7 @@ class DeleteChatsBulkInputObject implements ModelInterface, ArrayAccess
     {
         $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
         $this->container['all'] = isset($data['all']) ? $data['all'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : '';
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
