@@ -58,23 +58,23 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'address' => 'string',
-        'addressType' => 'string',
-        'emailRole' => 'string',
-        'reason' => 'string',
         'status' => 'string',
         'deliverability' => 'string',
+        'reason' => 'string',
+        'risk' => 'string',
+        'addressType' => 'string',
         'isDisposableAddress' => 'bool',
+        'suggestion' => 'string',
+        'emailRole' => 'string',
         'localPart' => 'string',
         'domainPart' => 'string',
         'exchange' => 'string',
+        'preference' => 'int',
         'isInWhiteList' => 'bool',
         'isInBlackList' => 'bool',
         'hasMx' => 'bool',
         'hasAa' => 'bool',
-        'hasAaaa' => 'bool',
-        'risk' => 'string',
-        'preference' => 'int',
-        'suggestion' => 'string'
+        'hasAaaa' => 'bool'
     ];
 
     /**
@@ -84,23 +84,23 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'address' => 'email',
-        'addressType' => null,
-        'emailRole' => null,
-        'reason' => null,
         'status' => null,
         'deliverability' => null,
+        'reason' => null,
+        'risk' => null,
+        'addressType' => null,
         'isDisposableAddress' => null,
+        'suggestion' => null,
+        'emailRole' => null,
         'localPart' => null,
         'domainPart' => null,
         'exchange' => null,
+        'preference' => null,
         'isInWhiteList' => null,
         'isInBlackList' => null,
         'hasMx' => null,
         'hasAa' => null,
-        'hasAaaa' => null,
-        'risk' => null,
-        'preference' => null,
-        'suggestion' => null
+        'hasAaaa' => null
     ];
 
     /**
@@ -131,23 +131,23 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'address' => 'address',
-        'addressType' => 'addressType',
-        'emailRole' => 'emailRole',
-        'reason' => 'reason',
         'status' => 'status',
         'deliverability' => 'deliverability',
+        'reason' => 'reason',
+        'risk' => 'risk',
+        'addressType' => 'addressType',
         'isDisposableAddress' => 'isDisposableAddress',
+        'suggestion' => 'suggestion',
+        'emailRole' => 'emailRole',
         'localPart' => 'localPart',
         'domainPart' => 'domainPart',
         'exchange' => 'exchange',
+        'preference' => 'preference',
         'isInWhiteList' => 'isInWhiteList',
         'isInBlackList' => 'isInBlackList',
         'hasMx' => 'hasMx',
         'hasAa' => 'hasAa',
-        'hasAaaa' => 'hasAaaa',
-        'risk' => 'risk',
-        'preference' => 'preference',
-        'suggestion' => 'suggestion'
+        'hasAaaa' => 'hasAaaa'
     ];
 
     /**
@@ -157,23 +157,23 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'address' => 'setAddress',
-        'addressType' => 'setAddressType',
-        'emailRole' => 'setEmailRole',
-        'reason' => 'setReason',
         'status' => 'setStatus',
         'deliverability' => 'setDeliverability',
+        'reason' => 'setReason',
+        'risk' => 'setRisk',
+        'addressType' => 'setAddressType',
         'isDisposableAddress' => 'setIsDisposableAddress',
+        'suggestion' => 'setSuggestion',
+        'emailRole' => 'setEmailRole',
         'localPart' => 'setLocalPart',
         'domainPart' => 'setDomainPart',
         'exchange' => 'setExchange',
+        'preference' => 'setPreference',
         'isInWhiteList' => 'setIsInWhiteList',
         'isInBlackList' => 'setIsInBlackList',
         'hasMx' => 'setHasMx',
         'hasAa' => 'setHasAa',
-        'hasAaaa' => 'setHasAaaa',
-        'risk' => 'setRisk',
-        'preference' => 'setPreference',
-        'suggestion' => 'setSuggestion'
+        'hasAaaa' => 'setHasAaaa'
     ];
 
     /**
@@ -183,23 +183,23 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'address' => 'getAddress',
-        'addressType' => 'getAddressType',
-        'emailRole' => 'getEmailRole',
-        'reason' => 'getReason',
         'status' => 'getStatus',
         'deliverability' => 'getDeliverability',
+        'reason' => 'getReason',
+        'risk' => 'getRisk',
+        'addressType' => 'getAddressType',
         'isDisposableAddress' => 'getIsDisposableAddress',
+        'suggestion' => 'getSuggestion',
+        'emailRole' => 'getEmailRole',
         'localPart' => 'getLocalPart',
         'domainPart' => 'getDomainPart',
         'exchange' => 'getExchange',
+        'preference' => 'getPreference',
         'isInWhiteList' => 'getIsInWhiteList',
         'isInBlackList' => 'getIsInBlackList',
         'hasMx' => 'getHasMx',
         'hasAa' => 'getHasAa',
-        'hasAaaa' => 'getHasAaaa',
-        'risk' => 'getRisk',
-        'preference' => 'getPreference',
-        'suggestion' => 'getSuggestion'
+        'hasAaaa' => 'getHasAaaa'
     ];
 
     /**
@@ -245,6 +245,11 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
 
     const STATUS_VALID = 'valid';
     const STATUS_INVALID = 'invalid';
+    const RISK_HIGH = 'high';
+    const RISK_MEDIUM = 'medium';
+    const RISK_LOW = 'low';
+    const ADDRESS_TYPE_CORPORATE = 'corporate';
+    const ADDRESS_TYPE_FREE = 'free';
     
 
     
@@ -258,6 +263,33 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
         return [
             self::STATUS_VALID,
             self::STATUS_INVALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRiskAllowableValues()
+    {
+        return [
+            self::RISK_HIGH,
+            self::RISK_MEDIUM,
+            self::RISK_LOW,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAddressTypeAllowableValues()
+    {
+        return [
+            self::ADDRESS_TYPE_CORPORATE,
+            self::ADDRESS_TYPE_FREE,
         ];
     }
     
@@ -278,23 +310,23 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['addressType'] = isset($data['addressType']) ? $data['addressType'] : null;
-        $this->container['emailRole'] = isset($data['emailRole']) ? $data['emailRole'] : null;
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['deliverability'] = isset($data['deliverability']) ? $data['deliverability'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
+        $this->container['addressType'] = isset($data['addressType']) ? $data['addressType'] : null;
         $this->container['isDisposableAddress'] = isset($data['isDisposableAddress']) ? $data['isDisposableAddress'] : null;
+        $this->container['suggestion'] = isset($data['suggestion']) ? $data['suggestion'] : null;
+        $this->container['emailRole'] = isset($data['emailRole']) ? $data['emailRole'] : null;
         $this->container['localPart'] = isset($data['localPart']) ? $data['localPart'] : null;
         $this->container['domainPart'] = isset($data['domainPart']) ? $data['domainPart'] : null;
         $this->container['exchange'] = isset($data['exchange']) ? $data['exchange'] : null;
+        $this->container['preference'] = isset($data['preference']) ? $data['preference'] : null;
         $this->container['isInWhiteList'] = isset($data['isInWhiteList']) ? $data['isInWhiteList'] : null;
         $this->container['isInBlackList'] = isset($data['isInBlackList']) ? $data['isInBlackList'] : null;
         $this->container['hasMx'] = isset($data['hasMx']) ? $data['hasMx'] : null;
         $this->container['hasAa'] = isset($data['hasAa']) ? $data['hasAa'] : null;
         $this->container['hasAaaa'] = isset($data['hasAaaa']) ? $data['hasAaaa'] : null;
-        $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
-        $this->container['preference'] = isset($data['preference']) ? $data['preference'] : null;
-        $this->container['suggestion'] = isset($data['suggestion']) ? $data['suggestion'] : null;
     }
 
     /**
@@ -308,15 +340,6 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
 
         if ($this->container['address'] === null) {
             $invalidProperties[] = "'address' can't be null";
-        }
-        if ($this->container['addressType'] === null) {
-            $invalidProperties[] = "'addressType' can't be null";
-        }
-        if ($this->container['emailRole'] === null) {
-            $invalidProperties[] = "'emailRole' can't be null";
-        }
-        if ($this->container['reason'] === null) {
-            $invalidProperties[] = "'reason' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -332,8 +355,39 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
         if ($this->container['deliverability'] === null) {
             $invalidProperties[] = "'deliverability' can't be null";
         }
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
+        }
+        if ($this->container['risk'] === null) {
+            $invalidProperties[] = "'risk' can't be null";
+        }
+        $allowedValues = $this->getRiskAllowableValues();
+        if (!is_null($this->container['risk']) && !in_array($this->container['risk'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'risk', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['addressType'] === null) {
+            $invalidProperties[] = "'addressType' can't be null";
+        }
+        $allowedValues = $this->getAddressTypeAllowableValues();
+        if (!is_null($this->container['addressType']) && !in_array($this->container['addressType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'addressType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['isDisposableAddress'] === null) {
             $invalidProperties[] = "'isDisposableAddress' can't be null";
+        }
+        if ($this->container['suggestion'] === null) {
+            $invalidProperties[] = "'suggestion' can't be null";
+        }
+        if ($this->container['emailRole'] === null) {
+            $invalidProperties[] = "'emailRole' can't be null";
         }
         if ($this->container['localPart'] === null) {
             $invalidProperties[] = "'localPart' can't be null";
@@ -343,6 +397,9 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
         }
         if ($this->container['exchange'] === null) {
             $invalidProperties[] = "'exchange' can't be null";
+        }
+        if ($this->container['preference'] === null) {
+            $invalidProperties[] = "'preference' can't be null";
         }
         if ($this->container['isInWhiteList'] === null) {
             $invalidProperties[] = "'isInWhiteList' can't be null";
@@ -358,15 +415,6 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
         }
         if ($this->container['hasAaaa'] === null) {
             $invalidProperties[] = "'hasAaaa' can't be null";
-        }
-        if ($this->container['risk'] === null) {
-            $invalidProperties[] = "'risk' can't be null";
-        }
-        if ($this->container['preference'] === null) {
-            $invalidProperties[] = "'preference' can't be null";
-        }
-        if ($this->container['suggestion'] === null) {
-            $invalidProperties[] = "'suggestion' can't be null";
         }
         return $invalidProperties;
     }
@@ -396,85 +444,13 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string $address address
+     * @param string $address The email address passed to the call.
      *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets addressType
-     *
-     * @return string
-     */
-    public function getAddressType()
-    {
-        return $this->container['addressType'];
-    }
-
-    /**
-     * Sets addressType
-     *
-     * @param string $addressType addressType
-     *
-     * @return $this
-     */
-    public function setAddressType($addressType)
-    {
-        $this->container['addressType'] = $addressType;
-
-        return $this;
-    }
-
-    /**
-     * Gets emailRole
-     *
-     * @return string
-     */
-    public function getEmailRole()
-    {
-        return $this->container['emailRole'];
-    }
-
-    /**
-     * Sets emailRole
-     *
-     * @param string $emailRole emailRole
-     *
-     * @return $this
-     */
-    public function setEmailRole($emailRole)
-    {
-        $this->container['emailRole'] = $emailRole;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason
-     *
-     * @return string
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param string $reason reason
-     *
-     * @return $this
-     */
-    public function setReason($reason)
-    {
-        $this->container['reason'] = $reason;
 
         return $this;
     }
@@ -492,7 +468,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status The email is `valid` or `invalid`.
      *
      * @return $this
      */
@@ -525,13 +501,103 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets deliverability
      *
-     * @param string $deliverability deliverability
+     * @param string $deliverability The delivery status of the email address is`deliverable`, `undeliverable`  or `unknown`.
      *
      * @return $this
      */
     public function setDeliverability($deliverability)
     {
         $this->container['deliverability'] = $deliverability;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason The reason why the checked email is invalid/undeliverable.
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets risk
+     *
+     * @return string
+     */
+    public function getRisk()
+    {
+        return $this->container['risk'];
+    }
+
+    /**
+     * Sets risk
+     *
+     * @param string $risk The risk score of the email is`high`, `medium`, `low` or `null`.
+     *
+     * @return $this
+     */
+    public function setRisk($risk)
+    {
+        $allowedValues = $this->getRiskAllowableValues();
+        if (!in_array($risk, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'risk', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['risk'] = $risk;
+
+        return $this;
+    }
+
+    /**
+     * Gets addressType
+     *
+     * @return string
+     */
+    public function getAddressType()
+    {
+        return $this->container['addressType'];
+    }
+
+    /**
+     * Sets addressType
+     *
+     * @param string $addressType The email address type (domain) is `free` or `corporate`.
+     *
+     * @return $this
+     */
+    public function setAddressType($addressType)
+    {
+        $allowedValues = $this->getAddressTypeAllowableValues();
+        if (!in_array($addressType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'addressType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['addressType'] = $addressType;
 
         return $this;
     }
@@ -549,13 +615,61 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets isDisposableAddress
      *
-     * @param bool $isDisposableAddress isDisposableAddress
+     * @param bool $isDisposableAddress This is be `true` if the domain is in the list of disposable email addresses, otherwise returns as `false`.
      *
      * @return $this
      */
     public function setIsDisposableAddress($isDisposableAddress)
     {
         $this->container['isDisposableAddress'] = $isDisposableAddress;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggestion
+     *
+     * @return string
+     */
+    public function getSuggestion()
+    {
+        return $this->container['suggestion'];
+    }
+
+    /**
+     * Sets suggestion
+     *
+     * @param string $suggestion Null if nothing is suggested, however, if there is a potential typo in the email address, the closest suggestion is provided.
+     *
+     * @return $this
+     */
+    public function setSuggestion($suggestion)
+    {
+        $this->container['suggestion'] = $suggestion;
+
+        return $this;
+    }
+
+    /**
+     * Gets emailRole
+     *
+     * @return string
+     */
+    public function getEmailRole()
+    {
+        return $this->container['emailRole'];
+    }
+
+    /**
+     * Sets emailRole
+     *
+     * @param string $emailRole Checks the mailbox part of the email whether it matches a specific role type (‘admin’, ‘sales’, ‘webmaster’)
+     *
+     * @return $this
+     */
+    public function setEmailRole($emailRole)
+    {
+        $this->container['emailRole'] = $emailRole;
 
         return $this;
     }
@@ -573,7 +687,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets localPart
      *
-     * @param string $localPart localPart
+     * @param string $localPart The local part of the email address.
      *
      * @return $this
      */
@@ -597,7 +711,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets domainPart
      *
-     * @param string $domainPart domainPart
+     * @param string $domainPart The domain part of the email address.
      *
      * @return $this
      */
@@ -621,13 +735,37 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets exchange
      *
-     * @param string $exchange exchange
+     * @param string $exchange Email exchange server domain name (MX record value).
      *
      * @return $this
      */
     public function setExchange($exchange)
     {
         $this->container['exchange'] = $exchange;
+
+        return $this;
+    }
+
+    /**
+     * Gets preference
+     *
+     * @return int
+     */
+    public function getPreference()
+    {
+        return $this->container['preference'];
+    }
+
+    /**
+     * Sets preference
+     *
+     * @param int $preference MX record preference.
+     *
+     * @return $this
+     */
+    public function setPreference($preference)
+    {
+        $this->container['preference'] = $preference;
 
         return $this;
     }
@@ -645,7 +783,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets isInWhiteList
      *
-     * @param bool $isInWhiteList isInWhiteList
+     * @param bool $isInWhiteList `true` if the email address exists in TextMagic whitelist.
      *
      * @return $this
      */
@@ -669,7 +807,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets isInBlackList
      *
-     * @param bool $isInBlackList isInBlackList
+     * @param bool $isInBlackList `true` if the email address exists in TextMagic blacklist.
      *
      * @return $this
      */
@@ -693,7 +831,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets hasMx
      *
-     * @param bool $hasMx hasMx
+     * @param bool $hasMx `true` if the email address domain has an MX record.
      *
      * @return $this
      */
@@ -741,85 +879,13 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets hasAaaa
      *
-     * @param bool $hasAaaa hasAaaa
+     * @param bool $hasAaaa `true` if the email address domain has an AAAA record (IPv6).
      *
      * @return $this
      */
     public function setHasAaaa($hasAaaa)
     {
         $this->container['hasAaaa'] = $hasAaaa;
-
-        return $this;
-    }
-
-    /**
-     * Gets risk
-     *
-     * @return string
-     */
-    public function getRisk()
-    {
-        return $this->container['risk'];
-    }
-
-    /**
-     * Sets risk
-     *
-     * @param string $risk risk
-     *
-     * @return $this
-     */
-    public function setRisk($risk)
-    {
-        $this->container['risk'] = $risk;
-
-        return $this;
-    }
-
-    /**
-     * Gets preference
-     *
-     * @return int
-     */
-    public function getPreference()
-    {
-        return $this->container['preference'];
-    }
-
-    /**
-     * Sets preference
-     *
-     * @param int $preference preference
-     *
-     * @return $this
-     */
-    public function setPreference($preference)
-    {
-        $this->container['preference'] = $preference;
-
-        return $this;
-    }
-
-    /**
-     * Gets suggestion
-     *
-     * @return string
-     */
-    public function getSuggestion()
-    {
-        return $this->container['suggestion'];
-    }
-
-    /**
-     * Sets suggestion
-     *
-     * @param string $suggestion suggestion
-     *
-     * @return $this
-     */
-    public function setSuggestion($suggestion)
-    {
-        $this->container['suggestion'] = $suggestion;
 
         return $this;
     }

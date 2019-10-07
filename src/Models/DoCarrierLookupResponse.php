@@ -188,8 +188,25 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_MOBILE = 'mobile';
+    const TYPE_LANDLINE = 'landline';
+    const TYPE_VOIP = 'voip';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_MOBILE,
+            self::TYPE_LANDLINE,
+            self::TYPE_VOIP,
+        ];
+    }
     
 
     /**
@@ -234,6 +251,14 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['carrier'] === null) {
             $invalidProperties[] = "'carrier' can't be null";
         }
@@ -271,7 +296,7 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets cost
      *
-     * @param float $cost cost
+     * @param float $cost Cost to check one number is constant – 0.04 in your account currency.
      *
      * @return $this
      */
@@ -295,7 +320,7 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param \TextMagic\Models\Country $country country
+     * @param \TextMagic\Models\Country $country Phone number country.
      *
      * @return $this
      */
@@ -319,7 +344,7 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets local
      *
-     * @param string $local local
+     * @param string $local Phone number in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers).
      *
      * @return $this
      */
@@ -343,12 +368,21 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Phone number type.
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;
@@ -367,7 +401,7 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets carrier
      *
-     * @param string $carrier carrier
+     * @param string $carrier Carrier name.
      *
      * @return $this
      */
@@ -391,7 +425,7 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets number164
      *
-     * @param string $number164 number164
+     * @param string $number164 Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164).
      *
      * @return $this
      */
@@ -415,7 +449,7 @@ class DoCarrierLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets valid
      *
-     * @param bool $valid valid
+     * @param bool $valid The field shows if entered phone number is valid or not.
      *
      * @return $this
      */

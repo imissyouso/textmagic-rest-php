@@ -12990,14 +12990,14 @@ class TextMagicApi
      *
      * Carrier Lookup
      *
-     * @param  string $phone phone (required)
-     * @param  string $country Country code for local formatted numbers (optional, default to US)
+     * @param  string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). (required)
+     * @param  string $country This option must be specified only if the phone number in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\DoCarrierLookupResponse
      */
-    public function doCarrierLookup($phone, $country = 'US')
+    public function doCarrierLookup($phone, $country = null)
     {
         list($response) = $this->doCarrierLookupWithHttpInfo($phone, $country);
         return $response;
@@ -13008,14 +13008,14 @@ class TextMagicApi
      *
      * Carrier Lookup
      *
-     * @param  string $phone (required)
-     * @param  string $country Country code for local formatted numbers (optional, default to US)
+     * @param  string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). (required)
+     * @param  string $country This option must be specified only if the phone number in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\DoCarrierLookupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function doCarrierLookupWithHttpInfo($phone, $country = 'US')
+    public function doCarrierLookupWithHttpInfo($phone, $country = null)
     {
         $returnType = '\TextMagic\Models\DoCarrierLookupResponse';
         $request = $this->doCarrierLookupRequest($phone, $country);
@@ -13100,13 +13100,13 @@ class TextMagicApi
      *
      * Carrier Lookup
      *
-     * @param  string $phone (required)
-     * @param  string $country Country code for local formatted numbers (optional, default to US)
+     * @param  string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). (required)
+     * @param  string $country This option must be specified only if the phone number in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function doCarrierLookupAsync($phone, $country = 'US')
+    public function doCarrierLookupAsync($phone, $country = null)
     {
         return $this->doCarrierLookupAsyncWithHttpInfo($phone, $country)
             ->then(
@@ -13121,13 +13121,13 @@ class TextMagicApi
      *
      * Carrier Lookup
      *
-     * @param  string $phone (required)
-     * @param  string $country Country code for local formatted numbers (optional, default to US)
+     * @param  string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). (required)
+     * @param  string $country This option must be specified only if the phone number in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function doCarrierLookupAsyncWithHttpInfo($phone, $country = 'US')
+    public function doCarrierLookupAsyncWithHttpInfo($phone, $country = null)
     {
         $returnType = '\TextMagic\Models\DoCarrierLookupResponse';
         $request = $this->doCarrierLookupRequest($phone, $country);
@@ -13172,13 +13172,13 @@ class TextMagicApi
     /**
      * Create request for operation 'doCarrierLookup'
      *
-     * @param  string $phone (required)
-     * @param  string $country Country code for local formatted numbers (optional, default to US)
+     * @param  string $phone Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). (required)
+     * @param  string $country This option must be specified only if the phone number in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function doCarrierLookupRequest($phone, $country = 'US')
+    protected function doCarrierLookupRequest($phone, $country = null)
     {
         // verify the required parameter 'phone' is set
         if ($phone === null || (is_array($phone) && count($phone) === 0)) {
@@ -13279,9 +13279,9 @@ class TextMagicApi
     /**
      * Operation doEmailLookup
      *
-     * Validate Email address using Email Lookup tool
+     * Email Lookup
      *
-     * @param  string $email email (required)
+     * @param  string $email Email address. (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13296,9 +13296,9 @@ class TextMagicApi
     /**
      * Operation doEmailLookupWithHttpInfo
      *
-     * Validate Email address using Email Lookup tool
+     * Email Lookup
      *
-     * @param  string $email (required)
+     * @param  string $email Email address. (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13395,9 +13395,9 @@ class TextMagicApi
     /**
      * Operation doEmailLookupAsync
      *
-     * Validate Email address using Email Lookup tool
+     * Email Lookup
      *
-     * @param  string $email (required)
+     * @param  string $email Email address. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13415,9 +13415,9 @@ class TextMagicApi
     /**
      * Operation doEmailLookupAsyncWithHttpInfo
      *
-     * Validate Email address using Email Lookup tool
+     * Email Lookup
      *
-     * @param  string $email (required)
+     * @param  string $email Email address. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13467,7 +13467,7 @@ class TextMagicApi
     /**
      * Create request for operation 'doEmailLookup'
      *
-     * @param  string $email (required)
+     * @param  string $email Email address. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -21561,7 +21561,7 @@ class TextMagicApi
     /**
      * Operation getCountries
      *
-     * Return list of countries.
+     * Get countries
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -21577,7 +21577,7 @@ class TextMagicApi
     /**
      * Operation getCountriesWithHttpInfo
      *
-     * Return list of countries.
+     * Get countries
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -21659,7 +21659,7 @@ class TextMagicApi
     /**
      * Operation getCountriesAsync
      *
-     * Return list of countries.
+     * Get countries
      *
      *
      * @throws \InvalidArgumentException
@@ -21678,7 +21678,7 @@ class TextMagicApi
     /**
      * Operation getCountriesAsyncWithHttpInfo
      *
-     * Return list of countries.
+     * Get countries
      *
      *
      * @throws \InvalidArgumentException
@@ -32464,7 +32464,7 @@ class TextMagicApi
     /**
      * Operation getTimezones
      *
-     * Return all available timezone IDs.
+     * Get timezones
      *
      * @param  int $full Return full info about timezones in array (0 or 1). Default is 0 (optional, default to 0)
      *
@@ -32481,7 +32481,7 @@ class TextMagicApi
     /**
      * Operation getTimezonesWithHttpInfo
      *
-     * Return all available timezone IDs.
+     * Get timezones
      *
      * @param  int $full Return full info about timezones in array (0 or 1). Default is 0 (optional, default to 0)
      *
@@ -32572,7 +32572,7 @@ class TextMagicApi
     /**
      * Operation getTimezonesAsync
      *
-     * Return all available timezone IDs.
+     * Get timezones
      *
      * @param  int $full Return full info about timezones in array (0 or 1). Default is 0 (optional, default to 0)
      *
@@ -32592,7 +32592,7 @@ class TextMagicApi
     /**
      * Operation getTimezonesAsyncWithHttpInfo
      *
-     * Return all available timezone IDs.
+     * Get timezones
      *
      * @param  int $full Return full info about timezones in array (0 or 1). Default is 0 (optional, default to 0)
      *
@@ -35592,7 +35592,7 @@ class TextMagicApi
     /**
      * Operation ping
      *
-     * Just does a pong.
+     * Ping
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -35608,7 +35608,7 @@ class TextMagicApi
     /**
      * Operation pingWithHttpInfo
      *
-     * Just does a pong.
+     * Ping
      *
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -35690,7 +35690,7 @@ class TextMagicApi
     /**
      * Operation pingAsync
      *
-     * Just does a pong.
+     * Ping
      *
      *
      * @throws \InvalidArgumentException
@@ -35709,7 +35709,7 @@ class TextMagicApi
     /**
      * Operation pingAsyncWithHttpInfo
      *
-     * Just does a pong.
+     * Ping
      *
      *
      * @throws \InvalidArgumentException
