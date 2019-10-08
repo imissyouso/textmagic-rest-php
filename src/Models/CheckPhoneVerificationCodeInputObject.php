@@ -36,7 +36,6 @@ use \TextMagic\ObjectSerializer;
  * CheckPhoneVerificationCodeInputObject Class Doc Comment
  *
  * @category Class
- * @description Confirmation code to check
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -58,7 +57,8 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int'
+        'code' => 'int',
+        'verifyId' => 'string'
     ];
 
     /**
@@ -67,7 +67,8 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null
+        'code' => null,
+        'verifyId' => null
     ];
 
     /**
@@ -97,7 +98,8 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code'
+        'code' => 'code',
+        'verifyId' => 'verifyId'
     ];
 
     /**
@@ -106,7 +108,8 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode'
+        'code' => 'setCode',
+        'verifyId' => 'setVerifyId'
     ];
 
     /**
@@ -115,7 +118,8 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode'
+        'code' => 'getCode',
+        'verifyId' => 'getVerifyId'
     ];
 
     /**
@@ -179,6 +183,7 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['verifyId'] = isset($data['verifyId']) ? $data['verifyId'] : null;
     }
 
     /**
@@ -192,6 +197,9 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
 
         if ($this->container['code'] === null) {
             $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['verifyId'] === null) {
+            $invalidProperties[] = "'verifyId' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,13 +229,37 @@ class CheckPhoneVerificationCodeInputObject implements ModelInterface, ArrayAcce
     /**
      * Sets code
      *
-     * @param int $code code
+     * @param int $code Verification code that was received by the user and entered into the form field.
      *
      * @return $this
      */
     public function setCode($code)
     {
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets verifyId
+     *
+     * @return string
+     */
+    public function getVerifyId()
+    {
+        return $this->container['verifyId'];
+    }
+
+    /**
+     * Sets verifyId
+     *
+     * @param string $verifyId VerifyId from Step 1 to match both requests together.
+     *
+     * @return $this
+     */
+    public function setVerifyId($verifyId)
+    {
+        $this->container['verifyId'] = $verifyId;
 
         return $this;
     }
