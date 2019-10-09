@@ -238,8 +238,38 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_A = 'A';
+    const STATUS_T = 'T';
+    const SUBACCOUNT_TYPE_A = 'A';
+    const SUBACCOUNT_TYPE_U = 'U';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_A,
+            self::STATUS_T,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubaccountTypeAllowableValues()
+    {
+        return [
+            self::SUBACCOUNT_TYPE_A,
+            self::SUBACCOUNT_TYPE_U,
+        ];
+    }
     
 
     /**
@@ -303,6 +333,14 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['balance'] === null) {
             $invalidProperties[] = "'balance' can't be null";
         }
@@ -324,6 +362,14 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
         if ($this->container['subaccountType'] === null) {
             $invalidProperties[] = "'subaccountType' can't be null";
         }
+        $allowedValues = $this->getSubaccountTypeAllowableValues();
+        if (!is_null($this->container['subaccountType']) && !in_array($this->container['subaccountType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'subaccountType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['emailAccepted'] === null) {
             $invalidProperties[] = "'emailAccepted' can't be null";
         }
@@ -364,7 +410,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Sub-account ID.
      *
      * @return $this
      */
@@ -388,7 +434,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets username
      *
-     * @param string $username username
+     * @param string $username Username.
      *
      * @return $this
      */
@@ -412,7 +458,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName Account first name.
      *
      * @return $this
      */
@@ -436,7 +482,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Account last name.
      *
      * @return $this
      */
@@ -484,12 +530,21 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Current account status: * **A** for Active * **T** for Trial.
      *
      * @return $this
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
@@ -508,7 +563,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param double $balance balance
+     * @param double $balance Account balance (in account currency).
      *
      * @return $this
      */
@@ -532,7 +587,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string $phone Contact phone number.
      *
      * @return $this
      */
@@ -556,7 +611,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets company
      *
-     * @param string $company company
+     * @param string $company Account company name.
      *
      * @return $this
      */
@@ -652,12 +707,21 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets subaccountType
      *
-     * @param string $subaccountType subaccountType
+     * @param string $subaccountType Type of account: *   **A** for Administrator sub-account *   **U** for Regular User
      *
      * @return $this
      */
     public function setSubaccountType($subaccountType)
     {
+        $allowedValues = $this->getSubaccountTypeAllowableValues();
+        if (!in_array($subaccountType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'subaccountType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['subaccountType'] = $subaccountType;
 
         return $this;
@@ -676,7 +740,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets emailAccepted
      *
-     * @param bool $emailAccepted emailAccepted
+     * @param bool $emailAccepted Is account has confirmed Email.
      *
      * @return $this
      */
@@ -700,7 +764,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets phoneAccepted
      *
-     * @param bool $phoneAccepted phoneAccepted
+     * @param bool $phoneAccepted Is account has confirmed Phone number.
      *
      * @return $this
      */
@@ -748,7 +812,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets token
      *
-     * @param string $token token
+     * @param string $token Access token of account.
      *
      * @return $this
      */
