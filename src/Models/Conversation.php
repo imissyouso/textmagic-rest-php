@@ -481,7 +481,7 @@ class Conversation implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status Message status (for chats outbound only). See [message delivery statuses](/docs/api/sms-sessions/#message-delivery-statuses) for details.
+     * @param string $status Message status (for chats outbound only). See [message delivery statuses](http://docs.textmagictesting.com/section#Delivery-status-codes) for details.
      *
      * @return $this
      */

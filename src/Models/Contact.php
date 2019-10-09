@@ -562,7 +562,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets customFields
      *
-     * @param \TextMagic\Models\ContactCustomField[] $customFields See [Custom Fields](/docs/api/custom-fields/) section.
+     * @param \TextMagic\Models\ContactCustomField[] $customFields See [Custom Fields](http://docs.textmagictesting.com/tag#Custom-Fields) section.
      *
      * @return $this
      */

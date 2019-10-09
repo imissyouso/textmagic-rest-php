@@ -760,7 +760,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName TODO: Contact first name. Could be substituted from your [Contacts](/docs/api/contacts/) (even if you submitted phone number instead of contact ID).
+     * @param string $firstName Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/tag#Contacts) (even if you submitted phone number instead of contact ID).
      *
      * @return $this
      */
