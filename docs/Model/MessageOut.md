@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **deleted** | **bool** |  | [optional] 
 **charset** | **string** | Message charset. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS | 
 **charsetLabel** | **string** |  | 
-**firstName** | **string** | Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/tag#Contacts) (even if you submitted phone number instead of contact ID). | 
+**firstName** | **string** | Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/#tag/Contacts) (even if you submitted phone number instead of contact ID). | 
 **lastName** | **string** | Contact last name. | 
 **country** | **string** | Two-letter ISO country code of the recipient phone number. | 
 **phone** | **string** |  | [optional] 
