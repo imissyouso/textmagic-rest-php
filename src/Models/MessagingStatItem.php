@@ -310,7 +310,7 @@ class MessagingStatItem implements ModelInterface, ArrayAccess
     /**
      * Sets replyRate
      *
-     * @param float $replyRate the number of incoming messages divided by the number of total messages.
+     * @param float $replyRate The number of incoming messages divided by the number of total messages.
      *
      * @return $this
      */

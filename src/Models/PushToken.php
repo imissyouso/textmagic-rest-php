@@ -163,8 +163,25 @@ class PushToken implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_A = 'a';
+    const TYPE_G = 'g';
+    const TYPE_F = 'f';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_A,
+            self::TYPE_G,
+            self::TYPE_F,
+        ];
+    }
     
 
     /**
@@ -198,6 +215,14 @@ class PushToken implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['token'] === null) {
             $invalidProperties[] = "'token' can't be null";
         }
@@ -229,12 +254,21 @@ class PushToken implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type type of the token: * **GCM** — Google Cloud Messaging * **APN** — Apple Push Notification * **FCM** — Firebase Cloud Messaging
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;
@@ -253,7 +287,7 @@ class PushToken implements ModelInterface, ArrayAccess
     /**
      * Sets token
      *
-     * @param string $token token
+     * @param string $token Push token value.
      *
      * @return $this
      */

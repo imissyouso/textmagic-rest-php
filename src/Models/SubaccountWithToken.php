@@ -506,7 +506,7 @@ class SubaccountWithToken implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param string $email Account Email address.
      *
      * @return $this
      */
