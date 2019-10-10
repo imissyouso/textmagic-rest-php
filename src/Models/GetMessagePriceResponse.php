@@ -238,7 +238,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total total
+     * @param float $total Total price of the mesasge.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets parts
      *
-     * @param int $parts parts
+     * @param int $parts Message parts (multiples of 160 characters) count.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param object $countries countries
+     * @param object $countries List of countries where message will be sent with pricing explanation.
      *
      * @return $this
      */

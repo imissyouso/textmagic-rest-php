@@ -460,7 +460,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets lastSent
      *
-     * @param \DateTime $lastSent lastSent
+     * @param \DateTime $lastSent Date and time when last message has been sent.
      *
      * @return $this
      */
@@ -652,7 +652,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets recipientsCount
      *
-     * @param int $recipientsCount recipientsCount
+     * @param int $recipientsCount Amount of actual recipients.
      *
      * @return $this
      */
@@ -676,7 +676,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets timezone
      *
-     * @param string $timezone timezone
+     * @param string $timezone User-friendly timezone name (with spaces replaced by underscores).
      *
      * @return $this
      */
@@ -700,7 +700,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets completed
      *
-     * @param bool $completed completed
+     * @param bool $completed Indicates that schedling has been completed.
      *
      * @return $this
      */
@@ -724,7 +724,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets avatar
      *
-     * @param string $avatar avatar
+     * @param string $avatar null
      *
      * @return $this
      */
@@ -748,7 +748,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets createdAt
      *
-     * @param \DateTime $createdAt createdAt
+     * @param \DateTime $createdAt Scheduling creation time.
      *
      * @return $this
      */

@@ -69,7 +69,7 @@ class Chat implements ModelInterface, ArrayAccess
         'lastMessage' => 'string',
         'direction' => 'string',
         'from' => 'string',
-        'mutedUntil' => 'string',
+        'mutedUntil' => '\DateTime',
         'timeLeftMute' => 'int',
         'country' => '\TextMagic\Models\Country'
     ];
@@ -92,7 +92,7 @@ class Chat implements ModelInterface, ArrayAccess
         'lastMessage' => null,
         'direction' => null,
         'from' => null,
-        'mutedUntil' => null,
+        'mutedUntil' => 'date-time',
         'timeLeftMute' => null,
         'country' => null
     ];
@@ -228,8 +228,44 @@ class Chat implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_A = 'a';
+    const STATUS_C = 'c';
+    const STATUS_D = 'd';
+    const DIRECTION_CI = 'ci';
+    const DIRECTION_CO = 'co';
+    const DIRECTION_I = 'i';
+    const DIRECTION_O = 'o';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_A,
+            self::STATUS_C,
+            self::STATUS_D,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDirectionAllowableValues()
+    {
+        return [
+            self::DIRECTION_CI,
+            self::DIRECTION_CO,
+            self::DIRECTION_I,
+            self::DIRECTION_O,
+        ];
+    }
     
 
     /**
@@ -297,6 +333,14 @@ class Chat implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['mute'] === null) {
             $invalidProperties[] = "'mute' can't be null";
         }
@@ -306,6 +350,14 @@ class Chat implements ModelInterface, ArrayAccess
         if ($this->container['direction'] === null) {
             $invalidProperties[] = "'direction' can't be null";
         }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!is_null($this->container['direction']) && !in_array($this->container['direction'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'direction', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['from'] === null) {
             $invalidProperties[] = "'from' can't be null";
         }
@@ -442,7 +494,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets unsubscribedContactId
      *
-     * @param int $unsubscribedContactId unsubscribedContactId
+     * @param int $unsubscribedContactId If this field has a value then it means that chat phone number has been unsubscribed from you and this value is a ID of a Unsubscribed contact entity. See [Get all unsubscribed contacts](http://docs.textmagictesting.com/#operation/getUnsubscribers).
      *
      * @return $this
      */
@@ -466,7 +518,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets unread
      *
-     * @param int $unread Unread incoming messages count.
+     * @param int $unread Total unread incoming messages.
      *
      * @return $this
      */
@@ -514,12 +566,21 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Chat status:   * **a** - Active   * **c** - Closed   * **d** - Deleted
      *
      * @return $this
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
@@ -538,7 +599,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets mute
      *
-     * @param int $mute mute
+     * @param int $mute Indicates when chat is muted.
      *
      * @return $this
      */
@@ -562,7 +623,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets lastMessage
      *
-     * @param string $lastMessage lastMessage
+     * @param string $lastMessage The last message content of a chat.
      *
      * @return $this
      */
@@ -586,12 +647,21 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets direction
      *
-     * @param string $direction direction
+     * @param string $direction Last message type: * **ci** - incoming call * **co** - outgoing call * **i** - incoming message * **o** - outgoing message
      *
      * @return $this
      */
     public function setDirection($direction)
     {
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($direction, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'direction', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['direction'] = $direction;
 
         return $this;
@@ -610,7 +680,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets from
      *
-     * @param string $from from
+     * @param string $from If filled then value will be used as a sender number for all outgoing messages of a chat.
      *
      * @return $this
      */
@@ -624,7 +694,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Gets mutedUntil
      *
-     * @return string
+     * @return \DateTime
      */
     public function getMutedUntil()
     {
@@ -634,7 +704,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets mutedUntil
      *
-     * @param string $mutedUntil mutedUntil
+     * @param \DateTime $mutedUntil Date and time until chat will be mutted.
      *
      * @return $this
      */
@@ -658,7 +728,7 @@ class Chat implements ModelInterface, ArrayAccess
     /**
      * Sets timeLeftMute
      *
-     * @param int $timeLeftMute timeLeftMute
+     * @param int $timeLeftMute Time left till chat will be unmutted (seconds).
      *
      * @return $this
      */

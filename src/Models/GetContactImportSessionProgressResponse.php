@@ -253,7 +253,7 @@ class GetContactImportSessionProgressResponse implements ModelInterface, ArrayAc
     /**
      * Sets processed
      *
-     * @param int $processed How many contacts have been imported
+     * @param int $processed How many contacts have been imported.
      *
      * @return $this
      */

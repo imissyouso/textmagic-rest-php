@@ -310,7 +310,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _1
      *
-     * @param string $_1 Contains sign of currency in Unicode hex code
+     * @param string $_1 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _2
      *
-     * @param string $_2 Contains sign of currency in Unicode hex code
+     * @param string $_2 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _3
      *
-     * @param string $_3 Contains sign of currency in Unicode hex code
+     * @param string $_3 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _5
      *
-     * @param string $_5 Contains sign of currency in Unicode hex code
+     * @param string $_5 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _10
      *
-     * @param string $_10 Contains sign of currency in Unicode hex code
+     * @param string $_10 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _20
      *
-     * @param string $_20 Contains sign of currency in Unicode hex code
+     * @param string $_20 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _30
      *
-     * @param string $_30 Contains sign of currency in Unicode hex code
+     * @param string $_30 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _50
      *
-     * @param string $_50 Contains sign of currency in Unicode hex code
+     * @param string $_50 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _100
      *
-     * @param string $_100 Contains sign of currency in Unicode hex code
+     * @param string $_100 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _500
      *
-     * @param string $_500 Contains sign of currency in Unicode hex code
+     * @param string $_500 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class GetBalanceNotificationOptionsResponse implements ModelInterface, ArrayAcce
     /**
      * Sets _1000
      *
-     * @param string $_1000 Contains sign of currency in Unicode hex code
+     * @param string $_1000 Contains sign of currency in Unicode hex code.
      *
      * @return $this
      */

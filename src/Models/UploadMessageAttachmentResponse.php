@@ -247,7 +247,7 @@ class UploadMessageAttachmentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets chars
      *
-     * @param int $chars chars
+     * @param int $chars `href` field characters count.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class UploadMessageAttachmentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets href
      *
-     * @param string $href href
+     * @param string $href This is a relative link to your file. To construct a full link, just add “[https://my.textmagic.com/”](https://my.textmagic.com/%E2%80%9D) to the beginning (like this: [https://my.textmagic.com/click/Zwcj9](https://my.textmagic.com/click/Zwcj9)). For most modern devices, you can omit “https://” part and write just [my.textmagic.com/click/Zwcj9](https://my.textmagic.com/click/Zwcj9), it will save you 8 characters.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class UploadMessageAttachmentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name File name of uploaded file.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class UploadMessageAttachmentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int $size size
+     * @param int $size Attachment size in bytes.
      *
      * @return $this
      */

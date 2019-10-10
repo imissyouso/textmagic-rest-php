@@ -220,7 +220,7 @@ class UpdateContactNoteInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets note
      *
-     * @param string $note note
+     * @param string $note Contact Note text.
      *
      * @return $this
      */

@@ -193,8 +193,25 @@ class MessageSession implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const DESTINATION_T = 't';
+    const DESTINATION_S = 's';
+    const DESTINATION_V = 'v';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDestinationAllowableValues()
+    {
+        return [
+            self::DESTINATION_T,
+            self::DESTINATION_S,
+            self::DESTINATION_V,
+        ];
+    }
     
 
     /**
@@ -255,6 +272,14 @@ class MessageSession implements ModelInterface, ArrayAccess
         if ($this->container['destination'] === null) {
             $invalidProperties[] = "'destination' can't be null";
         }
+        $allowedValues = $this->getDestinationAllowableValues();
+        if (!is_null($this->container['destination']) && !in_array($this->container['destination'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'destination', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -451,12 +476,21 @@ class MessageSession implements ModelInterface, ArrayAccess
     /**
      * Sets destination
      *
-     * @param string $destination destination
+     * @param string $destination Destination type of a Message Session: * **t** - text SMS * **s** - text to speech * **v** - voice broadcast
      *
      * @return $this
      */
     public function setDestination($destination)
     {
+        $allowedValues = $this->getDestinationAllowableValues();
+        if (!in_array($destination, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'destination', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['destination'] = $destination;
 
         return $this;

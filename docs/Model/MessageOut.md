@@ -7,22 +7,22 @@ Name | Type | Description | Notes
 **sender** | **string** | Message sender (phone number or alphanumeric Sender ID). | [optional] 
 **receiver** | **string** | Recipient phone number. | [optional] 
 **text** | **string** |  | 
-**status** | **string** | Delivery status of the message. TODO: Please see the table below to see different delivery statuses. | 
-**contactId** | **int** |  | 
-**sessionId** | **int** |  | 
+**status** | **string** | Delivery status of the message. See [message delivery statuses](http://docs.textmagictesting.com/#section/Delivery-status-codes) for details. | 
+**contactId** | **int** | Recipient contact ID. | 
+**sessionId** | **int** | Message Session ID of a Message. | 
 **messageTime** | [**\DateTime**](\DateTime.md) | Sending time. | 
 **avatar** | **string** |  | 
-**deleted** | **bool** |  | [optional] 
+**deleted** | **bool** | Indicates that message has been deleted. | [optional] 
 **charset** | **string** | Message charset. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS | 
 **charsetLabel** | **string** |  | 
 **firstName** | **string** | Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/#tag/Contacts) (even if you submitted phone number instead of contact ID). | 
 **lastName** | **string** | Contact last name. | 
 **country** | **string** | Two-letter ISO country code of the recipient phone number. | 
-**phone** | **string** |  | [optional] 
-**price** | **float** |  | [optional] 
+**phone** | **string** | Receipent phone number. | [optional] 
+**price** | **float** | Message price. | [optional] 
 **partsCount** | **int** | Message parts (multiples of 160 characters) count. | 
 **fromEmail** | **string** |  | [optional] 
-**fromNumber** | **string** |  | [optional] 
+**fromNumber** | **string** | Phone number which is used to send SMS. | [optional] 
 **smscId** | **string** |  | [optional] 
 **contact** | **string** |  | [optional] 
 **source** | **string** |  | [optional] 

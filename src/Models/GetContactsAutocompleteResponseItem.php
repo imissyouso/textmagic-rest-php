@@ -392,7 +392,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value Id of contact/list if entityType is contact/list OR phone number if entityType is reply
+     * @param string $value Id of contact/list if entityType is contact/list OR phone number if entityType is reply.
      *
      * @return $this
      */
@@ -416,7 +416,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets label
      *
-     * @param string $label Name of the contact/list if entityType is contact/list OR phone number if entityType is reply
+     * @param string $label Name of the contact/list if entityType is contact/list OR phone number if entityType is reply.
      *
      * @return $this
      */
@@ -440,7 +440,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets sharedBy
      *
-     * @param string $sharedBy If contact or list was shared by another user then name if this user will be shown
+     * @param string $sharedBy If contact or list was shared by another user then name if this user will be shown.
      *
      * @return $this
      */
@@ -464,7 +464,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets avatar
      *
-     * @param string $avatar avatar
+     * @param string $avatar Contact avatar URI.
      *
      * @return $this
      */
@@ -488,7 +488,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets favorited
      *
-     * @param bool $favorited If contact was marked as favourited
+     * @param bool $favorited If contact has been marked as favorite.
      *
      * @return $this
      */
@@ -512,7 +512,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets userId
      *
-     * @param int $userId Owner id of the contact/list (if it was shared)
+     * @param int $userId Owner id of the contact/list (if it was shared).
      *
      * @return $this
      */

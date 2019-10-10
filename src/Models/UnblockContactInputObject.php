@@ -217,7 +217,7 @@ class UnblockContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone Contact phone number
+     * @param string $phone Contact phone number.
      *
      * @return $this
      */

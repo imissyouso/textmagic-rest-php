@@ -283,7 +283,7 @@ class UserStatement implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id User statement ID.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class UserStatement implements ModelInterface, ArrayAccess
     /**
      * Sets userId
      *
-     * @param int $userId User statement ID.
+     * @param int $userId User ID.
      *
      * @return $this
      */

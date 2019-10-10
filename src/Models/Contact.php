@@ -370,7 +370,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets favorited
      *
-     * @param bool $favorited favorited
+     * @param bool $favorited Is the Contact favourite? [Custom fields list](http://docs.textmagictesting.com/#operation/getFavourites).
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets blocked
      *
-     * @param bool $blocked blocked
+     * @param bool $blocked Is the Contact blocked? [Custom fields list](http://docs.textmagictesting.com/#operation/getBlockedContacts).
      *
      * @return $this
      */

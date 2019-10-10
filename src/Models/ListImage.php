@@ -220,7 +220,7 @@ class ListImage implements ModelInterface, ArrayAccess
     /**
      * Sets href
      *
-     * @param string $href href
+     * @param string $href URI of a list avatar.
      *
      * @return $this
      */

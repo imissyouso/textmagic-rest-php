@@ -229,7 +229,7 @@ class GetAvailableDedicatedNumbersResponse implements ModelInterface, ArrayAcces
     /**
      * Sets numbers
      *
-     * @param string[] $numbers Array of phone number strings.
+     * @param string[] $numbers Array of phone numbers.
      *
      * @return $this
      */

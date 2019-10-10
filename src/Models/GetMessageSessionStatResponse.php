@@ -274,7 +274,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets failed
      *
-     * @param int $failed failed
+     * @param int $failed Amount of failed messages.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets delivered
      *
-     * @param int $delivered delivered
+     * @param int $delivered Amount of delivered messages.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets accepted
      *
-     * @param int $accepted accepted
+     * @param int $accepted Amount of accepted messages.
      *
      * @return $this
      */
@@ -346,7 +346,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets rejected
      *
-     * @param int $rejected rejected
+     * @param int $rejected Amount of rejected messages.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets scheduled
      *
-     * @param int $scheduled scheduled
+     * @param int $scheduled Amount of schedules messages.
      *
      * @return $this
      */
@@ -418,7 +418,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets sent
      *
-     * @param int $sent sent
+     * @param int $sent Total sent messages.
      *
      * @return $this
      */

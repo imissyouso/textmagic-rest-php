@@ -238,6 +238,8 @@ class User implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const DISPLAY_TIME_FORMAT__12H = '12h';
+    const DISPLAY_TIME_FORMAT__24H = '24h';
     const STATUS_A = 'A';
     const STATUS_T = 'T';
     const SUBACCOUNT_TYPE_P = 'P';
@@ -245,6 +247,19 @@ class User implements ModelInterface, ArrayAccess
     const SUBACCOUNT_TYPE_U = 'U';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDisplayTimeFormatAllowableValues()
+    {
+        return [
+            self::DISPLAY_TIME_FORMAT__12H,
+            self::DISPLAY_TIME_FORMAT__24H,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -320,6 +335,14 @@ class User implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        $allowedValues = $this->getDisplayTimeFormatAllowableValues();
+        if (!is_null($this->container['displayTimeFormat']) && !in_array($this->container['displayTimeFormat'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'displayTimeFormat', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
         }
@@ -433,12 +456,21 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets displayTimeFormat
      *
-     * @param string $displayTimeFormat Format for representation of time
+     * @param string $displayTimeFormat User's prefered format of time display * *12h* - AM/PM format * *24h* - 24 hour clock format
      *
      * @return $this
      */
     public function setDisplayTimeFormat($displayTimeFormat)
     {
+        $allowedValues = $this->getDisplayTimeFormatAllowableValues();
+        if (!is_null($displayTimeFormat) && !in_array($displayTimeFormat, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'displayTimeFormat', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['displayTimeFormat'] = $displayTimeFormat;
 
         return $this;
@@ -610,7 +642,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string $phone User phone number
      *
      * @return $this
      */
@@ -763,7 +795,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets emailAccepted
      *
-     * @param bool $emailAccepted emailAccepted
+     * @param bool $emailAccepted Is account has confirmed Email.
      *
      * @return $this
      */
@@ -787,7 +819,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets phoneAccepted
      *
-     * @param bool $phoneAccepted phoneAccepted
+     * @param bool $phoneAccepted Is account has confirmed Phone number.
      *
      * @return $this
      */

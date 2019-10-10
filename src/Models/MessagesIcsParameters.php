@@ -229,7 +229,7 @@ class MessagesIcsParameters implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Scheduled message text.
      *
      * @return $this
      */

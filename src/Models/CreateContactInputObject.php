@@ -433,7 +433,7 @@ class CreateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets favorited
      *
-     * @param bool $favorited Is contact favorited
+     * @param bool $favorited Is contact marked as favorite.
      *
      * @return $this
      */
@@ -457,7 +457,7 @@ class CreateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets blocked
      *
-     * @param bool $blocked Is contact blocked for outgoing and incoming messaging
+     * @param bool $blocked Is contact blocked for outgoing and incoming messaging.
      *
      * @return $this
      */
@@ -481,7 +481,7 @@ class CreateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param int $type Force type of phone. Possible values: 0 - landline, 1 - mobile. Default is -1 (auto detection)
+     * @param int $type Force type of phone. Possible values: 0 - landline, 1 - mobile. Default is -1 (auto detection).
      *
      * @return $this
      */

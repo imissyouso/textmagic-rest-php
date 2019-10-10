@@ -250,7 +250,7 @@ class UpdateBalanceNotificationSettingsInputObject implements ModelInterface, Ar
     /**
      * Sets lowBalanceNotification
      *
-     * @param bool $lowBalanceNotification Should user receive low balance notification
+     * @param bool $lowBalanceNotification Should user receive low balance notification.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class UpdateBalanceNotificationSettingsInputObject implements ModelInterface, Ar
     /**
      * Sets alertBalance
      *
-     * @param string $alertBalance If balance is below this value, user receive low balance notification
+     * @param string $alertBalance If balance is below this value, user receive low balance notification.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class UpdateBalanceNotificationSettingsInputObject implements ModelInterface, Ar
     /**
      * Sets alertPhone
      *
-     * @param string $alertPhone Low balance notification phone number
+     * @param string $alertPhone Low balance notification phone number.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class UpdateBalanceNotificationSettingsInputObject implements ModelInterface, Ar
     /**
      * Sets alertEmail1
      *
-     * @param string $alertEmail1 Low balance notification email 1
+     * @param string $alertEmail1 Low balance notification email 1.
      *
      * @return $this
      */
@@ -346,7 +346,7 @@ class UpdateBalanceNotificationSettingsInputObject implements ModelInterface, Ar
     /**
      * Sets alertEmail2
      *
-     * @param string $alertEmail2 Low balance notification email 2
+     * @param string $alertEmail2 Low balance notification email 2.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class UpdateBalanceNotificationSettingsInputObject implements ModelInterface, Ar
     /**
      * Sets alertEmail3
      *
-     * @param string $alertEmail3 Low balance notification email 3
+     * @param string $alertEmail3 Low balance notification email 3.
      *
      * @return $this
      */

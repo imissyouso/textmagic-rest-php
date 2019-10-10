@@ -220,7 +220,7 @@ class GetUnreadMessagesTotalResponse implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param int $total total
+     * @param int $total Amount of unread messages.
      *
      * @return $this
      */

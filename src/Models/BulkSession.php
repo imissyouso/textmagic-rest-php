@@ -188,8 +188,29 @@ class BulkSession implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_N = 'n';
+    const STATUS_W = 'w';
+    const STATUS_F = 'f';
+    const STATUS_C = 'c';
+    const STATUS_S = 's';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_N,
+            self::STATUS_W,
+            self::STATUS_F,
+            self::STATUS_C,
+            self::STATUS_S,
+        ];
+    }
     
 
     /**
@@ -231,6 +252,14 @@ class BulkSession implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['itemsProcessed'] === null) {
             $invalidProperties[] = "'itemsProcessed' can't be null";
         }
@@ -274,7 +303,7 @@ class BulkSession implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Bulk Session ID.
      *
      * @return $this
      */
@@ -298,12 +327,21 @@ class BulkSession implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status * **n** - bulk session is just created * **w** - work in progress * **f** - failed * **c** - completed with success * **s** - suspended
      *
      * @return $this
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
@@ -322,7 +360,7 @@ class BulkSession implements ModelInterface, ArrayAccess
     /**
      * Sets itemsProcessed
      *
-     * @param int $itemsProcessed itemsProcessed
+     * @param int $itemsProcessed Amount of messages which is already processed.
      *
      * @return $this
      */
@@ -346,7 +384,7 @@ class BulkSession implements ModelInterface, ArrayAccess
     /**
      * Sets itemsTotal
      *
-     * @param int $itemsTotal itemsTotal
+     * @param int $itemsTotal Total amount of messages to be processed.
      *
      * @return $this
      */
@@ -370,7 +408,7 @@ class BulkSession implements ModelInterface, ArrayAccess
     /**
      * Sets createdAt
      *
-     * @param \DateTime $createdAt createdAt
+     * @param \DateTime $createdAt Creation date and time of a Bulk Session.
      *
      * @return $this
      */
@@ -418,7 +456,7 @@ class BulkSession implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Message text of a Bulk Session.
      *
      * @return $this
      */

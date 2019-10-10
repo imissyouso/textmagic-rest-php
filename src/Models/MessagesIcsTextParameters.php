@@ -183,8 +183,23 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ENCODING_ISO_8859_1 = 'ISO-8859-1';
+    const ENCODING_UTF_16_BE = 'UTF-16BE';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEncodingAllowableValues()
+    {
+        return [
+            self::ENCODING_ISO_8859_1,
+            self::ENCODING_UTF_16_BE,
+        ];
+    }
     
 
     /**
@@ -231,6 +246,14 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
         if ($this->container['encoding'] === null) {
             $invalidProperties[] = "'encoding' can't be null";
         }
+        $allowedValues = $this->getEncodingAllowableValues();
+        if (!is_null($this->container['encoding']) && !in_array($this->container['encoding'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'encoding', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['countries'] === null) {
             $invalidProperties[] = "'countries' can't be null";
         }
@@ -265,7 +288,7 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
     /**
      * Sets cost
      *
-     * @param float $cost cost
+     * @param float $cost Cost to check one number is constant – 0.04 in your account currency.
      *
      * @return $this
      */
@@ -289,7 +312,7 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
     /**
      * Sets parts
      *
-     * @param int $parts parts
+     * @param int $parts Message parts (multiples of 160 characters) count.
      *
      * @return $this
      */
@@ -337,12 +360,21 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
     /**
      * Sets encoding
      *
-     * @param string $encoding encoding
+     * @param string $encoding Message charset. Could be: * **ISO-8859-1** for plaintext SMS * **UTF-16BE** for Unicode SMS
      *
      * @return $this
      */
     public function setEncoding($encoding)
     {
+        $allowedValues = $this->getEncodingAllowableValues();
+        if (!in_array($encoding, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'encoding', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['encoding'] = $encoding;
 
         return $this;

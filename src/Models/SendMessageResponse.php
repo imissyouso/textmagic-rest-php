@@ -283,7 +283,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Message ID.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets href
      *
-     * @param string $href href
+     * @param string $href URI of message session.
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets sessionId
      *
-     * @param int $sessionId sessionId
+     * @param int $sessionId Message session ID.
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets bulkId
      *
-     * @param int $bulkId bulkId
+     * @param int $bulkId Bulk Session ID. See [Sending more than 1,000 messages in one session](http://docs.textmagictesting.com/#section/Tutorials/Sending-more-than-1000-messages-in-one-session).
      *
      * @return $this
      */
@@ -427,7 +427,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets scheduleId
      *
-     * @param int $scheduleId scheduleId
+     * @param int $scheduleId Message Schedule ID.
      *
      * @return $this
      */
@@ -451,7 +451,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets chatId
      *
-     * @param int $chatId chatId
+     * @param int $chatId Message Chat ID.
      *
      * @return $this
      */

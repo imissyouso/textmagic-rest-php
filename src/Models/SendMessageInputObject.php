@@ -265,14 +265,14 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         $this->container['contacts'] = isset($data['contacts']) ? $data['contacts'] : null;
         $this->container['lists'] = isset($data['lists']) ? $data['lists'] : null;
         $this->container['phones'] = isset($data['phones']) ? $data['phones'] : null;
-        $this->container['cutExtra'] = isset($data['cutExtra']) ? $data['cutExtra'] : null;
+        $this->container['cutExtra'] = isset($data['cutExtra']) ? $data['cutExtra'] : false;
         $this->container['partsCount'] = isset($data['partsCount']) ? $data['partsCount'] : null;
         $this->container['referenceId'] = isset($data['referenceId']) ? $data['referenceId'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
         $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
-        $this->container['createChat'] = isset($data['createChat']) ? $data['createChat'] : null;
-        $this->container['tts'] = isset($data['tts']) ? $data['tts'] : null;
-        $this->container['local'] = isset($data['local']) ? $data['local'] : null;
+        $this->container['createChat'] = isset($data['createChat']) ? $data['createChat'] : false;
+        $this->container['tts'] = isset($data['tts']) ? $data['tts'] : false;
+        $this->container['local'] = isset($data['local']) ? $data['local'] : false;
         $this->container['localCountry'] = isset($data['localCountry']) ? $data['localCountry'] : null;
     }
 
@@ -319,7 +319,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text Message text. Required if template_id is not set
+     * @param string $text Message text. Required if **template_id** is not set.
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets templateId
      *
-     * @param int $templateId Template used instead of message text. Required if text is not set
+     * @param int $templateId Template used instead of message text. Required if **text** is not set.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets sendingTime
      *
-     * @param int $sendingTime DEPRECATED, consider using sendingDateTime and sendingTimezone parameters instead: Optional (required with rrule set). Message sending time in unix timestamp format. Default is now
+     * @param int $sendingTime DEPRECATED, consider using sendingDateTime and sendingTimezone parameters instead: Optional (required with rrule set). Message sending time in unix timestamp format. Default is now.
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets sendingDateTime
      *
-     * @param string $sendingDateTime Sending time in Y-m-d H:i:s format (e.g. 2016-05-27 13:02:33). This time is relative to sendingTimezone
+     * @param string $sendingDateTime Sending time in Y-m-d H:i:s format (e.g. 2016-05-27 13:02:33). This time is relative to **sendingTimezone**.
      *
      * @return $this
      */
@@ -415,7 +415,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets sendingTimezone
      *
-     * @param string $sendingTimezone ID or ISO-name of timezone used for sending when sendingDateTime parameter is set. E.g. if you specify sendingDateTime = \\\"2016-05-27 13:02:33\\\" and sendingTimezone = \\\"America/Buenos_Aires\\\", your message will be sent at May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is account timezone
+     * @param string $sendingTimezone ID or ISO-name of timezone used for sending when sendingDateTime parameter is set. E.g. if you specify sendingDateTime = \\\"2016-05-27 13:02:33\\\" and sendingTimezone = \\\"America/Buenos_Aires\\\", your message will be sent at May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is account timezone.
      *
      * @return $this
      */
@@ -439,7 +439,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param string $contacts Comma separated array of contact resources id message will be sent to
+     * @param string $contacts Comma separated array of contact resources id message will be sent to.
      *
      * @return $this
      */
@@ -463,7 +463,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets lists
      *
-     * @param string $lists Comma separated array of list resources id message will be sent to
+     * @param string $lists Comma separated array of list resources id message will be sent to.
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets phones
      *
-     * @param string $phones Comma separated array of E.164 phone numbers message will be sent to
+     * @param string $phones Comma separated array of E.164 phone numbers message will be sent to.
      *
      * @return $this
      */
@@ -511,7 +511,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets cutExtra
      *
-     * @param bool $cutExtra Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead. Default is false
+     * @param bool $cutExtra Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead.
      *
      * @return $this
      */
@@ -535,7 +535,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets partsCount
      *
-     * @param int $partsCount Maximum message parts count (TextMagic allows sending 1 to 6 message parts). Default is 6
+     * @param int $partsCount Maximum message parts count (TextMagic allows sending 1 to 6 message parts).
      *
      * @return $this
      */
@@ -559,7 +559,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets referenceId
      *
-     * @param int $referenceId Custom message reference id which can be used in your application infrastructure
+     * @param int $referenceId Custom message reference id which can be used in your application infrastructure.
      *
      * @return $this
      */
@@ -583,7 +583,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets from
      *
-     * @param string $from One of allowed Sender ID (phone number or alphanumeric sender ID). If specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery
+     * @param string $from One of allowed Sender ID (phone number or alphanumeric sender ID). If specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](http://docs.textmagictesting.com/#tag/Sender-IDs).
      *
      * @return $this
      */
@@ -607,7 +607,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets rule
      *
-     * @param string $rule iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details
+     * @param string $rule iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details.
      *
      * @return $this
      */
@@ -631,7 +631,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets createChat
      *
-     * @param bool $createChat Should sending method try to create new Chat(if not exist) with specified recipients. Default is false
+     * @param bool $createChat Should sending method try to create new Chat(if not exist) with specified recipients.
      *
      * @return $this
      */
@@ -655,7 +655,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets tts
      *
-     * @param bool $tts Send Text to Speech message. Default is false
+     * @param bool $tts Send Text to Speech message.
      *
      * @return $this
      */
@@ -679,7 +679,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets local
      *
-     * @param bool $local Treat phone numbers passed in \\'phones\\' field as local. Default is false
+     * @param bool $local Treat phone numbers passed in \\'phones\\' field as local.
      *
      * @return $this
      */
@@ -703,7 +703,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets localCountry
      *
-     * @param string $localCountry 2-letter ISO country code for local phone numbers, used when \\'local\\' is set to true. Default is account country
+     * @param string $localCountry 2-letter ISO country code for local phone numbers, used when \\'local\\' is set to true. Default is account country.
      *
      * @return $this
      */

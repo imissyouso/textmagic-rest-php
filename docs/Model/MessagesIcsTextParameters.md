@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cost** | **float** |  | 
-**parts** | **int** |  | 
+**cost** | **float** | Cost to check one number is constant – 0.04 in your account currency. | 
+**parts** | **int** | Message parts (multiples of 160 characters) count. | 
 **chars** | **int** |  | 
-**encoding** | **string** |  | 
+**encoding** | **string** | Message charset. Could be: * **ISO-8859-1** for plaintext SMS * **UTF-16BE** for Unicode SMS | 
 **countries** | **string[]** |  | 
 **charsetLabel** | **string** |  | 
 

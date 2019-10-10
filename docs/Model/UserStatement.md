@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**userId** | **int** | User statement ID. | 
+**id** | **int** | User statement ID. | 
+**userId** | **int** | User ID. | 
 **date** | [**\DateTime**](\DateTime.md) | User statement date. | 
 **balance** | **double** |  | 
 **delta** | **float** | Balance change amount. | 

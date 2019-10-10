@@ -235,7 +235,7 @@ class MuteChatInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Chat ID
+     * @param int $id Chat ID.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class MuteChatInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets mute
      *
-     * @param bool $mute Mute value
+     * @param bool $mute Mute notifications sound.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class MuteChatInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets for
      *
-     * @param int $for Mute for N hours
+     * @param int $for Mute for N hours.
      *
      * @return $this
      */

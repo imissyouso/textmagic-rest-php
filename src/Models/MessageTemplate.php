@@ -295,7 +295,7 @@ class MessageTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string $content Template text. May contain the tags listed below TODO.
+     * @param string $content Template text. May contain the tags. See [Custom fields list](http://docs.textmagictesting.com/#section/Custom-fields-list-(Merge-tags)).
      *
      * @return $this
      */

@@ -229,7 +229,7 @@ class CreateTemplateInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Template name
+     * @param string $name Template name.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class CreateTemplateInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string $content Template text. May contain tags inside braces
+     * @param string $content Template text. May contain tags inside braces. See [Get timezones](http://docs.textmagictesting.com/#section/Custom-fields-list-(Merge-tags)).
      *
      * @return $this
      */

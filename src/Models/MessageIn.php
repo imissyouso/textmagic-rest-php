@@ -403,7 +403,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets contactId
      *
-     * @param int $contactId contactId
+     * @param int $contactId Sender contact ID.
      *
      * @return $this
      */
@@ -427,7 +427,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName firstName
+     * @param string $firstName Sender contact first name.
      *
      * @return $this
      */
@@ -451,7 +451,7 @@ class MessageIn implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName lastName
+     * @param string $lastName Sender contact last name.
      *
      * @return $this
      */

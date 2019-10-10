@@ -559,7 +559,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status Delivery status of the message. TODO: Please see the table below to see different delivery statuses.
+     * @param string $status Delivery status of the message. See [message delivery statuses](http://docs.textmagictesting.com/#section/Delivery-status-codes) for details.
      *
      * @return $this
      */
@@ -592,7 +592,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets contactId
      *
-     * @param int $contactId contactId
+     * @param int $contactId Recipient contact ID.
      *
      * @return $this
      */
@@ -616,7 +616,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets sessionId
      *
-     * @param int $sessionId sessionId
+     * @param int $sessionId Message Session ID of a Message.
      *
      * @return $this
      */
@@ -688,7 +688,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets deleted
      *
-     * @param bool $deleted deleted
+     * @param bool $deleted Indicates that message has been deleted.
      *
      * @return $this
      */
@@ -832,7 +832,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string $phone Receipent phone number.
      *
      * @return $this
      */
@@ -856,7 +856,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param float $price price
+     * @param float $price Message price.
      *
      * @return $this
      */
@@ -928,7 +928,7 @@ class MessageOut implements ModelInterface, ArrayAccess
     /**
      * Sets fromNumber
      *
-     * @param string $fromNumber fromNumber
+     * @param string $fromNumber Phone number which is used to send SMS.
      *
      * @return $this
      */

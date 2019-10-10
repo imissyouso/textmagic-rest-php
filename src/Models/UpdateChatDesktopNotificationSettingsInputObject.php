@@ -241,7 +241,7 @@ class UpdateChatDesktopNotificationSettingsInputObject implements ModelInterface
     /**
      * Sets playSound
      *
-     * @param bool $playSound Notification sound is enable/disabled
+     * @param bool $playSound Enable notification sound?
      *
      * @return $this
      */
@@ -265,7 +265,7 @@ class UpdateChatDesktopNotificationSettingsInputObject implements ModelInterface
     /**
      * Sets showNotifications
      *
-     * @param bool $showNotifications Show desktop notifications about new messages
+     * @param bool $showNotifications Show desktop notifications about new messages.
      *
      * @return $this
      */
@@ -313,7 +313,7 @@ class UpdateChatDesktopNotificationSettingsInputObject implements ModelInterface
     /**
      * Sets soundId
      *
-     * @param int $soundId Sound Id of a notification
+     * @param int $soundId Sound Id of a notification.
      *
      * @return $this
      */

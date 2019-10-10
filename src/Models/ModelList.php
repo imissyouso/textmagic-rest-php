@@ -349,7 +349,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description List description.
+     * @param string $description Description of the list.
      *
      * @return $this
      */
@@ -373,7 +373,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets favorited
      *
-     * @param bool $favorited favorited
+     * @param bool $favorited Is the List favourite? [Custom fields list](http://docs.textmagictesting.com/#operation/getFavourites).
      *
      * @return $this
      */
@@ -517,7 +517,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets isDefault
      *
-     * @param bool $isDefault isDefault
+     * @param bool $isDefault Indicates that List is used as a default. All new contacts will be added in this List by default.
      *
      * @return $this
      */

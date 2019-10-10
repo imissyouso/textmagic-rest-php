@@ -247,7 +247,7 @@ class ContactNote implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id Contact note ID.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class ContactNote implements ModelInterface, ArrayAccess
     /**
      * Sets createdAt
      *
-     * @param \DateTime $createdAt createdAt
+     * @param \DateTime $createdAt Contact note creation time.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class ContactNote implements ModelInterface, ArrayAccess
     /**
      * Sets note
      *
-     * @param string $note note
+     * @param string $note Contact note text.
      *
      * @return $this
      */

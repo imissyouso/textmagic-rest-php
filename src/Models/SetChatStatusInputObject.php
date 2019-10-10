@@ -254,7 +254,7 @@ class SetChatStatusInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Chat ID
+     * @param int $id Chat ID.
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class SetChatStatusInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status Status
+     * @param string $status Chat status:   * **a** - Active   * **c** - Closed   * **d** - Deleted
      *
      * @return $this
      */

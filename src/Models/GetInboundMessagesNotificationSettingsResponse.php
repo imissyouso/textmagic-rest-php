@@ -274,7 +274,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets inboundMessageNotification
      *
-     * @param bool $inboundMessageNotification Should user receive notification about new incoming messages
+     * @param bool $inboundMessageNotification Should user receive notification about new incoming messages.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets forwardedCallNotification
      *
-     * @param bool $forwardedCallNotification Should user receive notification about new forwarded calls
+     * @param bool $forwardedCallNotification Should user receive notification about new forwarded calls.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets includeSmsHistory
      *
-     * @param bool $includeSmsHistory Include SMS history into notification Email
+     * @param bool $includeSmsHistory Include SMS history into notification Email.
      *
      * @return $this
      */
@@ -346,7 +346,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets sendInHtmlFormat
      *
-     * @param bool $sendInHtmlFormat Send Email notification in HTML format
+     * @param bool $sendInHtmlFormat Send Email notification in HTML format.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets alertEmail1
      *
-     * @param string $alertEmail1 New message notification email 2
+     * @param string $alertEmail1 New message notification email 2.
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets alertEmail2
      *
-     * @param string $alertEmail2 New message notification email 2
+     * @param string $alertEmail2 New message notification email 2.
      *
      * @return $this
      */
@@ -418,7 +418,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets alertEmail3
      *
-     * @param string $alertEmail3 New message notification email 3
+     * @param string $alertEmail3 New message notification email 3.
      *
      * @return $this
      */
