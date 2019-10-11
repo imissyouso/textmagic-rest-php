@@ -855,7 +855,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets hasAa
      *
-     * @param bool $hasAa hasAa
+     * @param bool $hasAa `true` if the email address domain has an A record (IPv4).
      *
      * @return $this
      */

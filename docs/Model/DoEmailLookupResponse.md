@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **isInWhiteList** | **bool** | &#x60;true&#x60; if the email address exists in TextMagic whitelist. | 
 **isInBlackList** | **bool** | &#x60;true&#x60; if the email address exists in TextMagic blacklist. | 
 **hasMx** | **bool** | &#x60;true&#x60; if the email address domain has an MX record. | 
-**hasAa** | **bool** |  | 
+**hasAa** | **bool** | &#x60;true&#x60; if the email address domain has an A record (IPv4). | 
 **hasAaaa** | **bool** | &#x60;true&#x60; if the email address domain has an AAAA record (IPv6). | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
