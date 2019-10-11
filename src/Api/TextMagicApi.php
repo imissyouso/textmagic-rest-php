@@ -36980,7 +36980,7 @@ class TextMagicApi
             );
         }
 
-        $resourcePath = '/api/v2/contact/{id}/normalized';
+        $resourcePath = '/api/v2/contacts/{id}/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
