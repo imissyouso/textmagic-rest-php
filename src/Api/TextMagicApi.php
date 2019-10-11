@@ -2605,7 +2605,7 @@ class TextMagicApi
             );
         }
 
-        $resourcePath = '/api/v2/contacts';
+        $resourcePath = '/api/v2/contacts/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -22968,7 +22968,7 @@ class TextMagicApi
     protected function getMessagePriceRequest($includeBlocked = '0', $text = null, $templateId = null, $sendingTime = null, $sendingDateTime = null, $sendingTimezone = null, $contacts = null, $lists = null, $phones = null, $cutExtra = '0', $partsCount = '6', $referenceId = null, $from = null, $rule = null, $createChat = '0', $tts = '0', $local = '0', $localCountry = null)
     {
 
-        $resourcePath = '/api/v2/messages/price';
+        $resourcePath = '/api/v2/messages/price/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -26155,7 +26155,7 @@ class TextMagicApi
     protected function getSenderSettingsRequest($country = null)
     {
 
-        $resourcePath = '/api/v2/sender/settings';
+        $resourcePath = '/api/v2/sender/settings/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -36980,7 +36980,7 @@ class TextMagicApi
             );
         }
 
-        $resourcePath = '/api/v2/contacts/{id}';
+        $resourcePath = '/api/v2/contact/{id}/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -38939,7 +38939,7 @@ class TextMagicApi
             );
         }
 
-        $resourcePath = '/api/v2/sender/settings';
+        $resourcePath = '/api/v2/sender/settings/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

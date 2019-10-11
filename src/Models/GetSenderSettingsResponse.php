@@ -57,9 +57,9 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user' => 'object',
-        'special' => 'object',
-        'other' => 'object'
+        'user' => '\TextMagic\Models\SenderSettingsItem[]',
+        'special' => '\TextMagic\Models\SenderSettingsItem[]',
+        'other' => '\TextMagic\Models\SenderSettingsItem[]'
     ];
 
     /**
@@ -228,7 +228,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return object
+     * @return \TextMagic\Models\SenderSettingsItem[]
      */
     public function getUser()
     {
@@ -238,7 +238,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param object $user user
+     * @param \TextMagic\Models\SenderSettingsItem[] $user user
      *
      * @return $this
      */
@@ -252,7 +252,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets special
      *
-     * @return object
+     * @return \TextMagic\Models\SenderSettingsItem[]
      */
     public function getSpecial()
     {
@@ -262,7 +262,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets special
      *
-     * @param object $special special
+     * @param \TextMagic\Models\SenderSettingsItem[] $special special
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets other
      *
-     * @return object
+     * @return \TextMagic\Models\SenderSettingsItem[]
      */
     public function getOther()
     {
@@ -286,7 +286,7 @@ class GetSenderSettingsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets other
      *
-     * @param object $other other
+     * @param \TextMagic\Models\SenderSettingsItem[] $other other
      *
      * @return $this
      */

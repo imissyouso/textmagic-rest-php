@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMessagePriceResponse
+ * SenderSettingsItem
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetMessagePriceResponse Class Doc Comment
+ * SenderSettingsItem Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetMessagePriceResponse implements ModelInterface, ArrayAccess
+class SenderSettingsItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetMessagePriceResponse';
+    protected static $swaggerModelName = 'SenderSettingsItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,8 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'total' => 'float',
-        'parts' => 'int',
-        'countries' => '\TextMagic\Models\GetMessagePriceResponseCountriesItem[]'
+        'country' => 'string',
+        'phone' => 'string'
     ];
 
     /**
@@ -68,9 +67,8 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'total' => null,
-        'parts' => null,
-        'countries' => null
+        'country' => null,
+        'phone' => null
     ];
 
     /**
@@ -100,9 +98,8 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'parts' => 'parts',
-        'countries' => 'countries'
+        'country' => 'country',
+        'phone' => 'phone'
     ];
 
     /**
@@ -111,9 +108,8 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'parts' => 'setParts',
-        'countries' => 'setCountries'
+        'country' => 'setCountry',
+        'phone' => 'setPhone'
     ];
 
     /**
@@ -122,9 +118,8 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'parts' => 'getParts',
-        'countries' => 'getCountries'
+        'country' => 'getCountry',
+        'phone' => 'getPhone'
     ];
 
     /**
@@ -187,9 +182,8 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['parts'] = isset($data['parts']) ? $data['parts'] : null;
-        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     }
 
     /**
@@ -201,14 +195,11 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
         }
-        if ($this->container['parts'] === null) {
-            $invalidProperties[] = "'parts' can't be null";
-        }
-        if ($this->container['countries'] === null) {
-            $invalidProperties[] = "'countries' can't be null";
+        if ($this->container['phone'] === null) {
+            $invalidProperties[] = "'phone' can't be null";
         }
         return $invalidProperties;
     }
@@ -226,73 +217,49 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets total
+     * Gets country
      *
-     * @return float
+     * @return string
      */
-    public function getTotal()
+    public function getCountry()
     {
-        return $this->container['total'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets total
+     * Sets country
      *
-     * @param float $total Total price of the mesasge.
+     * @param string $country Two-letter ISO country code of the recipient phone number.
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setCountry($country)
     {
-        $this->container['total'] = $total;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets parts
+     * Gets phone
      *
-     * @return int
+     * @return string
      */
-    public function getParts()
+    public function getPhone()
     {
-        return $this->container['parts'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets parts
+     * Sets phone
      *
-     * @param int $parts Message parts (multiples of 160 characters) count.
+     * @param string $phone Phone enabled for sending to specified country
      *
      * @return $this
      */
-    public function setParts($parts)
+    public function setPhone($phone)
     {
-        $this->container['parts'] = $parts;
-
-        return $this;
-    }
-
-    /**
-     * Gets countries
-     *
-     * @return \TextMagic\Models\GetMessagePriceResponseCountriesItem[]
-     */
-    public function getCountries()
-    {
-        return $this->container['countries'];
-    }
-
-    /**
-     * Sets countries
-     *
-     * @param \TextMagic\Models\GetMessagePriceResponseCountriesItem[] $countries countries
-     *
-     * @return $this
-     */
-    public function setCountries($countries)
-    {
-        $this->container['countries'] = $countries;
+        $this->container['phone'] = $phone;
 
         return $this;
     }

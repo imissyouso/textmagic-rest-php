@@ -66,7 +66,7 @@ class UpdateContactInputObject implements ModelInterface, ArrayAccess
         'favorited' => 'bool',
         'blocked' => 'bool',
         'type' => 'int',
-        'customFieldValues' => 'object',
+        'customFieldValues' => '\TextMagic\Models\CustomFieldListItem[]',
         'local' => 'int',
         'country' => 'string'
     ];
@@ -495,7 +495,7 @@ class UpdateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Gets customFieldValues
      *
-     * @return object
+     * @return \TextMagic\Models\CustomFieldListItem[]
      */
     public function getCustomFieldValues()
     {
@@ -505,7 +505,7 @@ class UpdateContactInputObject implements ModelInterface, ArrayAccess
     /**
      * Sets customFieldValues
      *
-     * @param object $customFieldValues customFieldValues
+     * @param \TextMagic\Models\CustomFieldListItem[] $customFieldValues customFieldValues
      *
      * @return $this
      */

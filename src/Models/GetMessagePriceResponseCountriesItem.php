@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMessagePriceResponse
+ * GetMessagePriceResponseCountriesItem
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * GetMessagePriceResponse Class Doc Comment
+ * GetMessagePriceResponseCountriesItem Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetMessagePriceResponse implements ModelInterface, ArrayAccess
+class GetMessagePriceResponseCountriesItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetMessagePriceResponse';
+    protected static $swaggerModelName = 'GetMessagePriceResponseCountriesItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,13 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'total' => 'float',
-        'parts' => 'int',
-        'countries' => '\TextMagic\Models\GetMessagePriceResponseCountriesItem[]'
+        'country' => 'string',
+        'countryName' => 'string',
+        'allowDedicated' => 'bool',
+        'count' => 'float',
+        'max' => 'float',
+        'sum' => 'string',
+        'landline' => 'float'
     ];
 
     /**
@@ -68,9 +72,13 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'total' => null,
-        'parts' => null,
-        'countries' => null
+        'country' => null,
+        'countryName' => null,
+        'allowDedicated' => null,
+        'count' => null,
+        'max' => null,
+        'sum' => null,
+        'landline' => null
     ];
 
     /**
@@ -100,9 +108,13 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'parts' => 'parts',
-        'countries' => 'countries'
+        'country' => 'country',
+        'countryName' => 'country_name',
+        'allowDedicated' => 'allow_dedicated',
+        'count' => 'count',
+        'max' => 'max',
+        'sum' => 'sum',
+        'landline' => 'landline'
     ];
 
     /**
@@ -111,9 +123,13 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'parts' => 'setParts',
-        'countries' => 'setCountries'
+        'country' => 'setCountry',
+        'countryName' => 'setCountryName',
+        'allowDedicated' => 'setAllowDedicated',
+        'count' => 'setCount',
+        'max' => 'setMax',
+        'sum' => 'setSum',
+        'landline' => 'setLandline'
     ];
 
     /**
@@ -122,9 +138,13 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'parts' => 'getParts',
-        'countries' => 'getCountries'
+        'country' => 'getCountry',
+        'countryName' => 'getCountryName',
+        'allowDedicated' => 'getAllowDedicated',
+        'count' => 'getCount',
+        'max' => 'getMax',
+        'sum' => 'getSum',
+        'landline' => 'getLandline'
     ];
 
     /**
@@ -187,9 +207,13 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['parts'] = isset($data['parts']) ? $data['parts'] : null;
-        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['countryName'] = isset($data['countryName']) ? $data['countryName'] : null;
+        $this->container['allowDedicated'] = isset($data['allowDedicated']) ? $data['allowDedicated'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['max'] = isset($data['max']) ? $data['max'] : null;
+        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
+        $this->container['landline'] = isset($data['landline']) ? $data['landline'] : null;
     }
 
     /**
@@ -201,14 +225,26 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
         }
-        if ($this->container['parts'] === null) {
-            $invalidProperties[] = "'parts' can't be null";
+        if ($this->container['countryName'] === null) {
+            $invalidProperties[] = "'countryName' can't be null";
         }
-        if ($this->container['countries'] === null) {
-            $invalidProperties[] = "'countries' can't be null";
+        if ($this->container['allowDedicated'] === null) {
+            $invalidProperties[] = "'allowDedicated' can't be null";
+        }
+        if ($this->container['count'] === null) {
+            $invalidProperties[] = "'count' can't be null";
+        }
+        if ($this->container['max'] === null) {
+            $invalidProperties[] = "'max' can't be null";
+        }
+        if ($this->container['sum'] === null) {
+            $invalidProperties[] = "'sum' can't be null";
+        }
+        if ($this->container['landline'] === null) {
+            $invalidProperties[] = "'landline' can't be null";
         }
         return $invalidProperties;
     }
@@ -226,73 +262,169 @@ class GetMessagePriceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets total
+     * Gets country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string $country Two-letter ISO country code
+     *
+     * @return $this
+     */
+    public function setCountry($country)
+    {
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets countryName
+     *
+     * @return string
+     */
+    public function getCountryName()
+    {
+        return $this->container['countryName'];
+    }
+
+    /**
+     * Sets countryName
+     *
+     * @param string $countryName Country name
+     *
+     * @return $this
+     */
+    public function setCountryName($countryName)
+    {
+        $this->container['countryName'] = $countryName;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowDedicated
+     *
+     * @return bool
+     */
+    public function getAllowDedicated()
+    {
+        return $this->container['allowDedicated'];
+    }
+
+    /**
+     * Sets allowDedicated
+     *
+     * @param bool $allowDedicated Is allow to use dedicated number
+     *
+     * @return $this
+     */
+    public function setAllowDedicated($allowDedicated)
+    {
+        $this->container['allowDedicated'] = $allowDedicated;
+
+        return $this;
+    }
+
+    /**
+     * Gets count
      *
      * @return float
      */
-    public function getTotal()
+    public function getCount()
     {
-        return $this->container['total'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets total
+     * Sets count
      *
-     * @param float $total Total price of the mesasge.
+     * @param float $count Parts count to send
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setCount($count)
     {
-        $this->container['total'] = $total;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets parts
+     * Gets max
      *
-     * @return int
+     * @return float
      */
-    public function getParts()
+    public function getMax()
     {
-        return $this->container['parts'];
+        return $this->container['max'];
     }
 
     /**
-     * Sets parts
+     * Sets max
      *
-     * @param int $parts Message parts (multiples of 160 characters) count.
+     * @param float $max Maximum parts to send
      *
      * @return $this
      */
-    public function setParts($parts)
+    public function setMax($max)
     {
-        $this->container['parts'] = $parts;
+        $this->container['max'] = $max;
 
         return $this;
     }
 
     /**
-     * Gets countries
+     * Gets sum
      *
-     * @return \TextMagic\Models\GetMessagePriceResponseCountriesItem[]
+     * @return string
      */
-    public function getCountries()
+    public function getSum()
     {
-        return $this->container['countries'];
+        return $this->container['sum'];
     }
 
     /**
-     * Sets countries
+     * Sets sum
      *
-     * @param \TextMagic\Models\GetMessagePriceResponseCountriesItem[] $countries countries
+     * @param string $sum Total price to send
      *
      * @return $this
      */
-    public function setCountries($countries)
+    public function setSum($sum)
     {
-        $this->container['countries'] = $countries;
+        $this->container['sum'] = $sum;
+
+        return $this;
+    }
+
+    /**
+     * Gets landline
+     *
+     * @return float
+     */
+    public function getLandline()
+    {
+        return $this->container['landline'];
+    }
+
+    /**
+     * Sets landline
+     *
+     * @param float $landline Is this landline number?
+     *
+     * @return $this
+     */
+    public function setLandline($landline)
+    {
+        $this->container['landline'] = $landline;
 
         return $this;
     }
