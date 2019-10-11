@@ -29194,7 +29194,7 @@ class TextMagicApi
             );
         }
 
-        $resourcePath = '/api/v2/contacts/import';
+        $resourcePath = '/api/v2/contacts/import/normalized';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
