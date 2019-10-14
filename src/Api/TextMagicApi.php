@@ -29045,15 +29045,15 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportContactsInputObject $importContactsInputObject importContactsInputObject (required)
+     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column column (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function importContacts($file, $importContactsInputObject)
+    public function importContacts($file, $column)
     {
-        $this->importContactsWithHttpInfo($file, $importContactsInputObject);
+        $this->importContactsWithHttpInfo($file, $column);
     }
 
     /**
@@ -29062,16 +29062,16 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportContactsInputObject $importContactsInputObject (required)
+     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importContactsWithHttpInfo($file, $importContactsInputObject)
+    public function importContactsWithHttpInfo($file, $column)
     {
         $returnType = '';
-        $request = $this->importContactsRequest($file, $importContactsInputObject);
+        $request = $this->importContactsRequest($file, $column);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29116,14 +29116,14 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportContactsInputObject $importContactsInputObject (required)
+     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsync($file, $importContactsInputObject)
+    public function importContactsAsync($file, $column)
     {
-        return $this->importContactsAsyncWithHttpInfo($file, $importContactsInputObject)
+        return $this->importContactsAsyncWithHttpInfo($file, $column)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29137,15 +29137,15 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportContactsInputObject $importContactsInputObject (required)
+     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsyncWithHttpInfo($file, $importContactsInputObject)
+    public function importContactsAsyncWithHttpInfo($file, $column)
     {
         $returnType = '';
-        $request = $this->importContactsRequest($file, $importContactsInputObject);
+        $request = $this->importContactsRequest($file, $column);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29174,12 +29174,12 @@ class TextMagicApi
      * Create request for operation 'importContacts'
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportContactsInputObject $importContactsInputObject (required)
+     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importContactsRequest($file, $importContactsInputObject)
+    protected function importContactsRequest($file, $column)
     {
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
@@ -29187,10 +29187,10 @@ class TextMagicApi
                 'Missing the required parameter $file when calling importContacts'
             );
         }
-        // verify the required parameter 'importContactsInputObject' is set
-        if ($importContactsInputObject === null || (is_array($importContactsInputObject) && count($importContactsInputObject) === 0)) {
+        // verify the required parameter 'column' is set
+        if ($column === null || (is_array($column) && count($column) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $importContactsInputObject when calling importContacts'
+                'Missing the required parameter $column when calling importContacts'
             );
         }
 
@@ -29208,11 +29208,12 @@ class TextMagicApi
             $multipart = true;
             $formParams['file'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($file), 'rb');
         }
+        // form params
+        if ($column !== null) {
+            $formParams['column'] = ObjectSerializer::toFormValue($column);
+        }
         // body params
         $_tempBody = null;
-        if (isset($importContactsInputObject)) {
-            $_tempBody = $importContactsInputObject;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

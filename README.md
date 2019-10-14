@@ -25,7 +25,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
         }
     ],
     "require": {
-        "imissyouso/textmagic-rest-php": "dev-master#v2.0.615"
+        "imissyouso/textmagic-rest-php": "dev-master#v2.0.616"
     }
 }
 ```
