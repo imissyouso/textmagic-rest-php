@@ -6280,7 +6280,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **\SplFileObject**| File containing contacts in csv or xls(x) formats |
- **column** | **string**|  |
+ **column** | **string**|  | [optional]
  **listName** | **string**| List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. | [optional]
  **listId** | **int**| List ID contacts will be imported to. | [optional]
 

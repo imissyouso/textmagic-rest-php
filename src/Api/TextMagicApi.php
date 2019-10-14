@@ -29045,7 +29045,7 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column column (required)
+     * @param  string $column column (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
      * @param  int $listId List ID contacts will be imported to. (optional)
      *
@@ -29053,7 +29053,7 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function importContacts($file, $column, $listName = null, $listId = null)
+    public function importContacts($file, $column = null, $listName = null, $listId = null)
     {
         $this->importContactsWithHttpInfo($file, $column, $listName, $listId);
     }
@@ -29064,7 +29064,7 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (required)
+     * @param  string $column (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
      * @param  int $listId List ID contacts will be imported to. (optional)
      *
@@ -29072,7 +29072,7 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importContactsWithHttpInfo($file, $column, $listName = null, $listId = null)
+    public function importContactsWithHttpInfo($file, $column = null, $listName = null, $listId = null)
     {
         $returnType = '';
         $request = $this->importContactsRequest($file, $column, $listName, $listId);
@@ -29120,14 +29120,14 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (required)
+     * @param  string $column (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
      * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsync($file, $column, $listName = null, $listId = null)
+    public function importContactsAsync($file, $column = null, $listName = null, $listId = null)
     {
         return $this->importContactsAsyncWithHttpInfo($file, $column, $listName, $listId)
             ->then(
@@ -29143,14 +29143,14 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (required)
+     * @param  string $column (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
      * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsyncWithHttpInfo($file, $column, $listName = null, $listId = null)
+    public function importContactsAsyncWithHttpInfo($file, $column = null, $listName = null, $listId = null)
     {
         $returnType = '';
         $request = $this->importContactsRequest($file, $column, $listName, $listId);
@@ -29182,25 +29182,19 @@ class TextMagicApi
      * Create request for operation 'importContacts'
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (required)
+     * @param  string $column (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
      * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importContactsRequest($file, $column, $listName = null, $listId = null)
+    protected function importContactsRequest($file, $column = null, $listName = null, $listId = null)
     {
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $file when calling importContacts'
-            );
-        }
-        // verify the required parameter 'column' is set
-        if ($column === null || (is_array($column) && count($column) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $column when calling importContacts'
             );
         }
 
