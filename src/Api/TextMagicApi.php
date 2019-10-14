@@ -29045,15 +29045,17 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column column (required)
+     * @param  string $column column (required)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
+     * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function importContacts($file, $column)
+    public function importContacts($file, $column, $listName = null, $listId = null)
     {
-        $this->importContactsWithHttpInfo($file, $column);
+        $this->importContactsWithHttpInfo($file, $column, $listName, $listId);
     }
 
     /**
@@ -29062,16 +29064,18 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
+     * @param  string $column (required)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
+     * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importContactsWithHttpInfo($file, $column)
+    public function importContactsWithHttpInfo($file, $column, $listName = null, $listId = null)
     {
         $returnType = '';
-        $request = $this->importContactsRequest($file, $column);
+        $request = $this->importContactsRequest($file, $column, $listName, $listId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29116,14 +29120,16 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
+     * @param  string $column (required)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
+     * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsync($file, $column)
+    public function importContactsAsync($file, $column, $listName = null, $listId = null)
     {
-        return $this->importContactsAsyncWithHttpInfo($file, $column)
+        return $this->importContactsAsyncWithHttpInfo($file, $column, $listName, $listId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29137,15 +29143,17 @@ class TextMagicApi
      * Import contacts from the CSV, XLS or XLSX file.
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
+     * @param  string $column (required)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
+     * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsyncWithHttpInfo($file, $column)
+    public function importContactsAsyncWithHttpInfo($file, $column, $listName = null, $listId = null)
     {
         $returnType = '';
-        $request = $this->importContactsRequest($file, $column);
+        $request = $this->importContactsRequest($file, $column, $listName, $listId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29174,12 +29182,14 @@ class TextMagicApi
      * Create request for operation 'importContacts'
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  \TextMagic\Models\ImportColumnMappingItem[] $column (required)
+     * @param  string $column (required)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
+     * @param  int $listId List ID contacts will be imported to. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importContactsRequest($file, $column)
+    protected function importContactsRequest($file, $column, $listName = null, $listId = null)
     {
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
@@ -29201,16 +29211,24 @@ class TextMagicApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($column !== null) {
+            $queryParams['column'] = ObjectSerializer::toQueryValue($column);
+        }
+        // query params
+        if ($listName !== null) {
+            $queryParams['listName'] = ObjectSerializer::toQueryValue($listName);
+        }
+        // query params
+        if ($listId !== null) {
+            $queryParams['listId'] = ObjectSerializer::toQueryValue($listId);
+        }
 
 
         // form params
         if ($file !== null) {
             $multipart = true;
             $formParams['file'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($file), 'rb');
-        }
-        // form params
-        if ($column !== null) {
-            $formParams['column'] = ObjectSerializer::toFormValue($column);
         }
         // body params
         $_tempBody = null;

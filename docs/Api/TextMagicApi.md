@@ -6239,7 +6239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **importContacts**
-> importContacts($file, $column)
+> importContacts($file, $column, $listName, $listId)
 
 Import contacts from the CSV, XLS or XLSX file.
 
@@ -6263,10 +6263,12 @@ $apiInstance = new TextMagic\Api\TextMagicApi(
     $config
 );
 $file = "/path/to/file.txt"; // \SplFileObject | File containing contacts in csv or xls(x) formats
-$column = array(new \TextMagic\Models\\TextMagic\Models\ImportColumnMappingItem()); // \TextMagic\Models\ImportColumnMappingItem[] | 
+$column = "column_example"; // string | 
+$listName = "listName_example"; // string | List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end.
+$listId = 56; // int | List ID contacts will be imported to.
 
 try {
-    $apiInstance->importContacts($file, $column);
+    $apiInstance->importContacts($file, $column, $listName, $listId);
 } catch (Exception $e) {
     echo 'Exception when calling TextMagicApi->importContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -6278,7 +6280,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **\SplFileObject**| File containing contacts in csv or xls(x) formats |
- **column** | [**\TextMagic\Models\ImportColumnMappingItem[]**](../Model/\TextMagic\Models\ImportColumnMappingItem.md)|  |
+ **column** | **string**|  |
+ **listName** | **string**| List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. | [optional]
+ **listId** | **int**| List ID contacts will be imported to. | [optional]
 
 ### Return type
 
