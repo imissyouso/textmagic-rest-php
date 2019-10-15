@@ -13235,14 +13235,14 @@ class TextMagicApi
      * Find dedicated numbers available for purchase
      *
      * @param  string $country Two-letter dedicated number country ISO code. (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)
      * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\GetAvailableDedicatedNumbersResponse
      */
-    public function getAvailableDedicatedNumbers($country, $prefix = '1', $tollfree = '0')
+    public function getAvailableDedicatedNumbers($country, $prefix = null, $tollfree = '0')
     {
         list($response) = $this->getAvailableDedicatedNumbersWithHttpInfo($country, $prefix, $tollfree);
         return $response;
@@ -13254,14 +13254,14 @@ class TextMagicApi
      * Find dedicated numbers available for purchase
      *
      * @param  string $country Two-letter dedicated number country ISO code. (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)
      * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\GetAvailableDedicatedNumbersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAvailableDedicatedNumbersWithHttpInfo($country, $prefix = '1', $tollfree = '0')
+    public function getAvailableDedicatedNumbersWithHttpInfo($country, $prefix = null, $tollfree = '0')
     {
         $returnType = '\TextMagic\Models\GetAvailableDedicatedNumbersResponse';
         $request = $this->getAvailableDedicatedNumbersRequest($country, $prefix, $tollfree);
@@ -13355,13 +13355,13 @@ class TextMagicApi
      * Find dedicated numbers available for purchase
      *
      * @param  string $country Two-letter dedicated number country ISO code. (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)
      * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAvailableDedicatedNumbersAsync($country, $prefix = '1', $tollfree = '0')
+    public function getAvailableDedicatedNumbersAsync($country, $prefix = null, $tollfree = '0')
     {
         return $this->getAvailableDedicatedNumbersAsyncWithHttpInfo($country, $prefix, $tollfree)
             ->then(
@@ -13377,13 +13377,13 @@ class TextMagicApi
      * Find dedicated numbers available for purchase
      *
      * @param  string $country Two-letter dedicated number country ISO code. (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)
      * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAvailableDedicatedNumbersAsyncWithHttpInfo($country, $prefix = '1', $tollfree = '0')
+    public function getAvailableDedicatedNumbersAsyncWithHttpInfo($country, $prefix = null, $tollfree = '0')
     {
         $returnType = '\TextMagic\Models\GetAvailableDedicatedNumbersResponse';
         $request = $this->getAvailableDedicatedNumbersRequest($country, $prefix, $tollfree);
@@ -13429,13 +13429,13 @@ class TextMagicApi
      * Create request for operation 'getAvailableDedicatedNumbers'
      *
      * @param  string $country Two-letter dedicated number country ISO code. (required)
-     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional, default to 1)
+     * @param  int $prefix Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)
      * @param  int $tollfree Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAvailableDedicatedNumbersRequest($country, $prefix = '1', $tollfree = '0')
+    protected function getAvailableDedicatedNumbersRequest($country, $prefix = null, $tollfree = '0')
     {
         // verify the required parameter 'country' is set
         if ($country === null || (is_array($country) && count($country) === 0)) {
@@ -16906,6 +16906,288 @@ class TextMagicApi
     }
 
     /**
+     * Operation getContactImportSessionProgress
+     *
+     * Check import progress
+     *
+     * @param  int $id id (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \TextMagic\Models\GetContactImportSessionProgressResponse
+     */
+    public function getContactImportSessionProgress($id)
+    {
+        list($response) = $this->getContactImportSessionProgressWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation getContactImportSessionProgressWithHttpInfo
+     *
+     * Check import progress
+     *
+     * @param  int $id (required)
+     *
+     * @throws \TextMagic\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \TextMagic\Models\GetContactImportSessionProgressResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getContactImportSessionProgressWithHttpInfo($id)
+    {
+        $returnType = '\TextMagic\Models\GetContactImportSessionProgressResponse';
+        $request = $this->getContactImportSessionProgressRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\GetContactImportSessionProgressResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\NotFoundResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getContactImportSessionProgressAsync
+     *
+     * Check import progress
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getContactImportSessionProgressAsync($id)
+    {
+        return $this->getContactImportSessionProgressAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getContactImportSessionProgressAsyncWithHttpInfo
+     *
+     * Check import progress
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getContactImportSessionProgressAsyncWithHttpInfo($id)
+    {
+        $returnType = '\TextMagic\Models\GetContactImportSessionProgressResponse';
+        $request = $this->getContactImportSessionProgressRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getContactImportSessionProgress'
+     *
+     * @param  int $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getContactImportSessionProgressRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getContactImportSessionProgress'
+            );
+        }
+
+        $resourcePath = '/api/v2/contacts/import/progress/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getContactNote
      *
      * Get a contact note
@@ -20002,13 +20284,13 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $query Find contacts or lists by specified search query (optional, default to A)
+     * @param  string $query Find contacts or lists by specified search query (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\GetFavouritesPaginatedResponse
      */
-    public function getFavourites($page = '1', $limit = '10', $query = 'A')
+    public function getFavourites($page = '1', $limit = '10', $query = null)
     {
         list($response) = $this->getFavouritesWithHttpInfo($page, $limit, $query);
         return $response;
@@ -20021,13 +20303,13 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $query Find contacts or lists by specified search query (optional, default to A)
+     * @param  string $query Find contacts or lists by specified search query (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\GetFavouritesPaginatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFavouritesWithHttpInfo($page = '1', $limit = '10', $query = 'A')
+    public function getFavouritesWithHttpInfo($page = '1', $limit = '10', $query = null)
     {
         $returnType = '\TextMagic\Models\GetFavouritesPaginatedResponse';
         $request = $this->getFavouritesRequest($page, $limit, $query);
@@ -20106,12 +20388,12 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $query Find contacts or lists by specified search query (optional, default to A)
+     * @param  string $query Find contacts or lists by specified search query (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFavouritesAsync($page = '1', $limit = '10', $query = 'A')
+    public function getFavouritesAsync($page = '1', $limit = '10', $query = null)
     {
         return $this->getFavouritesAsyncWithHttpInfo($page, $limit, $query)
             ->then(
@@ -20128,12 +20410,12 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $query Find contacts or lists by specified search query (optional, default to A)
+     * @param  string $query Find contacts or lists by specified search query (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFavouritesAsyncWithHttpInfo($page = '1', $limit = '10', $query = 'A')
+    public function getFavouritesAsyncWithHttpInfo($page = '1', $limit = '10', $query = null)
     {
         $returnType = '\TextMagic\Models\GetFavouritesPaginatedResponse';
         $request = $this->getFavouritesRequest($page, $limit, $query);
@@ -20180,12 +20462,12 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  string $query Find contacts or lists by specified search query (optional, default to A)
+     * @param  string $query Find contacts or lists by specified search query (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFavouritesRequest($page = '1', $limit = '10', $query = 'A')
+    protected function getFavouritesRequest($page = '1', $limit = '10', $query = null)
     {
 
         $resourcePath = '/api/v2/contacts/favorite';
@@ -24262,7 +24544,7 @@ class TextMagicApi
      *
      * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
      * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
-     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
+     * @param  int $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -24281,7 +24563,7 @@ class TextMagicApi
      *
      * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
      * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
-     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
+     * @param  int $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -24374,7 +24656,7 @@ class TextMagicApi
      *
      * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
      * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
-     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
+     * @param  int $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -24396,7 +24678,7 @@ class TextMagicApi
      *
      * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
      * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
-     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
+     * @param  int $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -24448,7 +24730,7 @@ class TextMagicApi
      *
      * @param  string $by *   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year (optional, default to off)
      * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
-     * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
+     * @param  int $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -26243,7 +26525,7 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
      * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -26263,7 +26545,7 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
      * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
@@ -26357,7 +26639,7 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
      * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
@@ -26380,7 +26662,7 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
      * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
@@ -26433,7 +26715,7 @@ class TextMagicApi
      *
      * @param  int $page Fetch specified results page. (optional, default to 1)
      * @param  int $limit The number of results per page. (optional, default to 10)
-     * @param  int $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
+     * @param  string $start Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior. (optional)
      * @param  string $end Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today. (optional)
      *
      * @throws \InvalidArgumentException
@@ -29042,40 +29324,41 @@ class TextMagicApi
     /**
      * Operation importContacts
      *
-     * Import contacts from the CSV, XLS or XLSX file.
+     * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column column (optional)
-     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
-     * @param  int $listId List ID contacts will be imported to. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function importContacts($file, $column = null, $listName = null, $listId = null)
+    public function importContacts($file, $column = null, $listId = null, $listName = null)
     {
-        $this->importContactsWithHttpInfo($file, $column, $listName, $listId);
+        list($response) = $this->importContactsWithHttpInfo($file, $column, $listId, $listName);
+        return $response;
     }
 
     /**
      * Operation importContactsWithHttpInfo
      *
-     * Import contacts from the CSV, XLS or XLSX file.
+     * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (optional)
-     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
-     * @param  int $listId List ID contacts will be imported to. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importContactsWithHttpInfo($file, $column = null, $listName = null, $listId = null)
+    public function importContactsWithHttpInfo($file, $column = null, $listId = null, $listName = null)
     {
-        $returnType = '';
-        $request = $this->importContactsRequest($file, $column, $listName, $listId);
+        $returnType = '\TextMagic\Models\ResourceLinkResponse';
+        $request = $this->importContactsRequest($file, $column, $listId, $listName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29105,10 +29388,56 @@ class TextMagicApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\ResourceLinkResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\BadRequestResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\UnauthorizedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TextMagic\Models\NotFoundResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -29117,19 +29446,19 @@ class TextMagicApi
     /**
      * Operation importContactsAsync
      *
-     * Import contacts from the CSV, XLS or XLSX file.
+     * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (optional)
-     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
-     * @param  int $listId List ID contacts will be imported to. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsync($file, $column = null, $listName = null, $listId = null)
+    public function importContactsAsync($file, $column = null, $listId = null, $listName = null)
     {
-        return $this->importContactsAsyncWithHttpInfo($file, $column, $listName, $listId)
+        return $this->importContactsAsyncWithHttpInfo($file, $column, $listId, $listName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29140,26 +29469,40 @@ class TextMagicApi
     /**
      * Operation importContactsAsyncWithHttpInfo
      *
-     * Import contacts from the CSV, XLS or XLSX file.
+     * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (optional)
-     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
-     * @param  int $listId List ID contacts will be imported to. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsyncWithHttpInfo($file, $column = null, $listName = null, $listId = null)
+    public function importContactsAsyncWithHttpInfo($file, $column = null, $listId = null, $listName = null)
     {
-        $returnType = '';
-        $request = $this->importContactsRequest($file, $column, $listName, $listId);
+        $returnType = '\TextMagic\Models\ResourceLinkResponse';
+        $request = $this->importContactsRequest($file, $column, $listId, $listName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -29182,14 +29525,14 @@ class TextMagicApi
      * Create request for operation 'importContacts'
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column (optional)
-     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. (optional)
-     * @param  int $listId List ID contacts will be imported to. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
+     * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importContactsRequest($file, $column = null, $listName = null, $listId = null)
+    protected function importContactsRequest($file, $column = null, $listId = null, $listName = null)
     {
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
@@ -29210,12 +29553,12 @@ class TextMagicApi
             $queryParams['column'] = ObjectSerializer::toQueryValue($column);
         }
         // query params
-        if ($listName !== null) {
-            $queryParams['listName'] = ObjectSerializer::toQueryValue($listName);
-        }
-        // query params
         if ($listId !== null) {
             $queryParams['listId'] = ObjectSerializer::toQueryValue($listId);
+        }
+        // query params
+        if ($listName !== null) {
+            $queryParams['listName'] = ObjectSerializer::toQueryValue($listName);
         }
 
 
@@ -38212,7 +38555,7 @@ class TextMagicApi
      * Edit the custom field value of a specified contact
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject updateCustomFieldValueInputObject (required)
-     * @param  string $id id (required)
+     * @param  int $id id (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -38230,7 +38573,7 @@ class TextMagicApi
      * Edit the custom field value of a specified contact
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
-     * @param  string $id (required)
+     * @param  int $id (required)
      *
      * @throws \TextMagic\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -38330,7 +38673,7 @@ class TextMagicApi
      * Edit the custom field value of a specified contact
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
-     * @param  string $id (required)
+     * @param  int $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -38351,7 +38694,7 @@ class TextMagicApi
      * Edit the custom field value of a specified contact
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
-     * @param  string $id (required)
+     * @param  int $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -38402,7 +38745,7 @@ class TextMagicApi
      * Create request for operation 'updateCustomFieldValue'
      *
      * @param  \TextMagic\Models\UpdateCustomFieldValueInputObject $updateCustomFieldValueInputObject (required)
-     * @param  string $id (required)
+     * @param  int $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

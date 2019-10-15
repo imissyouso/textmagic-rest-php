@@ -724,7 +724,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets avatar
      *
-     * @param string $avatar null
+     * @param string $avatar TODO
      *
      * @return $this
      */

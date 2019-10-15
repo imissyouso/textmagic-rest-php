@@ -98,8 +98,8 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'columnPositionInFile' => 'column_position_in_file',
-        'fieldOrCustomFieldId' => 'field_or_custom_field_id'
+        'columnPositionInFile' => 'columnPositionInFile',
+        'fieldOrCustomFieldId' => 'fieldOrCustomFieldId'
     ];
 
     /**
@@ -195,6 +195,12 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['columnPositionInFile'] === null) {
+            $invalidProperties[] = "'columnPositionInFile' can't be null";
+        }
+        if ($this->container['fieldOrCustomFieldId'] === null) {
+            $invalidProperties[] = "'fieldOrCustomFieldId' can't be null";
+        }
         return $invalidProperties;
     }
 

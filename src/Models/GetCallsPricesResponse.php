@@ -57,7 +57,10 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'outbound' => 'float',
+        'inbound' => 'float',
+        'forward' => 'float',
+        'country' => 'string'
     ];
 
     /**
@@ -66,7 +69,10 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'outbound' => null,
+        'inbound' => null,
+        'forward' => null,
+        'country' => null
     ];
 
     /**
@@ -96,7 +102,10 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'outbound' => 'outbound',
+        'inbound' => 'inbound',
+        'forward' => 'forward',
+        'country' => 'country'
     ];
 
     /**
@@ -105,7 +114,10 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'outbound' => 'setOutbound',
+        'inbound' => 'setInbound',
+        'forward' => 'setForward',
+        'country' => 'setCountry'
     ];
 
     /**
@@ -114,7 +126,10 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'outbound' => 'getOutbound',
+        'inbound' => 'getInbound',
+        'forward' => 'getForward',
+        'country' => 'getCountry'
     ];
 
     /**
@@ -177,6 +192,10 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['outbound'] = isset($data['outbound']) ? $data['outbound'] : null;
+        $this->container['inbound'] = isset($data['inbound']) ? $data['inbound'] : null;
+        $this->container['forward'] = isset($data['forward']) ? $data['forward'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
     }
 
     /**
@@ -188,6 +207,18 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['outbound'] === null) {
+            $invalidProperties[] = "'outbound' can't be null";
+        }
+        if ($this->container['inbound'] === null) {
+            $invalidProperties[] = "'inbound' can't be null";
+        }
+        if ($this->container['forward'] === null) {
+            $invalidProperties[] = "'forward' can't be null";
+        }
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -202,6 +233,102 @@ class GetCallsPricesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets outbound
+     *
+     * @return float
+     */
+    public function getOutbound()
+    {
+        return $this->container['outbound'];
+    }
+
+    /**
+     * Sets outbound
+     *
+     * @param float $outbound Price for outbound message
+     *
+     * @return $this
+     */
+    public function setOutbound($outbound)
+    {
+        $this->container['outbound'] = $outbound;
+
+        return $this;
+    }
+
+    /**
+     * Gets inbound
+     *
+     * @return float
+     */
+    public function getInbound()
+    {
+        return $this->container['inbound'];
+    }
+
+    /**
+     * Sets inbound
+     *
+     * @param float $inbound Price for inbound message
+     *
+     * @return $this
+     */
+    public function setInbound($inbound)
+    {
+        $this->container['inbound'] = $inbound;
+
+        return $this;
+    }
+
+    /**
+     * Gets forward
+     *
+     * @return float
+     */
+    public function getForward()
+    {
+        return $this->container['forward'];
+    }
+
+    /**
+     * Sets forward
+     *
+     * @param float $forward Price for forward
+     *
+     * @return $this
+     */
+    public function setForward($forward)
+    {
+        $this->container['forward'] = $forward;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string $country 2-letter ISO country code for local phone numbers, used when local is  set to true. Default is account country
+     *
+     * @return $this
+     */
+    public function setCountry($country)
+    {
+        $this->container['country'] = $country;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

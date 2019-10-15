@@ -99,7 +99,7 @@ class UpdateSurveyCountryItem implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'country' => 'country',
-        'userInboundId' => 'user_inbound_id'
+        'userInboundId' => 'userInboundId'
     ];
 
     /**

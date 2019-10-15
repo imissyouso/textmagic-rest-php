@@ -109,8 +109,8 @@ class GetMessagePriceResponseCountriesItem implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'country' => 'country',
-        'countryName' => 'country_name',
-        'allowDedicated' => 'allow_dedicated',
+        'countryName' => 'countryName',
+        'allowDedicated' => 'allowDedicated',
         'count' => 'count',
         'max' => 'max',
         'sum' => 'sum',
