@@ -29327,7 +29327,7 @@ class TextMagicApi
      * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (required)
      * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
@@ -29335,7 +29335,7 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return \TextMagic\Models\ResourceLinkResponse
      */
-    public function importContacts($file, $column = null, $listId = null, $listName = null)
+    public function importContacts($file, $column, $listId = null, $listName = null)
     {
         list($response) = $this->importContactsWithHttpInfo($file, $column, $listId, $listName);
         return $response;
@@ -29347,7 +29347,7 @@ class TextMagicApi
      * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (required)
      * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
@@ -29355,7 +29355,7 @@ class TextMagicApi
      * @throws \InvalidArgumentException
      * @return array of \TextMagic\Models\ResourceLinkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importContactsWithHttpInfo($file, $column = null, $listId = null, $listName = null)
+    public function importContactsWithHttpInfo($file, $column, $listId = null, $listName = null)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
         $request = $this->importContactsRequest($file, $column, $listId, $listName);
@@ -29449,14 +29449,14 @@ class TextMagicApi
      * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (required)
      * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsync($file, $column = null, $listId = null, $listName = null)
+    public function importContactsAsync($file, $column, $listId = null, $listName = null)
     {
         return $this->importContactsAsyncWithHttpInfo($file, $column, $listId, $listName)
             ->then(
@@ -29472,14 +29472,14 @@ class TextMagicApi
      * Import contacts
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (required)
      * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importContactsAsyncWithHttpInfo($file, $column = null, $listId = null, $listName = null)
+    public function importContactsAsyncWithHttpInfo($file, $column, $listId = null, $listName = null)
     {
         $returnType = '\TextMagic\Models\ResourceLinkResponse';
         $request = $this->importContactsRequest($file, $column, $listId, $listName);
@@ -29525,19 +29525,25 @@ class TextMagicApi
      * Create request for operation 'importContacts'
      *
      * @param  \SplFileObject $file File containing contacts in csv or xls(x) formats (required)
-     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (optional)
+     * @param  string $column Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. (required)
      * @param  int $listId List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified. (optional)
      * @param  string $listName List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importContactsRequest($file, $column = null, $listId = null, $listName = null)
+    protected function importContactsRequest($file, $column, $listId = null, $listName = null)
     {
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $file when calling importContacts'
+            );
+        }
+        // verify the required parameter 'column' is set
+        if ($column === null || (is_array($column) && count($column) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $column when calling importContacts'
             );
         }
 
