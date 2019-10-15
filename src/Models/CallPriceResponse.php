@@ -1,6 +1,6 @@
 <?php
 /**
- * ImportColumnMappingItem
+ * CallPriceResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \TextMagic\ObjectSerializer;
 
 /**
- * ImportColumnMappingItem Class Doc Comment
+ * CallPriceResponse Class Doc Comment
  *
  * @category Class
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ImportColumnMappingItem implements ModelInterface, ArrayAccess
+class CallPriceResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ImportColumnMappingItem';
+    protected static $swaggerModelName = 'CallPriceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'columnPositionInFile' => 'string',
-        'fieldOrCustomFieldId' => 'string'
+        'outbound' => 'float',
+        'inbound' => 'float',
+        'forward' => 'float',
+        'country' => 'string'
     ];
 
     /**
@@ -67,8 +69,10 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'columnPositionInFile' => null,
-        'fieldOrCustomFieldId' => null
+        'outbound' => null,
+        'inbound' => null,
+        'forward' => null,
+        'country' => null
     ];
 
     /**
@@ -98,8 +102,10 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'columnPositionInFile' => 'columnPositionInFile',
-        'fieldOrCustomFieldId' => 'fieldOrCustomFieldId'
+        'outbound' => 'outbound',
+        'inbound' => 'inbound',
+        'forward' => 'forward',
+        'country' => 'country'
     ];
 
     /**
@@ -108,8 +114,10 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'columnPositionInFile' => 'setColumnPositionInFile',
-        'fieldOrCustomFieldId' => 'setFieldOrCustomFieldId'
+        'outbound' => 'setOutbound',
+        'inbound' => 'setInbound',
+        'forward' => 'setForward',
+        'country' => 'setCountry'
     ];
 
     /**
@@ -118,8 +126,10 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'columnPositionInFile' => 'getColumnPositionInFile',
-        'fieldOrCustomFieldId' => 'getFieldOrCustomFieldId'
+        'outbound' => 'getOutbound',
+        'inbound' => 'getInbound',
+        'forward' => 'getForward',
+        'country' => 'getCountry'
     ];
 
     /**
@@ -182,8 +192,10 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['columnPositionInFile'] = isset($data['columnPositionInFile']) ? $data['columnPositionInFile'] : null;
-        $this->container['fieldOrCustomFieldId'] = isset($data['fieldOrCustomFieldId']) ? $data['fieldOrCustomFieldId'] : null;
+        $this->container['outbound'] = isset($data['outbound']) ? $data['outbound'] : null;
+        $this->container['inbound'] = isset($data['inbound']) ? $data['inbound'] : null;
+        $this->container['forward'] = isset($data['forward']) ? $data['forward'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
     }
 
     /**
@@ -195,11 +207,17 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['columnPositionInFile'] === null) {
-            $invalidProperties[] = "'columnPositionInFile' can't be null";
+        if ($this->container['outbound'] === null) {
+            $invalidProperties[] = "'outbound' can't be null";
         }
-        if ($this->container['fieldOrCustomFieldId'] === null) {
-            $invalidProperties[] = "'fieldOrCustomFieldId' can't be null";
+        if ($this->container['inbound'] === null) {
+            $invalidProperties[] = "'inbound' can't be null";
+        }
+        if ($this->container['forward'] === null) {
+            $invalidProperties[] = "'forward' can't be null";
+        }
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +235,97 @@ class ImportColumnMappingItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets columnPositionInFile
+     * Gets outbound
      *
-     * @return string
+     * @return float
      */
-    public function getColumnPositionInFile()
+    public function getOutbound()
     {
-        return $this->container['columnPositionInFile'];
+        return $this->container['outbound'];
     }
 
     /**
-     * Sets columnPositionInFile
+     * Sets outbound
      *
-     * @param string $columnPositionInFile Column position in file (indexed from 0)
+     * @param float $outbound Price for outbound message
      *
      * @return $this
      */
-    public function setColumnPositionInFile($columnPositionInFile)
+    public function setOutbound($outbound)
     {
-        $this->container['columnPositionInFile'] = $columnPositionInFile;
+        $this->container['outbound'] = $outbound;
 
         return $this;
     }
 
     /**
-     * Gets fieldOrCustomFieldId
+     * Gets inbound
      *
-     * @return string
+     * @return float
      */
-    public function getFieldOrCustomFieldId()
+    public function getInbound()
     {
-        return $this->container['fieldOrCustomFieldId'];
+        return $this->container['inbound'];
     }
 
     /**
-     * Sets fieldOrCustomFieldId
+     * Sets inbound
      *
-     * @param string $fieldOrCustomFieldId Field or custom field id
+     * @param float $inbound Price for inbound message
      *
      * @return $this
      */
-    public function setFieldOrCustomFieldId($fieldOrCustomFieldId)
+    public function setInbound($inbound)
     {
-        $this->container['fieldOrCustomFieldId'] = $fieldOrCustomFieldId;
+        $this->container['inbound'] = $inbound;
+
+        return $this;
+    }
+
+    /**
+     * Gets forward
+     *
+     * @return float
+     */
+    public function getForward()
+    {
+        return $this->container['forward'];
+    }
+
+    /**
+     * Sets forward
+     *
+     * @param float $forward Price for forward
+     *
+     * @return $this
+     */
+    public function setForward($forward)
+    {
+        $this->container['forward'] = $forward;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string $country 2-letter ISO country code for local phone numbers, used when local is  set to true. Default is account country
+     *
+     * @return $this
+     */
+    public function setCountry($country)
+    {
+        $this->container['country'] = $country;
 
         return $this;
     }

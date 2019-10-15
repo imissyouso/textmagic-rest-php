@@ -248,6 +248,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
     const RISK_HIGH = 'high';
     const RISK_MEDIUM = 'medium';
     const RISK_LOW = 'low';
+    const RISK_UNKNOWN = 'unknown';
     const ADDRESS_TYPE_CORPORATE = 'corporate';
     const ADDRESS_TYPE_FREE = 'free';
     
@@ -277,6 +278,7 @@ class DoEmailLookupResponse implements ModelInterface, ArrayAccess
             self::RISK_HIGH,
             self::RISK_MEDIUM,
             self::RISK_LOW,
+            self::RISK_UNKNOWN,
         ];
     }
     

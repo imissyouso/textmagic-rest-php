@@ -39541,7 +39541,7 @@ class TextMagicApi
             );
         }
 
-        $resourcePath = '/api/v2/sender/settings/normalized';
+        $resourcePath = '/api/v2/sender/settings';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
