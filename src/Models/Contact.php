@@ -228,43 +228,8 @@ class Contact implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const PHONE_TYPE__1 = '-1';
-    const PHONE_TYPE__0 = '0';
-    const PHONE_TYPE__1 = '1';
-    const PHONE_TYPE__2 = '2';
-    const PHONE_TYPE__3 = '3';
-    const PHONE_TYPE__4 = '4';
-    const PHONE_TYPE__5 = '5';
-    const PHONE_TYPE__6 = '6';
-    const PHONE_TYPE__7 = '7';
-    const PHONE_TYPE__8 = '8';
-    const PHONE_TYPE__9 = '9';
-    const PHONE_TYPE__10 = '10';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPhoneTypeAllowableValues()
-    {
-        return [
-            self::PHONE_TYPE__1,
-            self::PHONE_TYPE__0,
-            self::PHONE_TYPE__1,
-            self::PHONE_TYPE__2,
-            self::PHONE_TYPE__3,
-            self::PHONE_TYPE__4,
-            self::PHONE_TYPE__5,
-            self::PHONE_TYPE__6,
-            self::PHONE_TYPE__7,
-            self::PHONE_TYPE__8,
-            self::PHONE_TYPE__9,
-            self::PHONE_TYPE__10,
-        ];
-    }
     
 
     /**
@@ -347,14 +312,6 @@ class Contact implements ModelInterface, ArrayAccess
         if ($this->container['phoneType'] === null) {
             $invalidProperties[] = "'phoneType' can't be null";
         }
-        $allowedValues = $this->getPhoneTypeAllowableValues();
-        if (!is_null($this->container['phoneType']) && !in_array($this->container['phoneType'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'phoneType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['avatar'] === null) {
             $invalidProperties[] = "'avatar' can't be null";
         }
@@ -683,15 +640,6 @@ class Contact implements ModelInterface, ArrayAccess
      */
     public function setPhoneType($phoneType)
     {
-        $allowedValues = $this->getPhoneTypeAllowableValues();
-        if (!in_array($phoneType, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'phoneType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['phoneType'] = $phoneType;
 
         return $this;
