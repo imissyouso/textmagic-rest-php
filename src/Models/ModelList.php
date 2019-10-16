@@ -445,7 +445,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets service
      *
-     * @param bool $service service
+     * @param bool $service Internal service field.
      *
      * @return $this
      */
@@ -517,7 +517,7 @@ class ModelList implements ModelInterface, ArrayAccess
     /**
      * Sets isDefault
      *
-     * @param bool $isDefault Indicates that List is used as a default. All new contacts will be added in this List by default.
+     * @param bool $isDefault Indicates that List is used as a default. All new contacts that added via Web-app will be added in this List by default.
      *
      * @return $this
      */

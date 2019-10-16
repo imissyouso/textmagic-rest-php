@@ -370,7 +370,7 @@ class GetInboundMessagesNotificationSettingsResponse implements ModelInterface, 
     /**
      * Sets alertEmail1
      *
-     * @param string $alertEmail1 New message notification email 2.
+     * @param string $alertEmail1 New message notification email 1.
      *
      * @return $this
      */

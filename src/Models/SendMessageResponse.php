@@ -193,8 +193,27 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_MESSAGE = 'message';
+    const TYPE_SESSION = 'session';
+    const TYPE_SCHEDULE = 'schedule';
+    const TYPE_BULK = 'bulk';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_MESSAGE,
+            self::TYPE_SESSION,
+            self::TYPE_SCHEDULE,
+            self::TYPE_BULK,
+        ];
+    }
     
 
     /**
@@ -240,6 +259,14 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['sessionId'] === null) {
             $invalidProperties[] = "'sessionId' can't be null";
         }
@@ -331,12 +358,21 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Message response type: * **message** when message sent to a single recipient * **session** when message sent to multiple recipients * **schedule** when message has been scheduled for sending * **bulk** when message sent to multiple recipient and the number of recipients requires asynchronous processiong See [Sending more than 1,000 messages in one session](http://docs.textmagictesting.com/#section/Tutorials/Sending-more-than-1000-messages-in-one-session).
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;
@@ -403,7 +439,7 @@ class SendMessageResponse implements ModelInterface, ArrayAccess
     /**
      * Sets messageId
      *
-     * @param int $messageId messageId
+     * @param int $messageId Message ID.
      *
      * @return $this
      */

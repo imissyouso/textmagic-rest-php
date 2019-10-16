@@ -238,8 +238,31 @@ class MessagesIcs implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_ONCE = 'Once';
+    const TYPE_HOURLY = 'Hourly';
+    const TYPE_DAILY = 'Daily';
+    const TYPE_WEEKLY = 'Weekly';
+    const TYPE_MONTHLY = 'Monthly';
+    const TYPE_YEARLY = 'Yearly';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ONCE,
+            self::TYPE_HOURLY,
+            self::TYPE_DAILY,
+            self::TYPE_WEEKLY,
+            self::TYPE_MONTHLY,
+            self::TYPE_YEARLY,
+        ];
+    }
     
 
     /**
@@ -309,6 +332,14 @@ class MessagesIcs implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['summary'] === null) {
             $invalidProperties[] = "'summary' can't be null";
         }
@@ -484,7 +515,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets contactName
      *
-     * @param string $contactName contactName
+     * @param string $contactName Aggregated contact information. If the message scheduled to be sent to a single contact, a full name will be returned here. Otherwise, a total amount contacts will be returned.
      *
      * @return $this
      */
@@ -538,6 +569,15 @@ class MessagesIcs implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;
@@ -556,7 +596,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets summary
      *
-     * @param string $summary summary
+     * @param string $summary A human-readable summary of the sending schedule.
      *
      * @return $this
      */
@@ -604,7 +644,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets firstOccurrence
      *
-     * @param \DateTime $firstOccurrence firstOccurrence
+     * @param \DateTime $firstOccurrence First occurence date.
      *
      * @return $this
      */
@@ -628,7 +668,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets lastOccurrence
      *
-     * @param \DateTime $lastOccurrence lastOccurrence
+     * @param \DateTime $lastOccurrence Last occurence date (could be `null` if the schedule is endless).
      *
      * @return $this
      */
@@ -724,7 +764,7 @@ class MessagesIcs implements ModelInterface, ArrayAccess
     /**
      * Sets avatar
      *
-     * @param string $avatar TODO
+     * @param string $avatar A relative link to the contact avatar.
      *
      * @return $this
      */

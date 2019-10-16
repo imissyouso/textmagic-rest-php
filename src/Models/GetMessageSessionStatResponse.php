@@ -370,7 +370,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets scheduled
      *
-     * @param int $scheduled Amount of schedules messages.
+     * @param int $scheduled Amount of scheduled messages.
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets all
      *
-     * @param int $all all
+     * @param int $all Total amount of messages.
      *
      * @return $this
      */
@@ -418,7 +418,7 @@ class GetMessageSessionStatResponse implements ModelInterface, ArrayAccess
     /**
      * Sets sent
      *
-     * @param int $sent Total sent messages.
+     * @param int $sent Amount of sent but not yet delivered messages.
      *
      * @return $this
      */

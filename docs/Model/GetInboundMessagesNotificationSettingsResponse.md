@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **forwardedCallNotification** | **bool** | Should user receive notification about new forwarded calls. | 
 **includeSmsHistory** | **bool** | Include SMS history into notification Email. | 
 **sendInHtmlFormat** | **bool** | Send Email notification in HTML format. | 
-**alertEmail1** | **string** | New message notification email 2. | 
+**alertEmail1** | **string** | New message notification email 1. | 
 **alertEmail2** | **string** | New message notification email 2. | 
 **alertEmail3** | **string** | New message notification email 3. | 
 

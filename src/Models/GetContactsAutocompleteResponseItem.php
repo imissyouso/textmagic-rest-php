@@ -208,9 +208,9 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ENTITY_TYPE__LIST = 'list';
-    const ENTITY_TYPE_CONTACT = 'contact';
     const ENTITY_TYPE_REPLY = 'reply';
+    const ENTITY_TYPE_CONTACT = 'contact';
+    const ENTITY_TYPE__LIST = 'list';
     
 
     
@@ -222,9 +222,9 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     public function getEntityTypeAllowableValues()
     {
         return [
-            self::ENTITY_TYPE__LIST,
-            self::ENTITY_TYPE_CONTACT,
             self::ENTITY_TYPE_REPLY,
+            self::ENTITY_TYPE_CONTACT,
+            self::ENTITY_TYPE__LIST,
         ];
     }
     
@@ -359,7 +359,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets entityType
      *
-     * @param string $entityType 
+     * @param string $entityType Entry type: * **contact** if it is related to a contact * **list** if it is related to a contact list * **reply** if it is related to an incoming message
      *
      * @return $this
      */
@@ -440,7 +440,7 @@ class GetContactsAutocompleteResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets sharedBy
      *
-     * @param string $sharedBy If contact or list was shared by another user then name if this user will be shown.
+     * @param string $sharedBy If contact or list was shared by another sub-account then name if this user will be shown.
      *
      * @return $this
      */

@@ -336,7 +336,7 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
     /**
      * Sets chars
      *
-     * @param int $chars chars
+     * @param int $chars Characters count.
      *
      * @return $this
      */
@@ -417,7 +417,7 @@ class MessagesIcsTextParameters implements ModelInterface, ArrayAccess
     /**
      * Sets charsetLabel
      *
-     * @param string $charsetLabel charsetLabel
+     * @param string $charsetLabel Human-readable message charset label. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS *   **Voice** for voice services (Text-to-Speech or Voice Broadcast) messages
      *
      * @return $this
      */
