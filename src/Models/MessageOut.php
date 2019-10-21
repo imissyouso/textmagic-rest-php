@@ -76,15 +76,7 @@ class MessageOut implements ModelInterface, ArrayAccess
         'price' => 'float',
         'partsCount' => 'int',
         'fromEmail' => 'string',
-        'fromNumber' => 'string',
-        'smscId' => 'string',
-        'contact' => 'string',
-        'source' => 'string',
-        'deliveredCount' => 'int',
-        'numbersCount' => 'int',
-        'userId' => 'int',
-        'creditsPrice' => 'string',
-        'chars' => 'int'
+        'fromNumber' => 'string'
     ];
 
     /**
@@ -112,15 +104,7 @@ class MessageOut implements ModelInterface, ArrayAccess
         'price' => 'float',
         'partsCount' => null,
         'fromEmail' => null,
-        'fromNumber' => null,
-        'smscId' => null,
-        'contact' => null,
-        'source' => null,
-        'deliveredCount' => null,
-        'numbersCount' => null,
-        'userId' => null,
-        'creditsPrice' => null,
-        'chars' => null
+        'fromNumber' => null
     ];
 
     /**
@@ -169,15 +153,7 @@ class MessageOut implements ModelInterface, ArrayAccess
         'price' => 'price',
         'partsCount' => 'partsCount',
         'fromEmail' => 'fromEmail',
-        'fromNumber' => 'fromNumber',
-        'smscId' => 'smscId',
-        'contact' => 'contact',
-        'source' => 'source',
-        'deliveredCount' => 'deliveredCount',
-        'numbersCount' => 'numbersCount',
-        'userId' => 'userId',
-        'creditsPrice' => 'creditsPrice',
-        'chars' => 'chars'
+        'fromNumber' => 'fromNumber'
     ];
 
     /**
@@ -205,15 +181,7 @@ class MessageOut implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'partsCount' => 'setPartsCount',
         'fromEmail' => 'setFromEmail',
-        'fromNumber' => 'setFromNumber',
-        'smscId' => 'setSmscId',
-        'contact' => 'setContact',
-        'source' => 'setSource',
-        'deliveredCount' => 'setDeliveredCount',
-        'numbersCount' => 'setNumbersCount',
-        'userId' => 'setUserId',
-        'creditsPrice' => 'setCreditsPrice',
-        'chars' => 'setChars'
+        'fromNumber' => 'setFromNumber'
     ];
 
     /**
@@ -241,15 +209,7 @@ class MessageOut implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'partsCount' => 'getPartsCount',
         'fromEmail' => 'getFromEmail',
-        'fromNumber' => 'getFromNumber',
-        'smscId' => 'getSmscId',
-        'contact' => 'getContact',
-        'source' => 'getSource',
-        'deliveredCount' => 'getDeliveredCount',
-        'numbersCount' => 'getNumbersCount',
-        'userId' => 'getUserId',
-        'creditsPrice' => 'getCreditsPrice',
-        'chars' => 'getChars'
+        'fromNumber' => 'getFromNumber'
     ];
 
     /**
@@ -369,14 +329,6 @@ class MessageOut implements ModelInterface, ArrayAccess
         $this->container['partsCount'] = isset($data['partsCount']) ? $data['partsCount'] : null;
         $this->container['fromEmail'] = isset($data['fromEmail']) ? $data['fromEmail'] : null;
         $this->container['fromNumber'] = isset($data['fromNumber']) ? $data['fromNumber'] : null;
-        $this->container['smscId'] = isset($data['smscId']) ? $data['smscId'] : null;
-        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['deliveredCount'] = isset($data['deliveredCount']) ? $data['deliveredCount'] : null;
-        $this->container['numbersCount'] = isset($data['numbersCount']) ? $data['numbersCount'] : null;
-        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
-        $this->container['creditsPrice'] = isset($data['creditsPrice']) ? $data['creditsPrice'] : null;
-        $this->container['chars'] = isset($data['chars']) ? $data['chars'] : null;
     }
 
     /**
@@ -935,198 +887,6 @@ class MessageOut implements ModelInterface, ArrayAccess
     public function setFromNumber($fromNumber)
     {
         $this->container['fromNumber'] = $fromNumber;
-
-        return $this;
-    }
-
-    /**
-     * Gets smscId
-     *
-     * @return string
-     */
-    public function getSmscId()
-    {
-        return $this->container['smscId'];
-    }
-
-    /**
-     * Sets smscId
-     *
-     * @param string $smscId smscId
-     *
-     * @return $this
-     */
-    public function setSmscId($smscId)
-    {
-        $this->container['smscId'] = $smscId;
-
-        return $this;
-    }
-
-    /**
-     * Gets contact
-     *
-     * @return string
-     */
-    public function getContact()
-    {
-        return $this->container['contact'];
-    }
-
-    /**
-     * Sets contact
-     *
-     * @param string $contact contact
-     *
-     * @return $this
-     */
-    public function setContact($contact)
-    {
-        $this->container['contact'] = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string $source source
-     *
-     * @return $this
-     */
-    public function setSource($source)
-    {
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets deliveredCount
-     *
-     * @return int
-     */
-    public function getDeliveredCount()
-    {
-        return $this->container['deliveredCount'];
-    }
-
-    /**
-     * Sets deliveredCount
-     *
-     * @param int $deliveredCount deliveredCount
-     *
-     * @return $this
-     */
-    public function setDeliveredCount($deliveredCount)
-    {
-        $this->container['deliveredCount'] = $deliveredCount;
-
-        return $this;
-    }
-
-    /**
-     * Gets numbersCount
-     *
-     * @return int
-     */
-    public function getNumbersCount()
-    {
-        return $this->container['numbersCount'];
-    }
-
-    /**
-     * Sets numbersCount
-     *
-     * @param int $numbersCount numbersCount
-     *
-     * @return $this
-     */
-    public function setNumbersCount($numbersCount)
-    {
-        $this->container['numbersCount'] = $numbersCount;
-
-        return $this;
-    }
-
-    /**
-     * Gets userId
-     *
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->container['userId'];
-    }
-
-    /**
-     * Sets userId
-     *
-     * @param int $userId userId
-     *
-     * @return $this
-     */
-    public function setUserId($userId)
-    {
-        $this->container['userId'] = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Gets creditsPrice
-     *
-     * @return string
-     */
-    public function getCreditsPrice()
-    {
-        return $this->container['creditsPrice'];
-    }
-
-    /**
-     * Sets creditsPrice
-     *
-     * @param string $creditsPrice creditsPrice
-     *
-     * @return $this
-     */
-    public function setCreditsPrice($creditsPrice)
-    {
-        $this->container['creditsPrice'] = $creditsPrice;
-
-        return $this;
-    }
-
-    /**
-     * Gets chars
-     *
-     * @return int
-     */
-    public function getChars()
-    {
-        return $this->container['chars'];
-    }
-
-    /**
-     * Sets chars
-     *
-     * @param int $chars chars
-     *
-     * @return $this
-     */
-    public function setChars($chars)
-    {
-        $this->container['chars'] = $chars;
 
         return $this;
     }

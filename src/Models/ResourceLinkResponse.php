@@ -36,6 +36,7 @@ use \TextMagic\ObjectSerializer;
  * ResourceLinkResponse Class Doc Comment
  *
  * @category Class
+ * @description Response contains paginated list of data items.
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

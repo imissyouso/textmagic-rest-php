@@ -36,6 +36,7 @@ use \TextMagic\ObjectSerializer;
  * NotFoundResponse Class Doc Comment
  *
  * @category Class
+ * @description Returned when requested entity was not found.
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -223,7 +224,7 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param int $code code
+     * @param int $code Error code. Meanings of error codes are similar to [HTTP response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
      *
      * @return $this
      */
@@ -247,7 +248,7 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string $message Brief error message. You could display this message to your user or save it in a log.
      *
      * @return $this
      */

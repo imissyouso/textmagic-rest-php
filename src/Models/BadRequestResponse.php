@@ -36,7 +36,7 @@ use \TextMagic\ObjectSerializer;
  * BadRequestResponse Class Doc Comment
  *
  * @category Class
- * @description Returned when the form has errors
+ * @description Returned when input data validation process has been failed.
  * @package  TextMagic
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -230,7 +230,7 @@ class BadRequestResponse implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param int $code HTTP error code.
+     * @param int $code Error code. Meanings of error codes are similar to [HTTP response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
      *
      * @return $this
      */

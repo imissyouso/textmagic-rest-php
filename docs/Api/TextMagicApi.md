@@ -79,7 +79,6 @@ Method | HTTP request | Description
 [**getCustomField**](TextMagicApi.md#getCustomField) | **GET** /api/v2/customfields/{id} | Get the details of a specific custom field
 [**getCustomFields**](TextMagicApi.md#getCustomFields) | **GET** /api/v2/customfields | Get all custom fields
 [**getDedicatedNumber**](TextMagicApi.md#getDedicatedNumber) | **GET** /api/v2/numbers/{id} | Get the details of a specific dedicated number
-[**getDisallowedRules**](TextMagicApi.md#getDisallowedRules) | **GET** /api/v2/user/disallowed-rules | Get disallowed permissions
 [**getFavourites**](TextMagicApi.md#getFavourites) | **GET** /api/v2/contacts/favorite | Get favorite contacts and lists
 [**getInboundMessage**](TextMagicApi.md#getInboundMessage) | **GET** /api/v2/replies/{id} | Get a single inbound message
 [**getInboundMessagesNotificationSettings**](TextMagicApi.md#getInboundMessagesNotificationSettings) | **GET** /api/v2/user/notification/inbound | Get inbound messages notification settings
@@ -4379,58 +4378,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\TextMagic\Models\UsersInbound**](../Model/UsersInbound.md)
-
-### Authorization
-
-[BasicAuth](../../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getDisallowedRules**
-> \TextMagic\Models\GetDisallowedRulesResponse getDisallowedRules()
-
-Get disallowed permissions
-
-Get an array of all rules that are disallowed to the current account.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: BasicAuth
-$config = TextMagic\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-
-$apiInstance = new TextMagic\Api\TextMagicApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getDisallowedRules();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TextMagicApi->getDisallowedRules: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\TextMagic\Models\GetDisallowedRulesResponse**](../Model/GetDisallowedRulesResponse.md)
 
 ### Authorization
 

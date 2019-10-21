@@ -69,7 +69,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         'partsCount' => 'int',
         'referenceId' => 'int',
         'from' => 'string',
-        'rule' => 'string',
+        'rrule' => 'string',
         'createChat' => 'bool',
         'tts' => 'bool',
         'local' => 'bool',
@@ -94,7 +94,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         'partsCount' => null,
         'referenceId' => null,
         'from' => null,
-        'rule' => null,
+        'rrule' => null,
         'createChat' => null,
         'tts' => null,
         'local' => null,
@@ -140,7 +140,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         'partsCount' => 'partsCount',
         'referenceId' => 'referenceId',
         'from' => 'from',
-        'rule' => 'rule',
+        'rrule' => 'rrule',
         'createChat' => 'createChat',
         'tts' => 'tts',
         'local' => 'local',
@@ -165,7 +165,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         'partsCount' => 'setPartsCount',
         'referenceId' => 'setReferenceId',
         'from' => 'setFrom',
-        'rule' => 'setRule',
+        'rrule' => 'setRrule',
         'createChat' => 'setCreateChat',
         'tts' => 'setTts',
         'local' => 'setLocal',
@@ -190,7 +190,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         'partsCount' => 'getPartsCount',
         'referenceId' => 'getReferenceId',
         'from' => 'getFrom',
-        'rule' => 'getRule',
+        'rrule' => 'getRrule',
         'createChat' => 'getCreateChat',
         'tts' => 'getTts',
         'local' => 'getLocal',
@@ -269,7 +269,7 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
         $this->container['partsCount'] = isset($data['partsCount']) ? $data['partsCount'] : null;
         $this->container['referenceId'] = isset($data['referenceId']) ? $data['referenceId'] : null;
         $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
+        $this->container['rrule'] = isset($data['rrule']) ? $data['rrule'] : null;
         $this->container['createChat'] = isset($data['createChat']) ? $data['createChat'] : false;
         $this->container['tts'] = isset($data['tts']) ? $data['tts'] : false;
         $this->container['local'] = isset($data['local']) ? $data['local'] : false;
@@ -595,25 +595,25 @@ class SendMessageInputObject implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rule
+     * Gets rrule
      *
      * @return string
      */
-    public function getRule()
+    public function getRrule()
     {
-        return $this->container['rule'];
+        return $this->container['rrule'];
     }
 
     /**
-     * Sets rule
+     * Sets rrule
      *
-     * @param string $rule iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details.
+     * @param string $rrule iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details.
      *
      * @return $this
      */
-    public function setRule($rule)
+    public function setRrule($rrule)
     {
-        $this->container['rule'] = $rule;
+        $this->container['rrule'] = $rrule;
 
         return $this;
     }
